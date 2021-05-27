@@ -1,0 +1,176 @@
+button {
+	outline: none;
+	border: none;
+}
+
+header#header {
+  background: transparent;
+  padding: 10px 0 !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.logo {
+  z-index: 10;
+}
+
+nav.navbar {
+  padding: 0;
+}
+
+nav.navbar .nav-container {
+	width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-part {
+	display: flex;
+	width: 60%;
+	justify-content: space-between;
+}
+
+.right-part {
+	width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	z-index: 100;
+
+}
+
+.right-part .nav-search {
+	position: relative;
+}
+
+.right-part .shop-cart {
+	position: relative;
+}
+
+.right-part .search-icon {
+	width: 22px;
+	height: 22px;
+	color: #fff;
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+.right-part span {
+	font-size: 22px;
+	margin: 0 15px;
+	color: #fff;
+	text-align: center;
+}
+
+.right-part .shopping-bag-icon {
+	width: 22px;
+	height: 22px;
+	color: #fff;
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+.navbar-toggler {
+  display: none;
+  color: #fff;
+  z-index: 10;
+}
+
+.navbar-toggler .burger-menu {
+  width: 28px;
+	height: 28px;
+	color: #fff;
+}
+
+.nvabar-links .navbar-ul {
+  display: flex;
+  align-items: center;
+	margin: 0;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  background: #333;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-none {
+  display: none;
+}
+
+.showMobileNav {
+  animation: showMobileNav 0.4s ease forwards;
+}
+
+.hideMobileNav {
+  animation: hideMobileNav 0.4s ease forwards;
+}
+
+.mobile-nav .navbar-ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-nav .navbar-ul li {
+  margin: 25px 0;
+}
+
+@keyframes showMobileNav {
+  
+  0% {
+    transform: translateY(-100vh);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideMobileNav {
+  
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+@media( max-width: 1000px ){
+	
+	.navbar-toggler {
+		display: flex;
+		justify-content: flex-end;
+		padding: 0 !important;
+  }
+	
+  .nvabar-links .navbar-ul {
+		display: none;
+  }
+}
+
+@media( max-width: 574px ){
+	
+	.nav-container {
+		padding: 0 1% !important;
+	}
+}
