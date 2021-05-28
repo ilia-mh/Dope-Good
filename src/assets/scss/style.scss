@@ -71,9 +71,7 @@
 @import "module/popup-modal";
 @import "module/landing";
 //State rules
-@import "state/layout-boxed";/* To active Boxed Layout */
-//@import "state/layout-dark";/* To active Dark Version */
-@import "state/layout-bordered";/* To active bordered Version */
-@import "state/layout-split";/* To active split Version */
-//@import "state/layout-rtl";/* To active split Version */
 
+li {
+	list-style: none;
+}

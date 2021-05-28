@@ -4,11 +4,12 @@ import App from './App';
 
 
 // CSS
-import './global.css'
-import './assets/css/library/animate.min.css'
+// import './global.css'
+// import './assets/css/library/animate.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'animate.css/animate.css';
+import './assets/css/animations.css'
+import './assets/scss/style.scss'
 
 // JS
 import 'bootstrap/dist/js/bootstrap'

@@ -4,7 +4,7 @@ import {
   Route
 } from "react-router-dom";
 import Header from './components/Header/Header'
-import Preloader from './components/Preloader'
+// import Preloader from './components/Preloader'
 import Home from './views/Home'
 
 function App() {

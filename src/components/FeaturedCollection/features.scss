@@ -1,0 +1,40 @@
+.carousel {
+	overflow: visible;
+	padding: 20px;
+
+	.next-arrow {
+		position: relative;
+		z-index: 20;
+
+		svg {
+			position: absolute;
+			top: -50px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 25px;
+			height: 25px;
+			color: rgba($color: #222, $alpha: 0.5);
+			cursor: pointer;
+		}
+	}
+
+	.prev-arrow {
+		position: relative;
+		z-index: 20;
+
+		svg {
+			position: absolute;
+			bottom: -20px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 25px;
+			height: 25px;
+			color: rgba($color: #222, $alpha: 0.5);
+			cursor: pointer;
+		}
+	}
+
+	.feature-item {
+		display: flex !important;
+	}
+}
