@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./header.css";
-import Search from '../Search/Search'
-import Cart from '../Cart/Cart'
+import Search from './Search/Search'
+import Cart from './Cart/Cart'
 
 // images
 import Logo from "../../assets/images/logo/logo-light2.png";

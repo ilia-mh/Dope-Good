@@ -1,8 +1,10 @@
 import React from 'react'
-import Hero from '../components/Hero/Hero'
-import HeroSupport from '../components/HeroSupport/HeroSupport'
-import FeaturedCollection from '../components/FeaturedCollection/FeaturedCollection'
-import NewArrivals from '../components/NewArrivals/NewArrivals'
+import Hero from '../components/Home/Hero/Hero'
+import HeroSupport from '../components/Home/HeroSupport/HeroSupport'
+import FeaturedCollection from '../components/Home/FeaturedCollection/FeaturedCollection'
+import NewArrivals from '../components/Home/NewArrivals/NewArrivals'
+import Testimonial from '../components/Home/Testimonial/Testimonial'
+import Features from '../components/Home/Features/Features'
 
 export default function Home() {
 	return (
@@ -11,6 +13,8 @@ export default function Home() {
 			<HeroSupport />
 			<FeaturedCollection />
 			<NewArrivals />
+			<Testimonial />
+			<Features />
 		</div>
 	)
 }

@@ -4,14 +4,17 @@ import {
   Route
 } from "react-router-dom";
 import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 // import Preloader from './components/Preloader'
 import Home from './views/Home'
+
+import './App.scss'
 
 function App() {
   return (
     <Router>
 
-			<div id="wrapperParallax" className="wrapper clearfix">
+			<div className="app-wrapper clearfix">
 
 				{/* <Preloader /> */}
 				<Header />
@@ -23,6 +26,8 @@ function App() {
 					</Route>
 
 				</Switch>
+
+				<Footer />
 				
 			</div>
 
