@@ -1,0 +1,15 @@
+.features-section {
+
+	.feature-panel {
+		display: flex !important;
+		align-items: center !important;
+	}
+
+	.feature--icon {
+		display: flex;
+
+		svg {
+			width: 35px;
+		}
+	}
+}

@@ -1,0 +1,28 @@
+.slider-wrapper {
+	position: relative;
+
+	.slide-number {
+		position: absolute;
+		top: 9%;
+		right: 20%;
+		font-size: 20px;
+
+		span {
+			font-size: 24px;
+			color: #000000;
+			font-family: "Montserrat", sans-serif;
+			font-weight: 700;
+		}
+	}
+}
+
+@media ( max-width: 999px ) {
+	.slider-wrapper {
+	
+		.slide-number {
+			top: 100% !important;
+			left: 47% !important;
+			transform: translateX(-50%), translateY(-50%) !important;
+		}
+	}
+}

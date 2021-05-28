@@ -1,0 +1,47 @@
+.testimonial-carousel {
+	overflow: visible;
+	padding: 40px;
+
+	.next-arrow {
+		position: relative;
+		z-index: 20;
+
+		svg {
+			position: absolute;
+			top: -60px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 30px;
+			height: 30px;
+			color: rgba($color: #333, $alpha: 0.4);
+			cursor: pointer;
+		}
+	}
+
+	.prev-arrow {
+		position: relative;
+		z-index: 20;
+
+		svg {
+			position: absolute;
+			bottom: -50px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 30px;
+			height: 30px;
+			color: rgba($color: #333, $alpha: 0.4);
+			cursor: pointer;
+		}
+	}
+
+	.testimonial-panel {
+
+		.testimonial--meta-img {
+
+			img {
+				width: 50px !important;
+				height: 50px !important;
+			}
+		}
+	}
+}
