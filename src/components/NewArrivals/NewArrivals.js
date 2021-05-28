@@ -38,7 +38,7 @@ export default function NewArrivals() {
                     </h3>
                   </div>
                    {/* .collection-title end  */}
-                  <a href="#" className="btn btn--underlined">VIEW COLLECTION</a>
+                  <a href="/#" className="btn btn--underlined">VIEW COLLECTION</a>
                 </div>
                  {/* .collection-content end  */}
               </div>
@@ -75,7 +75,7 @@ export default function NewArrivals() {
                     <p>Vestibulum imperdiet nibh vel magna</p>
                   </div>
                    {/* .collection-desc end  */}
-                  <a href="#" className="btn btn--underlined">SHOP NOW</a>
+                  <a href="/#" className="btn btn--underlined">SHOP NOW</a>
                 </div>
                  {/* .collection-content end  */}
               </div>
@@ -118,7 +118,7 @@ export default function NewArrivals() {
                     <p>Nam ac elit a ante commodo</p>
                   </div>
                    {/* .collection-desc end  */}
-                  <a href="#" className="btn btn--underlined">SHOP NOW</a>
+                  <a href="/#" className="btn btn--underlined">SHOP NOW</a>
                 </div>
                  {/* .collection-content end  */}
               </div>
@@ -152,7 +152,7 @@ export default function NewArrivals() {
                     <p>NEW COLLECTION</p>
                   </div>
                    {/* .collection-desc end  */}
-                  <a href="#" className="btn btn--underlined">SHOP NOW</a>
+                  <a href="/#" className="btn btn--underlined">SHOP NOW</a>
                 </div>
                  {/* .collection-content end  */}
               </div>
@@ -193,7 +193,7 @@ export default function NewArrivals() {
                     <p>NEW COLLECTION</p>
                   </div>
                    {/* .collection-desc end  */}
-                  <a href="#" className="btn btn--underlined">VIEW COLLECTION</a>
+                  <a href="/#" className="btn btn--underlined">VIEW COLLECTION</a>
                 </div>
                  {/* .collection-content end  */}
               </div>
@@ -225,7 +225,7 @@ export default function NewArrivals() {
                     </h3>
                   </div>
                    {/* .collection-title end  */}
-                  <a href="#" className="btn btn--underlined">VIEW COLLECTION</a>
+                  <a href="/#" className="btn btn--underlined">VIEW COLLECTION</a>
                 </div>
                  {/* .collection-content end  */}
               </div>

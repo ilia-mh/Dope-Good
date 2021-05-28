@@ -1,7 +1,4 @@
 import React from "react";
-import img1 from "../../assets/images/featured-collection/1.png";
-import img2 from "../../assets/images/featured-collection/2.png";
-import img3 from "../../assets/images/featured-collection/3.png";
 import SlickSlider from "../Slider/Slider";
 import "./features.scss";
 
@@ -26,7 +23,7 @@ export default function FeaturedCollection() {
           <div className="col-sm-12 col-md-12 col-lg-12">
             <div className="carousel">
               <SlickSlider NextArrow={nextArrow} PrevArrow={prevArrow}>
-								
+
                 {Features.map((feature) => {
                   const { sale, title, img, link, text } = feature;
 
