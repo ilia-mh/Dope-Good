@@ -7,6 +7,7 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 // import Preloader from './components/Preloader'
 import Home from './views/Home'
+import Shop from './views/Shop'
 
 import './App.scss'
 
@@ -23,6 +24,10 @@ function App() {
 
 					<Route exact path="/" >
 						<Home />
+					</Route>
+
+					<Route exact path="/shop" >
+						<Shop />
 					</Route>
 
 				</Switch>

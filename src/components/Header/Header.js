@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import "./header.css";
+import React, { useState, useEffect, useRef } from "react";
+import "./header.scss";
 import Search from './Search/Search'
 import Cart from './Cart/Cart'
+import { Link } from 'react-router-dom'
 
 // images
 import Logo from "../../assets/images/logo/logo-light2.png";
@@ -10,6 +11,10 @@ export default function Header() {
 
 	const [showSearch,setShowSearch] = useState(false)
 	const [showCart,setShowCart] = useState(false)
+	const [activePath,setActivePath] = useState(false)
+
+	const search = useRef(null)
+	const cart = useRef(null)
 
   const toggleMobileNav = () => {
     const mobileNav = document.querySelector(".mobile-nav");
@@ -25,6 +30,60 @@ export default function Header() {
       mobileNav?.classList.add("hideMobileNav");
     }
   };
+
+	useEffect( () => {
+
+		const loc = window.location.pathname
+
+		if( loc === '/' ) 
+			setActivePath('home')
+		else if( loc === '/shop' )
+			setActivePath('shop')
+		else if( loc === '/collection' )
+			setActivePath('collection')
+		else if( loc === '/about' )
+			setActivePath('about')
+		else if ( loc === '/blog' ) setActivePath('blog')
+
+		// document.addEventListener( 'click', (e) => {
+
+		// 	console.log('click event listener')
+		// 	console.log(e.target)
+		// 	console.log( e.target == search.current.children )
+
+		// 	if( showCart ) {
+		// 		if( e.target != cart ) setShowCart(false)
+		// 	}
+
+		// 	if( showSearch ) {
+		// 		if( e.target != search ) setShowSearch(false)
+		// 	}
+
+		// })
+
+	}, [])
+
+	const toggleShowCart = () => {
+
+		if( !showCart ) {
+
+			if( showSearch ) setShowSearch(false)
+			setShowCart(true)
+
+		} else setShowCart(false)
+
+	}
+
+	const toggleShowSearch = () => {
+
+		if( !showSearch ) {
+
+			if( showCart ) setShowCart(false)
+			setShowSearch(true)
+
+		} else setShowSearch(false)
+
+	}
 
   return (
     <header id="header">
@@ -42,19 +101,19 @@ export default function Header() {
               <div className="nvabar-links">
                 <ul className="navbar-ul">
                   <li className="nav-item">
-                    <button className="nav-link active">Home</button>
+                    <Link className={`nav-link ${ activePath === 'home' && 'active'} `} to='/' >Home</Link>
                   </li>
                   <li className="nav-item">
-                    <button className="nav-link">Shop</button>
+                    <Link className={`nav-link ${ activePath === 'shop' && 'active'} `} to='/shop' >Shop</Link>
                   </li>
                   <li className="nav-item">
-                    <button className="nav-link">Collections</button>
+                    <button className={`nav-link ${ activePath === 'collection' && 'active'} `}>Collections</button>
                   </li>
                   <li className="nav-item">
-                    <button className="nav-link">Blog</button>
+                    <button className={`nav-link ${ activePath === 'blog' && 'active'} `}>Blog</button>
                   </li>
                   <li className="nav-item">
-                    <button className="nav-link">About</button>
+                    <button className={`nav-link ${ activePath === 'about' && 'active'} `} >About</button>
                   </li>
                 </ul>
               </div>
@@ -63,9 +122,9 @@ export default function Header() {
 
             <div className="right-part">
 
-							<div className="nav-search">
+							<div className="nav-search" ref={search}>
 
-								<svg xmlns="http://www.w3.org/2000/svg" className="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" onClick={ () => setShowSearch(!showSearch) } >
+								<svg xmlns="http://www.w3.org/2000/svg" className="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" onClick={ toggleShowSearch } >
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 								</svg>
 
@@ -78,9 +137,9 @@ export default function Header() {
 
 							<span>|</span>
 
-							<div className="shop-cart">
+							<div className="shop-cart" ref={cart}>
 
-								<svg xmlns="http://www.w3.org/2000/svg" className="shopping-bag-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" onClick={ () => setShowCart(!showCart) } >
+								<svg xmlns="http://www.w3.org/2000/svg" className="shopping-bag-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" onClick={ toggleShowCart } >
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
 								</svg>
 
@@ -120,22 +179,23 @@ export default function Header() {
           <div className="mobile-nav d-none hideMobileNav">
             <ul className="navbar-ul ">
               <li className="nav-item">
-                <button className="nav-link active">Home</button>
+                <Link className={`nav-link ${ activePath === 'home' && 'active'} `} to='/'>Home</Link>
               </li>
               <li className="nav-item">
-                <button className="nav-link">Features</button>
+                <Link className={`nav-link ${ activePath === 'shop' && 'active'} `} to='/shop' >Shop</Link>
               </li>
               <li className="nav-item">
-                <button className="nav-link">How it works</button>
+                <button className={`nav-link ${ activePath === 'collection' && 'active'} `} >Collection</button>
               </li>
               <li className="nav-item">
-                <button className="nav-link">Pricing</button>
+                <button className={`nav-link ${ activePath === 'blog' && 'active'} `} >Blog</button>
               </li>
               <li className="nav-item">
-                <button className="nav-link">Team</button>
+                <button className={`nav-link ${ activePath === 'about' && 'active'} `} >About</button>
               </li>
             </ul>
           </div>
+
         </nav>
       </div>
     </header>

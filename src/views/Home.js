@@ -5,11 +5,13 @@ import FeaturedCollection from '../components/Home/FeaturedCollection/FeaturedCo
 import NewArrivals from '../components/Home/NewArrivals/NewArrivals'
 import Testimonial from '../components/Home/Testimonial/Testimonial'
 import Features from '../components/Home/Features/Features'
+import Welcome from '../components/Home/Welcome/Welcome'
 
 export default function Home() {
 	return (
 		<div>
 			<Hero />
+			<Welcome />
 			<HeroSupport />
 			<FeaturedCollection />
 			<NewArrivals />
