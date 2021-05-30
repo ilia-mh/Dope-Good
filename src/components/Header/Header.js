@@ -117,13 +117,13 @@ function Header({ history }) {
                     <Link className={`nav-link ${ activePath === 'shop' && 'active'} `} to='/shop' >Shop</Link>
                   </li>
                   <li className="nav-item">
-                    <button className={`nav-link ${ activePath === 'collection' && 'active'} `}>Collections</button>
+                    <button className={`nav-link ${ activePath === 'collection' && 'active'} `} >Collections</button>
                   </li>
                   <li className="nav-item">
-                    <button className={`nav-link ${ activePath === 'about' && 'active'} `} >About</button>
+                    <Link className={`nav-link ${ activePath === 'about' && 'active'} `} to='/about' >About</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className={`nav-link ${ activePath === 'contact' && 'active'} `} to='/contact'>Contact</Link>
+                    <Link className={`nav-link ${ activePath === 'contact' && 'active'} `} to='/contact' >Contact</Link>
                   </li>
                 </ul>
               </div>

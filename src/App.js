@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer'
 import Home from './views/Home'
 import Shop from './views/Shop'
 import Contact from './views/Contact'
+import About from './views/About'
 
 import './App.scss'
 
@@ -32,7 +33,7 @@ function App() {
 					</Route>
 
 					<Route exact path="/about" >
-						<Shop />
+						<About />
 					</Route>
 
 					<Route exact path="/contact" >

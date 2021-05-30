@@ -1,0 +1,32 @@
+#about-gallery {
+
+	.left-side {
+		padding: 0 !important;
+
+		.about-carousel {
+
+			.gallery--item {
+		
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.feature-panel {
+		display: flex !important;
+		align-items: center !important;
+	}
+
+	.feature--icon {
+		display: flex;
+
+		svg {
+			width: 35px;
+		}
+	}
+
+}
+
+
