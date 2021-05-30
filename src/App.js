@@ -10,6 +10,8 @@ import Home from './views/Home'
 import Shop from './views/Shop'
 import Contact from './views/Contact'
 import About from './views/About'
+import Privacy from './views/Privacy'
+import Terms from './views/Terms'
 
 import './App.scss'
 
@@ -38,6 +40,14 @@ function App() {
 
 					<Route exact path="/contact" >
 						<Contact />
+					</Route>
+
+					<Route exact path="/privacy" >
+						<Privacy />
+					</Route>
+
+					<Route exact path="/فerms" >
+						<Terms />
 					</Route>
 
 				</Switch>

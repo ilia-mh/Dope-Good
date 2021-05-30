@@ -1,9 +1,10 @@
 import React from "react";
 import logoLight from '../../assets/images/logo/logo-light.png'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer id="footerParallax" className="footer footer-2 footer-4">
+    <footer className="footer footer-2 footer-4">
       <div className="container">
         <div className="footer-widget">
           <div className="row">
@@ -57,16 +58,13 @@ export default function Footer() {
               <div className="widget--content">
                 <ul className="list-unstyled">
                   <li>
-                    <a href="/#">About Us </a>
+                    <Link to="/about">About Us </Link>
                   </li>
                   <li>
-                    <a href="/#">Privacy Policy</a>
+                    <Link to="/privacy">Privacy Policy</Link>
                   </li>
                   <li>
-                    <a href="/#">Term & Conditions</a>
-                  </li>
-                  <li>
-                    <a href="/#">Help</a>
+                    <Link to="/terms">Term & Conditions</Link>
                   </li>
                 </ul>
               </div>

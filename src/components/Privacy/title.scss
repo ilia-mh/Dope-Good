@@ -1,0 +1,25 @@
+.privacy-title {
+	height: 70vh !important;
+	background-size: 120%;
+	background-repeat: no-repeat;
+
+	.breadcrumb {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	
+		.breadcrumb-arrow {
+			margin: 0 10px;
+			svg {
+				width: 18px;
+				color: #7d7d7d;
+			}
+		}
+	
+		li::before {
+			content: '';
+			padding: 0;
+			margin: 0;
+		}
+	}
+}

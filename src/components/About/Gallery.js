@@ -2,8 +2,6 @@ import React from "react";
 import Slider from "../Slider/Slider";
 import "./gallery.scss";
 
-// import AboutGalleryImg1 from "../../assets/images/about/gallery/1.jpg";
-// import AboutGalleryImg2 from "../../assets/images/about/gallery/2.jpg";
 import AboutGalleryImg3 from "../../assets/images/about/gallery/3.jpg";
 import AboutGalleryImg4 from "../../assets/images/about/gallery/4.jpg";
 
@@ -17,17 +15,21 @@ export default function Gallery() {
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-5 left-side">
             <div className="carousel owl-carousel about-carousel">
+
+
               <Slider>
+
                 <div className="gallery--item">
                   <img src={AboutGalleryImg3} alt="img" />
                 </div>
-                {/* .gallery-item end  */}
 
                 <div className="gallery--item">
                   <img src={AboutGalleryImg4} alt="img" />
                 </div>
-                {/* .gallery-item end  */}
+
               </Slider>
+
+
             </div>
             <div className="heading heading-2">
               <p className="heading--subtitle">HISTORY SINCE 1998</p>
