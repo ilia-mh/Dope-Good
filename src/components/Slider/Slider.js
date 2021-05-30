@@ -16,7 +16,9 @@ export default function SlickSlider(props) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-		arrows: false
+		arrows: false,
+		autoplay: true,
+    autoplaySpeed: 4000
   };
 
   const { NextArrow, PrevArrow, showSlideNumber } = props;
@@ -48,7 +50,7 @@ export default function SlickSlider(props) {
 
   return (
     <div className="slider-wrapper">
-      {<NextArrow next={() => goNextSlide()} />}
+      { NextArrow && <NextArrow next={() => goNextSlide()} />}
 
       {
 				showSlideNumber && (
@@ -62,7 +64,7 @@ export default function SlickSlider(props) {
 				
       </Slider>
 
-      {<PrevArrow prev={() => goPrevSlide()} />}
+      {PrevArrow && <PrevArrow prev={() => goPrevSlide()} />}
     </div>
   );
 }

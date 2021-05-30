@@ -231,37 +231,37 @@ export default function Products() {
       {/* .category-item end  */}
 
       {/* category item #5  */}
-      <div class="col-sm-6 col-md-6 col-lg-5ths">
-        <div class="category-item">
-          <div class="category--img">
+      <div className="col-sm-6 col-md-6 col-lg-5ths">
+        <div className="category-item">
+          <div className="category--img">
             <img src={ProductImg5} alt="category" />
-            <span class="featured-item featured-item2">new</span>
+            <span className="featured-item featured-item2">new</span>
           </div>
           {/* .category-img end  */}
-          <div class="category--content">
-            <div class="category--title">
+          <div className="category--content">
+            <div className="category--title">
               <h3>
                 <a href="/#">Hebes Great Chair</a>
               </h3>
             </div>
             {/* .category-title end  */}
-            <div class="category--price">
+            <div className="category--price">
               <span>$ 42.00</span>
             </div>
             {/* .category-price end  */}
-            <div class="category--hover">
-              <div class="category--action">
-                <a href="/#" class="btn btn--primary btn--rounded">
-                  <i class="icon-bag"></i>ADD TO CART
+            <div className="category--hover">
+              <div className="category--action">
+                <a href="/#" className="btn btn--primary btn--rounded">
+                  <i className="icon-bag"></i>ADD TO CART
                 </a>
                 <a href="/#">
-                  <i class="ti-search"></i>
+                  <i className="ti-search"></i>
                 </a>
                 <a href="/#">
-                  <i class="ti-heart"></i>
+                  <i className="ti-heart"></i>
                 </a>
-                <a href="/#" class="compare">
-                  <i class="ti-control-shuffle"></i>
+                <a href="/#" className="compare">
+                  <i className="ti-control-shuffle"></i>
                 </a>
               </div>
             </div>

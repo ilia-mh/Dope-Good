@@ -8,9 +8,9 @@ export default function Shop() {
 		<div>
 			<Hero />
 
-			<section id="category" class="category category-1">
-        <div class="container-fluid">
-          <div class="row">
+			<section id="category" className="category category-1">
+        <div className="container-fluid">
+          <div className="row">
 
 						<Filters />
 

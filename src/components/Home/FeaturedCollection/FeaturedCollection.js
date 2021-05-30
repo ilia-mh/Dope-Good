@@ -1,5 +1,5 @@
 import React from "react";
-import SlickSlider from "../Slider/Slider";
+import SlickSlider from "../../Slider/Slider";
 import "./features.scss";
 
 import Features from "./Features";

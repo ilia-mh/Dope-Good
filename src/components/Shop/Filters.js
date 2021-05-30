@@ -25,7 +25,7 @@ export default function Filters() {
               <div className="category--filter">
                 <div id="slider-range"></div>
                 <p>
-                  <input type="text" id="amount" readonly />
+                  <input type="text" id="amount" />
                 </p>
               </div>
             </li>
@@ -34,7 +34,7 @@ export default function Filters() {
               <div className="select-form">
                 <i className="fa fa-caret-down"></i>
                 <select>
-                  <option selected="" value="Default">
+                  <option value="Default">
                     Name
                   </option>
                   <option value="color">Color</option>
@@ -45,7 +45,7 @@ export default function Filters() {
               <div className="select-form">
                 <i className="fa fa-caret-down"></i>
                 <select>
-                  <option selected="" value="">
+                  <option value="">
                     Categories
                   </option>
                   <option value="">Furniture</option>

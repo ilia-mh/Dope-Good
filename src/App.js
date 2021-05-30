@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer'
 // import Preloader from './components/Preloader'
 import Home from './views/Home'
 import Shop from './views/Shop'
+import Contact from './views/Contact'
 
 import './App.scss'
 
@@ -28,6 +29,14 @@ function App() {
 
 					<Route exact path="/shop" >
 						<Shop />
+					</Route>
+
+					<Route exact path="/about" >
+						<Shop />
+					</Route>
+
+					<Route exact path="/contact" >
+						<Contact />
 					</Route>
 
 				</Switch>

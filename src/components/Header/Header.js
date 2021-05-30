@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import "./header.scss";
 import Search from './Search/Search'
 import Cart from './Cart/Cart'
-import { Link } from 'react-router-dom'
+import { Link, withRouter  } from 'react-router-dom'
 
 // images
 import Logo from "../../assets/images/logo/logo-light2.png";
 
-export default function Header() {
+function Header({ history }) {
 
 	const [showSearch,setShowSearch] = useState(false)
 	const [showCart,setShowCart] = useState(false)
@@ -35,15 +35,13 @@ export default function Header() {
 
 		const loc = window.location.pathname
 
-		if( loc === '/' ) 
-			setActivePath('home')
-		else if( loc === '/shop' )
-			setActivePath('shop')
-		else if( loc === '/collection' )
-			setActivePath('collection')
-		else if( loc === '/about' )
-			setActivePath('about')
-		else if ( loc === '/blog' ) setActivePath('blog')
+		setActiveRoute(loc)
+
+		history.listen((location, action) => {
+			// location is an object like window.location
+			console.log(action, location.pathname, location.state)
+			setActiveRoute(location.pathname)
+		});
 
 		// document.addEventListener( 'click', (e) => {
 
@@ -61,7 +59,19 @@ export default function Header() {
 
 		// })
 
-	}, [])
+	}, [history])
+
+	const setActiveRoute = (loc) => {
+		if( loc === '/' ) 
+			setActivePath('home')
+		else if( loc === '/shop' )
+			setActivePath('shop')
+		else if( loc === '/collection' )
+			setActivePath('collection')
+		else if( loc === '/about' )
+			setActivePath('about')
+		else if ( loc === '/contact' ) setActivePath('contact')
+	}
 
 	const toggleShowCart = () => {
 
@@ -110,10 +120,10 @@ export default function Header() {
                     <button className={`nav-link ${ activePath === 'collection' && 'active'} `}>Collections</button>
                   </li>
                   <li className="nav-item">
-                    <button className={`nav-link ${ activePath === 'blog' && 'active'} `}>Blog</button>
+                    <button className={`nav-link ${ activePath === 'about' && 'active'} `} >About</button>
                   </li>
                   <li className="nav-item">
-                    <button className={`nav-link ${ activePath === 'about' && 'active'} `} >About</button>
+                    <Link className={`nav-link ${ activePath === 'contact' && 'active'} `} to='/contact'>Contact</Link>
                   </li>
                 </ul>
               </div>
@@ -188,10 +198,10 @@ export default function Header() {
                 <button className={`nav-link ${ activePath === 'collection' && 'active'} `} >Collection</button>
               </li>
               <li className="nav-item">
-                <button className={`nav-link ${ activePath === 'blog' && 'active'} `} >Blog</button>
+                <button className={`nav-link ${ activePath === 'about' && 'active'} `} >About</button>
               </li>
               <li className="nav-item">
-                <button className={`nav-link ${ activePath === 'about' && 'active'} `} >About</button>
+                <button className={`nav-link ${ activePath === 'contact' && 'active'} `} >Contact</button>
               </li>
             </ul>
           </div>
@@ -201,3 +211,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default withRouter(Header);

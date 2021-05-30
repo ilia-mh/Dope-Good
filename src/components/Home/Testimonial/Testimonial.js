@@ -1,6 +1,6 @@
 import React from 'react'
 import Testimonials from './Testimonials'
-import SlickSlider from "../Slider/Slider";
+import SlickSlider from "../../Slider/Slider";
 import './testimonials.scss'
 
 import { nextArrow, prevArrow } from "./Arrows";
