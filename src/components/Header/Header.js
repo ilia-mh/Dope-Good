@@ -31,17 +31,21 @@ function Header({ history }) {
     }
   };
 
+	history.listen((location, action) => {
+		// location is an object like window.location
+		console.log(action, location.pathname, location.state)
+		setActiveRoute(location.pathname)
+
+		if( showCart ) toggleShowCart()
+
+		if( showSearch ) toggleShowSearch()
+	});
+
 	useEffect( () => {
 
 		const loc = window.location.pathname
 
 		setActiveRoute(loc)
-
-		history.listen((location, action) => {
-			// location is an object like window.location
-			console.log(action, location.pathname, location.state)
-			setActiveRoute(location.pathname)
-		});
 
 		// document.addEventListener( 'click', (e) => {
 
@@ -59,7 +63,7 @@ function Header({ history }) {
 
 		// })
 
-	}, [history])
+	}, [])
 
 	const setActiveRoute = (loc) => {
 		if( loc === '/' ) 
@@ -154,7 +158,7 @@ function Header({ history }) {
 								</svg>
 
 								{ showCart &&
-										<Cart />
+										<Cart toggleShowCart={toggleShowCart} />
 								}
 							</div>
 

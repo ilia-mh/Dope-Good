@@ -1,6 +1,7 @@
 import React from "react";
 import logoLight from '../../assets/images/logo/logo-light.png'
 import { Link } from 'react-router-dom'
+import './footer.scss'
 
 export default function Footer() {
   return (

@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './cart.css'
 
-export default function Cart() {
+export default function Cart({ toggleShowCart }) {
 	return (
 		<div className="shop-cart-modal slideUp">
 
@@ -17,9 +18,9 @@ export default function Cart() {
 
 			<div className="cart-actions">
 
-				<button className="view-cart-btn">view cart</button>
+				<Link className="view-cart-btn" to='/cart' onClick={toggleShowCart} >view cart</Link>
 
-				<button className="checkout-btn">checkout</button>
+				<Link className="checkout-btn" to='/checkout' onClick={toggleShowCart} >checkout</Link>
 
 			</div>
 
