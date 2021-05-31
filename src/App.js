@@ -14,6 +14,7 @@ import Privacy from './views/Privacy'
 import Terms from './views/Terms'
 import Checkout from './views/Checkout'
 import Cart from './views/Cart'
+import Login from './views/Login'
 
 import './App.scss'
 
@@ -58,6 +59,10 @@ function App() {
 
 					<Route exact path="/checkout" >
 						<Checkout />
+					</Route>
+
+					<Route exact path="/login" >
+						<Login />
 					</Route>
 
 				</Switch>

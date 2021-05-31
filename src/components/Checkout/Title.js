@@ -4,7 +4,7 @@ import "./title.scss";
 
 export default function Title() {
   return (
-    <section id="page-title" className="page-title mt-0 cart-title">
+    <section id="page-title" className="page-title mt-0 checkout-title">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-12">

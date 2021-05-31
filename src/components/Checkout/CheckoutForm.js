@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function CheckoutForm() {
 	return (
@@ -7,7 +8,7 @@ export default function CheckoutForm() {
 
                 <div className="cart--shiping-text">
                   <p>
-                    Returning customer ? <a href="#/">Click here to login</a>
+                    Returning customer ? <Link to="/login">Click here to login</Link>
                   </p>
                   <p>
                     Have a Coupon ?
