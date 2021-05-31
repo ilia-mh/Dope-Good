@@ -1,0 +1,35 @@
+.product-carousel {
+	position: relative;
+
+	.next-arrow {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		z-index: 30;
+	
+		svg {
+
+			width: 25px;
+			height: 25px;
+			color: #111;
+			cursor: pointer;
+		}
+	}
+	
+	.prev-arrow {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		z-index: 20;
+	
+		svg {
+
+			width: 25px;
+			height: 25px;
+			color: #111;
+			cursor: pointer;
+		}
+	}
+}

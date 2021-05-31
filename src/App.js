@@ -15,6 +15,7 @@ import Terms from './views/Terms'
 import Checkout from './views/Checkout'
 import Cart from './views/Cart'
 import Login from './views/Login'
+import Product from './views/Product'
 
 import './App.scss'
 
@@ -33,8 +34,12 @@ function App() {
 						<Home />
 					</Route>
 
-					<Route exact path="/shop" >
+					<Route exact path="/shop/:collection?/:tag?" >
 						<Shop />
+					</Route>
+
+					<Route exact path="/product/:id?" >
+						<Product />
 					</Route>
 
 					<Route exact path="/about" >

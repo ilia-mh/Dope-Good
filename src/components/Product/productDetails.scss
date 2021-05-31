@@ -1,0 +1,54 @@
+.product-detalis {
+
+	.product--tabs {
+
+		.nav-tabs {
+			li {
+
+				button {
+					font-size: 14px;
+					font-weight: 700;
+					text-transform: capitalize;
+					border-radius: 0;
+					border: none;
+					padding: 0;
+					margin-right: 20px;
+					position: relative;
+					line-height: 1;
+					padding-bottom: 15px;
+					display: block;
+					color: #acacac;
+					transition: all 0.3s ease;
+
+					&:hover {
+						color: #000000;
+						background-color: transparent;
+						border: none;
+					}
+				 }
+
+				 button.active {
+					color: #000000;
+					background-color: transparent;
+					border: none;
+				 }
+
+				 button.active::before {
+						width: 100% !important;
+						content: "";
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						margin: auto;
+						width: 0;
+						height: 2px;
+						background-color: #000000;
+						transition: all 0.3s ease;
+						box-sizing: border-box;
+				 }
+				 
+			}
+		}
+	}
+}
