@@ -1,62 +1,183 @@
 .products-wrap {
-	width: 100% !important;
-	.category-item {
+  width: 100% !important;
 
-		.category--action {
-			display: flex !important;
-			justify-content: center !important;
-			align-items: center !important;
+  .category-item {
+    position: relative;
+		background-color: #101010;
 
-			.add-to-cart {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				margin-right: 10px;
+		.category--content {
 
-				svg {
-					width: 18px;
-					color: #fff;
-					margin-right: 5px;
+			.category--title {
+				a {
+					text-transform: capitalize;
 				}
 			}
-
-			.product-quick-view {
-				margin-right: 5px !important;
-				display: flex !important;
-				justify-content: center !important;
-				align-items: center !important;
-
-				svg {
-					width: 20px;
-					color: #111;
-				}
-
-				&:hover {
-					svg {
-						color: #fff;
-					}
-				}
-			}
-
-			.product-favorite {
-				margin-right: 5px !important;
-				display: flex !important;
-				justify-content: center !important;
-				align-items: center !important;
-
-				svg {
-					width: 20px;
-					color: #111;
-				}
-
-				&:hover {
-					svg {
-						color: #fff;
-					}
-				}
-			}
-
 		}
+
+    .category--hover {
+      position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+      display: none;
+      flex-direction: column;
+			justify-content: space-between;
+      align-items: center;
+			font-family: "Lato", sans-serif;
+			font-size: 13px;
+			font-weight: 400;
+			color: #a1a1a1;
+			line-height: 1.5;
+			-moz-box-shadow: 0px 0px 30.4px 1.6px rgba(204, 204, 223, 0.57);
+			-webkit-box-shadow: 0px 0px 30.4px 1.6px rgba(204, 204, 223, 0.57);
+			box-shadow: 0px 0px 30.4px 1.6px rgba(204, 204, 223, 0.57);
+			padding-top: 60px;
+			transition: all 0.35s;
+			text-align: center;
+			z-index: 2;
+
+      .add-to-cart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+				width: 156px;
+				height: 40px;
+				line-height: 38px;
+				font-size: 11px;
+				letter-spacing: 0;
+				color: #fff;
+
+        svg {
+          width: 14px;
+          color: #fff;
+          margin-right: 5px;
+        }
+
+				&:hover {
+					background-color: #fff;
+					color: #f26c4f;
+					border: none;
+
+					svg {
+						color: #f26c4f;
+					}
+				}
+      }
+
+			.category--action-content {
+				background-color: white;
+    		padding: 20px 25px 35px;
+				width: 100%;
+
+				.category--action-icons {
+					display: flex;
+					justify-content: center;
+					width: 100%;
+					margin-bottom: 10px;
+
+					.product-quick-view {
+						margin-right: 5px !important;
+						display: flex !important;
+						justify-content: center !important;
+						align-items: center !important;
+						padding: 10px;
+		
+						svg {
+							width: 16px;
+							color: #111;
+						}
+		
+						&:hover {
+							border-radius: 50%;
+							background-color: #101010;
+
+							svg {
+								color: #fff;
+							}
+						}
+					}
+		
+					.product-favorite {
+						display: flex !important;
+						justify-content: center !important;
+						align-items: center !important;
+						padding: 10px;
+		
+						svg {
+							width: 16px;
+							color: #111;
+						}
+		
+						&:hover {
+							border-radius: 50%;
+							background-color: #101010;
+
+							svg {
+								color: #fff;
+							}
+						}
+					}
+				}
+
+				.category--hover-info {
+
+					.category--title {
+
+						h3 {
+
+							a {
+								font-size: 16px;
+								font-family: "Montserrat", sans-serif;
+								font-weight: 700;
+								line-height: 22px;
+								margin-bottom: 7px;
+								color: #000;
+								transition: 0.3s all;
+								text-transform: capitalize;
+
+								&:hover {
+									color: #f26c4f !important;
+								}
+							}
+						}
+					}
+
+					.category--price {
+						font-size: 16px;
+						font-family: "Lato", sans-serif;
+						font-weight: 700;
+						line-height: 1;
+						margin-bottom: 7px;
+						color: #000;
+					}
+				}
+
+			}
+
+    }
+
+		&:hover {
+
+			.category--hover {
+				display: flex;
+			}
+		}
+  }
+}
+
+.productHoverIn {
+	animation: productHoverIn 0.3s forwards;
+}
+
+@keyframes productHoverIn {
+
+	0% {
+		transform: scale(0%);
 	}
 
+	100% {
+		transform: scale(100%);
+	}
 }
+

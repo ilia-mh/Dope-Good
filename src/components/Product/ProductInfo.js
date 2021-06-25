@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./productInfo.scss";
-
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ProductInfo() {
 
 	const [infoTab, setInfoTab] = useState(0)
+
+	const product = useSelector((state) => state.shop.singleProduct);
+
+	const { name, price, rate, reviews, infoGuide, shipping: shippingGuide, return: returnGuide, sku, stock, _id } = product
+
+  // const dispatch = useDispatch();
 
 	const changeInfoTab = ( idx ) => {
 		if( infoTab !== idx ) setInfoTab(idx)

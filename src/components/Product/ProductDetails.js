@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './productDetails.scss'
+import { useDispatch, useSelector } from "react-redux";
 
 import reviewImg1 from '../../assets/images/testimonials/authors/1.jpg'
 // import reviewImg2 from '../../assets/images/testimonials/authors/2.jpg'
@@ -9,11 +10,18 @@ export default function ProductDetails() {
 
 	const [showTab, setShowTab] = useState(0)
 
+	const product = useSelector((state) => state.shop.singleProduct);
+
+	const { name, price, rate, reviews, infoGuide, shipping: shippingGuide, return: returnGuide, sku, stock, _id } = product
+
+  // const dispatch = useDispatch();
+
 	const changeTab = (idx) => {
 		if( showTab !== idx ) setShowTab(idx)
 	}
 
   return (
+		product._id ?
     <section
       id="product-detalis2"
       className="product-detalis product-detalis-2 pb-80"
@@ -276,5 +284,7 @@ export default function ProductDetails() {
       </div>
       {/* .container end  */}
     </section>
-  );
+		:
+		null
+	);
 }

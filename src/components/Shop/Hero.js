@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 
 export default function Hero() {
 	return (
-		<section id="page-title" className="page-title shop-hero bg-parallax" style={{ backgroundImage:`url(${HeroImg})` }}>
+		<section id="page-title" className="page-title shop-hero" >
         {/* <div className="bg-section">
           <img src={HeroImg} alt="background" />
         </div> */}
         <div className="container shop-title">
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">
-              <div className="title title-3 text-center">
+              <div className="title title-1 text-center">
                 <div className="title--content">
                   <div className="title--heading">
                     <h1>Shop Categories</h1>

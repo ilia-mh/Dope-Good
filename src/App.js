@@ -34,7 +34,7 @@ function App() {
 						<Home />
 					</Route>
 
-					<Route exact path="/shop/:collection?/:tag?" >
+					<Route exact path="/shop/:cat?/:subcat?" >
 						<Shop />
 					</Route>
 

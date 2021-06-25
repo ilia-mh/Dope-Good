@@ -1,0 +1,100 @@
+.modal.product-popup {
+  background-color: rgba(47, 46, 46, 0.8) !important;
+
+	.modal-dialog {
+		
+		display: flex !important;
+		// justify-content: center;
+		align-items: center;
+		margin: 0 auto !important;
+	}
+
+  .modal-content {
+    background-color: #111;
+
+    .modal-body {
+      box-shadow: none !important;
+
+      .product-detalis {
+
+				.products-slider {
+
+					.product-img {
+						background-color: #101010 !important;
+					}
+				}
+      }
+
+      .product--desc-tabs {
+        button {
+          color: #555555;
+          font-size: 14px;
+          font-weight: 700;
+          text-transform: capitalize;
+          border-radius: 0;
+          border: none;
+          padding: 0;
+          margin-right: 20px;
+
+          &.active {
+            color: #fff !important;
+          }
+        }
+
+        .tab-content {
+          p {
+            color: #555555;
+            margin-bottom: 35px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
+          }
+        }
+      }
+
+			.product--meta-action {
+
+				.qty {
+					color: #000000;
+    			width: 50px;
+				}
+
+				.add-to-card-btn {
+					color: #fff;
+				}
+
+				button.fav {
+					border-color: #252525;
+					color: white;
+					width: 40px;
+					height: 40px;
+					line-height: 40px;
+					border-radius: 50%;
+					text-align: center;
+					font-size: 16px;
+					border: 1px solid #d7d7d7;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-right: 11px;
+					transition: 0.3s all;
+
+					svg {
+						width: 20px;
+						color: #f26c4f;
+						transition: 0.3s all;
+					}
+
+					&:hover {
+						background-color: #252525;
+						border-color: #111;
+						svg {
+							color: #fff;
+						}
+					}
+				}
+
+			}
+    }
+  }
+}

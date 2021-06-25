@@ -2,12 +2,13 @@ import React from 'react'
 import Hero from '../components/Shop/Hero'
 import Filters from '../components/Shop/Filters'
 import Products from '../components/Shop/Products'
+import QuickView from '../components/Shop/QuickView'
 // import { useParams } from "react-router-dom";
 
 export default function Shop() {
-
-	// let { collection, tag } = useParams();
-
+	
+	// let { cat, subcat } = useParams();
+	
 	return (
 		<div>
 			<Hero />
@@ -19,6 +20,8 @@ export default function Shop() {
 						<Filters />
 
 						<Products />
+
+						<QuickView />
 
 					</div>
 				</div>

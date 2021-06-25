@@ -9,7 +9,7 @@ export default function Testimonial() {
 	return (
 		<section
 		id="testimonial1"
-		className="testimonial testimonial-1 text-center pt-80 pb-50 bg-lightBlue"
+		className="testimonial testimonial-1 text-center pt-80 pb-50"
 	>
 		<div className="container">
 			<div className="row">

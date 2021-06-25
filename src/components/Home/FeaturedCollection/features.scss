@@ -13,7 +13,7 @@
 			transform: translateX(-50%);
 			width: 25px;
 			height: 25px;
-			color: rgba($color: #222, $alpha: 0.5);
+			color: rgba($color: #a1a1a1, $alpha: 0.5);
 			cursor: pointer;
 		}
 	}
@@ -29,13 +29,17 @@
 			transform: translateX(-50%);
 			width: 25px;
 			height: 25px;
-			color: rgba($color: #222, $alpha: 0.5);
+			color: rgba($color: #a1a1a1, $alpha: 0.5);
 			cursor: pointer;
 		}
 	}
 
 	.feature-item {
 		display: flex !important;
+
+		.vertical--text {
+			color: #f26c4f !important;
+		}
 	}
 
 	.featured--item-desc p {

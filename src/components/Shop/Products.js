@@ -1,276 +1,186 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ProductImg1 from "../../assets/images/categories/cat1/1.jpg";
-import ProductImg2 from "../../assets/images/categories/cat1/2.jpg";
-import ProductImg3 from "../../assets/images/categories/cat1/3.jpg";
-import ProductImg4 from "../../assets/images/categories/cat1/4.jpg";
-import ProductImg5 from "../../assets/images/categories/cat1/5.jpg";
-// import ProductImg6 from '../../assets/images/categories/cat1/6.jpg'
-// import ProductImg7 from '../../assets/images/categories/cat1/7.jpg'
-// import ProductImg8 from '../../assets/images/categories/cat1/8.jpg'
-// import ProductImg9 from '../../assets/images/categories/cat1/9.jpg'
-// import ProductImg10 from '../../assets/images/categories/cat1/10.jpg'
-// import ProductImg11 from '../../assets/images/categories/cat1/11.jpg'
-// import ProductImg12 from '../../assets/images/categories/cat1/12.jpg'
-// import ProductImg13 from '../../assets/images/categories/cat1/13.jpg'
-// import ProductImg14 from '../../assets/images/categories/cat1/14.jpg'
-// import ProductImg15 from '../../assets/images/categories/cat1/15.jpg'
+import { Link } from "react-router-dom";
+import { setAllProducts, setProductQuickView, setSingleProduct, changeGettingProduct } from "../../store/Reducer/reducer";
+import { get } from "../../utils/fetch";
 
 import "./products.scss";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function Products() {
+
+  const products = useSelector((state) => state.shop.shownProducts);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const allProducts = await get(`${apiUrl}/products`);
+
+      dispatch(setAllProducts(allProducts.products));
+    }
+
+    if (!products || !products.length) fetchProducts();
+  }, []);
+
+	const [productHover,setProductHover] = useState('')
+
+	const productHovered = (id) => {
+		setProductHover(id)
+	}
+
+	const productHoverOut = (id) => {
+		if( productHover.length && productHover === id ) setProductHover('')
+	}
+
+	const showProductQuickView = (product) => {
+		dispatch( setProductQuickView(product) )
+	}
+
+	const goingToSingleProduct = async (id) => {
+		console.log(`Sending Fetch request for product with id:${id}`)
+
+		dispatch(changeGettingProduct());
+
+		const singleProduct = await get(`${apiUrl}/product/${id}`);
+		console.log(singleProduct)
+		
+		dispatch(setSingleProduct(singleProduct.products));
+		dispatch(changeGettingProduct());
+
+	}
+
   return (
-    <div className="products-wrap row row-no-padding mb-60">
-      {/* category item #1  */}
-      <div className="col-sm-6 col-md-6 col-lg-5ths">
-        <div className="category-item">
-          <div className="category--img">
-            <img src={ProductImg1} alt="category" />
-          </div>
+    <div className="col-sm-12 col-md-12 col-lg-9 products-wrap">
+      <div className="row">
+        {products &&
+          products.map((product) => {
+            const { _id, name, price } = product;
 
-          {/* .category-img end  */}
-          <div className="category--content">
-            <div className="category--title">
-              <h3>
-                <a href="/#">Hebes Great Chair</a>
-              </h3>
-            </div>
-            {/* .category-title end  */}
+            return (
+              <div className="col-sm-6 col-md-6 col-lg-5ths" key={_id}>
+                <div className="category-item" onMouseOver={ () => productHovered(_id) } onMouseLeave={ () => productHoverOut(_id) }>
 
-            <div className="category--price">
-              <span>$ 42.00</span>
-            </div>
-            {/* .category-price end  */}
+                  <div className="category--img">
+                    <img src={ProductImg1} alt="category" onClick={ () => goingToSingleProduct(_id) } />
+                  </div>
 
-            <div className="category--hover">
-              <div className="category--action">
-                <a
-                  href="/#"
-                  className="btn btn--primary btn--rounded add-to-cart"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                    />
-                  </svg>
-                  ADD TO CART
-                </a>
+                  {/* .category-img end  */}
 
-                <a href="/#" className="product-quick-view">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
-                </a>
+                  <div className="category--content">
+                    <div className="category--title">
+                      <h3>
+                        <Link to={`/product/${_id}`} onClick={ () => goingToSingleProduct(_id) } >{name}</Link>
+                      </h3>
+                    </div>
+                    {/* .category-title end  */}
 
-                <a href="/#" className="product-favorite">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                </a>
+                    <div className="category--price">
+                      <span> $ {price}.00</span>
+                    </div>
+									</div>
+                    {/* .category-price end  */}
+
+                    <div className={`category--hover ${ productHover === _id ? 'productHoverIn' : ''}`}>
+
+												{/* ADD TO CART */}
+                        <button
+                          className="btn btn--primary btn--rounded add-to-cart"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                            />
+                          
+                          </svg>
+													ADD TO CART
+                        </button>
+
+                        <div className="category--action-content">
+
+                          <div className="category--action-icons">
+
+                            <button className="product-quick-view" onClick={ () => showProductQuickView(product) }>
+
+															<svg
+																xmlns="http://www.w3.org/2000/svg"
+																className="h-6 w-6"
+																fill="none"
+																viewBox="0 0 24 24"
+																stroke="currentColor"
+															>
+																<path
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																	strokeWidth={2}
+																	d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+																/>
+															</svg>
+
+                            </button>
+
+                            <button className="product-favorite">
+
+															<svg
+																xmlns="http://www.w3.org/2000/svg"
+																className="h-6 w-6"
+																fill="none"
+																viewBox="0 0 24 24"
+																stroke="currentColor"
+															>
+																<path
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																	strokeWidth={2}
+																	d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+																/>
+															</svg>
+                            
+														</button>
+
+                          </div>
+
+                          <div className="category--hover-info">
+                            <div className="category--title">
+                              <h3>
+																<Link to={`/product/${_id}`} onClick={ () => goingToSingleProduct(_id) } >{name}</Link>
+                              </h3>
+                            </div>
+
+                            <div className="category--price">
+                              <span>$ {price}.00</span>
+                            </div>
+                          </div>
+
+                          <div className="category--colors">
+                            <a href="#" className="color-1"></a>
+                            <a href="#" className="color-2"></a>
+                            <a href="#" className="color-3"></a>
+                            <a href="#" className="color-4"></a>
+                          </div>
+
+                      </div>
+                    
+										</div>
+                    {/* .category-hover end  */}
+
+                  {/* .category-content end  */}
+                </div>
               </div>
-            </div>
-            {/* .category-hover end  */}
-          </div>
-          {/* .category-content end  */}
-        </div>
+            );
+          })}
       </div>
-      {/* .category-item end  */}
-
-      {/* category item #2  */}
-      <div className="col-sm-6 col-md-6 col-lg-5ths">
-        <div className="category-item">
-          <div className="category--img">
-            <img src={ProductImg2} alt="category" />
-          </div>
-          {/* .category-img end  */}
-          <div className="category--content">
-            <div className="category--title">
-              <h3>
-                <a href="/#">Hebes Great Chair</a>
-              </h3>
-            </div>
-            {/* .category-title end  */}
-            <div className="category--price">
-              <span>$ 42.00</span>
-            </div>
-            {/* .category-price end  */}
-            <div className="category--hover">
-              <div className="category--action">
-                <a href="/#" className="btn btn--primary btn--rounded">
-                  <i className="icon-bag"></i>ADD TO CART
-                </a>
-                <a href="/#">
-                  <i className="ti-search"></i>
-                </a>
-                <a href="/#">
-                  <i className="ti-heart"></i>
-                </a>
-                <a href="/#">
-                  <i className="ti-control-shuffle"></i>
-                </a>
-              </div>
-            </div>
-            {/* .category-hover end  */}
-          </div>
-          {/* .category-content end  */}
-        </div>
-      </div>
-      {/* .category-item end  */}
-
-      {/* category item #3  */}
-      <div className="col-sm-6 col-md-6 col-lg-5ths">
-        <div className="category-item">
-          <div className="category--img">
-            <img src={ProductImg3} alt="category" />
-          </div>
-          {/* .category-img end  */}
-          <div className="category--content">
-            <div className="category--title">
-              <h3>
-                <a href="/#">Hebes Amazing Chair</a>
-              </h3>
-            </div>
-            {/* .category-title end  */}
-            <div className="category--price">
-              <span>$ 42.00</span>
-            </div>
-            {/* .category-price end  */}
-            <div className="category--hover">
-              <div className="category--action">
-                <a href="/#" className="btn btn--primary btn--rounded">
-                  <i className="icon-bag"></i>ADD TO CART
-                </a>
-                <a href="/#">
-                  <i className="ti-search"></i>
-                </a>
-                <a href="/#">
-                  <i className="ti-heart"></i>
-                </a>
-                <a href="/#">
-                  <i className="ti-control-shuffle"></i>
-                </a>
-              </div>
-            </div>
-            {/* .category-hover end  */}
-          </div>
-          {/* .category-content end  */}
-        </div>
-      </div>
-      {/* .category-item end  */}
-
-      {/* category item #4  */}
-      <div className="col-sm-6 col-md-6 col-lg-5ths">
-        <div className="category-item">
-          <div className="category--img">
-            <img src={ProductImg4} alt="category" />
-            <span className="featured-item">hot</span>
-          </div>
-          {/* .category-img end  */}
-          <div className="category--content">
-            <div className="category--title">
-              <h3>
-                <a href="/#">Hebes Black wood Chair</a>
-              </h3>
-            </div>
-            {/* .category-title end  */}
-            <div className="category--price">
-              <span>$ 42.00</span>
-            </div>
-            {/* .category-price end  */}
-            <div className="category--hover">
-              <div className="category--action">
-                <a href="/#" className="btn btn--primary btn--rounded">
-                  <i className="icon-bag"></i>ADD TO CART
-                </a>
-                <a href="/#">
-                  <i className="ti-search"></i>
-                </a>
-                <a href="/#">
-                  <i className="ti-heart"></i>
-                </a>
-                <a href="/#">
-                  <i className="ti-control-shuffle"></i>
-                </a>
-              </div>
-            </div>
-            {/* .category-hover end  */}
-          </div>
-          {/* .category-content end  */}
-        </div>
-      </div>
-      {/* .category-item end  */}
-
-      {/* category item #5  */}
-      <div className="col-sm-6 col-md-6 col-lg-5ths">
-        <div className="category-item">
-          <div className="category--img">
-            <img src={ProductImg5} alt="category" />
-            <span className="featured-item featured-item2">new</span>
-          </div>
-          {/* .category-img end  */}
-          <div className="category--content">
-            <div className="category--title">
-              <h3>
-                <a href="/#">Hebes Great Chair</a>
-              </h3>
-            </div>
-            {/* .category-title end  */}
-            <div className="category--price">
-              <span>$ 42.00</span>
-            </div>
-            {/* .category-price end  */}
-            <div className="category--hover">
-              <div className="category--action">
-                <a href="/#" className="btn btn--primary btn--rounded">
-                  <i className="icon-bag"></i>ADD TO CART
-                </a>
-                <a href="/#">
-                  <i className="ti-search"></i>
-                </a>
-                <a href="/#">
-                  <i className="ti-heart"></i>
-                </a>
-                <a href="/#" className="compare">
-                  <i className="ti-control-shuffle"></i>
-                </a>
-              </div>
-            </div>
-            {/* .category-hover end  */}
-          </div>
-          {/* .category-content end  */}
-        </div>
-      </div>
-      {/* .category-item end  */}
     </div>
   );
 }

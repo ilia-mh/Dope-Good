@@ -10,7 +10,7 @@ export default function SlickSlider(props) {
 
   let carousel = useRef(null);
 
-  const { NextArrow, PrevArrow, showSlideNumber, showDots, slidesToShow, responsive } = props;
+  const { NextArrow, PrevArrow, showSlideNumber, showDots, slidesToShow, responsive, gallery } = props;
 
   const settings = {
     dots: false,
@@ -86,9 +86,24 @@ export default function SlickSlider(props) {
       )}
 
       <Slider {...settings} ref={(c) => (carousel = c)} onSwipe={swipped} afterChange={ carouselChanged } >
+
         {props.children}
 				
       </Slider>
+
+			{
+				gallery && 
+				<div className="slide-gallery">
+
+					{
+						gallery.map( (slideImg,idx) => 
+							<div className="gallery-slide" key={ idx }>
+								<img src={ slideImg } alt="product gallery thumbnail" onClick={ () => goToSlide(idx) } />
+							 </div>)
+					}
+				</div>
+			}
+
 			{ showDots && 
 				<div className="dots-wrapper">
 					{

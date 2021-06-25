@@ -1,3 +1,15 @@
 footer.footer {
 	z-index: -100;
+	background-color: #000000;
+
+	.widget--content {
+
+		h3 {
+			color: #ffffff !important;
+		}
+
+		p {
+			color: #A1A1A1 !important;
+		}
+	}
 }

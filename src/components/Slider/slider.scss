@@ -9,7 +9,7 @@
 
 		span {
 			font-size: 24px;
-			color: #000000;
+			color: #a1a1a1;
 			font-family: "Montserrat", sans-serif;
 			font-weight: 700;
 		}
@@ -55,6 +55,25 @@
 			span {
 				background-color: transparent;
     		border-color: #606da6;
+			}
+		}
+	}
+
+	.slide-gallery {
+		width: 100%;
+		margin-top: 15px;
+		display: flex;
+		overflow: auto;
+		overflow-y: hidden;
+
+		.gallery-slide {
+			width: 70px;
+			flex-shrink: 0;
+			margin-right: 18px;
+			cursor: pointer;
+
+			img {
+				width: 100%;
 			}
 		}
 	}

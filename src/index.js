@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
+import { Provider } from 'react-redux'
+import store from './store'
+
 
 // CSS
 // import './global.css'
@@ -16,8 +19,10 @@ import 'bootstrap/dist/js/bootstrap'
 // import './assets/js/functions'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+	<React.StrictMode>
+		<Provider store={store}>
+				<App />
+		</Provider>
+	</React.StrictMode>,
   document.getElementById('root')
 );
