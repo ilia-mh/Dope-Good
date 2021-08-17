@@ -15,6 +15,12 @@
 		}
 	}
 
+	.slick-slide {
+		
+		img {
+			width: 100%;
+		}
+	}
 
 	.dots-wrapper {
 		position: absolute;
@@ -63,8 +69,11 @@
 		width: 100%;
 		margin-top: 15px;
 		display: flex;
+		padding: 10px 0;
+		align-items: center;
 		overflow: auto;
 		overflow-y: hidden;
+		z-index: 1000;
 
 		.gallery-slide {
 			width: 70px;
@@ -77,6 +86,7 @@
 			}
 		}
 	}
+
 }
 
 @media ( max-width: 999px ) {

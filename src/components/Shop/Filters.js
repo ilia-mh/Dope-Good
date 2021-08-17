@@ -1,187 +1,92 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useParams, useHistory } from 'react-router-dom'
+import { useSelector } from "react-redux";
+
+import PriceRange from './PriceRange'
+import SizeFilter from './SizeFilter'
+import ColorFilter from './ColorFilter'
+
+import './filters.scss'
 
 export default function Filters() {
+
+	let { cat: catParam, subcat: subcatParam } = useParams();
+	const history = useHistory()
+
+  const categories = useSelector((state) => state.shop.categories);
+
+
+	const [activeCat,setActiveCat] = useState(0)
+
+	const changeActiveCat = (idx,e) => {
+
+		if( activeCat !== idx ) {
+			setActiveCat(idx)
+		}
+		else {
+			e.preventDefault()
+			setActiveCat(-1)
+			console.log('pushing to history')
+			history.push('/shop')
+		}
+		
+	}
+
+	useEffect( () => {
+
+		if( catParam ) {
+			const activeIdx = categories.findIndex( cat => cat.name.toLowerCase() === catParam )
+			console.log('activeIdx')
+			console.log(activeIdx)
+			setActiveCat(activeIdx)
+		}
+
+	},[catParam,subcatParam,categories])
+
   return (
     <div className="col-sm-12 col-md-12 col-lg-3">
       <div className="sidebar cat-sidebar">
+
         <div className="widget widget-categories2">
           <div className="widget--title">
             <h3>categories</h3>
           </div>
           <div className="widget--content">
             <ul className="main--list list-unstyled mb-0">
-              <li className="active">
-                <a href="#">
-                  FURNITURE <span>(1214)</span>
-                </a>
-                <ul className="inner--list list-unstyled mb-0">
-                  <li>
-                    <a href="#">
-                      Chair<span>34</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Sofas<span>104</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Tables<span>28</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bed<span>31</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bathrooms<span>26</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bookshelf<span>21</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Accessories<span>129</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
 
-              <li>
-                <a href="#">
-                  LIGHTING <span>(236)</span>
-                </a>
-                <ul className="inner--list list-unstyled mb-0">
-                  <li>
-                    <a href="#">
-                      Chair<span>34</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Sofas<span>104</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Tables<span>28</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bed<span>31</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bathrooms<span>26</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bookshelf<span>21</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Accessories<span>129</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+							{
+								categories.map( (cat,idx) => {
 
-              <li>
-                <a href="#">
-                  ACCESSORIES <span>(312)</span>
-                </a>
-                <ul className="inner--list list-unstyled mb-0">
-                  <li>
-                    <a href="#">
-                      Chair<span>34</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Sofas<span>104</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Tables<span>28</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bed<span>31</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bathrooms<span>26</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bookshelf<span>21</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Accessories<span>129</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+									const { name, count, _id, subCategories } = cat
 
-              <li>
-                <a href="#">
-                  SALE PRODUCTS <span>(28)</span>
-                </a>
-                <ul className="inner--list list-unstyled mb-0">
-                  <li>
-                    <a href="#">
-                      Chair<span>34</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Sofas<span>104</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Tables<span>28</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bed<span>31</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bathrooms<span>26</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Bookshelf<span>21</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Accessories<span>129</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+									return	<li key={_id} className={ activeCat === idx ? `active` : ''}>
+
+										<Link to={`/shop/${name}`} onClick={ (e) => changeActiveCat(idx,e) } className={ catParam === name ? 'active-cat' : ''} >
+											{ name } <span>({ count })</span>
+										</Link>
+
+										{ subCategories.length ?
+											<ul className="inner--list list-unstyled mb-0">
+												{ subCategories.map( subCat => {
+
+													const { name: subName, _id: sub_id, count: subCount } = subCat
+
+													return <li key={sub_id} >
+														<Link to={`/shop/${name}/${subName}`} className={ subcatParam === subName ? 'active-cat' : ''} >
+															{ subName }<span>{ subCount }</span>
+														</Link>
+													</li>
+												})}
+											</ul>
+											:
+											''
+										}
+									</li>
+	
+								})
+							}
+                          
+						</ul>
           </div>
         </div>
         {/* .widget-categories end  */}
@@ -193,166 +98,17 @@ export default function Filters() {
           </div>
           
 					<div className="widget--content">
-            <div className="category--filter">
-              <h4 className="subtitle mt-0">price</h4>
-              <div id="slider-range"></div>
-              <p>
-                <input type="text" id="amount" readOnly={true} />
-              </p>
-            </div>
-            <div className="size--filter">
-              <h4 className="subtitle">size</h4>
 
-              <form className="widget-size-form d-flex mb-0">
-                <div className="input-radio">
-                  <label className="label-radio">
-                    <input type="radio" name="sizeSelect" />
-                    <span className="radio-indicator"></span>
-                    <span className="radio-content">s</span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio">
-                    <input type="radio" name="sizeSelect" />
-                    <span className="radio-indicator"></span>
-                    <span className="radio-content">M</span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio">
-                    <input type="radio" name="sizeSelect" />
-                    <span className="radio-indicator"></span>
-                    <span className="radio-content">l</span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio">
-                    <input type="radio" name="sizeSelect" />
-                    <span className="radio-indicator"></span>
-                    <span className="radio-content">xl</span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio">
-                    <input type="radio" name="sizeSelect" />
-                    <span className="radio-indicator"></span>
-                    <span className="radio-content">xxl</span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-              </form>
-            </div>
+						{/* Price Filter */}
+            <PriceRange />
 
-            <div className="color--filter">
-              <h4 className="subtitle">color</h4>
+						{/* Size Filter */}
+						<SizeFilter />
 
-              <div className="colors-wrapper">
-                <a href="#" className="color-1"></a>
-                <a href="#" className="color-2"></a>
-                <a href="#" className="color-3"></a>
-                <a href="#" className="color-4 active"></a>
-                <a href="#" className="color-5"></a>
-                <a href="#" className="color-6"></a>
-                <a href="#" className="color-7"></a>
-                <a href="#" className="color-8"></a>
-                <a href="#" className="color-9"></a>
-                <a href="#" className="color-10"></a>
-                <a href="#" className="color-11"></a>
-                <a href="#" className="color-12"></a>
-              </div>
-              <form className="widget-color-form d-flex flex-wrap mb-0">
-                <div className="input-radio">
-                  <label className="label-radio color-1">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-2">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-3">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-4">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-5">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-6">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-7">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-8">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-9">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-10">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-11">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-                <div className="input-radio">
-                  <label className="label-radio color-12">
-                    <input type="radio" name="colorSelect" />
-                    <span className="radio-indicator"></span>
-                  </label>
-                </div>
-                {/* .input-radio end  */}
-              </form>
-            </div>
+						{/* Color Filter */}
+						<ColorFilter />
 
-            <div className="brands--fiter">
+            {/* <div className="brands--fiter">
               <h4 className="subtitle">brands</h4>
 
               <ul className="list-unstyled mb-0">
@@ -382,7 +138,8 @@ export default function Filters() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
+
           </div>
         
 				</div>

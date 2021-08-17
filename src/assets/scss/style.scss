@@ -72,6 +72,19 @@
 @import "module/landing";
 //State rules
 
+// Custom Styles
+@import "custom/_product";
+
 li {
 	list-style: none;
+}
+
+.bg-full-cover {
+	width: 100vw;
+	height: 100vh;
+	background: transparent;
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
 }

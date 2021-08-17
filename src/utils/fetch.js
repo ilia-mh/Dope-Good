@@ -110,11 +110,8 @@ async function request(
 }
 
 function LogOffUser() {
-  // localStorage.removeItem("access_token");
-  // localStorage.removeItem("refresh_token");
-  // emptyUser();
-  // router.push("/login");
 	console.log('logging out')
+  localStorage.removeItem("user");
 }
 
 export const post = async (url, data = {}) => {
@@ -125,17 +122,13 @@ export const post = async (url, data = {}) => {
     return resp;
   }
 
-  if (
-    !localStorage.getItem("access_token") ||
-    !localStorage.getItem("access_token").length
-  ) {
-    LogOffUser();
-    return;
-  }
+  const user = JSON.parse( localStorage.getItem('user') )
+
+	if( !user || !user.accessToken ) return false
 
   const headers = {
-    access_token: localStorage.getItem("access_token"),
-    refresh_token: localStorage.getItem("refresh_token"),
+    access_token: user.accessToken,
+    refresh_token: user.refreshToken,
   };
 
   resp = await request("POST", url, data, headers);

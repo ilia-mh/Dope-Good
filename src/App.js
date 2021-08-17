@@ -1,8 +1,10 @@
+import { useEffect} from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 // import Preloader from './components/Preloader'
@@ -19,7 +21,50 @@ import Product from './views/Product'
 
 import './App.scss'
 
+import { setCategories, setInitialCart, userExists } from "./store/Reducer/reducer";
+
+import { useDispatch } from 'react-redux';
+import { get, post } from './utils/fetch';
+
+const apiUrl = process.env.REACT_APP_API_URL
+
 function App() {
+
+	const dispatch = useDispatch()
+
+	useEffect( () => {
+
+		const currentCart = JSON.parse(localStorage.getItem('cart'))
+
+		if( currentCart ) dispatch(setInitialCart())
+
+		async function getCats() {
+
+			const categories = await get(`${apiUrl}/api/categories`)
+
+			dispatch(setCategories(categories.categories))
+			
+		}
+
+		getCats()
+
+		async function checkUser() {
+			return await post( `${apiUrl}/api/user/check`)
+		}
+
+		const user = JSON.parse( localStorage.getItem('user') )
+
+		if( user && user.accessToken ) {
+
+			const userCheck = checkUser()
+
+			if( userCheck.success )	dispatch( userExists(true) )
+			else localStorage.removeItem('user')
+
+		}
+		
+	},[])
+
   return (
     <Router>
 

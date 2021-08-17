@@ -1,5 +1,4 @@
 import React from 'react'
-import HeroImg from '../../assets/images/page-title/1.jpg'
 import './hero.scss'
 import { Link } from 'react-router-dom'
 
@@ -15,7 +14,7 @@ export default function Hero() {
               <div className="title title-1 text-center">
                 <div className="title--content">
                   <div className="title--heading">
-                    <h1>Shop Categories</h1>
+                    <h1>Shop</h1>
                   </div>
                 </div>
                 <div className="clearfix"></div>

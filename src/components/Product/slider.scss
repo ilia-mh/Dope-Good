@@ -32,4 +32,17 @@
 			cursor: pointer;
 		}
 	}
+
+	.slick-track {
+		display: flex;
+		align-items: center;
+
+		.product-img {
+			display: flex !important;
+			align-items: center;
+			height: 100% !important;
+	
+		}
+	}
+	
 }

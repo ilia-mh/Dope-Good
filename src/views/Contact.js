@@ -4,7 +4,7 @@ import Map from '../components/Contact/Map'
 
 export default function Contact() {
 	return (
-		<div style={{paddingTop: '100px' }}>
+		<div style={{paddingTop: '150px' }}>
 
 			<ReachOut />
 

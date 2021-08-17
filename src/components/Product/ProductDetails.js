@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import './productDetails.scss'
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import reviewImg1 from '../../assets/images/testimonials/authors/1.jpg'
-// import reviewImg2 from '../../assets/images/testimonials/authors/2.jpg'
-// import reviewImg3 from '../../assets/images/testimonials/authors/3.jpg'
 
 export default function ProductDetails() {
 
@@ -12,7 +10,7 @@ export default function ProductDetails() {
 
 	const product = useSelector((state) => state.shop.singleProduct);
 
-	const { name, price, rate, reviews, infoGuide, shipping: shippingGuide, return: returnGuide, sku, stock, _id } = product
+	const { description } = product
 
   // const dispatch = useDispatch();
 
@@ -73,20 +71,7 @@ export default function ProductDetails() {
                         <div className="col-sm-12 col-md-12 col-lg-8">
                           <div className="product--desc">
                             <p>
-                              Our agency can only be as strong as our people and
-                              because of this, our team have own businesses,
-                              designed game changing products, consulted for
-                              companies and competed collegiately and
-                              professionally when it comes to sports.
-                            </p>
-                            <p>
-                              Find out about the ways to deal with debts if you
-                              are falling behind with day-to-day bills, loan and
-                              credit card repayments or other commitments & get
-                              some free advice by speaking to one of our
-                              financial advisers over the phone? Just submit
-                              your details and we’ll be in touch shortly. Our
-                              staff can help work out what's right for you !
+															{ description }
                             </p>
                           </div>
                         </div>
@@ -224,7 +209,8 @@ export default function ProductDetails() {
                           </div>
                         </div>
                       </div>
-                      <div className="form--review">
+                      
+											<div className="form--review">
                         <form>
                           <div className="row">
                             <div className="col-sm-12 col-md-12 col-lg-6">
@@ -267,22 +253,19 @@ export default function ProductDetails() {
                           </div>
                         </form>
                       </div>
-                    </div>
+                    
+										</div>
                     {/* .col-lg-8 end  */}
                   </div>
                   {/* .row end  */}
                 </div>
                 {/* #reviews end  */}
+
               </div>
-              {/* #tab-content end  */}
             </div>
-            {/* .product-tabs end  */}
           </div>
-          {/* .col-lg-12 end  */}
         </div>
-        {/* .row end  */}
       </div>
-      {/* .container end  */}
     </section>
 		:
 		null

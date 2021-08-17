@@ -1,59 +1,81 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { get } from "../utils/fetch";
-import { setSingleProduct, changeGettingProduct } from "../store/Reducer/reducer";
+import {
+  setSingleProduct,
+  changeGettingProduct,
+  setRecentProducts,
+} from "../store/Reducer/reducer";
 
-import Hero from '../components/Product/Hero'
-import ProductDetails from '../components/Product/ProductDetails'
-import RecentProducts from '../components/Product/RecentProducts'
+import Hero from "../components/Product/Hero";
+import ProductDetails from "../components/Product/ProductDetails";
+import RecentProducts from "../components/Product/RecentProducts";
+import QuickView from "../components/Shop/QuickView";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function Product() {
+  let { id } = useParams();
 
-	let { id } = useParams();
-
-	console.log(id)
-
-	const { singleProduct, gettingSingleProduct } = useSelector((state) => state.shop );
+  const { singleProduct, gettingSingleProduct } = useSelector(
+    (state) => state.shop
+  );
 
   const dispatch = useDispatch();
 
-	useEffect( () => {
+  useEffect(() => {
+    if (!gettingSingleProduct && singleProduct._id !== id) {
+      getSingleProduct(id);
+    }
+  }, []);
 
-		if( !gettingSingleProduct && !singleProduct._id ) {
-			getSingleProduct(id)
-		}
+  const getSingleProduct = async (id) => {
+    dispatch(changeGettingProduct());
 
-	}, [])
+    const singleProduct = await get(`${apiUrl}/api/product/${id}`);
+    const allRecentProducts = await get(`${apiUrl}/api/recentproducts/${id}`);
 
-	const getSingleProduct = async (id) => {
-		console.log(`Sending Fetch request for product with id:${id}`)
+    console.log("allRecentProducts");
+    console.log(allRecentProducts);
 
-		dispatch(changeGettingProduct());
+    if (singleProduct.success) {
+      dispatch(setSingleProduct(singleProduct.product));
+      dispatch(setRecentProducts(allRecentProducts.products));
+    }
 
-		const singleProduct = await get(`${apiUrl}/product/${id}`);
+    dispatch(changeGettingProduct());
+  };
 
-		if( singleProduct.success ) {
+  return (
+    <div style={{ paddingTop: "150px" }}>
+      <Hero />
 
-			console.log(singleProduct.product)
-			
-			dispatch(setSingleProduct(singleProduct.product));
-		}
-		
-		dispatch(changeGettingProduct());
-	}
+      <ProductDetails />
 
-	return (
-		<div style={{ paddingTop: '100px' }}>
+      <section
+        id="products-carousel"
+        className="products-carousel related-products pt-0 pb-80"
+      >
+        <div className="container-fluid pr-40 pl-40">
+          <hr className="mb-80" />
 
-			<Hero />
+          <div className="row">
+            <div className="col-sm-12 col-md-12 col-lg-12">
+              <div className="heading text-center mb-50">
+                <h2 className="heading--title">Recent Products</h2>
+              </div>
+            </div>
+            {/* .col-lg-12 end  */}
+          </div>
+          {/* .row end  */}
 
-			<ProductDetails />
+      		<RecentProducts />
+					
+        </div>
+      </section>
 
-			<RecentProducts />
-
-		</div>
-	)
+      <QuickView />
+    </div>
+  );
 }

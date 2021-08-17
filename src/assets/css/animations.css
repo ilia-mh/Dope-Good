@@ -10,6 +10,10 @@
 	animation: slideLeft 0.3s ease forwards;
 }
 
+.slideAllLeft {
+	animation: slideAllLeft 0.3s ease forwards;
+}
+
 .slideRight {
 	animation: slideRight 0.3s ease forwards;
 }
@@ -46,6 +50,18 @@
 
 	100% {
 		transform: translateX(0);
+	}
+
+}
+
+@keyframes slideAllLeft {
+
+	0%{
+		transform: translateX(-35vw);
+	}
+
+	100% {
+		transform: translateX(35vw);
 	}
 
 }

@@ -4,7 +4,7 @@ import CartList from '../components/Cart/CartList'
 
 export default function Cart() {
 	return (
-		<div>
+		<div style={{paddingTop: '150px' }}>
 
 			<Title />
 
