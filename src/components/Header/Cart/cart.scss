@@ -1,0 +1,257 @@
+.module-content.cart-box {
+	display: flex !important;
+	flex-direction: column;
+	justify-content: flex-start;
+	position: fixed;
+	right: -475px ;
+	top: 0;
+	height: 100%;
+	background-color: #000;
+	width: 475px !important;
+	border-radius: 0;
+	z-index: 200;
+	opacity: 1 !important;
+	box-shadow: 0 2px;
+	padding: 80px 40px 20px;
+	color: #fff !important;
+
+	.module-cancel {
+		font-size: 12px;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    top: 37px;
+    right: 45px;
+	}
+
+	.cart-title {
+		padding-top: 0px !important;
+	}
+
+	.cart-overview {
+		display: flex;
+		flex-direction: column;
+		min-height: 50%;
+		max-height: 65%;
+		overflow-y: auto;
+		flex-shrink: 0 !important;
+		padding-right: 5px;
+
+			div {
+				opacity: 1 !important;
+				display: flex;
+				align-items: center;
+				height: 170px !important;
+				padding: 10px 0 !important;
+				color: #fff !important;
+				margin: 0 !important;
+				border-bottom: 1px solid #222 !important;
+				flex-shrink: 0;
+				
+				.img-wrapper {
+					width: 100px;
+					height: 150px !important;
+					background-color: #fff;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					img{
+						width: 90%;
+						position: relative !important;
+					}
+				}
+
+
+				div.product-meta {
+					padding-left: 24px !important;
+					height: 150px;
+					display: block;
+
+					.product-qunt {
+						color: #a1a1a1 !important;
+					}
+
+					.product-price {
+						color: #a1a1a1 !important;
+
+					}
+				}
+
+				button.cart-cancel {
+					position: relative !important;
+					margin-left: auto;
+				}
+			}
+			
+	}
+
+	.cart-total {
+		opacity: 1 !important;
+		margin-bottom: 50px;
+
+		.total-desc {
+			color: #fff !important;
+		}
+	}
+
+	.cart--control {
+		opacity: 1 !important;
+
+		.view-cart-btn {
+			color: #fff !important;
+			display: block;
+			width: 100%;
+			margin-bottom: 15px;
+		}
+
+		.checkout-btn {
+			color: #fff !important;
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.no-product {
+		color: #fff;
+		font-size: 22px;
+		margin-top: 50px;
+	}
+}
+
+.slideCartLeft {
+	right: 0 !important;
+}
+
+// .subtotal {
+// 	display: flex;
+// 	justify-content: space-between;
+// 	align-items: center;
+// 	width: 100%;
+// }
+
+// .subtotal h6 {
+// 	font-size: 14px;
+// 	font-weight: 700;
+// 	font-family: "Montserrat", sans-serif;
+// 	line-height: 24px;
+// 	text-transform: uppercase;
+// 	color: #000000;
+// }
+
+// .subtotal span {
+// 	font-family: "Lato", sans-serif;
+// 	float: right;
+// 	text-align: right;
+// 	color: #606da6;
+// 	font-size: 24px;
+// 	font-weight: 700;
+// }
+
+// .cart-actions {
+// 	display: flex;
+// 	width: 100%;
+// 	justify-content: space-between;
+// 	align-items: center;
+// 	margin-top: 20px;
+// }
+
+// .view-cart-btn {
+
+// 	height: 45px;
+// 	width: 150px;
+// 	line-height: 43px;
+// 	margin-right: 10px;
+// 	font-size: 13px;
+// 	text-transform: uppercase;
+// 	font-family: "Lato", sans-serif;
+// 	position: relative;
+// 	z-index: 2;
+// 	font-weight: 700;
+// 	text-transform: uppercase;
+// 	text-align: center;
+// 	border-radius: 0;
+// 	padding: 0;
+// 	line-height: 43px;
+// 	width: 170px;
+// 	height: 45px;
+// 	letter-spacing: 1px;
+// 	border: none;
+// 	background-color: #fff;
+// 	color: #010101;
+// 	border: 2px solid #d7d7d7;
+// 	border-radius: 50px;
+// 	cursor: pointer;
+// }
+
+// .view-cart-btn:hover {
+// 	background-color: #606da6;
+// 	border-color: #606da6;
+// 	color: white;
+// }
+
+// .checkout-btn {
+// 	height: 45px;
+// 	width: 150px;
+// 	line-height: 43px;
+// 	margin-right: 10px;
+// 	font-size: 13px;
+// 	text-transform: uppercase;
+// 	font-family: "Montserrat", sans-serif;
+// 	position: relative;
+// 	z-index: 2;
+// 	font-weight: 700;
+// 	text-transform: uppercase;
+// 	text-align: center;
+// 	border-radius: 0;
+// 	padding: 0;
+// 	line-height: 43px;
+// 	width: 170px;
+// 	height: 45px;
+// 	letter-spacing: 1px;
+// 	border: none;
+// 	background-color: #606da6;
+// 	color: white;
+// 	border: 2px solid transparent;
+// 	border-radius: 50px;
+// 	cursor: pointer;
+// }
+
+// .checkout-btn:hover {
+	
+// 	background-color: #252525;
+// 	border: 2px solid #252525;
+// 	color: white;
+// } 
+
+
+.cart-cancel {
+	svg {
+		width: 22px;
+		color: #636363;
+	}
+
+	&:hover {
+
+		svg {
+			color: #f1f1f1;
+		}
+	}
+}
+
+@media ( max-width: 600px ) {
+	
+	.module-content.cart-box {
+		right: -375px ;
+		width: 375px !important;
+	}
+
+}
+
+@media ( max-width: 450px ) {
+	
+	.module-content.cart-box {
+		right: -300px ;
+		width: 300px !important;
+	}
+
+}

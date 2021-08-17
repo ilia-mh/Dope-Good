@@ -1,0 +1,96 @@
+.active-cat {
+	color: #475696 !important;
+
+	span {
+		color: #475696 !important;
+	}
+}
+
+.range-counter {
+	width: 100%;
+	margin-top: 25px;
+	display: flex;
+	justify-content: space-between;
+
+	span {
+		color: #475696;
+		font-size: 18px;
+	}
+}
+
+.size-option .active::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	background: white;
+	border: 2px solid #f26c4f;
+}
+
+.widget-color-form .color-option .color-1 span {
+	background-color: #fff !important;
+	border: none;
+}
+
+.widget-color-form .color-option .color-2 span {
+	background-color: brown !important;
+	border: none;
+}
+
+.widget-color-form .color-option .color-3 span {
+	background-color: red !important;
+	border: none;
+}
+
+.widget-color-form .color-option .color-4 span {
+	background-color: #475696 !important;
+	border: none;
+}
+
+.widget-color-form .color-option .color-5 span {
+	background-color: #777 !important;
+	border: none;
+}
+
+.widget-color-form .color-option .color-6 span {
+	background-color: #222 !important;
+	border: none;
+}
+
+.widget-color-form .color-option .color-7 span {
+	background-color: pink !important;
+	border: none;
+}
+
+.widget-color-form .color-option .color-8 span {
+	background-color: yellow !important;
+	border: none;
+}
+
+.widget-color-form .color-option span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	svg {
+		display: none ;
+	}
+}
+
+.widget-color-form .color-option span.active {
+	svg {
+		display: block;
+		width: 70%;
+		color: #fff;
+	}
+}
+
+.widget-color-form .color-option .color-1 span.active {
+	svg {
+		width: 90%;
+		color: #111 !important;
+	}
+}
