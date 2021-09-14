@@ -5,6 +5,10 @@ import {
   Route
 } from "react-router-dom";
 
+// Notification component
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 // import Preloader from './components/Preloader'
@@ -65,6 +69,17 @@ function App() {
 		
 	},[])
 
+	const notifProps = {
+		position: "bottom-right",
+		autoClose: 3000,
+		hideProgressBar: false,
+		newestOnTop: false,
+		closeOnClick: true,
+		pauseOnFocusLoss: false,
+		draggable: true,
+		pauseOnHover: true
+	}
+
   return (
     <Router>
 
@@ -116,6 +131,10 @@ function App() {
 					</Route>
 
 				</Switch>
+
+				<ToastContainer
+					{...notifProps}
+				/>
 
 				<Footer />
 				

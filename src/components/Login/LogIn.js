@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import { post } from '../../utils/fetch';
 import { useDispatch } from 'react-redux';
 import { userExists } from "../../store/Reducer/reducer";
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+
+import { toast } from 'react-toastify';
 
 const apiUrl = process.env.REACT_APP_API_URL
 
 export default function LogIn() {
 
 	const dispatch = useDispatch()
-	// const history = useHistory()
+	const history = useHistory()
 
 	const [userName,setUserName] = useState('')
 	const [userNameErr,setUserNameErr] = useState('')
@@ -30,22 +32,27 @@ export default function LogIn() {
 			password
 		}
 
-		const login = await post( `${apiUrl}/user/login`, loginInfo )
+		const login = await post( `${apiUrl}/api/user/login`, loginInfo )
 		console.log(login)
 
 		if( login && login.success ) {
+
+			toast.success('You Logged in successfully')
 
 			const user = {
 				accessToken: login.access_token,
 				refreshToken: login.refresh_token,
 			}
 
-			localStorage.setItem('user', user)
+			localStorage.setItem('user', JSON.stringify(user))
 
 			dispatch( userExists(true) )
 
-			// history.push('/')
-		}
+			setTimeout(() => history.back() || history.push('/')
+			,1000)
+
+		} else toast.error('Wrong login info')
+		
 	}
 
 	const checkFields = () => {
@@ -72,7 +79,7 @@ export default function LogIn() {
         <h4>Login your account</h4>
       </div>
 
-      <form onSubmit={ (e) => e.preventDefault() } >
+      <form onSubmit={ (e) => e.preventDefault() }  className="login-form">
         <div className="row">
 
           <div className="col-sm-12 col-md-12 col-lg-12">
@@ -81,7 +88,7 @@ export default function LogIn() {
                 type="text"
                 className="form-control"
                 id="user-name"
-                placeholder="User Name"
+                placeholder="User Name or Email"
 								onChange={ (e) => changeField(e,setUserName) }
               />
             </div>

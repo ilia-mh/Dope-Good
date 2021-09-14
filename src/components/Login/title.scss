@@ -21,3 +21,19 @@
 		}
 	}
 }
+
+input {
+	text-transform: none !important;
+}
+
+.login-form, .regist-form {
+
+	button:focus {
+		background-color: #F26C4F;
+	}
+
+	button:hover {
+		background-color: rgba(0, 0, 0, 0.4);
+		color: #fff;
+	}
+}

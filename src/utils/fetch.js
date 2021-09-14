@@ -117,7 +117,10 @@ function LogOffUser() {
 export const post = async (url, data = {}) => {
   let resp;
 
-  if (url === "/user/login" || url === "/user/register") {
+	const urlsplitted = url.split('/');
+	const urlLastPart = urlsplitted[urlsplitted.length - 1];
+
+  if ( urlLastPart === "login" || urlLastPart === "register") {
     resp = await request("POST", url, data);
     return resp;
   }

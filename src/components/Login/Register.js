@@ -1,23 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { post } from "../../utils/fetch";
 import { useDispatch } from "react-redux";
 import { userExists } from "../../store/Reducer/reducer";
-// import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+
+import { toast } from 'react-toastify';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function Register() {
   const dispatch = useDispatch();
-  // const history = useHistory()
+  const history = useHistory()
 
   const [userName, setUserName] = useState("");
   const [userNameErr, setUserNameErr] = useState("");
-
+	
   const [password, setPassword] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
-
+	
   const [email, setEmail] = useState("");
   const [emailErr, setEmailErr] = useState("");
+
+  const [termsAccept, setTermsAccept] = useState(false);
 
   const SendRegister = async () => {
     checkFields();
@@ -31,21 +35,28 @@ export default function Register() {
       password,
     };
 
-    const register = await post(`${apiUrl}/user/register`, registerInfo);
+		if ( email.length ) registerInfo.email = email;
+
+    const register = await post(`${apiUrl}/api/user/register`, registerInfo);
     console.log(register);
 
     if (register && register.success) {
+
+			toast.success('Your registration was successfull.')
+
       const user = {
         accessToken: register.access_token,
         refreshToken: register.refresh_token,
       };
 
-      localStorage.setItem("user", user);
+      localStorage.setItem("user", JSON.stringify(user));
 
       dispatch(userExists(true));
 
-      // history.push('/')
-    }
+      setTimeout(() => history.back() || history.push('/')
+			,1000)
+
+    } else toast.error('An error occured while registering you.')
   };
 
   const checkFields = () => {
@@ -80,7 +91,7 @@ export default function Register() {
         <h4>Register account now</h4>
       </div>
 
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()} className="regist-form">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-12">
             <div className="form-group">
@@ -88,7 +99,7 @@ export default function Register() {
                 type="text"
                 className="form-control"
                 id="register-user-name"
-                placeholder="User Name"
+                placeholder="*User Name"
                 onChange={(e) => changeField(e, setUserName)}
               />
             </div>
@@ -112,7 +123,7 @@ export default function Register() {
                 type="password"
                 className="form-control"
                 id="register-password"
-                placeholder="Password"
+                placeholder="*Password"
                 onChange={(e) => changeField(e, setPassword)}
               />
             </div>
@@ -120,9 +131,9 @@ export default function Register() {
 
           <div className="col-sm-12 col-md-12 col-lg-12 mb-40">
             <div className="input-checkbox inline-block">
-              <label className="label-checkbox" style={{ color: "#fff" }}>
+              <label className="label-checkbox" style={{ color: "#fff" }} >
                 I accept the terms and conditions, including the Privacy
-                <input type="checkbox" />
+                <input type="checkbox" value={termsAccept} onChange={(e) => setTermsAccept(!termsAccept)}/>
                 <span className="check-indicator"></span>
               </label>
             </div>
@@ -130,9 +141,9 @@ export default function Register() {
 
           <div className="col-sm-12 col-md-12 col-lg-12 mb-40">
             <button
-              type="button"
               className="btn btn--primary btn--rounded"
               onClick={SendRegister}
+							disabled={!termsAccept}
             >
               Register
             </button>

@@ -28,13 +28,7 @@ export default function Footer() {
               {/* .footer-copyright end  */}
             </div>
             {/* .col-lg-5ths end  */}
-            <div
-              className="
-                  col-sm-12 col-md-6 col-lg-5ths
-                  text-center-xs
-                  widget--contact-info
-                "
-            >
+            <div className="col-sm-12 col-md-6 col-lg-5ths text-center-xs widget--contact-info">
               <div className="widget--content">
                 <ul className="list-unstyled">
                   <li>No. 342 - London Oxford Street,</li>

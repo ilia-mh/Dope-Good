@@ -1,10 +1,11 @@
 import React from 'react'
-import './hero.css'
+import './hero.scss'
 
 export default function Hero() {
 	return (
-		<div className="Hero">
-			
+		<div className="hero">
+			<div className="slider-wrapper">
+			</div>
 		</div>
 	)
 }

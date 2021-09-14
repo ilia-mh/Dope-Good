@@ -2,6 +2,8 @@ import React from "react";
 
 export default function ProductOptions({ options, fullSize, changeOption }) {
 
+	console.log(options)
+
 	const convertOptions = (obj) => {
 
     let arr = [];
