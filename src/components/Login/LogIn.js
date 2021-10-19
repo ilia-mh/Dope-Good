@@ -48,7 +48,15 @@ export default function LogIn() {
 
 			dispatch( userExists(true) )
 
-			setTimeout(() => history.back() || history.push('/')
+			setTimeout(() => {
+        
+        try {
+          history.goBack()
+        } catch(e) {
+          history.push('/')
+        }
+
+      }
 			,1000)
 
 		} else toast.error('Wrong login info')

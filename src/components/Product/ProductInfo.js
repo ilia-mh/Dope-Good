@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { addToCart } from "../../store/Reducer/reducer";
-
+import { addToCart, toggleProductFavorite } from "../../store/Reducer/reducer";
+import { post } from "../../utils/fetch";
+import { toast } from "react-toastify";
 
 import "./productInfo.scss";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,47 +11,47 @@ import ProductDescTabs from "./ProductDescTabs";
 import ProductRating from "./ProductRating";
 import ProductOptions from "./ProductOptions";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function ProductInfo() {
-
   const [productQt, setProductQt] = useState(1);
-	const [selectedColor, setSelectedColor] = useState('');
-  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
 
+  const user = useSelector((state) => state.shop.user);
   const product = useSelector((state) => state.shop.singleProduct);
+
   const dispatch = useDispatch();
 
   const {
-		_id,
+    _id,
     name,
     price,
     rate,
     options,
     reviews,
     infoGuide,
-		photos,
+    photos,
     shipping: shippingGuide,
     return: returnGuide,
     sku,
-    stock
+    stock,
+    favoritted,
   } = product;
 
   // const dispatch = useDispatch();
 
-	useEffect( () => {
+  useEffect(() => {
+    if (options) {
+      if (!selectedColor) {
+        setSelectedColor(options.color[0].name);
+      }
 
-		if( options ) {
-
-			if( !selectedColor ) {
-				setSelectedColor(options.color['1'].name)
-			}
-	
-			if( !selectedSize ) {
-				setSelectedSize(options.size['1'].name)
-			}
-
-		}
-
-	},[options])
+      if (!selectedSize) {
+        setSelectedSize(options.size[0].name);
+      }
+    }
+  }, [options]);
 
   const increaseQuantity = () => {
     if (stock > productQt) setProductQt(productQt + 1);
@@ -60,29 +61,44 @@ export default function ProductInfo() {
     if (productQt > 1) setProductQt(productQt - 1);
   };
 
-	const addToCard = () => {
+  const addToCard = () => {
+    if (!_id) return;
 
-		if( !_id ) return
+    const newProduct = {
+      _id,
+      name,
+      img: photos[0],
+      price,
+      q: productQt,
+      options: {
+        color: selectedColor,
+        size: selectedSize,
+      },
+    };
 
-		const newProduct = {
-			_id,
-			name,
-			img: photos[0],
-			price,
-			q: productQt,
-			options: {
-				color: selectedColor,
-				size: selectedSize
-			}
-		}
+    dispatch(addToCart(newProduct));
+  };
 
-		dispatch(addToCart(newProduct))
-	}
+  const addProductToFavorites = async () => {
+    if (!user) {
+      toast.error("You must Login to be able to do that!");
+    } else {
+      const sendToggleFavorite = await post(`${apiUrl}/api/product/fav`, {
+        product_id: _id,
+      });
 
-  return (
-		_id ?
+      if (!sendToggleFavorite.success) {
+        toast.error("Some Error Occured with your action");
+      } else {
+        toast.success("Product Added to your favorites");
+        dispatch(toggleProductFavorite(_id));
+      }
+    }
+  };
+
+  return _id ? (
     <div className="col-sm-12 col-md-12 col-lg-6 col-content">
-      <div className="mb-30">
+      {/* <div className="mb-30">
         <ol className="breadcrumb">
           <li>
             <Link to="/">Home</Link>
@@ -128,7 +144,7 @@ export default function ProductInfo() {
 
           <li className="active">Sofas</li>
         </ol>
-      </div>
+      </div> */}
 
       <div className="product--title">
         <h3>{name}</h3>
@@ -137,7 +153,7 @@ export default function ProductInfo() {
       <ProductRating rate={rate} />
 
       <div className="product--review">
-        { reviews.length || 0 } Customer Review
+        {reviews.length || 0} Customer Review
       </div>
       {/* - .product-review end  */}
 
@@ -152,19 +168,6 @@ export default function ProductInfo() {
 
       {/* .product-desc-tabs end  */}
       <div className="product--meta">
-        <div
-          className="product--meta-select product--meta-select2 select--color2"
-          style={{ borderBottom: "none" }}
-        >
-          {options && options.color && (
-            <ProductOptions options={options.color} fullSize={true} changeOption={ setSelectedColor } />
-          )}
-
-          {options && options.size && (
-            <ProductOptions options={options.size} fullSize={true} changeOption={ setSelectedSize } />
-          )}
-        </div>
-        {/* .product-meta-select end  */}
 
         <ul className="product--meta-info list-unstyled">
           <li>
@@ -175,9 +178,33 @@ export default function ProductInfo() {
             SKU:<span>{sku}</span>
           </li>
         </ul>
-        
-				<div className="product--meta-action">
 
+        <div
+          className="product--meta-select product--meta-select2 select--color2"
+          style={{ borderBottom: "none" }}
+        >
+          <div className="row">
+            {options && options.color && (
+              <ProductOptions
+                options={options.color}
+                fullSize={true}
+                changeOption={setSelectedColor}
+              />
+            )}
+
+            {options && options.size && (
+              <ProductOptions
+                options={options.size}
+                fullSize={true}
+                changeOption={setSelectedSize}
+              />
+            )}
+          </div>
+        </div>
+        {/* .product-meta-select end  */}
+
+        <div className="product--meta-action">
+          
           <div className="select-order">
             <ProductQuantityCounter
               productQt={productQt}
@@ -186,14 +213,17 @@ export default function ProductInfo() {
             />
           </div>
 
-          <button className="btn btn--primary btn--rounded add-to-card-btn" onClick={addToCard} >
+          <button
+            className="btn btn--primary btn--rounded add-to-card-btn"
+            onClick={addToCard}
+          >
             ADD TO CART
           </button>
 
-          <button className="fav">
+          <button className="fav" onClick={addProductToFavorites}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className={`h-6 w-6 ${favoritted ? "active" : ""}`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -208,9 +238,8 @@ export default function ProductInfo() {
           </button>
         </div>
       </div>
-
     </div>
-		:
-		<div></div>
+  ) : (
+    <div></div>
   );
 }

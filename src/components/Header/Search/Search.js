@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './search.scss'
 
@@ -10,6 +10,8 @@ export default function Search({ toggle, showSearch }) {
 
 	const [ search, setSearch ] = useState('')
 	const [ products, setProducts ] = useState([])
+
+	const searchInput = useRef(null);
 
 	const bgToggle = () => {
 		toggle()
@@ -41,6 +43,11 @@ export default function Search({ toggle, showSearch }) {
 		return await get(`${apiUrl}/api/product/search/${value.toLowerCase()}`)
 	}
 
+	useEffect(() => {
+		if( searchInput.current ) searchInput.current.focus()
+	}
+	,[])
+
 	return (
 		<div>
 
@@ -48,7 +55,7 @@ export default function Search({ toggle, showSearch }) {
 
 			<div className="serach-modal slideUp">
 				
-				<input type="text" placeholder="Search" onChange={ searchChanged } value={search}/>
+				<input type="text" placeholder="Search" onChange={ searchChanged } value={search} ref={searchInput} />
 
 				<button className="search-btn">
 

@@ -6,7 +6,7 @@ import "./products.scss";
 
 export default function Products() {
 
-  const products = useSelector((state) => state.shop.shownProducts);
+  const products = useSelector((state) => state.shop.shownProducts); 
 
   return (
     <div className="col-sm-12 col-md-12 col-lg-9 products-wrap">

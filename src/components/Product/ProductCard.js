@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setProductQuickView, setSingleProduct, changeGettingProduct } from "../../store/Reducer/reducer";
-import { get } from "../../utils/fetch";
+import { useDispatch, useSelector } from "react-redux";
+import { setProductQuickView, setSingleProduct, changeGettingProduct, toggleProductFavorite, addToCart } from "../../store/Reducer/reducer";
+import { get, post } from "../../utils/fetch";
 import { Link } from "react-router-dom";
+
+import { toast } from 'react-toastify';
 
 import './ProductCard.scss'
 
@@ -10,11 +12,50 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function ProductCard({ product, isInSlider }) {
 
+	const user = useSelector((state) => state.shop.user);
 	const dispatch = useDispatch();
 
-  const { _id, name, price } = product;
+  const { _id, name, price, favoritted, photos, options } = product;
 
 	const [productHover,setProductHover] = useState(false)
+
+  const addProductToFavorites = async () => {
+
+    if( !user ) {
+      toast.error('You must Login to be able to do that!')
+    } else {
+
+      const sendToggleFavorite = await post(`${apiUrl}/api/product/fav`, { product_id: _id })
+
+      if( !sendToggleFavorite.success ) {
+        toast.error('Some Error Occured with your action')
+      } else {
+        
+        toast.success('Product Added to your favorites')
+        dispatch(toggleProductFavorite(_id))
+
+      }
+    }
+  }
+
+  const addToCard = () => {
+
+		if( !_id ) return
+
+		const newProduct = {
+			_id,
+			name,
+			img: photos[0],
+			price,
+			q: 1,
+			options: {
+				color: options.color[0],
+				size: options.size[0]
+			}
+		}
+
+		dispatch(addToCart(newProduct))
+	}
 
 	const productHovered = () => {
 		setProductHover(true)
@@ -48,12 +89,12 @@ export default function ProductCard({ product, isInSlider }) {
         onMouseOver={() => productHovered()}
         onMouseLeave={() => productHoverOut()}
       >
-        <div className="category--img">
+        <Link to={`/product/${_id}`} className="category--img" target="_blank">
           <img
-            src={ apiUrl + product.photos[0] }
+            src={`${apiUrl}/${_id}/${photos[0]}`}
             alt="category"
           />
-        </div>
+        </Link>
 
         {/* .category-img end  */}
 
@@ -63,6 +104,7 @@ export default function ProductCard({ product, isInSlider }) {
               <Link
                 to={`/product/${_id}`}
                 onClick={() => goingToSingleProduct(_id)}
+                target="_blank"
               >
                 {name}
               </Link>
@@ -82,7 +124,7 @@ export default function ProductCard({ product, isInSlider }) {
           }`}
         >
           {/* ADD TO CART */}
-          <button className="btn btn--primary btn--rounded add-to-cart">
+          <button className="btn btn--primary btn--rounded add-to-cart" onClick={() => addToCard()} >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -122,10 +164,10 @@ export default function ProductCard({ product, isInSlider }) {
                 </svg>
               </button>
 
-              <button className="product-favorite">
+              <button className="product-favorite" onClick={ () => addProductToFavorites()}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
+                  className={`h-6 w-6 ${ favoritted ? 'active' : '' }`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -146,6 +188,7 @@ export default function ProductCard({ product, isInSlider }) {
                   <Link
                     to={`/product/${_id}`}
                     onClick={() => goingToSingleProduct(_id)}
+                    target="_blank"
                   >
                     {name}
                   </Link>
@@ -157,17 +200,21 @@ export default function ProductCard({ product, isInSlider }) {
               </div>
             </div>
 
-            {/* <div className="category--colors">
-              <a href="#" className="color-1"></a>
-              <a href="#" className="color-2"></a>
-              <a href="#" className="color-3"></a>
-              <a href="#" className="color-4"></a>
-            </div> */}
+
+            {
+              options.color &&
+              <div className="category--colors">
+                {
+                  options.color.map( (color,idx) => 
+                    <div key={idx} className="product-color-options" style={{ backgroundColor: color.code }}></div>
+                  )
+                }
+              </div>
+            }
+
           </div>
         </div>
-        {/* .category-hover end  */}
 
-        {/* .category-content end  */}
       </div>
     </div>
   );

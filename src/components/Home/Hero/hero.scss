@@ -1,13 +1,221 @@
-.hero {
-	z-index: 20 !important;
-	width: 100vw;
-	height: 100vh;
+div.slideshow-main {
+	z-index: 5 !important;
+	position: relative;
+	width: 110vw;
+	height: 75vh;
+	display: flex;
+	justify-content: center;
+	background: rgb(14, 14, 14) !important;
+	padding-bottom: 100px;
 	
 	.slider-wrapper {
+		background: rgb(14, 14, 14);
 		z-index: 20 !important;
 		width: 100%;
 		height: 100%;
-		background: rgb(14, 14, 14);
+		max-width: 1600px;
+
+		.all-slides {
+			height: 100%;
+			width: 100%;
+			position: relative;
+		}
+
+		.slide-tab {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+
+			img.moving-img {
+				position: absolute;
+				max-width: 37%;
+				max-height: 600px;
+				left: 13%;
+				top: 30%;
+			}
+
+			.slide-title {
+				position: absolute;
+				left: 40%;
+				top: 30%;
+
+				h1, h2 {
+					z-index: 8;
+					white-space: nowrap;
+					font-weight: 700;
+					font-size: 72px;
+					line-height: 72px;
+					color: rgb(255, 255, 255);
+					letter-spacing: 0px;
+					font-family: Montserrat;
+				}
+
+				h2 {
+					color: rgb(242, 108, 79);
+				}
+
+				a.slide-shop-now {
+					display: block;
+					font-family: "Montserrat", sans-serif;
+					position: relative;
+					z-index: 2;
+					font-size: 14px;
+					font-weight: 700;
+					text-transform: uppercase;
+					text-align: center;
+					border-radius: 0;
+					padding: 0;
+					line-height: 43px;
+					width: 170px;
+					height: 45px;
+					letter-spacing: 1px;
+					border: none;
+					padding-left: 40px !important;
+					line-height: 38px !important;
+					color: white;
+					transition: all 0.3s ease;
+
+					&:hover {
+						color: rgb(242, 108, 79);
+					}
+
+					&::before {
+						content: "";
+						position: absolute;
+						top: 0;
+						left: 0;
+						height: 40px;
+						z-index: -1;
+						width: 86px;
+						border: none;
+						background-color: #252525;
+					}
+				}
+			}
+
+			.slide-caption {
+				position: absolute;
+				transform: rotateZ(270deg);
+				top: 50%;
+				left: 0;
+
+				.caption-title {
+					display: block;
+					font-size: 18px;
+					line-height: 27px;
+					font-weight: 700;
+					color: rgb(255, 255, 255);
+					letter-spacing: 1px;
+					font-family: Montserrat;
+					text-transform: uppercase;
+				}
+
+				.caption-text {
+					text-transform: uppercase;
+					color: rgb(99, 99, 99);
+					font-family: Montserrat;
+					font-weight: 400;
+					text-align: inherit;
+					line-height: 27px;
+					border-width: 0px;
+					margin: 0px;
+					padding: 0px;
+					letter-spacing: 1px;
+					font-size: 18px;
+				}
+			}
+		}
+
+		.nextSlideBtn {
+			width: 100px;
+			height: 160px;
+			background-color: #000000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-left: auto;
+			margin-top: -50px;
+			cursor: pointer;
+			position: relative;
+
+			svg {
+				width: 40px;
+				color: #f26c4f;
+			}
+
+			.nextSlidePrev {
+				background: #000;
+				position: absolute;
+				width: 260px;
+				height: 160px;
+				left: -250%;
+				top: 0;
+
+				img{
+					position: absolute;
+					width: 20%;
+					top: 35%;
+					left: 10%;
+				}
+
+				.slide-title {
+					position: absolute;
+					left: 40%;
+					top: 30%;
+	
+					h1, h2 {
+						z-index: 8;
+						white-space: nowrap;
+						font-weight: 700;
+						color: rgb(255, 255, 255);
+						letter-spacing: 0px;
+						font-family: Montserrat;
+						font-size: 16px;
+					}
+	
+					h2 {
+						color: rgb(242, 108, 79);
+					}
+				}
+
+				.slide-caption {
+					position: absolute;
+					left: 40%;
+					top: 54%;
+
+					.caption-title {
+						font-size: 12px;
+						font-weight: 700;
+						color: rgb(255, 255, 255);
+						letter-spacing: 1px;
+						font-family: Montserrat;
+						text-transform: uppercase;
+						display: block;
+					}
+	
+					.caption-text {
+						text-transform: uppercase;
+						color: rgb(99, 99, 99);
+						font-family: Montserrat;
+						font-weight: 500;
+						text-align: inherit;
+						border-width: 0px;
+						margin: 0px;
+						padding: 0px;
+						letter-spacing: 1px;
+						font-size: 12px;
+					}
+				}
+			}
+		}
 	}
 
+}
+
+@media ( min-width: 768px ) {
+	.slide-tab {
+		.slide-caption {
+			left: 5% !important;
+		}
+	}
 }

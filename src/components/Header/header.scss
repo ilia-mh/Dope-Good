@@ -149,6 +149,7 @@ nav.navbar .nav-container {
 		height: 28px;
 		color: #636363;
 		flex-shrink: 0;
+		cursor: pointer;
 	}
 
 	label.cart-module-label {
@@ -165,6 +166,7 @@ nav.navbar .nav-container {
 		top: 65%;
 		left: 50%;
 		display: inline-block;
+		cursor: pointer;
 	}
 }
 
@@ -278,6 +280,59 @@ nav.navbar .nav-container {
 
 .mobile-nav .navbar-ul li {
   margin: 25px 0;
+}
+
+.account {
+	position: relative;
+	height: 100%;
+	display: flex;
+	align-items: center;
+
+	.acc-dropdown-btn {
+		cursor: pointer;
+		font-size: 18px;
+
+		svg {
+			margin-left: 4px;
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	.account-dropdown {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		display: none;
+		border-radius: 12px;
+		background-color: #161515;
+		overflow: hidden;
+	
+		&.active {
+			display: block;
+		}
+
+		.user-profile, .user-logout {
+			padding: 9px 15px;
+			color: #f1eeee;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			font-size: 16px;
+			cursor: pointer;
+
+			svg {
+				margin-right: 10px;
+				width: 18px;
+				height: 18px;
+			}
+
+			&:hover {
+				color: #fff;
+				background-color: #292727;
+			}
+		}
+	}
 }
 
 @keyframes showMobileNav {

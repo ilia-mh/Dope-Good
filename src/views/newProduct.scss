@@ -1,0 +1,36 @@
+
+.new-product-wrapper {
+  padding: 150px 0 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10 !important;
+  min-height: 120vh;
+  overflow: hidden;
+  padding-bottom: 80px !important;
+
+  .new-product-form {
+    width: 40%;
+    padding: 40px 20px;
+  }
+
+  h5 {
+    margin-top: 60px;
+  }
+
+  .create-product {
+    margin: 80px auto 0;
+    display: block;
+    font-size: 24px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 40px;
+    color: #fff;
+    background-color: #333;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: #222;
+    }
+  }
+}

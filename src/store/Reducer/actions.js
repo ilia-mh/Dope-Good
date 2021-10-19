@@ -1,24 +1,31 @@
 
 export const setAllProductsAction = ( state, action ) => {
 
-	const { payload } = action
+	const { products, method } = action.payload
 
-	if( payload.method === 'set' ) state.allProducts = payload.products
+	let mappedProducts
+
+	const { allUserFavs } = state
+	if( allUserFavs.length ) {
+		mappedProducts = addFavToProducts(products,allUserFavs)
+	} else mappedProducts = products
+
+	if( method === 'set' ) state.allProducts = mappedProducts
 	else {
 
 		if( state.allProducts.length ) {
 	
 			const Ids = state.allProducts.map( (_id) => _id )
 	
-			const newProducts = action.payload.filter( (_id) => !Ids.includes(_id) )
+			const newProducts = mappedProducts.filter( (_id) => !Ids.includes(_id) )
 			state.allProducts.push(...newProducts)
 	
-		} else 	state.allProducts.push(...action.payload)
+		} else 	state.allProducts.push(mappedProducts)
 
 	}
 
-
 	filterProductsAction(state)
+
 }
 
 export const setProductQuickViewAction = ( state, action ) => {
@@ -29,8 +36,10 @@ export const emptyProductQuickViewAction = ( state ) => {
 	state.quickViewProduct = {}
 }
 
-export const getSingleProduct = ( state, action ) => {
-	state.singleProduct = action.payload
+export const getSingleProduct = ( state, { payload } ) => {
+
+	if( state.allUserFavs.includes(payload._id) ) payload.favoritted = true
+	state.singleProduct = payload
 }
 
 export const toggleGettingProduct = ( state ) => {
@@ -38,7 +47,11 @@ export const toggleGettingProduct = ( state ) => {
 }
 
 export const setRecentProductsAction = ( state, action ) => {
-	const recentProducts = action.payload.filter( product => product._id !== state.singleProduct._id )
+	const recentProducts = action.payload.filter( product => product._id !== state.singleProduct._id ).map( product => {
+		if( state.allUserFavs.includes(product._id) ) product.favoritted = true
+
+		return product
+	})
 	state.recentProducts = recentProducts
 }
 
@@ -102,7 +115,7 @@ export const addToCartAction = ( state, { payload } ) => {
 
 				let { options } = state.cart[idx]
 	
-				if( options.color === payload.options.color && options.size === payload.options.size ){
+				if( compareOptions(options, payload.options) ){
 
 					state.cart[idx].q += payload.q
 					hadSimillar = true
@@ -159,6 +172,33 @@ export const changeCartItemQAction = ( state, { payload } ) => {
 
 }
 
+export const setAllFavsAction = ( state, { payload } ) => {
+	state.allUserFavs = payload.map( obj => obj.productId)
+}
+
+export const toggleProductFavoriteAction = ( state, { payload }) => {
+
+	state.allProducts = state.allProducts.map( product => {
+		if( product._id === payload ) product.favoritted = !product.favoritted
+		return product
+	})
+
+	filterProductsAction(state)
+
+	if( state.recentProducts.length ) {
+
+		state.recentProducts = state.recentProducts.map ( product => {
+			if( product._id === payload ) product.favoritted = !product.favoritted
+	
+			return product
+		})
+	}
+
+	if( state.singleProduct._id === payload ) {
+		state.singleProduct.favoritted = state.singleProduct.favoritted ? false : true
+	}
+}
+
 export const userExistsAction = ( state, { payload } ) => {
 	state.user = payload
 }
@@ -212,3 +252,26 @@ const filterProductsAction = ( state ) => {
 }
 
 const getCart = () => JSON.parse(localStorage.getItem('cart'))
+
+const addFavToProducts = (products,favs) => {
+
+	return products.map( product => {
+
+		if( favs.includes(product._id) ) product.favoritted = true
+
+		return product
+	})
+}
+
+const compareOptions = (option1, option2) => {
+
+	if( option1.color.code !== option2.color.code || option1.color.name !== option2.color.name ) {
+		return false
+	}
+
+	if( option1.size.code !== option2.size.code || option1.size.name !== option2.size.name ) {
+		return false
+	}
+
+	return true
+}

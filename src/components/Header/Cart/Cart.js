@@ -48,14 +48,14 @@ export default function Cart({ toggleShowCart, showCart }) {
         <div className="cart-overview">
           {cart.length ?
             cart.map((product, idx) => {
-              const { name, q, price, img } = product;
+              const { name, q, price, img, _id } = product;
 
               return (
                 <div key={idx}>
                   <div className="img-wrapper">
                     <img
                       className="img-fluid"
-                      src={apiUrl + img}
+                      src={`${apiUrl}/${_id}/${img}`}
                       alt="product"
                     />
                   </div>

@@ -3,7 +3,7 @@ import { Link, useParams, useHistory } from 'react-router-dom'
 import { useSelector } from "react-redux";
 
 import PriceRange from './PriceRange'
-import SizeFilter from './SizeFilter'
+// import SizeFilter from './SizeFilter'
 import ColorFilter from './ColorFilter'
 
 import './filters.scss'
@@ -103,7 +103,7 @@ export default function Filters() {
             <PriceRange />
 
 						{/* Size Filter */}
-						<SizeFilter />
+						{/* <SizeFilter /> */}
 
 						{/* Color Filter */}
 						<ColorFilter />

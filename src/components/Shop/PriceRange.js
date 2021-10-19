@@ -9,18 +9,18 @@ export default function PriceRange() {
 
 	const dispatch = useDispatch()
 
-	const [price,setPrice] = useState([100,7000])
+	const [price,setPrice] = useState([100,3000])
 
-	const max = 7000
-	const min = 0
+	const max = 3000
+	const min = 100
 
 	const changePrice = (newVal) => {
 		setPrice(newVal)
 		dispatch( changeProductsFilterOptions({
 			target: 'price',
 			value: {
-				min: price[0],
-				max: price[1]
+				min: newVal[0],
+				max: newVal[1]
 			}
 		}) )
 	}
@@ -41,14 +41,14 @@ export default function PriceRange() {
               style={{
                 ...props.style,
                 height: "8px",
-                width: "92%",
+                width: "100%",
 								margin: '0 auto'
               }}
             >
               <div
                 ref={props.ref}
                 style={{
-                  height: "8px",
+                  height: "4px",
                   width: "100%",
                   borderRadius: "10px",
                   background: '#ccc',
@@ -64,10 +64,10 @@ export default function PriceRange() {
               {...props}
               style={{
                 ...props.style,
-                height: "32px",
-                width: "32px",
-                borderRadius: "4px",
-                backgroundColor: "#FFF",
+                height: "20px",
+                width: "20px",
+                borderRadius: "50%",
+                backgroundColor: "#f26c4f",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center"
@@ -76,8 +76,9 @@ export default function PriceRange() {
               <div
                 style={{
                   height: "16px",
-                  width: "5px",
-                  backgroundColor: isDragged ? "#548BF4" : "#CCC"
+                  width: "16px",
+                  borderRadius: "50%",
+                  backgroundColor: "#f26c4f"
                 }}
               />
             </div>

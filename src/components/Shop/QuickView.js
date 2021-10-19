@@ -55,11 +55,11 @@ export default function QuickView() {
 			const { color, size } = product.options
 
 			if( color ) {
-				setselectedColor( color[1] )
+				setselectedColor( color[0] )
 			}
 	
 			if( size ) {
-				setselectedSize( size[1] )
+				setselectedSize( size[0] )
 			}
 		}
 
@@ -84,6 +84,8 @@ export default function QuickView() {
 
 		dispatch(addToCart(newProduct))
 	}
+
+  const slidePhotos = () => photos.slice(1)
 
   return _id ? (
     <div
@@ -115,10 +117,10 @@ export default function QuickView() {
                 <div className="col-sm-12 col-md-12 col-lg-6">
                   <div className="products-gallery-carousel">
                     <div className="owl-carousel products-slider">
-                      <Slider gallery={photos.map((photo) => apiUrl + photo)}>
-                        {photos.map((photo) => (
+                      <Slider gallery={slidePhotos().map((photo) => `${apiUrl}/${_id}/${photo}` )}>
+                        {slidePhotos().map((photo) => (
                           <div className="product-img" key="photo">
-                            <img src={apiUrl + photo} alt="product" />
+                            <img src={`${apiUrl}/${_id}/${photo}`} alt="product" />
                           </div>
                         ))}
                       </Slider>
@@ -222,6 +224,7 @@ export default function QuickView() {
                             <i className="fa fa-linkedin"></i>
                           </a>
                         </div> */}
+
                       </div>
                       {/* .product-share end  */}
                     </div>

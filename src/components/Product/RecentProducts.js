@@ -6,7 +6,7 @@ import ProductCard from "./ProductCard";
 
 import "./recentProducts.scss";
 
-export default function RecentProducts() {
+export default function RecentProducts({ noTitle }) {
   const products = useSelector((state) => state.shop.recentProducts);
 
   const responsiveSlider = [
@@ -42,27 +42,53 @@ export default function RecentProducts() {
     },
   ];
 
-  return products.length ? (
-    <div className="row">
-      <div className="col-sm-12 col-md-12 col-lg-12 recent-products-carousel">
-        {/* <div className="carousel"> */}
+  return products.length > 0 ? (
+    <section
+      id="products-carousel"
+      className="products-carousel related-products pt-0 pb-80"
+    >
+      <div className="container-fluid pr-40 pl-40">
 
-        <SlickSlider slidesToShow={4} responsive={responsiveSlider}>
-          {products.map((product) => {
-            return (
-              <ProductCard
-                product={product}
-                key={product._id}
-                isInSlider={true}
-              />
-            );
-          })}
-        </SlickSlider>
+        {
+          !noTitle &&
+            <hr className="mb-80" />
+        }
 
-        {/* </div> */}
+        {
+          !noTitle &&
+            <div className="row">
+              <div className="col-sm-12 col-md-12 col-lg-12">
+                <div className="heading text-center mb-50">
+                  <h2 className="heading--title">Recent Products</h2>
+                </div>
+              </div>
+              {/* .col-lg-12 end  */}
+            </div>
+        }
+
+        {/* .row end  */}
+        <div className="row">
+          <div className="col-sm-12 col-md-12 col-lg-12 recent-products-carousel">
+            {/* <div className="carousel"> */}
+
+            <SlickSlider slidesToShow={4} responsive={responsiveSlider}>
+              {products.map((product) => {
+                return (
+                  <ProductCard
+                    product={product}
+                    key={product._id}
+                    isInSlider={true}
+                  />
+                );
+              })}
+            </SlickSlider>
+
+            {/* </div> */}
+          </div>
+          {/* .row end  */}
+        </div>
       </div>
-      {/* .row end  */}
-    </div>
+    </section>
   ) : (
     <div></div>
   );

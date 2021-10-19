@@ -1,0 +1,109 @@
+div.product--rating {
+  cursor: pointer;
+}
+
+.no-comment {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0px 0 60px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;;
+}
+
+li.review--comment {
+
+  .comment-wrapper.reply-comment {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 40px;
+    margin-top: 40px;
+  }
+
+  .author--img {
+    // background: #fff !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+
+    img, svg {
+      width: 100%;
+      color: #f1f1f1;
+    }
+
+    // svg {
+    
+    // }
+  }
+
+  .author--img.reply-comment {
+    position: relative;
+  }
+
+  .review--comment-content {
+
+    button.reply {
+      color: #fff !important;
+      transition: 0.4s all ease;
+
+      svg {
+        width: 13px;
+        color: #606da6;
+        margin-left: 8px;
+        transition: 0.4s all ease;
+      }
+
+      &:hover {
+        color: #606da6 !important;
+
+        svg {
+          transform: translateX(5px)
+        }
+      }
+    }
+  }
+
+  .review--comment-content.reply-comment {
+    padding-left: 20px;
+  }
+
+  .comment-top-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.form--review-rating.new-reply {
+  padding-left: 40px;
+  margin-top: 50px;
+  position: relative;
+
+  svg.close-reply {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 22px;
+    color: #a1a1a1;
+    transition: 0.3s all ease;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff
+    }
+  }
+
+  h5 {
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+}
+
+.form--review.new-reply {
+  padding-left: 40px;
+}

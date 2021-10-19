@@ -10,6 +10,7 @@ import {
 
 import Hero from "../components/Product/Hero";
 import ProductDetails from "../components/Product/ProductDetails";
+import ProductIntro from "../components/Product/ProductIntro";
 import RecentProducts from "../components/Product/RecentProducts";
 import QuickView from "../components/Shop/QuickView";
 
@@ -51,29 +52,11 @@ export default function Product() {
     <div style={{ paddingTop: "150px" }}>
       <Hero />
 
+      <ProductIntro />
+      
       <ProductDetails />
 
-      <section
-        id="products-carousel"
-        className="products-carousel related-products pt-0 pb-80"
-      >
-        <div className="container-fluid pr-40 pl-40">
-          <hr className="mb-80" />
-
-          <div className="row">
-            <div className="col-sm-12 col-md-12 col-lg-12">
-              <div className="heading text-center mb-50">
-                <h2 className="heading--title">Recent Products</h2>
-              </div>
-            </div>
-            {/* .col-lg-12 end  */}
-          </div>
-          {/* .row end  */}
-
-      		<RecentProducts />
-					
-        </div>
-      </section>
+      <RecentProducts />
 
       <QuickView />
     </div>

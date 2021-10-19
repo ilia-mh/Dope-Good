@@ -47,14 +47,14 @@ export default function CartList() {
 
 											cart.map( ( product, idx ) => {
 
-												const { name, price, options, img, q } = product
+												const { name, price, options, img, q, _id } = product
 
 												return (
 													<tr className="cart-product" key={idx}>
 														<td className="cart-product-item">
 
 															<div className="cart-product-img">
-																<img src={ apiUrl + img } alt="product" />
+																<img src={`${apiUrl}/${_id}/${img}`} alt="product" />
 															</div>
 
 															<div className="cart-product-content">

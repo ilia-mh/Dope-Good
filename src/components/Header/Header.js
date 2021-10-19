@@ -5,15 +5,22 @@ import Cart from "./Cart/Cart";
 import { Link, withRouter } from "react-router-dom";
 
 import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux';
+import { userExists } from "../../store/Reducer/reducer";
+
+import { toast } from 'react-toastify';
 
 // images
 import Logo from "../../assets/images/logo/logo-light2.png";
 
 function Header({ history }) {
 
+	const dispatch = useDispatch()
+
   const { length: cartLength } = useSelector((state) => state.shop.cart);
   const user = useSelector((state) => state.shop.user);
 
+  const [accDropdown, setAccDropdown] = useState(false);
   const [firstLoaded, setFirstLoaded] = useState(false);
   const [showMobileNav, setshowMobileNav] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -22,6 +29,15 @@ function Header({ history }) {
 
   const search = useRef(null);
   const cart = useRef(null);
+
+  const Logout = () => {
+
+    localStorage.removeItem('user')
+    dispatch( userExists(false) )
+    setAccDropdown(false)
+    toast.success('You have successfully logged out')
+
+  }
 
   const toggleMobileNav = () => {
 
@@ -68,6 +84,7 @@ function Header({ history }) {
     if (!showSearch) {
       if (showCart) setShowCart(false);
       setShowSearch(true);
+      // if( searchInput.current ) searchInput.current.focus()
     } else setShowSearch(false);
   };
 
@@ -101,6 +118,7 @@ function Header({ history }) {
 
             <div className="right-part">
 
+              {/* Navigation Search */}
               <div className="nav-search" ref={search}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -118,19 +136,20 @@ function Header({ history }) {
                   />
                 </svg>
 
-                {showSearch && <Search toggle={toggleShowSearch} showSearch={showSearch} />}
+                { showSearch && <Search toggle={toggleShowSearch} showSearch={showSearch} />}
               </div>
 
               <span>|</span>
 
-              <div className="shop-cart" ref={cart}>
+              {/* Navigation Cart */}
+              <div className="shop-cart" ref={cart} onClick={toggleShowCart}>
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="shopping-bag-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  onClick={toggleShowCart}
                 >
                   <path
                     strokeLinecap="round"
@@ -139,7 +158,8 @@ function Header({ history }) {
                     d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                   />
                 </svg>
-								{
+								
+                {
 									cartLength ? 
 										<label className="cart-module-label">{cartLength}</label>
 									: 
@@ -152,12 +172,33 @@ function Header({ history }) {
 							<div className="account">
 								{
 									user ?
-										<Link to="/profile">
-											Account
-										</Link>
+										<div className="acc-dropdown-btn" onClick={ () => setAccDropdown(!accDropdown) }>
+											Acc
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+										</div>
 									:
 										<Link to="/login">Login</Link>
 								}
+
+                <div className={`account-dropdown ${ accDropdown ? 'active' : '' }`} >
+
+                  <Link to="/profile" className="user-profile" onClick={ () => setAccDropdown(false) }>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    profile
+                  </Link>
+
+                  <div className="user-logout" onClick={Logout}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Logout
+                  </div>
+
+                </div>
 							</div>
 
 							<button

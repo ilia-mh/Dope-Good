@@ -8,17 +8,19 @@ const apiUrl = `${process.env.REACT_APP_API_URL}`;
 
 export default function ProductSlider() {
 
-  const { photos } = useSelector((state) => state.shop.singleProduct);
+  const { photos, _id } = useSelector((state) => state.shop.singleProduct);
+
+  const selectedPhotos = () => photos.filter( (photo,idx) => idx !== 0 )
 
   return (
 		photos ?
     <div className="col-sm-12 col-md-12 col-lg-6 product-carousel">
       <div className="carousel">
-        <Slider gallery={photos.map((photo) => apiUrl + photo)}>
+        <Slider gallery={selectedPhotos().map((photo,idx) => `${apiUrl}/${_id}/${photo}`)}>
 
-          {photos.map((photo) => (
+          {selectedPhotos().map((photo) => (
             <div className="product-img" key={photo} >
-              <img src={apiUrl + photo} alt="product" />
+              <img src={`${apiUrl}/${_id}/${photo}`} alt="product" />
             </div>
           ))}
 

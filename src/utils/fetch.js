@@ -1,6 +1,11 @@
 // import router from "../router/index";
 // import { emptyUser } from "../store/user";
 
+import { toast } from 'react-toastify';
+
+const apiUrl = process.env.REACT_APP_API_URL;
+const refreshTokenUrl = `${apiUrl}/api/user/refreshtoken`
+
 async function request(
   method,
   url,
@@ -45,15 +50,14 @@ async function request(
     console.log(err.message);
   }
 
-  if ( !resp.success && resp.code === 4 ) { // token invalid
+  if ( resp && !resp.success && resp.message === 'Access token expired.' ) { // token invalid
     try {
-      resp = await fetch("/api/user/refreshtoken", {
+      resp = await fetch(refreshTokenUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          access_token: localStorage.getItem("access_token"),
-          refresh_token: localStorage.getItem("refresh_token"),
-        },
+          ...headers,
+        }
       });
 
       resp = await resp.json();
@@ -62,10 +66,16 @@ async function request(
     }
 
     if (resp.success) {
-      localStorage.setItem("access_token", resp.access_token);
-      localStorage.setItem("refresh_token", resp.refresh_token);
+
+      const newUser = {
+        accessToken: resp.access_token,
+        refreshToken: resp.refresh_token,
+      }
+
+      localStorage.setItem("user", JSON.stringify(newUser));
 
       headers.access_token = resp.access_token;
+      headers.refresh_token = resp.refresh_token;
 
       try {
         if (type === "upload") {
@@ -136,6 +146,11 @@ export const post = async (url, data = {}) => {
 
   resp = await request("POST", url, data, headers);
 
+  if( resp === undefined || resp === null ) {
+    toast.error('Cant reach the server')
+    return null
+  }
+
   if (resp === false) LogOffUser();
   if (
     !resp.success &&
@@ -168,6 +183,11 @@ export const get = async ( url, auth = false ) => {
 
   resp = await request("GET", url, {}, headers);
 
+  if( resp === undefined || resp === null ) {
+    toast.error('Cant reach the server')
+    return null
+  }
+
   if ( resp === false || ( !resp.success && resp.message === "You must be logged in.") ) LogOffUser();
 
   return resp;
@@ -190,6 +210,11 @@ export const put = async (url, data = {}) => {
   };
 
   resp = await request("PUT", url, data, headers);
+
+  if( resp === undefined || resp === null ) {
+    toast.error('Cant reach the server')
+    return null
+  }
 
   if (resp === false) LogOffUser();
   if (
@@ -217,6 +242,11 @@ export const deleteReq = async (url, data = {}) => {
 		refresh_token: localStorage.getItem("refresh_token"),
   };
   resp = await request("DELETE", url, data, headers);
+
+  if( resp === undefined || resp === null ) {
+    toast.error('Cant reach the server')
+    return null
+  }
 
   if (resp === false) LogOffUser();
   if (
@@ -250,6 +280,8 @@ export const uploadPhoto = async (
   };
 
   resp = await request("post", url, formData, headers, "upload");
+
+  if( resp === undefined || resp === null ) return null
 
   if (resp === false) LogOffUser();
   if (

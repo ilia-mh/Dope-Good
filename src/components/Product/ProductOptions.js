@@ -1,5 +1,7 @@
 import React from "react";
 
+import './ProductOptions.scss'
+
 export default function ProductOptions({ options, fullSize, changeOption }) {
 
 	console.log(options)
@@ -19,7 +21,7 @@ export default function ProductOptions({ options, fullSize, changeOption }) {
 		changeOption(e.target.value.toLowerCase())
 	}
 
-	const wrapperClass = fullSize ? 'col-12 col-sm-12 col-md-12 col-lg-12' : 'col-6 col-sm-6 col-md-6 col-lg-6'
+	const wrapperClass = fullSize ? 'options-selector col-12 col-sm-12 col-md-6 col-lg-6' : 'col-6 col-sm-6 col-md-6 col-lg-6'
 
   return (
     <div className={wrapperClass} style={{ paddingLeft: 0 }} >

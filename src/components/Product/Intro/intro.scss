@@ -1,0 +1,15 @@
+#product-features {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  p, li {
+    color: #A1A1A1;
+  }
+}

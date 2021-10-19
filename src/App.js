@@ -22,13 +22,16 @@ import Checkout from './views/Checkout'
 import Cart from './views/Cart'
 import Login from './views/Login'
 import Product from './views/Product'
+import NewProduct from './views/NewProduct'
 
 import './App.scss'
 
-import { setCategories, setInitialCart, userExists } from "./store/Reducer/reducer";
+import { setCategories, setInitialCart, userExists, setAllFavs } from "./store/Reducer/reducer";
 
 import { useDispatch } from 'react-redux';
 import { get, post } from './utils/fetch';
+
+import { toast } from 'react-toastify';
 
 const apiUrl = process.env.REACT_APP_API_URL
 
@@ -46,26 +49,31 @@ function App() {
 
 			const categories = await get(`${apiUrl}/api/categories`)
 
-			dispatch(setCategories(categories.categories))
-			
+			if( !categories || !categories.categories ) {
+				toast.error('Server not responding')
+				return
+			} else dispatch(setCategories(categories.categories))
+
 		}
 
 		getCats()
 
 		async function checkUser() {
-			return await post( `${apiUrl}/api/user/check`)
+			const userChecked = await post( `${apiUrl}/api/user/check`)
+
+			if( userChecked && userChecked.success ) {
+
+				dispatch( userExists(userChecked.userInfo) )
+
+				if( userChecked.allFavs && userChecked.allFavs.length ) dispatch( setAllFavs(userChecked.allFavs) )
+
+			}
+			else localStorage.removeItem('user')
 		}
 
 		const user = JSON.parse( localStorage.getItem('user') )
 
-		if( user && user.accessToken ) {
-
-			const userCheck = checkUser()
-
-			if( userCheck.success )	dispatch( userExists(true) )
-			else localStorage.removeItem('user')
-
-		}
+		if( user && user.accessToken ) checkUser()
 		
 	},[])
 
@@ -93,6 +101,10 @@ function App() {
 					<Route exact path="/" >
 						<Home />
 					</Route>
+
+					{/* <Route exact path="/newp" >
+						<NewProduct />
+					</Route> */}
 
 					<Route exact path="/shop/:cat?/:subcat?" >
 						<Shop />

@@ -11,6 +11,8 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^4.6.0",
     "framer-motion": "^4.1.17",
+    "gsap": "^3.7.1",
+    "interweave": "^12.8.0",
     "jquery": "^3.6.0",
     "mapbox-gl": "^2.3.0",
     "node-sass": "^5.0.0",

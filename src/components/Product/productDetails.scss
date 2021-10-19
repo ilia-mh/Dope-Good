@@ -3,16 +3,19 @@
 	.product--tabs {
 
 		.nav-tabs {
+
 			li {
 
 				button {
-					font-size: 14px;
-					font-weight: 700;
+					font-size: 24px;
+					line-height: 1;
 					text-transform: capitalize;
-					border-radius: 0;
+					font-family: "Montserrat", sans-serif;
+					margin-right: 100px;
+					font-weight: 700;
 					border: none;
+					border-radius: 0;
 					padding: 0;
-					margin-right: 20px;
 					position: relative;
 					line-height: 1;
 					padding-bottom: 15px;
@@ -20,12 +23,14 @@
 					color: #acacac;
 					transition: all 0.3s ease;
 
+					
 					&:hover {
 						color: #000000;
 						background-color: transparent;
 						border: none;
 					}
-				 }
+					
+				}
 
 				 button.active {
 					color: #000000;
@@ -47,7 +52,12 @@
 						transition: all 0.3s ease;
 						box-sizing: border-box;
 				 }
-				 
+				
+				 &:last-child {
+					button {
+						margin-right: 0 !important;
+					}
+				 }
 			}
 		}
 	}
