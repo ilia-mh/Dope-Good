@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import './search.scss'
+import './BurgerSearch.scss'
 
 import { get } from '../../../utils/fetch'
 
@@ -23,6 +23,11 @@ export default function Search({ toggle, showSearch }) {
 
 		setSearch(value)
 
+    if( !value || !value.length ) {
+      setProducts([])
+      return
+    }
+
 		setTimeout( async () => {
 
 			if( !value ) {
@@ -31,8 +36,6 @@ export default function Search({ toggle, showSearch }) {
 			}
 			
 			const searchResult = await getSearchResult(value)
-			console.log('searchResults')
-			console.log(searchResult)
 
 			setProducts(searchResult.products)
 
@@ -49,11 +52,11 @@ export default function Search({ toggle, showSearch }) {
 	,[])
 
 	return (
-		<div>
+		<div className="burger-search-wrapper">
 
 			{ showSearch && <div className="bg-full-cover" onClick={bgToggle}></div> }
 
-			<div className="serach-modal slideUp">
+			<div className="burger-serach-modal">
 				
 				<input type="text" placeholder="Search" onChange={ searchChanged } value={search} ref={searchInput} />
 

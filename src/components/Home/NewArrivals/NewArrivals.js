@@ -24,7 +24,7 @@ export default function NewArrivals() {
         </div>
 
 				<div className="recent-products">
-					<RecentProducts noTitle={true} />
+					<RecentProducts noTitle={true} slideNum={5} />
 				</div>
 
 				<div className="row mt-40">

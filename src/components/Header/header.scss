@@ -5,15 +5,19 @@ button {
 
 header#header {
   background: transparent;
-  padding: 30px 0 10px !important;
+  padding: 50px 0 0 !important;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 }
 
+.nav-holder {
+	max-width: 1140px !important;
+}
+
 .logo {
-  z-index: 10;
+  z-index: 50;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -52,6 +56,8 @@ nav.navbar .nav-container {
 	font-weight: 600;
 	text-transform: uppercase;
 	transition: 0.3s linear;
+	display: flex;
+	align-items: center;
 
 	span.menu--icon {
 		position: relative;
@@ -61,7 +67,9 @@ nav.navbar .nav-container {
     border-radius: 50%;
     text-align: center;
     border: 1px solid #918f8f;
-    display: inline-block;
+    display: flex;
+		justify-content: center;
+		align-items: center;
     margin-right: 20px;
     -webkit-transition: 0.3s linear;
     -moz-transition: 0.3s linear;
@@ -75,7 +83,7 @@ nav.navbar .nav-container {
 			height: 5px;
 			border-radius: 50%;
 			background-color: #636363;
-			margin: 0 2px;
+			margin: 0 3px;
 			-webkit-transition: 0.3s linear;
 			-moz-transition: 0.3s linear;
 			-ms-transition: 0.3s linear;
@@ -214,9 +222,7 @@ nav.navbar .nav-container {
   right: 0;
   bottom: 0;
 	z-index: 25;
-  
   background: rgba(17, 17, 17, 0.95);;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -228,6 +234,10 @@ nav.navbar .nav-container {
 		.nav-item {
 			padding: 0;
 			margin: 0;
+		}
+
+		.nav-item.search-item {
+			display: none;
 		}
 
 		.nav-link {
@@ -357,6 +367,12 @@ nav.navbar .nav-container {
   }
 }
 
+@media( max-width: 1200px ){
+	.nav-holder {
+		max-width: 960px !important;
+	}
+}
+
 @media( max-width: 1000px ){
 
 	.big-screen-menu {
@@ -378,6 +394,38 @@ nav.navbar .nav-container {
 
 	.left-part {
 		display: none;
+	}
+}
+
+@media( max-width: 990px ){
+	.nav-holder {
+		max-width: 720px !important;
+	}
+}
+
+@media( max-width: 768px ){
+	.nav-holder {
+		max-width: 540px !important;
+	}
+
+	.right-part .shop-cart {
+		margin-right: 10px;
+	}
+
+	.right-part span {
+		display: none;
+	}
+
+	.right-part .nav-search {
+		display: none;
+	}
+
+	.right-part .account {
+		display: none;
+	}
+
+	.nav-item.search-item {
+		display: block !important;
 	}
 }
 

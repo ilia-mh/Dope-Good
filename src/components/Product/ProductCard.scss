@@ -32,10 +32,10 @@
 	.category--hover {
 		position: absolute;
 		top: 0;
-		left: 0;
+		left: -10;
 		width: 100%;
 		height: 100%;
-		display: none;
+		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
@@ -201,26 +201,6 @@
 
 	}
 
-	&:hover {
-
-		.category--hover {
-			display: flex;
-		}
-	}
 }
 
-.productHoverIn {
-	animation: productHoverIn 0.3s forwards;
-}
-
-@keyframes productHoverIn {
-
-	0% {
-		transform: scale(0%);
-	}
-
-	100% {
-		transform: scale(100%);
-	}
-}
 

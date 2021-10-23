@@ -12,6 +12,8 @@ let tl = gsap.timeline({
 	duration: 1.8
 });
 
+const apiUrl = process.env.REACT_APP_API_URL
+
 export default function Hero() {
 
 	const controls = useAnimation()
@@ -22,17 +24,35 @@ export default function Hero() {
 		{
 			title: 'Comfeey Sofa',
 			coloredTitle: 'Collection',
-			img: 'http://localhost:3000/60fa636b69bb3c73a0608d09/1.png',
+			img: `${apiUrl}/61681c65267f751e7c53ac98/1.png`,
 			captionTitle: 'Trending',
-			caption: 'Set of 2020'
+			caption: 'Set of 2020',
+			link: '/shop/furniture/sofa'
 		},
 		{
 			title: 'Comfeey Chair',
 			coloredTitle: 'Collection',
-			img: 'http://localhost:3000/60fa636b69bb3c73a0608d09/4.png',
-			captionTitle: 'Best Seller',
-			caption: 'Of 2021'
+			img: `${apiUrl}/6169bf4595ca4052c4d90af6/1.png`,
+			captionTitle: 'Trending',
+			caption: 'Set of 2020',
+			link: '/shop/furniture/chair'
 		},
+		{
+			title: 'Comfeey Desk',
+			coloredTitle: 'Collection',
+			img: `${apiUrl}/616d80fe5c825d3d24e0f304/1.png`,
+			captionTitle: 'Trending',
+			caption: 'Set of 2020',
+			link: '/shop/furniture/desk'
+		},
+		{
+			title: 'Comfeey Lamps',
+			coloredTitle: 'Collection',
+			img: `${apiUrl}/616d72155c825d3d24e0f301/1.png`,
+			captionTitle: 'Trending',
+			caption: 'Set of 2020',
+			link: '/shop/lighting'
+		}
 	]
 
 	const startNextSlideTimer = () => {
@@ -70,9 +90,9 @@ export default function Hero() {
 		}
 	}
 
-	useEffect( () => {
-		restartNextSlideTimer()
-	}, [shownSlide])
+	// useEffect( () => {
+	// 	restartNextSlideTimer()
+	// }, [shownSlide])
 
 	const findNextSlide = () => {
 		if( shownSlide >= slides.length - 1 ) return 0
@@ -85,7 +105,7 @@ export default function Hero() {
 
 				<div className="all-slides">
 				{
-					slides.map(( slideInfo , idx) => <Slide slideInfo={slideInfo} idx={idx} key={idx} ActiveSlide={shownSlide} />)
+					slides.map(( slideInfo, idx) => <Slide slideInfo={slideInfo} idx={idx} key={idx} ActiveSlide={shownSlide} />)
 				}
 				</div>
 

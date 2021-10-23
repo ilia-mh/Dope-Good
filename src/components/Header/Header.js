@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./header.scss";
 import Search from "./Search/Search";
+import BurgerSearch from "./BurgerSearch/BurgerSearch";
 import Cart from "./Cart/Cart";
 import { Link, withRouter } from "react-router-dom";
 
@@ -28,6 +29,7 @@ function Header({ history }) {
   const [activePath, setActivePath] = useState(false);
 
   const search = useRef(null);
+  const burgerSearch = useRef(null);
   const cart = useRef(null);
 
   const Logout = () => {
@@ -93,7 +95,7 @@ function Header({ history }) {
 
       <Cart toggleShowCart={toggleShowCart} showCart={showCart} />
 
-      <div className="container">
+      <div className="container nav-holder">
         <nav className="navbar">
           <div className="nav-container">
             <div className="left-part">
@@ -229,6 +231,7 @@ function Header({ history }) {
           {/* Mobile Navbar */}
           <div className={`mobile-nav ${ firstLoaded ? '' : 'd-none' } ${ showMobileNav ? 'showMobileNav' : 'hideMobileNav'} `}>
             <ul className="navbar-ul ">
+
               <li className="nav-item">
                 <Link
                   className={`nav-link ${activePath === "home" && "active"} `}
@@ -238,6 +241,7 @@ function Header({ history }) {
                   Home
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   className={`nav-link ${activePath === "shop" && "active"} `}
@@ -247,16 +251,7 @@ function Header({ history }) {
                   Shop
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <button
-                  className={`nav-link ${
-                    activePath === "collection" && "active"
-                  } `}
-									onClick={setshowMobileNav(false)}
-                >
-                  Collection
-                </button>
-              </li> */}
+
               <li className="nav-item">
                 <Link
 									to="/about"
@@ -266,6 +261,7 @@ function Header({ history }) {
                   About
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
 									to="/contact"
@@ -277,6 +273,54 @@ function Header({ history }) {
                   Contact
                 </Link>
               </li>
+
+              <li className="nav-item account">
+								{
+									user ?
+										<div className="acc-dropdown-btn nav-link" onClick={ () => setAccDropdown(!accDropdown) }>
+											Acc
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+										</div>
+									:
+										<Link to="/login" className="nav-link">Login</Link>
+								}
+
+                <div className={`account-dropdown ${ accDropdown ? 'active' : '' }`} >
+
+                  <Link to="/profile" className="user-profile" onClick={ () => setAccDropdown(false) }>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    profile
+                  </Link>
+
+                  <div className="user-logout" onClick={Logout}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Logout
+                  </div>
+
+                </div>
+							</li>
+
+                {/* Navigation Search */}
+              <li 
+                className="nav-item search-item" 
+                onClick={toggleShowSearch}
+              >
+
+                <div className="nav-search nav-link" ref={burgerSearch}>
+                  Search
+
+                  { showSearch && <BurgerSearch toggle={toggleShowSearch} showSearch={showSearch} />}
+                </div>
+
+
+              </li>
+
             </ul>
           </div>
         </nav>

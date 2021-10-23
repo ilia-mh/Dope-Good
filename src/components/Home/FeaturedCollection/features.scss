@@ -1,6 +1,6 @@
 .features-carousel {
-	overflow: visible;
-	padding: 60px;
+	overflow: hidden !important;
+	padding: 60px 0;
 
 	.next-arrow {
 		position: relative;
@@ -51,36 +51,81 @@
 
 .featured-collection-container {
 	width: 100%;
+
+	h2.heading--title {
+		color: #a1a1a1;
+		font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 22px;
+		letter-spacing: 1px;
+		text-transform: capitalize;
+	}
+
+	.heading--desc {
+		font-family: "Montserrat", sans-serif;
+		font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    margin-bottom: 0;
+	}
 }
 
 .slide--item {
 
+	overflow: hidden !important;
+
 	.collection-item.big-pic {
 		position: relative;
+		height: 70vh;
+		width: 50vw;
+
+		.collection--img {
+			left: -2%;
+			position: absolute;
+			height: 100%;
+			width: 50vw;
+
+			img {
+				object-fit: cover;
+				height: 100%;
+				filter: blur(3px);
+				z-index: 0;
+			}
+
+		}
 
 		.collection--content {
 			position: absolute;
-			left: 50%;
 			right: auto;
-			text-align: right;
-			top: 60%;
+			text-align: left;
+			top: 50%;
+			right: -190px;
 			max-width: 340px;
 			z-index: 2;
 			-webkit-transform: translateY(-50%);
     	transform: translateY(-50%);
+			z-index: 2;
+			-moz-transform: translateY(-50%);
 
-			.collection--title a {
+			.collection--title h3 {
 				font-family: "Montserrat", sans-serif;
 				font-size: 48px;
 				font-weight: 700;
 				line-height: 1.5;
+				transition: 0.3s ease;
+
+				&:hover {
+					color: #F26C4F !important;
+				}
 			}
 
 			.collection--desc p {
 				font-family: "Lato", sans-serif;
-				font-size: 13px;
+				font-size: 14px;
 				font-weight: 400;
-				color: #a1a1a1;
+				color: #4b4b4b;
 				line-height: 1.5;
 			}
 		}
@@ -89,6 +134,7 @@
 	.collection-item.product-side {
 		position: relative;
 		text-align: center;
+		margin-top: 25%;
 
 		.collection--img {
 			width: 100%;
@@ -104,15 +150,27 @@
 
 		.collection--content {
 
-			.collection--title a {
-				font-size: 16px;
+			.collection--title h3 {
+				font-family: "Montserrat", sans-serif;
+				font-size: 18px;
+				line-height: 1;
+				font-weight: 700;
 				color: #a1a1a1;
+				border: none !important;
+
+				&:hover {
+					color: #F26C4F !important;
+				}
+
+				&:after {
+					display: none !important;
+				}
 			}
 
-			.collection--desc p {
-				font-size: 13px;
-				font-weight: 400;
-				color: #a1a1a1;
+			.collection--price {
+				color: #555555;
+				font-size: 16px;
+				font-weight: 700;
 				line-height: 1.5;
 			}
 		}

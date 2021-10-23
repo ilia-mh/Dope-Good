@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProductQuickView, setSingleProduct, changeGettingProduct, toggleProductFavorite, addToCart } from "../../store/Reducer/reducer";
 import { get, post } from "../../utils/fetch";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"
 
 import { toast } from 'react-toastify';
 
@@ -80,6 +81,32 @@ export default function ProductCard({ product, isInSlider }) {
 		dispatch( setProductQuickView(product) )
 	}
 
+  const productHoverAnimate = {
+    hidden: {
+      y: 200,
+    },
+    animate: {
+      y: 0,
+      x: 0,
+    },
+    transition: {
+      duration: 0.3
+    }
+  }
+
+  const addCartAnimate = {
+    hidden: {
+      y: -200
+    },
+    animate: {
+      y: 0,
+      transition: {
+        delay: 0.1,
+        duration: 0.5,
+      }
+    },
+  }
+
 	const wrapperClass = isInSlider ? 'col-sm-10' : 'col-sm-6 col-md-6 col-lg-3'
 
   return (
@@ -118,13 +145,16 @@ export default function ProductCard({ product, isInSlider }) {
         </div>
         {/* .category-price end  */}
 
-        <div
-          className={`category--hover ${
-            productHover === _id ? "productHoverIn" : ""
-          }`}
-        >
+        <div className="category--hover">
           {/* ADD TO CART */}
-          <button className="btn btn--primary btn--rounded add-to-cart" onClick={() => addToCard()} >
+          <motion.button 
+            className="btn btn--primary btn--rounded add-to-cart" 
+            onClick={() => addToCard()}
+            variants={addCartAnimate}
+            initial="hidden"
+            animate={ productHover ? 'animate':'hidden'}
+            transition='transition'
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -140,9 +170,15 @@ export default function ProductCard({ product, isInSlider }) {
               />
             </svg>
             ADD TO CART
-          </button>
+          </motion.button>
 
-          <div className="category--action-content">
+          <motion.div 
+            className="category--action-content"
+            variants={productHoverAnimate}
+            initial='hidden'
+            animate={ productHover ? 'animate' : 'hidden'}
+            transition='transition'
+          >
             <div className="category--action-icons">
               <button
                 className="product-quick-view"
@@ -212,7 +248,7 @@ export default function ProductCard({ product, isInSlider }) {
               </div>
             }
 
-          </div>
+          </motion.div>
         </div>
 
       </div>

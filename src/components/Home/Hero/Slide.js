@@ -8,7 +8,7 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
 
   const movingImgSlide = useRef(null)
 
-  const { img, captionTitle, caption, title, coloredTitle } = slideInfo;
+  const { img, captionTitle, link, caption, title, coloredTitle } = slideInfo;
 
   useEffect( () => {
     setTimeout( () => {
@@ -87,7 +87,7 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
       <motion.div variants={slideTitleAnimate} initial='hidden' animate={ ActiveSlide === idx ? 'visible' : 'hidden' } exit='exit' className="slide-title">
         <h1>{title}</h1>
         <h2>{coloredTitle}</h2>
-        <Link className="slide-shop-now" to="/shop">shop now</Link>
+        <Link className="slide-shop-now" to={link}>shop now</Link>
       </motion.div>
 
       <motion.div variants={slideCaptionAnimate} initial='hidden' animate={ ActiveSlide === idx ? 'visible' : 'hidden' } exit='exit' className="slide-caption">

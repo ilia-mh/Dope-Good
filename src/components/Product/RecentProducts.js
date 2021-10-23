@@ -6,7 +6,7 @@ import ProductCard from "./ProductCard";
 
 import "./recentProducts.scss";
 
-export default function RecentProducts({ noTitle }) {
+export default function RecentProducts({ noTitle, slideNum = 4 }) {
   const products = useSelector((state) => state.shop.recentProducts);
 
   const responsiveSlider = [
@@ -71,7 +71,7 @@ export default function RecentProducts({ noTitle }) {
           <div className="col-sm-12 col-md-12 col-lg-12 recent-products-carousel">
             {/* <div className="carousel"> */}
 
-            <SlickSlider slidesToShow={4} responsive={responsiveSlider}>
+            <SlickSlider slidesToShow={slideNum} responsive={responsiveSlider} swipeToSlide={true}>
               {products.map((product) => {
                 return (
                   <ProductCard

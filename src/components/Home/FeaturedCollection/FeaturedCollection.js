@@ -3,19 +3,42 @@ import SlickSlider from "../../Slider/Slider";
 import "./features.scss";
 import { Link } from 'react-router-dom'
 
-import img1 from '../../../assets/images/collection/col7/1.jpg'
-import img2 from '../../../assets/images/collection/col7/2.jpg'
-import img3 from '../../../assets/images/collection/col7/3.jpg'
-import img4 from '../../../assets/images/collection/col7/4.jpg'
+const apiUrl = process.env.REACT_APP_API_URL
 
 export default function FeaturedCollection() {
+
+  const featureCollections = [
+    {
+      slideImg: `${apiUrl}/61681c65267f751e7c53ac98/7.jpg`,
+      title: 'Sofa Collection',
+      desc: 'comfy high quality sofa collection',
+      productName: 'Bryant Collection',
+      productImg: `${apiUrl}/61681c65267f751e7c53ac98/1.png`,
+      price: 1750,
+      link: '/product/61681c65267f751e7c53ac98'
+    },
+    {
+      slideImg: `${apiUrl}/61687bc3267f751e7c53ac9e/7.jpg`,
+      title: 'Chair Collection',
+      desc: 'comfy high quality chair collection',
+      productName: 'Demi Chair',
+      productImg: `${apiUrl}/61687bc3267f751e7c53ac9e/1.png`,
+      price: 850,
+      link: '/product/61687bc3267f751e7c53ac9e'
+    },
+  ]
+
   return (
     <section id="featured-collection" className="featured-collection pt-0 pb-0">
       <div className="featured-collection-container">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-12">
-            <div className="heading heading-3 mb-100 mb-50-xs text-center">
-              <h2 className="heading--title">FEATURED COLLECTION</h2>
+            <div className="heading heading-3 text-center">
+              <h2 className="heading--title">Featured Collection</h2>
+              <p className="heading--desc">
+                  Rounding up a bunch of specific designs and talking about the
+                  merits of each is the perfect way to find common ground.
+              </p>
             </div>
           </div>
           {/* .col-lg-12 end  */}
@@ -24,102 +47,72 @@ export default function FeaturedCollection() {
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-12">
             <div className="features-carousel">
-              <SlickSlider>
+              <SlickSlider showDots={true}>
 
-                <div className="slide--item">
-                  <div className="row">
-                    <div className="col-sm-12 col-md-6 col-lg-6">
-                      <div className="collection-item collection-item-1 big-pic">
-                        <div className="collection--img">
-                          <img
-                            src={img1}
-                            alt="collection"
-                          />
-                        </div>
-                        <div className="collection--content">
-                          <div className="collection--title">
-                            <h3>
-                              <Link to="">
-                                Lamps Living Collection
+                {
+                  featureCollections.map( (feature,idx) => {
+                    
+                    const { slideImg, title, desc, productName, productImg, price, link } = feature
+
+                    return (
+                      <div className="slide--item" key={idx}>
+                        <div className="row">
+                          <div className="col-sm-12 col-md-6 col-lg-6">
+
+                            <div className="collection-item collection-item-1 big-pic">
+
+                              <div className="collection--img">
+
+                                <img
+                                  src={slideImg}
+                                  alt={title}
+                                />
+                                <div className="img-overlay"></div>
+
+                              </div>
+
+                              <div className="collection--content">
+                                <Link to={link} className="collection--title">
+                                  <h3>
+                                      { title }
+                                  </h3>
+                                </Link>
+                                <div className="collection--desc">
+                                  <p>{desc}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="col-sm-12 col-md-6 col-lg-6">
+                            <div className="collection-item collection-item-2 product-side">
+
+                              <Link to={link} className="collection--img">
+                                <img
+                                  src={productImg}
+                                  alt="collection"
+                                />
                               </Link>
-                            </h3>
-                          </div>
-                          <div className="collection--desc">
-                            <p>Nam ac elit a ante commodo</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div className="col-sm-12 col-md-6 col-lg-6">
-                      <div className="collection-item collection-item-2 product-side">
-                        <div className="collection--img">
-                          <img
-                            src={img2}
-                            alt="collection"
-                          />
-                        </div>
-                        <div className="collection--content">
-                          <div className="collection--title">
-                            <h3>
-                              <Link to="">Hebes diamon Lamp</Link>
-                            </h3>
+                              <div className="collection--content">
+                                <Link to={link} className="collection--title">
+                                  <h3>
+                                    {productName}
+                                  </h3>
+                                </Link>
+                                <div className="collection--price">$ { price.toFixed(2) }</div>
+                              </div>
+                            </div>
                           </div>
-                          <div className="collection--price">$ 42.00</div>
+                        
                         </div>
                       </div>
-                    </div>
-                  
-									</div>
-                </div>
-								
-                <div className="slide--item">
-                  <div className="row">
-                    <div className="col-sm-12 col-md-6 col-lg-6">
-                      <div className="collection-item collection-item-2 collection-item-3 product-side">
-                        <div className="collection--img">
-                          <img
-                            src={img3}
-                            alt="collection"
-                          />
-                        </div>
-                        <div className="collection--content">
-                          <div className="collection--title">
-                            <h3>
-                              <Link to="">Bedroom Lamp 2019</Link>
-                            </h3>
-                          </div>
-                          <div className="collection--price">$ 42.00</div>
-                        </div>
-                      </div>
-                    </div>
+                    )
+                  })
+                }
 
-                    <div className="col-sm-12 col-md-6 col-lg-6">
-
-                      <div className="collection-item collection-item-1 collection-item-4 big-pic">
-                        <div className="collection--img">
-                          <img
-                            src={img4}
-                            alt="collection"
-                          />
-                          <div className="vertical--text">SALE OFF 40%</div>
-                        </div>
-                        <div className="collection--content">
-                          <div className="collection--title">
-                            <h3>
-                              <Link to="">Bedroom Black Lamp</Link>
-                            </h3>
-                          </div>
-                          <div className="collection--desc">
-                            <p>vitae viverra urna</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  
-									</div>
-                </div>
               </SlickSlider>
+
             </div>
           </div>
           {/* .col-lg-12 end  */}

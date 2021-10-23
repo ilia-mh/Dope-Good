@@ -32,6 +32,14 @@
 			cursor: pointer;
 		}
 	}
+	
+	.slick-slide {
+		// padding: 0 10px;
+		
+		img {
+			width: 100%;
+		}
+	}
 
 	.slick-track {
 		display: flex;
