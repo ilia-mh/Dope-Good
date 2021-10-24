@@ -90,6 +90,16 @@ export default function Hero() {
 		}
 	}
 
+	const goToSlide = (slideIdx) => {
+
+		const currentSlide = shownSlide
+		setShownSlide(slideIdx)
+
+		tl.fromTo(`.slider-${currentSlide}`,{ x:0 }, { x: '-100vw' })
+		tl.fromTo(`.slider-${slideIdx}`,{ x: '100vw' }, { x: '0vw' })
+
+	}
+
 	// useEffect( () => {
 	// 	restartNextSlideTimer()
 	// }, [shownSlide])
@@ -111,9 +121,11 @@ export default function Hero() {
 
 				<div className="slide-dots">
 					{
-						slides.map( (slide,idx) => {
+						slides.map( (slide,idx) => {	
 							return (
-								<div className={`tab-${idx} ${ shownSlide === idx ? 'active': ''}`} key={idx}></div>
+								<div className={`tab-${idx}-dot ${ shownSlide === idx ? 'active': ''}`} key={idx} onClick={ () => goToSlide(idx) }>
+
+								</div>
 							)
 						})
 					}

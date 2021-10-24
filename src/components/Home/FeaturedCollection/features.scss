@@ -69,6 +69,7 @@
     font-weight: 400;
     line-height: 28px;
     margin-bottom: 0;
+		padding: 0 10%;
 	}
 }
 
@@ -182,6 +183,42 @@
 		.feature-item {
 			flex-direction: column !important;
 			align-items: center;
+		}
+	}
+}
+
+@media ( max-width: 768px ) {
+	
+	.featured-collection-container {
+	
+		h2.heading--title {
+			font-size: 30px;
+		}
+
+		.heading--desc {
+			font-size: 18px !important;
+		}
+
+	}
+
+	.slide--item {
+	
+		.collection-item.big-pic {
+			height: 550px;
+			width: 100%;
+	
+			.collection--img {
+				width: 100%;
+				left: 0;
+			}
+	
+			.collection--content {
+				left: 50%;
+				top: 25%;
+				transform: translateX(-50%);
+
+			}
+
 		}
 	}
 }
