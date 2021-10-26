@@ -92,3 +92,15 @@ body {
 	top: 0;
 	left: 0;
 }
+
+.container {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+@media ( max-width: 550px ) {
+	.container {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}

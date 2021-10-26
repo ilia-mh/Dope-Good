@@ -2,11 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import SlickSlider from "../Slider/Slider";
-import ProductCard from "./ProductCard";
+import ProductCard from "./ProductCard/ProductCard";
 
 import "./recentProducts.scss";
 
 export default function RecentProducts({ noTitle, slideNum = 4 }) {
+  
   const products = useSelector((state) => state.shop.recentProducts);
 
   const responsiveSlider = [
@@ -35,7 +36,7 @@ export default function RecentProducts({ noTitle, slideNum = 4 }) {
       },
     },
     {
-      breakpoint: 480,
+      breakpoint: 580,
       settings: {
         slidesToShow: 1,
       },

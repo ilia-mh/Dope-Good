@@ -3,13 +3,16 @@ import SlickSlider from "../../Slider/Slider";
 import "./features.scss";
 import { Link } from 'react-router-dom'
 
+import Img1 from '../../../assets/images/banners/bg/8.jpg'
+import Img2 from '../../../assets/images/banners/bg/9.jpg'
+
 const apiUrl = process.env.REACT_APP_API_URL
 
 export default function FeaturedCollection() {
 
   const featureCollections = [
     {
-      slideImg: `${apiUrl}/61681c65267f751e7c53ac98/7.jpg`,
+      slideImg: Img1,
       title: 'Sofa Collection',
       desc: 'comfy high quality sofa collection',
       productName: 'Bryant Collection',
@@ -18,7 +21,7 @@ export default function FeaturedCollection() {
       link: '/product/61681c65267f751e7c53ac98'
     },
     {
-      slideImg: `${apiUrl}/61687bc3267f751e7c53ac9e/7.jpg`,
+      slideImg: Img2,
       title: 'Chair Collection',
       desc: 'comfy high quality chair collection',
       productName: 'Demi Chair',

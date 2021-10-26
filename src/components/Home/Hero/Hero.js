@@ -24,7 +24,7 @@ export default function Hero() {
 		{
 			title: 'Comfeey Sofa',
 			coloredTitle: 'Collection',
-			img: `${apiUrl}/61681c65267f751e7c53ac98/1.png`,
+			img: `${apiUrl}/616b1eec93d32743b004665f/1.png`,
 			captionTitle: 'Trending',
 			caption: 'Set of 2020',
 			link: '/shop/furniture/sofa'
@@ -32,7 +32,7 @@ export default function Hero() {
 		{
 			title: 'Comfeey Chair',
 			coloredTitle: 'Collection',
-			img: `${apiUrl}/6169bf4595ca4052c4d90af6/1.png`,
+			img: `${apiUrl}/616c5439e14d614f48c54004/7.png`,
 			captionTitle: 'Trending',
 			caption: 'Set of 2020',
 			link: '/shop/furniture/chair'
