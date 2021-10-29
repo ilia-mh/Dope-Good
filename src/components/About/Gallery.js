@@ -12,10 +12,9 @@ export default function Gallery() {
       className="about about-2 about-gallery-2 pt-0 pb-0"
     >
       <div className="container-fluid">
-        <div className="row">
+        <div className="row about-intro-row">
           <div className="col-sm-12 col-md-12 col-lg-5 left-side">
             <div className="carousel owl-carousel about-carousel">
-
 
               <Slider>
 
@@ -67,6 +66,7 @@ export default function Gallery() {
             {/* .row end  */}
 
             <div className="row feature-1">
+
               {/* feature panel #1  */}
               <div className="col-sm-12 col-md-6 col-lg-6">
                 <div className="feature-panel">
@@ -183,6 +183,7 @@ export default function Gallery() {
                 </div>
               </div>
               {/* .feature-panel end  */}
+              
             </div>
             {/* .row end  */}
           </div>

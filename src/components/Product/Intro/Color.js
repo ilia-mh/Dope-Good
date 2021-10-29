@@ -2,7 +2,8 @@ import React from 'react'
 
 import './intro.scss'
 
-import ColorImg from '../../../assets/images/products/product-features/8.jpg'
+// import ColorImg from '../../../assets/images/products/product-features/8.jpg'
+import ColorImg from '../../../assets/images/background/1.jpg'
 
 export default function Color({ text, colors }) {
   return (

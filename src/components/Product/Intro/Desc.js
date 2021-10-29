@@ -2,7 +2,8 @@ import React from 'react'
 
 import './intro.scss'
 
-import DetailsImg from '../../../assets/images/products/product-features/6.jpg'
+// import DetailsImg from '../../../assets/images/products/product-features/6.jpg'
+import DetailsImg from '../../../assets/images/banners/bg/10.jpg'
 
 export default function Desc({ text }) {
   return (

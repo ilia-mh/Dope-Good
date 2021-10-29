@@ -1,0 +1,21 @@
+.about.page-title {
+
+  h1 {
+    color: #fff !important;
+  }
+
+  .breadcrumb {
+
+    li {
+
+      &:nth-child(2) {
+        padding: 0 5px;
+      }
+
+      &:before {
+        content: '';
+        padding: 0 !important;
+      }
+    }
+  }
+}
