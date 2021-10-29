@@ -12,7 +12,7 @@ export default function RecentProducts({ noTitle, slideNum = 4 }) {
 
   const responsiveSlider = [
     {
-      breakpoint: 1600,
+      breakpoint: 1500,
       settings: {
         slidesToShow: 5,
       },

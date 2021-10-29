@@ -177,7 +177,7 @@ export default function QuickView() {
                     {/* .product-meta-select end  */}
 
                     <div className="product--meta-action clearfix mb-0">
-                      <div className="mb-40">
+                      <div className="sm-mb-0 mb-40">
                         <div className="select-order">
                           <ProductQuantityCounter
                             productQt={productQt}
@@ -209,21 +209,6 @@ export default function QuickView() {
                             </svg>
                           </button>
                         </div>
-
-                        {/* <div className="product--share pull-right">
-                          <a className="share-facebook" href="#">
-                            <i className="fa fa-facebook"></i>
-                          </a>
-                          <a className="share-twitter" href="#">
-                            <i className="fa fa-twitter"></i>
-                          </a>
-                          <a className="share-google-plus" href="#">
-                            <i className="fa fa-pinterest-p"></i>
-                          </a>
-                          <a className="share-linkedin" href="#">
-                            <i className="fa fa-linkedin"></i>
-                          </a>
-                        </div> */}
 
                       </div>
                       {/* .product-share end  */}

@@ -1,5 +1,6 @@
 .shop-hero {
-
+	width: 100%;
+	
 	.breadcrumb {
 		display: flex;
 		justify-content: center;
@@ -18,5 +19,11 @@
 			padding: 0;
 			margin: 0;
 		}
+	}
+}
+
+@media ( max-width: 768px) {
+	#page-title .title-1 {
+		padding: 60px 0 0 !important;
 	}
 }

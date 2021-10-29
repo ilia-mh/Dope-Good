@@ -82,7 +82,7 @@ export default function ProductCard({ product, isInSlider }) {
 		dispatch( setProductQuickView(product) )
 	}
 
-	const wrapperClass = isInSlider ? 'col-sm-12 product-card-wrapper' : 'col-sm-12 col-md-6 col-lg-3'
+	const wrapperClass = isInSlider ? 'col-sm-12 product-card-slider-wrapper' : 'col-sm-12 col-md-6 product-card-wrapper'
 
   return (
     <div className={wrapperClass} >

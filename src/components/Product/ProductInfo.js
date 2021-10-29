@@ -97,7 +97,7 @@ export default function ProductInfo() {
   };
 
   return _id ? (
-    <div className="col-sm-12 col-md-12 col-lg-6 col-content">
+    <div className="col-sm-12 col-md-12 col-lg-6 col-content product-info-side">
       {/* <div className="mb-30">
         <ol className="breadcrumb">
           <li>
@@ -183,7 +183,7 @@ export default function ProductInfo() {
           className="product--meta-select product--meta-select2 select--color2"
           style={{ borderBottom: "none" }}
         >
-          <div className="row">
+          <div className="row" style={{ marginLeft: 0 }}>
             {options && options.color && (
               <ProductOptions
                 options={options.color}
@@ -192,7 +192,7 @@ export default function ProductInfo() {
               />
             )}
 
-            {options && options.size && (
+            {options && options.size.length > 1 && (
               <ProductOptions
                 options={options.size}
                 fullSize={true}

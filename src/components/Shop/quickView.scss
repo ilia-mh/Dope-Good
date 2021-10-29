@@ -1,5 +1,9 @@
 .modal.product-popup {
   background-color: rgba(47, 46, 46, 0.8) !important;
+	overflow-x: hidden;
+  overflow-y: auto;
+	z-index: 50;
+
 
 	.modal-dialog {
 		
@@ -8,6 +12,14 @@
 		align-items: center;
 		margin: 0 auto !important;
 		z-index: 50;
+	}
+
+	.slick-slide {
+		
+		img {
+			width: 100%;
+			padding: 0 20px;
+		}
 	}
 
   .modal-content {
@@ -35,77 +47,6 @@
 				}
       }
 
-      // .product--desc-tabs {
-      //   button {
-      //     color: #555555;
-      //     font-size: 14px;
-      //     font-weight: 700;
-      //     text-transform: capitalize;
-      //     border-radius: 0;
-      //     border: none;
-      //     padding: 0;
-      //     margin-right: 20px;
-
-      //     &.active {
-      //       color: #fff !important;
-      //     }
-      //   }
-
-      //   .tab-content {
-      //     p {
-      //       color: #555555;
-      //       margin-bottom: 35px;
-      //       font-size: 16px;
-      //       font-weight: 400;
-      //       line-height: 26px;
-      //     }
-      //   }
-      // }
-
-			// .product--meta-action {
-
-			// 	.qty {
-			// 		color: #000000;
-    	// 		width: 50px;
-			// 	}
-
-			// 	.add-to-card-btn {
-			// 		color: #fff;
-			// 	}
-
-			// 	button.fav {
-			// 		border-color: #252525;
-			// 		color: white;
-			// 		width: 40px;
-			// 		height: 40px;
-			// 		line-height: 40px;
-			// 		border-radius: 50%;
-			// 		text-align: center;
-			// 		font-size: 16px;
-			// 		border: 1px solid #d7d7d7;
-			// 		display: flex;
-			// 		justify-content: center;
-			// 		align-items: center;
-			// 		margin-right: 11px;
-			// 		transition: 0.3s all;
-
-			// 		svg {
-			// 			width: 20px;
-			// 			color: #f26c4f;
-			// 			transition: 0.3s all;
-			// 		}
-
-			// 		&:hover {
-			// 			background-color: #252525;
-			// 			border-color: #111;
-			// 			svg {
-			// 				color: #fff;
-			// 			}
-			// 		}
-			// 	}
-
-			// }
-
     }
   }
 }
@@ -122,4 +63,32 @@
 			}
 		}
 	}
+}
+
+@media (max-width: 991px) {
+
+	.modal.product-popup {
+		padding-right: 0 !important;
+	}
+
+	.modal.product-popup .modal-dialog {
+		margin: 50% auto 0 !important;
+	}
+
+	.product--meta-action>div {
+		margin-bottom: 15px !important;
+	}
+	
+}
+
+@media (max-width: 369px) {
+
+	.modal.product-popup {
+		padding-right: 0 !important;
+	}
+
+	.modal.product-popup .modal-dialog {
+		margin: 70% auto 0 !important;
+	}
+	
 }

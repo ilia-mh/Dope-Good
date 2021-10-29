@@ -1,3 +1,7 @@
+.filters-wrapper {
+	padding: 0 10px 0 20px !important;
+}
+
 .active-cat {
 	color: #475696 !important;
 
@@ -30,43 +34,57 @@
 	border: 2px solid #f26c4f;
 }
 
+.color--filter h4 {
+	margin-top: 40px !important;
+}
+
 .widget-color-form .color-option .color-1 span {
 	background-color: #fff !important;
 	border: none;
 }
 
 .widget-color-form .color-option .color-2 span {
-	background-color: brown !important;
+	background-color: #111 !important;
 	border: none;
 }
 
 .widget-color-form .color-option .color-3 span {
-	background-color: red !important;
+	background-color: #371e17 !important;
 	border: none;
 }
 
 .widget-color-form .color-option .color-4 span {
-	background-color: #475696 !important;
+	background-color: #bd111d !important;
 	border: none;
 }
 
 .widget-color-form .color-option .color-5 span {
-	background-color: #777 !important;
+	background-color: #213152 !important;
 	border: none;
 }
 
 .widget-color-form .color-option .color-6 span {
-	background-color: #222 !important;
+	background-color: #777 !important;
 	border: none;
 }
 
 .widget-color-form .color-option .color-7 span {
-	background-color: pink !important;
+	background-color: #cb9692 !important;
 	border: none;
 }
 
 .widget-color-form .color-option .color-8 span {
-	background-color: yellow !important;
+	background-color: #4c5634 !important;
+	border: none;
+}
+
+.widget-color-form .color-option .color-9 span {
+	background-color: #888fa2 !important;
+	border: none;
+}
+
+.widget-color-form .color-option .color-10 span {
+	background-color: #b8b195 !important;
 	border: none;
 }
 
@@ -93,4 +111,12 @@
 		width: 90%;
 		color: #111 !important;
 	}
+}
+
+@media (max-width: 991px) {
+
+	.filters-wrapper {
+		padding: 0 30px 50px !important;
+	}
+	
 }

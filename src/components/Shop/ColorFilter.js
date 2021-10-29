@@ -9,7 +9,7 @@ export default function ColorFilter() {
 
 	const [colors,setColors] = useState([])
 
-	const allColors = ['white','brown','red','blue','grey','black','pink','yellow']
+	const allColors = ['white','black','brown','red','blue','grey','pink','green','purple','beige']
 
 	const changeColorFilters = (color) => {
 

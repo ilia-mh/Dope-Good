@@ -44,7 +44,7 @@ export default function Filters() {
 	},[catParam,subcatParam,categories])
 
   return (
-    <div className="col-sm-12 col-md-12 col-lg-3">
+    <div className="col-sm-12 col-md-12 col-lg-3 filters-wrapper">
       <div className="sidebar cat-sidebar">
 
         <div className="widget widget-categories2">
@@ -102,48 +102,13 @@ export default function Filters() {
 						{/* Price Filter */}
             <PriceRange />
 
-						{/* Size Filter */}
-						{/* <SizeFilter /> */}
-
 						{/* Color Filter */}
 						<ColorFilter />
 
-            {/* <div className="brands--fiter">
-              <h4 className="subtitle">brands</h4>
-
-              <ul className="list-unstyled mb-0">
-                <li>
-                  <a href="#">
-                    Hendrerit<span>34</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    Nullam lacinia<span>104</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    Magna lacinia <span>28</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    Faucibus<span>31</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    Duis lacus<span>26</span>
-                  </a>
-                </li>
-              </ul>
-            </div> */}
 
           </div>
         
 				</div>
-        {/* .widget-filter end  */}
       </div>
     </div>
   );

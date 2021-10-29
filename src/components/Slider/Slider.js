@@ -69,12 +69,10 @@ export default function SlickSlider(props) {
     if (slideIdx !== idx) {
       carousel.slickGoTo(idx);
       setSlideIdx(idx);
-      // console.log(`going to slide ${idx}`);
     }
   };
 
   const carouselChanged = (e) => {
-    // console.log(e);
     if (slideIdx !== e) setSlideIdx(e);
   };
 

@@ -140,6 +140,12 @@ nav.navbar .nav-container {
 	color: #636363;
 	flex-shrink: 0;
 	cursor: pointer;
+	transition: all 0.3s ease;
+
+	&:hover {
+		color: #F26C4F;
+		
+	}
 }
 
 .right-part span {
@@ -158,6 +164,7 @@ nav.navbar .nav-container {
 		color: #636363;
 		flex-shrink: 0;
 		cursor: pointer;
+		transition: all 0.3s ease;
 	}
 
 	label.cart-module-label {
@@ -175,6 +182,13 @@ nav.navbar .nav-container {
 		left: 50%;
 		display: inline-block;
 		cursor: pointer;
+	}
+
+	&:hover {
+		.shopping-bag-icon {
+			color: #F26C4F;
+		}
+		
 	}
 }
 

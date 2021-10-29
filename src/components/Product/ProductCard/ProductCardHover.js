@@ -53,7 +53,7 @@ export default function ProductCardHover(props) {
   });
 
   const setDeviceSize = () => {
-    if (window.innerWidth < 768) setSmallDevice(true);
+    if (window.innerWidth <= 768) setSmallDevice(true);
     else setSmallDevice(false);
   }
 
