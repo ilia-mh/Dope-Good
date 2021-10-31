@@ -1,17 +1,22 @@
 #about-gallery {
 
+	
 	.left-side {
 		padding: 0 !important;
-
-		.about-carousel {
-
-			.gallery--item {
 		
+		.about-carousel {
+			
+			.gallery--item {
+				
 				img {
 					filter: brightness(50%);
-					object-fit: cover;
+					width: 100%;
 				}
 			}
+		}
+		
+		.heading.heading-2 .heading--subtitle {
+			font-weight: 700 !important;
 		}
 
 	}

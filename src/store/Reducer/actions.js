@@ -1,28 +1,25 @@
 
 export const setAllProductsAction = ( state, action ) => {
 
-	const { products, method } = action.payload
+	const { products } = action.payload
 
 	let mappedProducts
 
 	const { allUserFavs } = state
+
 	if( allUserFavs.length ) {
 		mappedProducts = addFavToProducts(products,allUserFavs)
 	} else mappedProducts = products
 
-	if( method === 'set' ) state.allProducts = mappedProducts
-	else {
 
-		if( state.allProducts.length ) {
-	
-			const Ids = state.allProducts.map( (_id) => _id )
-	
-			const newProducts = mappedProducts.filter( (_id) => !Ids.includes(_id) )
-			state.allProducts.push(...newProducts)
-	
-		} else 	state.allProducts.push(mappedProducts)
+	if( state.allProducts.length ) {
 
-	}
+		const Ids = state.allProducts.map( (_id) => _id )
+
+		const newProducts = mappedProducts.filter( (_id) => !Ids.includes(_id) )
+		state.allProducts.push(...newProducts)
+
+	} else 	state.allProducts.push(...mappedProducts)
 
 	filterProductsAction(state)
 
@@ -74,6 +71,16 @@ export const setCategoriesAction = ( state, action ) => {
 
 export const changeProductsFilterOptionsAction = ( state, { payload } ) => {
 	
+	if( payload.target === 'cat' ) {
+
+		if( payload.value.length > 1 ) {
+			state.filters.cat = payload.value[0]
+			state.filters.subCat = payload.value[1]
+		} else {
+			state.filters.cat = payload.value[0]
+		}
+	}
+
 	if( payload.target === 'price' ) {
 		state.filters.price = payload.value
 	}
@@ -209,9 +216,17 @@ export const setUserAction = ( state, { payload } ) => {
 
 const filterProductsAction = ( state ) => {
 
-	const { price, size, color } = state.filters
+	const { price, size, color, cat, subCat } = state.filters
 
 	const filteredProducts = state.allProducts.filter( product => {
+
+		if( cat ) {
+			if( !product.category.includes(cat)  ) return false
+		}
+
+		if( subCat ) {
+			if( !product.subCategory.includes(subCat) ) return false
+		}
 
 		// Price Filter
 		if( price && price.min ) {

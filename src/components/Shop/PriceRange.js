@@ -87,8 +87,8 @@ export default function PriceRange() {
 
 			<div className='range-counter'>
 
-				<span>$ { price[0] }</span>
-				<span>$ { price[1] }</span>
+				<span style={{ color: "#fff" }} >$ { price[0] }</span>
+				<span style={{ color: "#fff" }} >$ { price[1] }</span>
 
 			</div>
 		</div>

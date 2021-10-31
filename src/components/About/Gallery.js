@@ -14,6 +14,7 @@ export default function Gallery() {
       <div className="container-fluid">
         <div className="row about-intro-row">
           <div className="col-sm-12 col-md-12 col-lg-5 left-side">
+
             <div className="carousel owl-carousel about-carousel">
 
               <Slider>
@@ -30,6 +31,7 @@ export default function Gallery() {
 
 
             </div>
+            
             <div className="heading heading-2">
               <p className="heading--subtitle">HISTORY SINCE 1998</p>
               <h2 className="heading--title">
@@ -46,7 +48,7 @@ export default function Gallery() {
                   <p>
                     The third Monday of January is supposed to be the most
                     depressing day of the year. Whether you
-                    <span> believe that </span>or not, the long nights, cold
+                    <span style={{ fontWeight: 700 }}> believe that </span>or not, the long nights, cold
                     weather and trying to keep it is supposed to be the most
                     depressing day of the year
                   </p>

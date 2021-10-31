@@ -2,3 +2,37 @@
   width: 100% !important;
 }
 
+.load-more-holder {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .load-more-products-btn {
+    padding: 13px 35px;
+    color: #a1a1a1;
+    background-color: transparent;
+    border-color: #a1a1a1;
+    min-width: 160px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    position: relative;
+    vertical-align: middle;
+    touch-action: manipulation;
+    background-image: none;
+    border: 1px solid #a1a1a1;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #111;
+      background-color: #fff;
+    }
+  }
+}

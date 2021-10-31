@@ -1,8 +1,10 @@
 import React from "react";
 
+import './info.scss'
+
 export default function Info() {
   return (
-    <section id="interactive1" className="interactive interactive-1">
+    <section id="interactive1" className="interactive interactive-1 contact-info">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-4">

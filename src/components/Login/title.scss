@@ -22,6 +22,21 @@
 	}
 }
 
+.breadcrumb {
+
+	li {
+
+		&:nth-child(1) a {
+			color: #a1a1a1;
+
+			&:hover {
+				color: #F26C4F;
+			}
+		}
+
+	}
+}
+
 input {
 	text-transform: none !important;
 }
@@ -35,5 +50,33 @@ input {
 	button:hover {
 		background-color: rgba(0, 0, 0, 0.4);
 		color: #fff;
+	}
+}
+
+.forget--password {
+	color: #a1a1a1;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+.terms-check,.keep-logedin-check {
+
+	span.check-indicator {
+		padding: 2px !important;
+		top: 50%;
+		transform: translateY(-50%);
+
+		div.active-checkbox {
+			width: 100%;
+			height: 100%;
+			background-color: #F26C4F;
+			border-radius: 50%;
+		}
+
+		&:after {
+			display: none !important;
+		}
 	}
 }

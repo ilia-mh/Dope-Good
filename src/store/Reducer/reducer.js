@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { setAllProductsAction, setProductQuickViewAction, emptyProductQuickViewAction, getSingleProduct, toggleGettingProduct, userExistsAction, setUserAction,
-	  setRecentProductsAction, setCategoriesAction, changeProductsFilterOptionsAction, addToCartAction, removeFromCartAction, setInitialCartAction, clearCartAction,
-		changeCartItemQAction, toggleProductFavoriteAction, setAllFavsAction } from './actions'
+import { 
+		setAllProductsAction, setProductQuickViewAction, emptyProductQuickViewAction, getSingleProduct,
+		toggleGettingProduct, userExistsAction,	setUserAction, setRecentProductsAction, setCategoriesAction, changeProductsFilterOptionsAction,
+		addToCartAction, removeFromCartAction,	setInitialCartAction, clearCartAction,	changeCartItemQAction, toggleProductFavoriteAction,
+		setAllFavsAction,
+} from './actions'
 
 export const counterSlice = createSlice({
   name: 'products',
@@ -13,7 +16,6 @@ export const counterSlice = createSlice({
 		allUserFavs: [],
 		user: false,
 		categories: [],
-		subCategories: [],
 		quickViewProduct: {},
 		recentProducts: [],
 		filters: {
@@ -45,7 +47,9 @@ export const counterSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setAllProducts, setProductQuickView, emptyProductQuickView, setSingleProduct, changeGettingProduct, userExists, setUser, toggleProductFavorite,
-	setAllFavs, setRecentProducts, setCategories, changeProductsFilterOptions, addToCart, setInitialCart, removeFromCart, clearCart, changeCartItemQ } = counterSlice.actions
+export const { 
+	setAllProducts, setProductQuickView, emptyProductQuickView, setSingleProduct, changeGettingProduct, userExists, setUser, toggleProductFavorite,
+	setAllFavs, setRecentProducts, setCategories, changeProductsFilterOptions, addToCart, setInitialCart, removeFromCart, clearCart,
+	changeCartItemQ } = counterSlice.actions
 
 export default counterSlice.reducer

@@ -6,17 +6,16 @@ import Cart from "./Cart/Cart";
 import { Link, withRouter } from "react-router-dom";
 
 import { useSelector } from "react-redux";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { userExists } from "../../store/Reducer/reducer";
 
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 // images
 import Logo from "../../assets/images/logo/logo-light2.png";
 
 function Header({ history }) {
-
-	const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const { length: cartLength } = useSelector((state) => state.shop.cart);
   const user = useSelector((state) => state.shop.user);
@@ -33,21 +32,17 @@ function Header({ history }) {
   const cart = useRef(null);
 
   const Logout = () => {
-
-    localStorage.removeItem('user')
-    dispatch( userExists(false) )
-    setAccDropdown(false)
-    toast.success('You have successfully logged out')
-
-  }
+    localStorage.removeItem("user");
+    dispatch(userExists(false));
+    setAccDropdown(false);
+    toast.success("You have successfully logged out");
+  };
 
   const toggleMobileNav = () => {
+    if (!firstLoaded) setFirstLoaded(true);
 
-		if( !firstLoaded ) setFirstLoaded(true)
-
-		if( showMobileNav ) setshowMobileNav(false)
-		else setshowMobileNav(true)
-
+    if (showMobileNav) setshowMobileNav(false);
+    else setshowMobileNav(true);
   };
 
   history.listen((location, action) => {
@@ -64,7 +59,6 @@ function Header({ history }) {
     const loc = window.location.pathname;
 
     setActiveRoute(loc);
-
   }, []);
 
   const setActiveRoute = (loc) => {
@@ -92,35 +86,28 @@ function Header({ history }) {
 
   return (
     <header id="header">
-
       <Cart toggleShowCart={toggleShowCart} showCart={showCart} />
 
       <div className="container nav-holder">
         <nav className="navbar">
           <div className="nav-container">
             <div className="left-part">
+              <button className="big-screen-menu" onClick={toggleMobileNav}>
 
-							<button className="big-screen-menu" onClick={ toggleMobileNav }>
+                <svg xmlns="http://www.w3.org/2000/svg" className="burger-nav-menu" width="32px" height="32px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
 
-								<span className="menu--icon">
-									<span></span>
-									<span></span>
-									<span></span>
-								</span>
+              </button>
+            </div>
 
-								menu
-
-							</button>
-
-						</div>
-
-						<Link className="logo" to="/">
-							<img src={Logo} alt="Comfeey" />
-						</Link>
+            <Link className="logo" to="/">
+              <img src={Logo} alt="Comfeey" />
+            </Link>
 
             <div className="right-part">
-
               {/* Navigation Search */}
+
               <div className="nav-search" ref={search}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -138,14 +125,15 @@ function Header({ history }) {
                   />
                 </svg>
 
-                { showSearch && <Search toggle={toggleShowSearch} showSearch={showSearch} />}
+                {showSearch && (
+                  <Search toggle={toggleShowSearch} showSearch={showSearch} />
+                )}
               </div>
 
               <span>|</span>
 
               {/* Navigation Cart */}
               <div className="shop-cart" ref={cart} onClick={toggleShowCart}>
-
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="shopping-bag-icon"
@@ -160,83 +148,115 @@ function Header({ history }) {
                     d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                   />
                 </svg>
-								
-                {
-									cartLength ? 
-										<label className="cart-module-label">{cartLength}</label>
-									: 
-										''
-								}
+
+                {cartLength ? (
+                  <label className="cart-module-label">{cartLength}</label>
+                ) : (
+                  ""
+                )}
               </div>
-            
+
               <span>|</span>
-							
-							<div className="account">
-								{
-									user ?
-										<div className="acc-dropdown-btn" onClick={ () => setAccDropdown(!accDropdown) }>
-											Acc
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-										</div>
-									:
-										<Link to="/login">Login</Link>
-								}
 
-                <div className={`account-dropdown ${ accDropdown ? 'active' : '' }`} >
+              <div className="account">
+                {user ? (
+                  <div
+                    className="acc-dropdown-btn"
+                    onClick={() => setAccDropdown(!accDropdown)}
+                  >
+                    Acc
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                ) : (
+                  <Link to="/login">Login</Link>
+                )}
 
-                  <Link to="/profile" className="user-profile" onClick={ () => setAccDropdown(false) } >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <div
+                  className={`account-dropdown ${accDropdown ? "active" : ""}`}
+                >
+                  <Link
+                    to="/profile"
+                    className="user-profile"
+                    onClick={() => setAccDropdown(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
                     </svg>
                     profile
                   </Link>
 
-                  <div className="user-logout" onClick={Logout} onClick={ () => setAccDropdown(false) } >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  <div
+                    className="user-logout"
+                    onClick={Logout}
+                    onClick={() => setAccDropdown(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                      />
                     </svg>
                     Logout
                   </div>
-
                 </div>
-							</div>
+              </div>
 
-							<button
-								className="navbar-toggler"
-								type="button"
-								onClick={toggleMobileNav}
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									className="burger-menu"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M4 6h16M4 12h16m-7 6h7"
-									/>
-								</svg>
-							</button>
-
-						</div>
-
+              <button
+                className="navbar-toggler"
+                type="button"
+                onClick={toggleMobileNav}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="burger-nav-menu" width="32px" height="32px" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navbar */}
-          <div className={`mobile-nav ${ firstLoaded ? '' : 'd-none' } ${ showMobileNav ? 'showMobileNav' : 'hideMobileNav'} `}>
+          <div
+            className={`mobile-nav ${firstLoaded ? "" : "d-none"} ${
+              showMobileNav ? "showMobileNav" : "hideMobileNav"
+            } `}
+          >
             <ul className="navbar-ul ">
-
               <li className="nav-item">
                 <Link
                   className={`nav-link ${activePath === "home" && "active"} `}
                   to="/"
-									onClick={ () => setshowMobileNav(false) }
+                  onClick={() => setshowMobileNav(false)}
                 >
                   Home
                 </Link>
@@ -246,7 +266,7 @@ function Header({ history }) {
                 <Link
                   className={`nav-link ${activePath === "shop" && "active"} `}
                   to="/shop"
-									onClick={ () => setshowMobileNav(false) }
+                  onClick={() => setshowMobileNav(false)}
                 >
                   Shop
                 </Link>
@@ -254,9 +274,9 @@ function Header({ history }) {
 
               <li className="nav-item">
                 <Link
-									to="/about"
+                  to="/about"
                   className={`nav-link ${activePath === "about" && "active"} `}
-									onClick={ () => setshowMobileNav(false) }
+                  onClick={() => setshowMobileNav(false)}
                 >
                   About
                 </Link>
@@ -264,66 +284,105 @@ function Header({ history }) {
 
               <li className="nav-item">
                 <Link
-									to="/contact"
+                  to="/contact"
                   className={`nav-link ${
                     activePath === "contact" && "active"
                   } `}
-									onClick={ () => setshowMobileNav(false) }
+                  onClick={() => setshowMobileNav(false)}
                 >
                   Contact
                 </Link>
               </li>
 
               <li className="nav-item account">
-								{
-									user ?
-										<div className="acc-dropdown-btn nav-link" onClick={ () => setAccDropdown(!accDropdown) }>
-											Acc
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-										</div>
-									:
-										<Link to="/login" className="nav-link" onClick={ () => setshowMobileNav(false) }
+                {user ? (
+                  <div
+                    className="acc-dropdown-btn nav-link"
+                    onClick={() => setAccDropdown(!accDropdown)}
+                  >
+                    Acc
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
-                      Login
-                    </Link>
-								}
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="nav-link"
+                    onClick={() => setshowMobileNav(false)}
+                  >
+                    Login
+                  </Link>
+                )}
 
-                <div className={`account-dropdown ${ accDropdown ? 'active' : '' }`} >
-
-                  <Link to="/profile" className="user-profile" onClick={ () => setAccDropdown(false) }>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <div
+                  className={`account-dropdown ${accDropdown ? "active" : ""}`}
+                >
+                  <Link
+                    to="/profile"
+                    className="user-profile"
+                    onClick={() => setAccDropdown(false)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
                     </svg>
                     profile
                   </Link>
 
                   <div className="user-logout" onClick={Logout}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                      />
                     </svg>
                     Logout
                   </div>
-
                 </div>
-							</li>
-
-                {/* Navigation Search */}
-              <li 
-                className="nav-item search-item" 
-                onClick={toggleShowSearch}
-              >
-
-                <div className="nav-search nav-link" ref={burgerSearch}>
-                  Search
-
-                  { showSearch && <BurgerSearch toggle={toggleShowSearch} showSearch={showSearch} />}
-                </div>
-
-
               </li>
 
+              {/* Navigation Search */}
+              <li className="nav-item search-item" onClick={toggleShowSearch}>
+                <div className="nav-search nav-link" ref={burgerSearch}>
+                  Search
+                  {showSearch && (
+                    <BurgerSearch
+                      toggle={toggleShowSearch}
+                      showSearch={showSearch}
+                    />
+                  )}
+                </div>
+              </li>
             </ul>
           </div>
         </nav>

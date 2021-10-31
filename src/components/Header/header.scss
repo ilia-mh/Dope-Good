@@ -124,8 +124,10 @@ nav.navbar .nav-container {
 
 	a {
 		color: #636363;
-		font-size: 18px;
 		cursor: pointer;
+		font-size: 19px;
+    font-weight: 500;
+    height: 28px;
 	
 		&:hover {
 			color: #f26c4f;
@@ -228,6 +230,14 @@ nav.navbar .nav-container {
 .nav-link.active {
   color: #606da6;
 }
+
+.burger-nav-menu {
+	transition: all 0.3s ease-in-out;
+	
+	&:hover {
+		color: #fff;
+	}
+} 
 
 .mobile-nav {
   position: fixed;
@@ -396,7 +406,12 @@ nav.navbar .nav-container {
 	.big-screen-menu {
 		display: none;
 	}
-	
+
+	.burger-nav-menu {
+		width:28px;
+		height:28px;
+		margin-left: 10px;
+	}
 	
 	.navbar-toggler {
 		display: flex;
@@ -424,6 +439,10 @@ nav.navbar .nav-container {
 @media( max-width: 768px ){
 	.nav-holder {
 		max-width: 540px !important;
+	}
+
+	.burger-nav-menu {
+		margin-left: 0;
 	}
 
 	.right-part .shop-cart {

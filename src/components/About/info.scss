@@ -1,0 +1,14 @@
+.contact-info {
+
+  li {
+
+    a {
+      color: #a1a1a1 !important;
+      // font-weight: 500;
+
+      &:hover {
+        color: #fff !important;
+      }
+    }
+  }
+}

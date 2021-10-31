@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Hero from '../components/Shop/Hero'
 import Filters from '../components/Shop/Filters'
 import Products from '../components/Shop/Products'
@@ -16,35 +16,36 @@ export default function Shop() {
 	
 	let { cat, subcat } = useParams();
 
-	// const [currentPage,setCurrentPage] = useState(0)
+	const [currentPage,setCurrentPage] = useState(0)
+	const [pageEnd,setPageEnd] = useState(false)
 
 	const dispatch = useDispatch();
 
   useEffect(() => {
 
+		setPageEnd(false)
+
     async function fetchProducts() {
 
-			let path = `${apiUrl}/products`
+			let path = `${apiUrl}/products/`
 
 			if( cat ) {
 
-				if( subcat ) path += `/${cat}/${subcat}/0}`
-				else path += `/${cat}/0}`
+				if( subcat ) path += `${cat}/${subcat}/${currentPage}`
+				else path += `${cat}/${currentPage}`
 
-			}
+			} else path += currentPage
 
       const allProducts = await get(path);
 
-      dispatch(setAllProducts({ products: allProducts.products, method: 'set' }));
+			if( allProducts.products && allProducts.products.length < 12 ) setPageEnd(true)
+
+      dispatch(setAllProducts({ products: allProducts.products }));
     }
 
     fetchProducts();
 
-  }, [cat,subcat]);
-
-	// const loadMoreProducts = () => {
-	// 	setCurrentPage( currentPage + 1 )
-	// }
+  }, [cat,subcat,currentPage]);
 	
 	return (
 		<div style={{paddingTop: '100px', width: '100%'}} >
@@ -56,7 +57,7 @@ export default function Shop() {
 
 						<Filters />
 
-						<Products />
+						<Products setCurrentPage={setCurrentPage} currentPage={currentPage} pageEnd={pageEnd} />
 
 						<QuickView />
 

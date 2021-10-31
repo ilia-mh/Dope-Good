@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useHistory } from 'react-router-dom'
 import { useSelector } from "react-redux";
+// import { changeProductsFilterOptions } from "../../store/Reducer/reducer";
 
 import PriceRange from './PriceRange'
 // import SizeFilter from './SizeFilter'
@@ -13,8 +14,9 @@ export default function Filters() {
 	let { cat: catParam, subcat: subcatParam } = useParams();
 	const history = useHistory()
 
-  const categories = useSelector((state) => state.shop.categories);
+	// const dispatch = useDispatch()
 
+  const categories = useSelector((state) => state.shop.categories);
 
 	const [activeCat,setActiveCat] = useState(0)
 

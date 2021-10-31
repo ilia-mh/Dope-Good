@@ -8,6 +8,14 @@
 
     li {
 
+      &:nth-child(1) a {
+        color: #a1a1a1;
+
+        &:hover {
+          color: #F26C4F;
+        }
+      }
+
       &:nth-child(2) {
         padding: 0 5px;
       }

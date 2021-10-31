@@ -22,7 +22,7 @@ export default function Welcome() {
                 <p>
                   The third Monday of January is supposed to be the most
                   depressing day of the year. Whether you
-                  <span> believe that </span>or not, the long nights, cold
+                  <span style={{ fontWeight: 700 }}> believe that </span>or not, the long nights, cold
                   weather and trying to keep it
                 </p>
                 <p>

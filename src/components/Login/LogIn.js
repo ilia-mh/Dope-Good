@@ -19,6 +19,8 @@ export default function LogIn() {
 	const [password,setPassword] = useState('')
 	const [passwordErr,setPasswordErr] = useState('')
 
+	const [keepIn,setKeepIn] = useState(false)
+
 	const SendLogin = async () => {
 
 		checkFields()
@@ -114,16 +116,20 @@ export default function LogIn() {
             </div>
           </div>
 					
-          <div className="col-sm-12 col-md-12 col-lg-12 mb-40">
+          <div className="col-sm-12 col-md-12 col-lg-12 mb-40 keep-logedin-check">
             <div className="input-checkbox inline-block">
               <label className="label-checkbox" style={{ color: '#fff'}}>
                 Keep me logged in
-                <input type="checkbox" />
-                <span className="check-indicator"></span>
+                <input type="checkbox" value={keepIn} onChange={(e) => setKeepIn(!keepIn)}/>
+                <span className="check-indicator">
+                  {
+                    keepIn && <div className="active-checkbox"></div>
+                  }
+                </span>
               </label>
             </div>
 
-            <button type="button" className="forget--password">
+            <button type="button" className="forget--password" >
               Forgot your password?
             </button>
           </div>

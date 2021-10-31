@@ -137,12 +137,17 @@ export default function Register() {
             </div>
           </div>
 
-          <div className="col-sm-12 col-md-12 col-lg-12 mb-40">
+          <div className="col-sm-12 col-md-12 col-lg-12 mb-40 terms-check">
             <div className="input-checkbox inline-block">
               <label className="label-checkbox" style={{ color: "#fff" }} >
                 I accept the terms and conditions, including the Privacy
-                <input type="checkbox" value={termsAccept} onChange={(e) => setTermsAccept(!termsAccept)}/>
-                <span className="check-indicator"></span>
+                <input type="checkbox" value={termsAccept} onChange={(e) => setTermsAccept(!termsAccept)} />
+                <span className="check-indicator">
+                  {
+                    termsAccept && <div className="active-checkbox"></div>
+                  }
+                </span>
+
               </label>
             </div>
           </div>
