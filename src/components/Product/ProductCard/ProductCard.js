@@ -92,7 +92,7 @@ export default function ProductCard({ product, isInSlider }) {
         onMouseOver={() => productHovered()}
         onMouseLeave={() => productHoverOut()}
       >
-        <Link to={`/product/${_id}`} className="category--img" target="_blank">
+        <Link to={`/product/${_id}`} className="category--img" >
           <img
             src={`${apiUrl}/${_id}/${photos[0]}`}
             alt="category"
@@ -107,7 +107,7 @@ export default function ProductCard({ product, isInSlider }) {
               <Link
                 to={`/product/${_id}`}
                 onClick={() => goingToSingleProduct(_id)}
-                target="_blank"
+                
               >
                 {name}
               </Link>
