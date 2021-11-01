@@ -100,9 +100,9 @@ export default function Hero() {
 
 	}
 
-	// useEffect( () => {
-	// 	restartNextSlideTimer()
-	// }, [shownSlide])
+	useEffect( () => {
+		restartNextSlideTimer()
+	}, [shownSlide])
 
 	const findNextSlide = () => {
 		if( shownSlide >= slides.length - 1 ) return 0
@@ -149,7 +149,7 @@ export default function Hero() {
 						animate={controls}
 						transition={{ duration: 0.5, type: 'spring' }}
 					>
-						<img src={slides[findNextSlide()].img} />
+						<img src={slides[findNextSlide()].img} alt='Next Slide' />
 
 						<div className="slide-title">
 							<h1 >{slides[findNextSlide()].title}</h1>

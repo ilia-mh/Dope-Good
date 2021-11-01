@@ -1,12 +1,15 @@
 import React from "react";
+import Select from "../Select/Select";
 
 import './ProductOptions.scss'
 
-export default function ProductOptions({ options, fullSize, changeOption }) {
+export default function ProductOptions({ options, fullSize, changeOption, selectedOption }) {
 
 	console.log(options)
 
 	const convertOptions = (obj) => {
+
+    if( Array.isArray(obj) ) return obj
 
     let arr = [];
 
@@ -17,28 +20,13 @@ export default function ProductOptions({ options, fullSize, changeOption }) {
     return arr;
   };
 
-	const changeSelectedOption = (e) => {
-		changeOption(e.target.value.toLowerCase())
-	}
-
-	const wrapperClass = fullSize ? 'options-selector col-12 col-sm-12 col-md-6 col-lg-6' : 'col-6 col-sm-6 col-md-6 col-lg-6'
+	const wrapperClass = fullSize ? 'options-selector col-12 col-sm-12 col-md-6 col-lg-6' : 'options-selector col-6 col-sm-6 col-md-6 col-lg-6'
 
   return (
     <div className={wrapperClass} style={{ paddingLeft: 0 }} >
-      <div className="select--box">
-        <i className="fa fa-caret-down"></i>
-        <select className="form-control" onChange={changeSelectedOption} >
-          {convertOptions(options).map((option) => {
-            const { name } = option;
 
-            return (
-              <option value={name} key={name}>
-                {name}
-              </option>
-            );
-          })}
-        </select>
-      </div>
+      <Select items={convertOptions(options)} setSelectedItem={changeOption} selectedItem={selectedOption} />
+
     </div>
   );
 }

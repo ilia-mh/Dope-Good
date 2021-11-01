@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { range } from '../../../utils/range'
 
 import NewComment from './NewComment'
 import Comment from './Comment'

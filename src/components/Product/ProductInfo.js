@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { addToCart, toggleProductFavorite } from "../../store/Reducer/reducer";
 import { post } from "../../utils/fetch";
 import { toast } from "react-toastify";
@@ -184,21 +183,29 @@ export default function ProductInfo() {
           style={{ borderBottom: "none" }}
         >
           <div className="row" style={{ marginLeft: 0 }}>
-            {options && options.color && (
-              <ProductOptions
-                options={options.color}
-                fullSize={true}
-                changeOption={setSelectedColor}
-              />
-            )}
 
-            {options && options.size.length > 1 && (
-              <ProductOptions
-                options={options.size}
-                fullSize={true}
-                changeOption={setSelectedSize}
-              />
-            )}
+            {
+              options && options.color && (
+                <ProductOptions
+                  options={options.color}
+                  fullSize={true}
+                  changeOption={setSelectedColor}
+                  selectedOption={selectedColor}
+                />
+              )
+            }
+
+            {
+              options && options.size.length > 1 && (
+                <ProductOptions
+                  options={options.size}
+                  fullSize={true}
+                  changeOption={setSelectedSize}
+                  selectedOption={selectedSize}
+                />
+              )
+            }
+
           </div>
         </div>
         {/* .product-meta-select end  */}

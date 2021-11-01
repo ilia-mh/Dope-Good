@@ -149,7 +149,6 @@ export default function NewComment({ product_id, replyTo, toggleReplyFor }) {
                   "
             >
               <button
-                type="submit"
                 className="btn btn--primary btn--rounded"
                 onClick={submitReview}
                 type="button"

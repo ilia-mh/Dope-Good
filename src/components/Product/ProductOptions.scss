@@ -1,24 +1,26 @@
 .options-selector {
   border: 1px solid #e1e1e11e;
+  border-right: 1px solid #e1e1e11e !important;
   padding: 0;
   margin: 0;
+  padding-right: 0 !important;
 
-  .select--box {
+  // .select--box {
 
-    .fa-caret-down {
-      top: 50%;
-      transform: translateY(-50%)
-    }
+  //   .fa-caret-down {
+  //     top: 50%;
+  //     transform: translateY(-50%)
+  //   }
 
-    select {
-      height: 54px;
-      border: none;
-      font-size: 12px;
-      font-weight: 700;
-      font-family: "Montserrat", sans-serif;
-      text-transform: uppercase;
-      margin-bottom: 0;
-      padding: 0 15px;
-    }
-  }
+  //   select {
+  //     height: 54px;
+  //     border: none;
+  //     font-size: 12px;
+  //     font-weight: 700;
+  //     font-family: "Montserrat", sans-serif;
+  //     text-transform: uppercase;
+  //     margin-bottom: 0;
+  //     padding: 0 15px;
+  //   }
+  // }
 }

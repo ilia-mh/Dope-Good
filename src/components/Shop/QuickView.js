@@ -17,8 +17,8 @@ export default function QuickView() {
   const dispatch = useDispatch();
 
   const [productQt, setProductQt] = useState(1);
-  const [selectedColor, setselectedColor] = useState('');
-  const [selectedSize, setselectedSize] = useState('');
+  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
 
   const {
     name,
@@ -50,16 +50,16 @@ export default function QuickView() {
 
 	useEffect( () => {
 
-		if( product && product.options ) {
+		if( options ) {
 
-			const { color, size } = product.options
+			const { color, size } = options
 
 			if( color ) {
-				setselectedColor( color[0] )
+				setSelectedColor( color[0].name )
 			}
 	
 			if( size ) {
-				setselectedSize( size[0] )
+				setSelectedSize( size[0].name )
 			}
 		}
 
@@ -163,18 +163,30 @@ export default function QuickView() {
                       <form className="mb-30">
                         <div className="row">
                           
-                          <ProductOptions options={options.color} changeOption={ setselectedColor } />
+                          {
+                            options && options.color && (
+                              <ProductOptions
+                                options={options.color}
+                                changeOption={setSelectedColor}
+                                selectedOption={selectedColor}
+                              />
+                            )
+                          }
 													
 													{
-														options.size &&
-															<ProductOptions options={options.size} changeOption={ setselectedSize } />
-													}
-                          {/* .col-md-6  */}
+                            options && options.size && options.size.length > 1 && (
+                              <ProductOptions
+                                options={options.size}
+                                changeOption={setSelectedSize}
+                                selectedOption={selectedSize}
+                              />
+                            )
+                          }
+                          
                         </div>
-                        {/* .row  */}
+
                       </form>
                     </div>
-                    {/* .product-meta-select end  */}
 
                     <div className="product--meta-action clearfix mb-0">
                       <div className="sm-mb-0 mb-40">

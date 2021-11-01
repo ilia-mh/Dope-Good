@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 import Logo from "../../assets/images/logo/logo-light2.png";
 
 function Header({ history }) {
+
   const dispatch = useDispatch();
 
   const { length: cartLength } = useSelector((state) => state.shop.cart);
@@ -212,7 +213,6 @@ function Header({ history }) {
                   <div
                     className="user-logout"
                     onClick={Logout}
-                    onClick={() => setAccDropdown(false)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { post } from "../../utils/fetch";
 import { useDispatch } from "react-redux";
 import { userExists } from "../../store/Reducer/reducer";

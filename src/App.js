@@ -22,7 +22,6 @@ import Checkout from './views/Checkout'
 import Cart from './views/Cart'
 import Login from './views/Login'
 import Product from './views/Product'
-import NewProduct from './views/NewProduct'
 
 import './App.scss'
 
