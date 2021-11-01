@@ -22,7 +22,7 @@ export default function Footer() {
                 </div>
               </div>
               <div className="footer--copyright">
-                <span>&copy; 2019 Comfeey - All Rights Reserved, by </span>
+                <span>&copy; 2019 Comfeey - All Rights Reserved,<br/>by </span>
                 <a href="https://amirmohseni.dev">Amir Mohseni</a>
               </div>
               {/* .footer-copyright end  */}

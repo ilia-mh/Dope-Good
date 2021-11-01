@@ -3,13 +3,32 @@
 	.feature-panel {
 		display: flex !important;
 		align-items: center !important;
+		justify-content: center;
+
+		.feature--icon {
+			position: relative !important;
+			display: flex;
+			align-items: center;
+			height: 40px;
+			top: 0 !important;
+	
+			svg {
+				width: 35px;
+			}
+		}
+
+		.feature--content {
+			padding-left: 10px !important;
+		}
 	}
 
-	.feature--icon {
-		display: flex;
+}
 
-		svg {
-			width: 35px;
+@media ( max-width: 768px ) {
+	.features-section {
+
+		.feature-panel {
+			justify-content: flex-start;
 		}
 	}
 }

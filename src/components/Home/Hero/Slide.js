@@ -39,7 +39,7 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
       y: 0,
       transition: {
         duration: 1.4,
-        delay: 0.8
+        delay: 0.1
       }
     },
     exit: {
@@ -61,7 +61,7 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
       rotateZ: 270,
       transition: {
         duration: 1,
-        delay: 1.2
+        delay: 0.3
       }
     },
     exit: {

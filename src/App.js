@@ -84,7 +84,8 @@ function App() {
 		closeOnClick: true,
 		pauseOnFocusLoss: false,
 		draggable: true,
-		pauseOnHover: true
+		pauseOnHover: true,
+		theme: "dark"
 	}
 
   return (
