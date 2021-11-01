@@ -122,11 +122,7 @@ export default function NewProduct() {
       secret: ''
     }
 
-    console.log( newProduct)
-
     const createdProduct = await post(`${apiUrl}/api/products`, newProduct)
-
-    console.log(createdProduct)
 
     if( createdProduct.success ) {
       toast.success('Product Created Successfully')
@@ -148,16 +144,12 @@ export default function NewProduct() {
         if( state.length === 0 ) {
           reqsAndErr.errs[idx]('Field Required')
           validationRes = false
-          console.log(`validation for ${idx} failed`)
-          console.log(state)
         }
       } else if ( Array.isArray(state) ) {
 
         if( typeof state[0] === 'string' && !state[0].length ) {
           reqsAndErr.errs[idx]('Field Required')
           validationRes = false
-          console.log(`validation for ${idx} failed`)
-          console.log(state)
         } 
       }
     })

@@ -21,8 +21,6 @@ export default function Products({ setCurrentPage, currentPage, pageEnd }) {
 
   const isThereMoreProduct = () => {
 
-    const totalProducts = categories.length && categories.reduce((total, { count }) => total + count, 0)
-
     if( cat || subcat ) {
 
       if( subcat ) {
@@ -39,11 +37,12 @@ export default function Products({ setCurrentPage, currentPage, pageEnd }) {
         }
 
         return false
-
         
       }
 
     } else {
+      const totalProducts = categories.length && categories.reduce((total, { count }) => total + count, 0)
+
       if( allProducts.length < totalProducts ) return true
       else return false
     }

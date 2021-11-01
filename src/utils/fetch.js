@@ -14,7 +14,6 @@ async function request(
   type = ""
 ) {
   let resp;
-  console.log(url);
 
   try {
     if (type === "upload") {
@@ -114,13 +113,10 @@ async function request(
       return false;
     }
   }
-
-  console.log(resp);
   return resp;
 }
 
 function LogOffUser() {
-	console.log('logging out')
   localStorage.removeItem("user");
 }
 

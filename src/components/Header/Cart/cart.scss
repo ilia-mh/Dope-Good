@@ -50,17 +50,18 @@
 				.img-wrapper {
 					width: 100px;
 					height: 150px !important;
-					background-color: #fff;
+					// background-color: #fff;
 					display: flex;
 					align-items: center;
 					justify-content: center;
+					border-bottom: none !important;
 
 					img{
-						width: 90%;
+						max-width: 90%;
+						max-height: 90%;
 						position: relative !important;
 					}
 				}
-
 
 				div.product-meta {
 					padding-left: 24px !important;
@@ -69,11 +70,22 @@
 
 					.product-qunt {
 						color: #a1a1a1 !important;
+						margin-bottom: 5px !important;
+						font-size: 14px !important;
+					}
+
+					.product-color {
+						color: #a1a1a1 !important;
+						font-size: 14px !important;
+					}
+
+					.product-size {
+						color: #a1a1a1 !important;
+						font-size: 14px !important;
 					}
 
 					.product-price {
 						color: #a1a1a1 !important;
-
 					}
 				}
 

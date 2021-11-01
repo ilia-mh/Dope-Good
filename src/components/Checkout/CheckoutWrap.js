@@ -8,9 +8,9 @@ export default function CheckoutWrap() {
         <div className="container">
           <div className="row">
             
-						<CheckoutForm />
+            <CheckoutForm />
 
-						<CheckoutInfo />
+            <CheckoutInfo />
               
           </div>
            {/* .row end  */}

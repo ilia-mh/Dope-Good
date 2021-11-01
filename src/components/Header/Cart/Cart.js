@@ -9,6 +9,8 @@ import { removeFromCart } from "../../../store/Reducer/reducer";
 const apiUrl = `${process.env.REACT_APP_API_URL}`;
 
 export default function Cart({ toggleShowCart, showCart }) {
+
+  const allProducts = useSelector((state) => state.shop.allProducts);
   const cart = useSelector((state) => state.shop.cart);
   const dispatch = useDispatch();
 
@@ -25,6 +27,14 @@ export default function Cart({ toggleShowCart, showCart }) {
 		console.log('toggling cart module')
 		if ( showCart ) toggleShowCart()
 	}
+  
+  const doesNeedSize = (id) => {
+
+    const productIdx = allProducts.findIndex( ({ _id }) => _id === id )
+
+    if( productIdx !== -1 ) return allProducts[productIdx].options.size.length > 1
+    else return false
+  }
 
   return (
     <div>
@@ -48,7 +58,7 @@ export default function Cart({ toggleShowCart, showCart }) {
         <div className="cart-overview">
           {cart.length ?
             cart.map((product, idx) => {
-              const { name, q, price, img, _id } = product;
+              const { name, q, price, img, options, _id } = product;
 
               return (
                 <div key={idx}>
@@ -63,6 +73,11 @@ export default function Cart({ toggleShowCart, showCart }) {
                   <div className="product-meta">
                     <h5 className="product-title">{name}</h5>
                     <p className="product-qunt">Quantity: {q}</p>
+                    <p className="product-color">Color: {options.color}</p>
+                    {
+                      doesNeedSize(_id) &&
+                        <p className="product-size">Size: {options.size}</p>
+                    }
                     <p className="product-price">${price.toFixed(2)}</p>
                   </div>
                   <button

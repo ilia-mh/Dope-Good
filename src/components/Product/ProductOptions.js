@@ -5,8 +5,6 @@ import './ProductOptions.scss'
 
 export default function ProductOptions({ options, fullSize, changeOption, selectedOption }) {
 
-	console.log(options)
-
 	const convertOptions = (obj) => {
 
     if( Array.isArray(obj) ) return obj

@@ -7,21 +7,35 @@ export const setAllProductsAction = ( state, action ) => {
 
 	const { allUserFavs } = state
 
-	if( allUserFavs.length ) {
-		mappedProducts = addFavToProducts(products,allUserFavs)
-	} else mappedProducts = products
-
 
 	if( state.allProducts.length ) {
 
-		const Ids = state.allProducts.map( (_id) => _id )
+		const Ids = state.allProducts.map( ({ _id }) => _id )
 
-		const newProducts = mappedProducts.filter( (_id) => !Ids.includes(_id) )
-		state.allProducts.push(...newProducts)
+		const newProducts = products.filter( ({_id}) => !Ids.includes(_id) )
 
-	} else 	state.allProducts.push(...mappedProducts)
+		if( newProducts.length ) {
 
-	filterProductsAction(state)
+			if( allUserFavs.length ) {
+				mappedProducts = addFavToProducts(products,allUserFavs)
+			} else mappedProducts = products
+			
+			state.allProducts.push(...newProducts)
+
+			filterProductsAction(state)
+		}
+		
+
+	} else {
+
+		if( allUserFavs.length ) {
+			mappedProducts = addFavToProducts(products,allUserFavs)
+		} else mappedProducts = products
+		
+		state.allProducts.push(...mappedProducts)
+		filterProductsAction(state)
+	}
+
 
 }
 
@@ -280,13 +294,8 @@ const addFavToProducts = (products,favs) => {
 
 const compareOptions = (option1, option2) => {
 
-	if( option1.color.code !== option2.color.code || option1.color.name !== option2.color.name ) {
+	if( option1.color !== option2.color || option1.size !== option2.size  ) {
 		return false
-	}
+	} else return true
 
-	if( option1.size.code !== option2.size.code || option1.size.name !== option2.size.name ) {
-		return false
-	}
-
-	return true
 }

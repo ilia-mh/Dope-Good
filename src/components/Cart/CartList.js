@@ -5,6 +5,8 @@ import { removeFromCart, clearCart, changeCartItemQ } from "../../store/Reducer/
 
 import './cartlist.scss'
 
+import ProductQ from './ProductQ'
+
 const apiUrl = process.env.REACT_APP_API_URL
 
 export default function CartList() {
@@ -31,12 +33,16 @@ export default function CartList() {
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-12">
             <div className="cart-table table-responsive">
-              <table className="table">
+              <table className="table" >
                 <thead>
                   <tr className="cart-product">
                     <th className="cart-product-item">PRODUCT NAME</th>
+										
                     <th className="cart-product-price">UNIT PRICE</th>
+
+                    <th className="cart-product-price-quantity-mobile">PRICE & Q</th>
                     <th className="cart-product-quantity">Quantity</th>
+										
                     <th className="cart-product-total">Total</th>
                   </tr>
                 </thead>
@@ -51,6 +57,7 @@ export default function CartList() {
 
 												return (
 													<tr className="cart-product" key={idx}>
+
 														<td className="cart-product-item">
 
 															<div className="cart-product-img">
@@ -66,20 +73,36 @@ export default function CartList() {
 																<ul className="list-unstyled mb-0 options">
 																	<li>
 																		<span>Color:</span>
-																		<span>{options.color.name}</span>
+																		<span>{options.color}</span>
 																	</li>
 																	<li>
 																		<span>Size:</span>
-																		<span>{options.size.name}</span>
+																		<span>{options.size}</span>
 																	</li>
 																</ul>
 
 															</div>
 
 														</td>
-														<td className="cart-product-price">${ price.toFixed(2)}</td>
+
+														<td className="cart-product-price">
+
+															<span>${ price.toFixed(2)}</span>
+
+														</td>
+
 														<td className="cart-product-quantity">
-															<div className="product-quantity">
+
+															<ProductQ 
+																changeCartItemQuantity={changeCartItemQuantity}
+																q={q}
+																idx={idx}
+															/>
+
+															<span>${ price.toFixed(2)}</span>
+
+
+															{/* <div className="product-quantity">
 
 																<input className="minus" type="button" value="-" onClick={ () => changeCartItemQuantity(idx,-1) } />
 
@@ -93,7 +116,8 @@ export default function CartList() {
 
 																<input className="plus" type="button" value="+" onClick={ () => changeCartItemQuantity(idx,1) } />
 
-															</div>
+															</div> */}
+
 														</td>
 														<td className="cart-product-total">
 															<span>${ (price * q).toFixed(2) }</span>

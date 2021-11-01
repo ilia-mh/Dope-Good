@@ -46,7 +46,7 @@ export default function Select({ items, selectedItem, setSelectedItem }) {
       </div>
       
       <motion.div 
-        className="options-modal"
+        className={`options-modal ${showModal ? 'active' : ''}`}
         variants={optionModalAnimation}
         initial={'hidden'}
         animate={ showModal ? 'animate' : 'hidden' }

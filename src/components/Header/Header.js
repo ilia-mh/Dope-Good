@@ -5,8 +5,7 @@ import BurgerSearch from "./BurgerSearch/BurgerSearch";
 import Cart from "./Cart/Cart";
 import { Link, withRouter } from "react-router-dom";
 
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { userExists } from "../../store/Reducer/reducer";
 
 import { toast } from "react-toastify";

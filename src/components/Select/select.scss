@@ -29,10 +29,13 @@
   .options-modal {
     width: 100%;
     position: absolute;
-    top: 100%;
     left: 0;
     background-color: #111;
-    z-index: 10;
+    z-index: -10;
+    
+    &.active {
+      z-index: 10;
+    }
 
     .option {
       width: 100%;

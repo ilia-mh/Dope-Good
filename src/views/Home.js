@@ -27,9 +27,6 @@ export default function Home() {
 	const getRecentProducts = async () => {
 
 		const allRecentProducts = await get(`${apiUrl}/api/recentproducts`);
-
-		console.log('allRecentProducts')
-		console.log(allRecentProducts)
 			
 		if( allRecentProducts.success ) {
 			dispatch(setRecentProducts(allRecentProducts.products));
