@@ -14,6 +14,7 @@ header#header {
 
 .nav-holder {
 	max-width: 1140px !important;
+	position: relative;
 }
 
 .logo {
@@ -21,6 +22,10 @@ header#header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	top: 50%;
 }
 
 nav.navbar {
