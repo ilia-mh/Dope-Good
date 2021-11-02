@@ -4,7 +4,7 @@ import Content from '../components/Terms/Content'
 
 export default function Terms() {
 	return (
-		<div style={{paddingTop: '150px' }} >
+		<div className="view-wrapper" >
 			
 			<Title />
 

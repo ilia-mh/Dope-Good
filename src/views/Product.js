@@ -46,7 +46,7 @@ export default function Product() {
   };
 
   return (
-    <div style={{ paddingTop: "150px" }}>
+    <div className="view-wrapper" >
       <Hero />
 
       <ProductIntro />

@@ -35,7 +35,7 @@ export default function Home() {
 	}
 
 	return (
-		<div style={{paddingTop: '100px' }}>
+		<div className="view-wrapper" >
 			<Hero />
 			<Welcome />
 			<HeroSupport />

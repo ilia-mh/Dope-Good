@@ -98,9 +98,25 @@ body {
 	padding-right: 0;
 }
 
+.view-wrapper {
+	padding-top: 150px;
+}
+
 @media ( max-width: 550px ) {
 	.container {
 		padding-left: 25px;
 		padding-right: 25px;
+	}
+
+	.view-wrapper {
+		padding-top: 100px !important;
+	}
+	
+}
+
+@media ( min-width: 1600px ) {
+
+	.container {
+		max-width: 1400px !important;
 	}
 }

@@ -5,7 +5,7 @@ import CheckoutWrap from '../components/Checkout/CheckoutWrap'
 
 export default function Checkout() {
 	return (
-		<div style={{paddingTop: '150px' }}>
+		<div className="view-wrapper" >
 
 			<Title />
 

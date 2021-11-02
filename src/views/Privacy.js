@@ -4,7 +4,7 @@ import Content from '../components/Privacy/Content'
 
 export default function Privacy() {
 	return (
-		<div style={{paddingTop: '150px' }} >
+		<div className="view-wrapper" >
 			
 			<Title />
 

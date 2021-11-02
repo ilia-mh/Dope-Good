@@ -4,7 +4,7 @@ import LoginWrapper from '../components/Login/LoginWrapper'
 
 export default function Login() {
 	return (
-		<div style={{paddingTop: '150px' }} >
+		<div className="view-wrapper" >
 
 			<Title />
 			

@@ -119,7 +119,7 @@ export default function Shop() {
   }
 	
 	return (
-		<div style={{paddingTop: '100px', width: '100%'}} >
+		<div className="view-wrapper" style={{ width: '100%'}} >
 			<Hero />
 
 			<section id="category" className="category category-1">
