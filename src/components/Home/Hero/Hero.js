@@ -57,37 +57,25 @@ export default function Hero() {
 	]
 
 	const startNextSlideTimer = () => {
-		timeOut = setTimeout( () => goToNextSlide() , 6500)
-	}
 
-	const restartNextSlideTimer = () => {
-		// clearTimeout(timeOut)
-		startNextSlideTimer()
-	}
-
-	const goToNextSlide = () => {
-
-		const slideBefore = shownSlide
-		const nextSlide = shownSlide >= slides.length - 1 ? 0 : (shownSlide + 1)
-
-		controls.start('hidden')
-		setShownSlide(nextSlide)
-
-		tl.fromTo(`.slider-${slideBefore}`,{ x:0 }, { x: '-100vw' })
-		tl.fromTo(`.slider-${nextSlide}`,{ x: '100vw' }, { x: '0vw' })
+		timeOut = setTimeout(() => {
+			goToNextSlide()
+		}, 7000);
 
 	}
 
-	const nextSlidePrevAnimation = {
-		hidden: {
-			opacity: 0,
-			x: 40
-		},
-		visible: {
-			opacity: 1,
-			x: 0	
+		const goToNextSlide = () => {
+			
+			const slideBefore = shownSlide
+			const nextSlide = findNextSlide()
+			
+			controls.start('hidden')
+			setShownSlide(nextSlide)
+			
+			tl.fromTo(`.slider-${slideBefore}`,{ x:0 }, { x: '-100vw' })
+			tl.fromTo(`.slider-${nextSlide}`,{ x: '100vw' }, { x: '0vw' })
+
 		}
-	}
 
 	const goToSlide = (slideIdx) => {
 
@@ -100,12 +88,13 @@ export default function Hero() {
 	}
 
 	useEffect( () => {
-		restartNextSlideTimer()
+		clearTimeout(timeOut)
+		startNextSlideTimer()
 	}, [shownSlide])
 
 	const findNextSlide = () => {
 		if( shownSlide >= slides.length - 1 ) return 0
-		else return shownSlide + 1
+		return shownSlide + 1
 	}
 
 	const setTouchStart = (e) => {
@@ -147,6 +136,17 @@ export default function Hero() {
 
 	}
 
+	const nextSlidePrevAnimation = {
+		hidden: {
+			opacity: 0,
+			x: 40
+		},
+		visible: {
+			opacity: 1,
+			x: 0	
+		}
+	}
+
 	return (
 		<div className="slideshow-main" 
 			onTouchStart={setTouchStart} 
@@ -179,7 +179,7 @@ export default function Hero() {
 					className="nextSlideBtn"
 					onHoverStart={ () => controls.start('visible')}
 					onHoverEnd={ () => controls.start('hidden')}
-					onClick={goToNextSlide}
+					onClick={ () => goToSlide(findNextSlide()) }
 				>
 
 					<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
