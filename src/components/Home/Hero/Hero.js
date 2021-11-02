@@ -109,6 +109,9 @@ export default function Hero() {
 	}
 
 	const setTouchStart = (e) => {
+
+		console.log(e._reactName)
+
 		if( e._reactName === 'onDragStart' ) {
 			setCurrentMousPos(e.pageX)
 		} else if( e._reactName === 'onTouchStart' ) {
@@ -122,7 +125,7 @@ export default function Hero() {
 
 		if( e._reactName === 'onDragEnd' ) {
 			endPoint = e.pageX
-		} else if( e._reactName === 'onTouchStart' ) {
+		} else if( e._reactName === 'onTouchEnd' ) {
 			endPoint = e.changedTouches[0].pageX
 		}
 
