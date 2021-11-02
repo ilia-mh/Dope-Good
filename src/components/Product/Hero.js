@@ -9,7 +9,7 @@ export default function Hero() {
         id="product-detalis10"
         className="product-hero product-detalis product-detalis-3 product-detalis-11 pt-0 pb-140 "
       >
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
 
 						<ProductSlider />

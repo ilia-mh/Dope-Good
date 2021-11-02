@@ -14,7 +14,7 @@ export default function ProductSlider() {
 
   return (
 		photos ?
-    <div className="col-sm-12 col-md-12 col-lg-6 product-carousel">
+    <div className="col-sm-12 col-md-12 col-lg-7 product-carousel">
       <div className="carousel">
         <Slider gallery={selectedPhotos().map((photo,idx) => `${apiUrl}/${_id}/${photo}`)}>
 

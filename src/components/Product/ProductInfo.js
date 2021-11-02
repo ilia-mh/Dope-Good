@@ -96,7 +96,7 @@ export default function ProductInfo() {
   };
 
   return _id ? (
-    <div className="col-sm-12 col-md-12 col-lg-6 col-content product-info-side">
+    <div className="col-sm-12 col-md-12 col-lg-5 col-content product-info-side">
       {/* <div className="mb-30">
         <ol className="breadcrumb">
           <li>
