@@ -50,7 +50,7 @@ export default function FeaturedCollection() {
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-12">
             <div className="features-carousel">
-              <SlickSlider showDots={true}>
+              <SlickSlider showDots={true} >
 
                 {
                   featureCollections.map( (feature,idx) => {

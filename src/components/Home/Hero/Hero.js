@@ -19,6 +19,7 @@ export default function Hero() {
 	const controls = useAnimation()
 
 	const [ shownSlide, setShownSlide ] = useState(0);
+	const [ currentMousPos, setCurrentMousPos ] = useState(0);
 
 	const slides = [
 		{
@@ -60,9 +61,7 @@ export default function Hero() {
 	}
 
 	const restartNextSlideTimer = () => {
-		clearTimeout()
-		clearTimeout(timeOut)
-		timeOut = null
+		// clearTimeout(timeOut)
 		startNextSlideTimer()
 	}
 
@@ -109,9 +108,51 @@ export default function Hero() {
 		else return shownSlide + 1
 	}
 
+	const setTouchStart = (e) => {
+		if( e._reactName === 'onDragStart' ) {
+			setCurrentMousPos(e.pageX)
+		} else if( e._reactName === 'onTouchStart' ) {
+			setCurrentMousPos(e.changedTouches[0].pageX)
+		}
+	}
+	
+	const setTouchEnd = (e) => {
+
+		let endPoint
+
+		if( e._reactName === 'onDragEnd' ) {
+			endPoint = e.pageX
+		} else if( e._reactName === 'onTouchStart' ) {
+			endPoint = e.changedTouches[0].pageX
+		}
+
+		if( Math.abs( currentMousPos - endPoint ) > 20 ) {
+
+			if( (endPoint - currentMousPos) < 0 ) {
+
+				if( shownSlide === (slides.length - 1) ) goToSlide(0)
+				else goToSlide(shownSlide + 1)
+			} else {
+
+				if( shownSlide === 0 ) goToSlide(slides.length - 1)
+				else goToSlide(shownSlide - 1)
+
+			}
+		}
+
+		setCurrentMousPos(0)
+
+	}
+
 	return (
-		<div className="slideshow-main">
-			<div className="slider-wrapper">
+		<div className="slideshow-main" 
+			onTouchStart={setTouchStart} 
+			onDragStart={setTouchStart}
+			onTouchEnd={setTouchEnd} 
+			onDragEnd={setTouchEnd}
+			draggable={true}
+		>
+			<div className="slider-wrapper"  >
 
 				<div className="all-slides">
 				{

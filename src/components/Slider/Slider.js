@@ -17,7 +17,7 @@ export default function SlickSlider(props) {
     slidesToShow,
     responsive,
     gallery,
-    swipeToSlide,
+    swipeToSlide
   } = props;
 
   const settings = {
@@ -31,6 +31,7 @@ export default function SlickSlider(props) {
     autoplaySpeed: 4000,
     swipeToSlide: swipeToSlide || false,
     responsive: responsive || [],
+    touchThreshold: 25
   };
 
   const range = (from, to) => {
