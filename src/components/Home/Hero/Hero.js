@@ -58,6 +58,8 @@ export default function Hero() {
 
 	const startNextSlideTimer = () => {
 
+		clearTimeout(timeOut)
+
 		timeOut = setTimeout(() => {
 			goToNextSlide()
 		}, 7000);
