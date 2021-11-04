@@ -70,4 +70,29 @@
 	.product-hero.product-detalis {
 		padding-bottom: 20px !important;
 	}
+
+	.product--desc {
+		border-right: none !important;
+	}
+}
+
+@media ( max-width: 992px ) {
+	
+	.product-detalis {
+
+		.product--tabs {
+	
+			.nav-tabs {
+				flex-direction: column;
+				align-items: flex-start;
+
+				li {
+
+					button:before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 }
