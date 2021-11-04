@@ -81,7 +81,7 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
         src={img}
         initial={{ opacity: 0 }}
         animate={{ opacity: ActiveSlide === idx ? 1 : 0 }}
-        transition={{ delay: 1.2, duration: 0.7}}
+        transition={{ delay: 0.8, duration: 0.5}}
         draggable={false}
       />
 

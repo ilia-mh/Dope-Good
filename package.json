@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "animate.css": "^4.1.1",
     "bootstrap": "^4.6.0",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^4.1.17",
     "gsap": "^3.7.1",
     "interweave": "^12.8.0",

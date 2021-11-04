@@ -28,7 +28,11 @@ export default function Select({
       setSelectedItem(newName);
 
       if( isString ) {
-        setSearchVal('')
+        setShowModal(false)
+
+        setTimeout(() => {
+          setSearchVal('')
+        }, 300);
       } else {
         setShowModal(false)
       }

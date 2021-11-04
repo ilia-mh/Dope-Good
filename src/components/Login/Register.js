@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { userExists } from "../../store/Reducer/reducer";
 import { useHistory } from 'react-router-dom'
 
+import { checkEmail } from '../../utils/CheckMail'
+
 import { toast } from 'react-toastify';
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -81,12 +83,6 @@ export default function Register() {
     if (password.length < 4) {
       setUserNameErr("Password Must be atleast 3 characters");
     }
-  };
-
-  const checkEmail = (email) => {
-    const re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
   };
 
   const changeField = (e, setField) => {

@@ -12,4 +12,17 @@ footer.footer {
 			color: #A1A1A1 !important;
 		}
 	}
+
+	.widget--newsletter {
+
+		.subscription-form {
+			position: relative;
+
+			button {
+				top: 50% !important;
+				right: 15px !important;
+				transform: translateY(-50%) !important;
+			}
+		}
+	}
 }

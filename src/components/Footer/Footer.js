@@ -3,12 +3,17 @@ import logoLight from '../../assets/images/logo/logo-light.png'
 import { Link } from 'react-router-dom'
 import './footer.scss'
 
+import Subscribe from './Subscribe'
+
 export default function Footer() {
   return (
     <footer className="footer footer-2 footer-4">
       <div className="container">
         <div className="footer-widget">
           <div className="row">
+
+            <div className="col"></div>
+
             <div
               className="
                   col-sm-12 col-md-12 col-lg-5ths
@@ -27,6 +32,7 @@ export default function Footer() {
               </div>
               {/* .footer-copyright end  */}
             </div>
+
             {/* .col-lg-5ths end  */}
             <div className="col-sm-12 col-md-6 col-lg-5ths text-center-xs widget--contact-info">
               <div className="widget--content">
@@ -43,6 +49,7 @@ export default function Footer() {
               </div>
             </div>
             {/* .col-lg-5ths end  */}
+
             <div
               className="
                   col-sm-12 col-md-6 col-lg-5ths
@@ -65,32 +72,13 @@ export default function Footer() {
               </div>
             </div>
             {/* .col-lg-5ths end  */}
-            <div
-              className="
-                  col-sm-12 col-md-6 col-lg-5ths
-                  text-center-xs
-                  widget--newsletter
-                "
-            >
-              <div className="widget--content">
-                <h3>GET 20% OFF</h3>
-                <p>By subscribing to our newsletter</p>
-                <form className="mailchimp form--newsletter">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Enter your email"
-                    required
-                  />
-                  <button type="submit">
-                    <i className="fa fa-chevron-right"></i>
-                  </button>
-                  <div className="subscribe-alert"></div>
-                </form>
-              </div>
-            </div>
+
+            <Subscribe />
             {/* .col-lg-5ths end  */}
-            <div
+
+            <div className="col"></div>
+
+            {/* <div
               className="
                   col-sm-12 col-md-6 col-lg-5ths
                   text-center-xs
@@ -114,8 +102,9 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* .col-lg-5ths end  */}
+
           </div>
           {/* .row end  */}
         </div>
