@@ -14,7 +14,7 @@ export const counterSlice = createSlice({
 		gettingSingleProduct: false,
     shownProducts: [],
 		allUserFavs: [],
-		user: false,
+		user: undefined,
 		categories: [],
 		quickViewProduct: {},
 		recentProducts: [],

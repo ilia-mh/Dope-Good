@@ -8,8 +8,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { setAllProducts } from "../store/Reducer/reducer";
 import { get } from "../utils/fetch";
 
-
-
 import { useParams } from "react-router-dom";
 
 const apiUrl = `${process.env.REACT_APP_API_URL}/api`;

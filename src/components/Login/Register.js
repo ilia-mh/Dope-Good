@@ -62,7 +62,7 @@ export default function Register() {
         }
 
       }
-			,1000)
+			,400)
 
     } else toast.error('An error occured while registering you.')
   };

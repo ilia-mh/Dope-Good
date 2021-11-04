@@ -83,6 +83,22 @@ body {
 	font-family: "Montserrat", sans-serif;
 }
 
+.update-user-btn {
+	margin: 30px 0 0;
+	display: block;
+	font-size: 24px;
+	border: none;
+	border-radius: 8px;
+	padding: 8px 40px;
+	color: #fff;
+	background-color: #333;
+	transition: all 0.3s ease;
+	
+	&:hover {
+		background-color: #222;
+	}
+}
+
 .bg-full-cover {
 	width: 100vw;
 	height: 100vh;
@@ -100,6 +116,9 @@ body {
 
 .view-wrapper {
 	padding-top: 150px;
+	position: relative !important;
+  z-index: 15 !important;
+  background: #0E0E0E;
 }
 
 @media ( max-width: 550px ) {

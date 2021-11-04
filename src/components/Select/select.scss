@@ -10,6 +10,13 @@
   margin-bottom: 0;
   padding: 0 15px;
   cursor: pointer;
+  z-index: 5 !important;
+  
+  &.is-string {
+    border-radius: 8px;
+    border: 1px solid #e1e1e11e;
+
+  }
 
   .active-item {
     width: 100%;
@@ -24,24 +31,53 @@
       height: 20px;
       color: #fff;
     }
+
+    input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      cursor: pointer;
+
+      &::placeholder {
+        color: #a1a1a1;
+        font-weight: 500;
+      }
+    }
   }
 
   .options-modal {
     width: 100%;
     position: absolute;
     left: 0;
-    background-color: #111;
+    background-color: #222;
+    top: 120%;
     z-index: -10;
-    
-    &.active {
-      z-index: 10;
+    border-radius: 12px;
+    max-height: 300px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: initial !important;
+      background-color: transparent;
+      width: 6px;
     }
 
+    &::-webkit-scrollbar-thumb {
+      display: initial !important;
+      background-color: #F26C4F;
+      border-radius: 8px;
+    }
+    
+    &.active {
+      z-index: 20 !important;
+    }
+    
     .option {
+      position: relative !important;
       width: 100%;
       display: flex;
       align-items: center;
-      // height: 40px;
       padding: 15px 10px;
       border-bottom: 1px solid #e1e1e11e;
 

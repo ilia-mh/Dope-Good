@@ -127,7 +127,7 @@ nav.navbar .nav-container {
 
 .right-part .account {
 
-	a {
+	>a {
 		color: #636363;
 		cursor: pointer;
 		font-size: 19px;
@@ -320,6 +320,7 @@ nav.navbar .nav-container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+	z-index: 20;
 }
 
 .mobile-nav .navbar-ul li {
@@ -345,7 +346,7 @@ nav.navbar .nav-container {
 
 	.account-dropdown {
 		position: absolute;
-		top: 100%;
+		top: 50px;
 		right: 0;
 		display: none;
 		border-radius: 12px;
@@ -356,7 +357,7 @@ nav.navbar .nav-container {
 			display: block;
 		}
 
-		.user-profile, .user-logout {
+		.user-profile,.user-logout {
 			padding: 9px 15px;
 			color: #f1eeee;
 			display: flex;
@@ -364,6 +365,8 @@ nav.navbar .nav-container {
 			align-items: center;
 			font-size: 16px;
 			cursor: pointer;
+			z-index: 50 !important;
+			position: relative;
 
 			svg {
 				margin-right: 10px;
@@ -407,34 +410,34 @@ nav.navbar .nav-container {
 	}
 }
 
-@media( max-width: 1000px ){
+// @media( max-width: 1000px ){
 
-	.big-screen-menu {
-		display: none;
-	}
+	// .big-screen-menu {
+	// 	display: none;
+	// }
 
-	.burger-nav-menu {
-		width:28px;
-		height:28px;
-		margin-left: 10px;
-	}
+	// .burger-nav-menu {
+	// 	width:28px;
+	// 	height:28px;
+	// 	margin-left: 10px;
+	// }
 	
-	.navbar-toggler {
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		padding: 0 !important;
-		padding-left: 15px !important;
-  }
+	// .navbar-toggler {
+	// 	display: flex;
+	// 	justify-content: flex-end;
+	// 	align-items: center;
+	// 	padding: 0 !important;
+	// 	padding-left: 15px !important;
+  // }
 	
-  .nvabar-links .navbar-ul {
-		display: none;
-  }
+  // .nvabar-links .navbar-ul {
+	// 	display: none;
+  // }
 
-	.left-part {
-		display: none;
-	}
-}
+	// .left-part {
+	// 	display: none;
+	// }
+// }
 
 @media( max-width: 990px ){
 	.nav-holder {
@@ -445,6 +448,14 @@ nav.navbar .nav-container {
 @media( max-width: 768px ){
 	.nav-holder {
 		max-width: 540px !important;
+	}
+
+	.nav-container {
+		flex-direction: row-reverse;
+	}
+
+	.mobile-nav .navbar-ul {
+		margin-top: 70px;
 	}
 
 	.burger-nav-menu {

@@ -91,6 +91,7 @@ function Header({ history }) {
       <div className="container nav-holder">
         <nav className="navbar">
           <div className="nav-container">
+
             <div className="left-part">
               <button className="big-screen-menu" onClick={toggleMobileNav}>
 
@@ -187,6 +188,16 @@ function Header({ history }) {
                 <div
                   className={`account-dropdown ${accDropdown ? "active" : ""}`}
                 >
+
+                  { 
+                    accDropdown && 
+                      <div 
+                        className="bg-full-cover" 
+                        onClick={() => setAccDropdown(false)}
+                      >
+                      </div> 
+                  }
+
                   <Link
                     to="/profile"
                     className="user-profile"
@@ -250,6 +261,15 @@ function Header({ history }) {
               showMobileNav ? "showMobileNav" : "hideMobileNav"
             } `}
           >
+            { 
+              showMobileNav && 
+                <div 
+                  className="bg-full-cover" 
+                  onClick={() => setshowMobileNav(false)}
+                >
+                </div> 
+            }
+
             <ul className="navbar-ul ">
               <li className="nav-item">
                 <Link

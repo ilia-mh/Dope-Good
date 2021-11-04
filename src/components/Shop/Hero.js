@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom'
 export default function Hero() {
 	return (
 		<section id="page-title" className="page-title shop-hero" >
-        {/* <div className="bg-section">
-          <img src={HeroImg} alt="background" />
-        </div> */}
         <div className="container shop-title">
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">

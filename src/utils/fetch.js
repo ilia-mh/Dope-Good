@@ -192,17 +192,13 @@ export const get = async ( url, auth = false ) => {
 export const put = async (url, data = {}) => {
   let resp;
 
-  if (
-    !localStorage.getItem("access_token") ||
-    !localStorage.getItem("access_token").length
-  ) {
-    LogOffUser();
-    return;
-  }
+  const user = JSON.parse( localStorage.getItem('user') )
+
+  if( !user || !user.accessToken ) return false
 
   const headers = {
-    access_token: localStorage.getItem("access_token"),
-		refresh_token: localStorage.getItem("refresh_token"),
+    access_token: user.accessToken,
+    refresh_token: user.refreshToken,
   };
 
   resp = await request("PUT", url, data, headers);
@@ -225,18 +221,15 @@ export const put = async (url, data = {}) => {
 export const deleteReq = async (url, data = {}) => {
   let resp;
 
-  if (
-    !localStorage.getItem("access_token") ||
-    !localStorage.getItem("access_token").length
-  ) {
-    LogOffUser();
-    return;
-  }
+  const user = JSON.parse( localStorage.getItem('user') )
+
+  if( !user || !user.accessToken ) return false
 
   const headers = {
-    access_token: localStorage.getItem("access_token"),
-		refresh_token: localStorage.getItem("refresh_token"),
+    access_token: user.accessToken,
+    refresh_token: user.refreshToken,
   };
+  
   resp = await request("DELETE", url, data, headers);
 
   if( resp === undefined || resp === null ) {

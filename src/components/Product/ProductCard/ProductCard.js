@@ -12,7 +12,7 @@ import './ProductCard.scss'
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-export default function ProductCard({ product, isInSlider }) {
+export default function ProductCard({ product, isInSlider, removeFavorite }) {
 
 	const user = useSelector((state) => state.shop.user);
 	const dispatch = useDispatch();
@@ -35,6 +35,8 @@ export default function ProductCard({ product, isInSlider }) {
         
         toast.success('Product Added to your favorites')
         dispatch(toggleProductFavorite(_id))
+
+        removeFavorite(_id)
 
       }
     }

@@ -2,7 +2,8 @@ import { useEffect} from 'react'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+	Redirect
 } from "react-router-dom";
 
 // Notification component
@@ -22,12 +23,13 @@ import Checkout from './views/Checkout'
 import Cart from './views/Cart'
 import Login from './views/Login'
 import Product from './views/Product'
+import Profile from './views/Profile'
 
 import './App.scss'
 
 import { setCategories, setInitialCart, userExists, setAllFavs } from "./store/Reducer/reducer";
 
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { get, post } from './utils/fetch';
 
 import { toast } from 'react-toastify';
@@ -35,6 +37,8 @@ import { toast } from 'react-toastify';
 const apiUrl = process.env.REACT_APP_API_URL
 
 function App() {
+
+  const user = useSelector((state) => state.shop.user);
 
 	const dispatch = useDispatch()
 
@@ -67,12 +71,16 @@ function App() {
 				if( userChecked.allFavs && userChecked.allFavs.length ) dispatch( setAllFavs(userChecked.allFavs) )
 
 			}
-			else localStorage.removeItem('user')
+			else {
+				dispatch( userExists(false) )
+				localStorage.removeItem('user')
+			}
 		}
 
 		const user = JSON.parse( localStorage.getItem('user') )
 
 		if( user && user.accessToken ) checkUser()
+		else dispatch( userExists(false) )
 		
 	},[])
 
@@ -138,9 +146,35 @@ function App() {
 						<Checkout />
 					</Route>
 
-					<Route exact path="/login" >
-						<Login />
-					</Route>
+					<Route exact path="/login" 
+						render={ () =>
+							user === false ? (
+								<Login />
+							) : (
+								<Redirect
+									to={{pathname: "/profile"}}
+								/>
+							)
+						}
+					/>
+
+					{/* <Route exact path="/profile" >
+						<Profile />
+					</Route> */}
+
+					<Route
+						exact 
+						path="/profile/:tab?"
+						render={ () =>
+							user !== false ? (
+								<Profile />
+							) : (
+								<Redirect
+									to={{pathname: "/login",}}
+								/>
+							)
+						}
+					/>
 
 				</Switch>
 

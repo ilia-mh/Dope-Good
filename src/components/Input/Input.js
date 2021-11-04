@@ -4,7 +4,7 @@ import './input.scss'
 
 export default function Input({ val, setter, name, type, plcHolder, err, cols, rows }) {
 
-  const inputTypes = ['text','number']
+  const inputTypes = ['text','number','tel','password']
 
   const isAmongINputs = () => inputTypes.includes(type)
 

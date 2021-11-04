@@ -59,7 +59,7 @@ export default function LogIn() {
         }
 
       }
-			,1000)
+			,400)
 
 		} else toast.error('Wrong login info')
 		
