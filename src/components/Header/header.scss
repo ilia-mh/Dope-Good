@@ -352,12 +352,13 @@ nav.navbar .nav-container {
 		border-radius: 12px;
 		background-color: #161515;
 		overflow: hidden;
+		width: 140px !important;
 	
 		&.active {
 			display: block;
 		}
 
-		.user-profile,.user-logout {
+		.user-profile,.user-logout,.user-wishlist {
 			padding: 9px 15px;
 			color: #f1eeee;
 			display: flex;
@@ -379,6 +380,7 @@ nav.navbar .nav-container {
 				background-color: #292727;
 			}
 		}
+
 	}
 }
 

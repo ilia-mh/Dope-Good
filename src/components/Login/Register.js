@@ -55,16 +55,12 @@ export default function Register() {
 
       dispatch(userExists(true));
 
-      setTimeout(() => {
-        
-        try {
-          history.goBack()
-        } catch(e) {
-          history.push('/')
-        }
-
+      try {
+        history.goBack()
+      } catch(e) {
+        history.push('/')
       }
-			,400)
+
 
     } else toast.error('An error occured while registering you.')
   };
