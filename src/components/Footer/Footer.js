@@ -12,14 +12,8 @@ export default function Footer() {
         <div className="footer-widget">
           <div className="row">
 
-            <div className="col"></div>
-
             <div
-              className="
-                  col-sm-12 col-md-12 col-lg-5ths
-                  widget--logo
-                  text-center-xs
-                "
+              className="col-sm-12 col-md-12 col-lg-3 widget--logo text-center-xs"
             >
               <div className="widget--content">
                 <div className="widget--logo-img">
@@ -34,7 +28,7 @@ export default function Footer() {
             </div>
 
             {/* .col-lg-5ths end  */}
-            <div className="col-sm-12 col-md-6 col-lg-5ths text-center-xs widget--contact-info">
+            <div className="col-sm-12 col-md-6 col-lg-3 text-center-xs widget--contact-info">
               <div className="widget--content">
                 <ul className="list-unstyled">
                   <li>No. 342 - London Oxford Street,</li>
@@ -51,11 +45,7 @@ export default function Footer() {
             {/* .col-lg-5ths end  */}
 
             <div
-              className="
-                  col-sm-12 col-md-6 col-lg-5ths
-                  text-center-xs
-                  widget--links
-                "
+              className="col-sm-12 col-md-6 col-lg-3 text-center-xs widget--links"
             >
               <div className="widget--content">
                 <ul className="list-unstyled">
@@ -75,8 +65,6 @@ export default function Footer() {
 
             <Subscribe />
             {/* .col-lg-5ths end  */}
-
-            <div className="col"></div>
 
             {/* <div
               className="

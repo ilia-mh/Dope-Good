@@ -29,7 +29,7 @@ export default function Product() {
     if (!gettingSingleProduct && singleProduct._id !== id) {
       getSingleProduct(id);
     }
-  }, []);
+  }, [id]);
 
   const getSingleProduct = async (id) => {
     dispatch(changeGettingProduct());

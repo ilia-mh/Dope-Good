@@ -55,7 +55,7 @@ export default function Subscribe() {
 
   return (
     <div
-      className="col-sm-12 col-md-6 col-lg-5ths text-center-xs widget--newsletter"
+      className="col-sm-12 col-md-6 col-lg-3 text-center-xs widget--newsletter"
     >
       <div className="widget--content">
         <h3>GET 20% OFF</h3>
@@ -71,7 +71,7 @@ export default function Subscribe() {
             onChange={ (e) => setSubscriberMail(e.target.value) }
           />
 
-          <button type="btn" onClick={sendEmail} >
+          <button type="btn" onClick={sendEmail} className="subscribe-btn">
             <i className="fa fa-chevron-right"></i>
           </button>
 

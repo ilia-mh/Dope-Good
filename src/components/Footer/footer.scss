@@ -17,12 +17,29 @@ footer.footer {
 
 		.subscription-form {
 			position: relative;
+			overflow: hidden;
+			border-radius: 40px;
 
-			button {
+			.subscribe-btn {
 				top: 50% !important;
-				right: 15px !important;
+				right: 0 !important;
 				transform: translateY(-50%) !important;
+				height: 100%;
+				width: 45px;
+				color: #363636;
+				background-color: #111;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 18px;
+				transition: all 0.3s ease;
+
+				&:hover {
+					color: #fff;
+				}
 			}
 		}
+
+
 	}
 }

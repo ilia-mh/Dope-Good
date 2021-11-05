@@ -51,9 +51,16 @@
     }
   }
 
-  input {
-    color: #111 !important;
+  input, textarea {
+    color: #fff !important;
     font-size: 16px !important;
+    background-color: #252525 !important;
+    transition: all 0.3s ease;
+    border: 1px solid transparent !important;
+
+    &:focus-within {
+      border-color: #a1a1a1 !important;
+    }
   }
 
 }
