@@ -1,11 +1,89 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ContactImg1 from '../../assets/images/contact/gallery/1.jpg'
 import ContactImg2 from '../../assets/images/contact/gallery/2.jpg'
 import Slider from '../Slider/Slider'
 
 import './ReachOut.scss'
+import { checkEmail } from './../../utils/CheckMail';
+import { toast } from 'react-toastify'
+import { post } from '../../utils/fetch'
+
+const apiUrl = `${process.env.REACT_APP_API_URL}/api`;
 
 export default function ReachOut() {
+
+  const [name,setName] = useState('')
+  const [nameErr,setNameErr] = useState('')
+
+  const [email,setEmail] = useState('')
+  const [emailErr,setEmailErr] = useState('')
+
+  const [subject,setSubject] = useState('')
+  const [subjectErr,setSubjectErr] = useState('')
+
+  const [message,setMessage] = useState('')
+  const [messageErr,setMessageErr] = useState('')
+
+  const sendContactForm = async () => {
+
+    setNameErr('')
+    setEmailErr('')
+    setSubjectErr('')
+    setMessageErr('')
+
+    if( !checkFieldsForSend ) {
+      toast.error('Please fill out the forms for contact form')
+      return
+    }
+
+    const contactForm = {
+      name,
+      email,
+      subject,
+      message
+    }
+
+    const createContactForm = await post(`${apiUrl}/contact`, contactForm)
+
+    if( !createContactForm.success ) {
+      toast.error('An error occured while creating your ticket. Please try again later.')
+    } else {
+      toast.success('Your ticket has been submitted successfuly. We will be in touch with you as soon as possible.')
+      setName('')
+      setEmail('')
+      setSubject('')
+      setMessage('')
+    }
+
+  }
+
+  const checkFieldsForSend = () => {
+    
+    let validationResult = true
+
+    if( !name ) {
+      setNameErr('Name fields is empty')
+      validationResult = false
+    }
+
+    if( !email || !checkEmail(email) ) {
+      setNameErr('Invalid email')
+      validationResult = false
+    }
+
+    if( !subject ) {
+      setNameErr('Subject fields is empty')
+      validationResult = false
+    }
+
+    if( !message ) {
+      setNameErr('Message fields is empty')
+      validationResult = false
+    }
+
+    return validationResult
+  }
+
 	return (
 		<section
         id="contact3"
@@ -73,43 +151,73 @@ export default function ReachOut() {
                   <h3>Get In Touch With Us</h3>
                   <form
                     className="contactForm mb-0"
+                    onSubmit={ e => e.preventDefault() }
                   >
                     <div className="form-group">
                       <input
                         type="text"
+                        value={name}
+                        onChange={ e => setName(e.target.value) }
                         className="form-control"
                         id="name"
                         placeholder="Name"
                       />
+                      {
+                        nameErr &&
+                        <span className="error">{nameErr}</span>
+                      }
                     </div>
+
                     <div className="form-group">
                       <input
                         type="email"
+                        value={email}
+                        onChange={ e => setEmail(e.target.value) }
                         className="form-control"
                         id="email"
                         placeholder="Email"
                       />
+                      {
+                        emailErr &&
+                        <span className="error">{emailErr}</span>
+                      }
                     </div>
+
                     <div className="form-group">
                       <input
+                        value={subject}
+                        onChange={ e => setSubject(e.target.value) }
                         type="email"
                         className="form-control"
                         id="subject"
                         placeholder="subject"
                       />
+                      {
+                        subjectErr &&
+                        <span className="error">{subjectErr}</span>
+                      }
                     </div>
+
                     <div className="form-group mb-30">
                       <textarea
                         className="form-control"
+                        value={message}
+                        onChange={ e => setMessage(e.target.value) }
                         id="message"
                         rows="2"
                         placeholder="Your message here"
                       ></textarea>
+
+                      {
+                        messageErr &&
+                        <span className="error">{messageErr}</span>
+                      }
                     </div>
-                    <button type="button" className="btn btn--primary btn--rounded">
+
+                    <button type="button" className="btn btn--primary btn--rounded reach-out-btn" onClick={sendContactForm}>
                       SEND TO US
                     </button>
-                    <div id="contactResult" className="contact-result"></div>
+
                   </form>
                 </div>
               </div>

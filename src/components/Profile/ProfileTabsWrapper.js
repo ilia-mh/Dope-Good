@@ -34,13 +34,13 @@ export default function ProfileTabsWrapper() {
       <div className="row">
           <div className="tabs">
 
-            <div
+            <Link
               className={`tab ${activeTab === 0 ? "active" : ""}`}
               onClick={() => changeActiveTab(0)}
               to="/profile"
             >
               Info
-            </div>
+            </Link>
 
             <Link
               className={`tab ${activeTab === 1 ? "active" : ""}`}

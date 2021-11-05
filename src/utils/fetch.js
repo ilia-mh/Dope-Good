@@ -6,6 +6,8 @@ import { toast } from 'react-toastify';
 const apiUrl = process.env.REACT_APP_API_URL;
 const refreshTokenUrl = `${apiUrl}/api/user/refreshtoken`
 
+const unAuthRoutes = ['login','register','contact']
+
 async function request(
   method,
   url,
@@ -126,7 +128,7 @@ export const post = async (url, data = {}) => {
 	const urlsplitted = url.split('/');
 	const urlLastPart = urlsplitted[urlsplitted.length - 1];
 
-  if ( urlLastPart === "login" || urlLastPart === "register") {
+  if ( unAuthRoutes.includes(urlLastPart) ) {
     resp = await request("POST", url, data);
     return resp;
   }

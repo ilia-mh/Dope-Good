@@ -38,10 +38,10 @@ export default function AccountAddress() {
 
       const { address, zipcode, city, country } = userAddress.userAddress;
 
-      setUserAdd(address);
-      setUserZip(zipcode);
-      setUserCity(city);
-      setUserCountry(country);
+      setUserAdd(address || '');
+      setUserZip(zipcode || '');
+      setUserCity(city || '');
+      setUserCountry(country || '');
     }
   }
 

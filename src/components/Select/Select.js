@@ -51,8 +51,9 @@ export default function Select({
 
   const optionModalAnimation = {
     hidden: {
-      y: -40,
+      y: '-100px',
       opacity: 0,
+      display: 'none',
       transition: {
         duration: 0.3,
       },
@@ -60,6 +61,7 @@ export default function Select({
     animate: {
       y: 0,
       opacity: 1,
+      display: 'block',
       transition: {
         duration: 0.3,
       },
@@ -150,7 +152,7 @@ export default function Select({
             onChange={(e) => searchForOption(e.target.value)}
             ref={searchInput}
             placeholder={ selectedItem || plcHolder || '' }
-            autoComplete={false}
+            autoComplete="off"
           />
 
           <svg

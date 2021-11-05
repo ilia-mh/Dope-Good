@@ -2,5 +2,9 @@
 
   .cart-total-amount {
     background: none !important;
+
+    .cart--shipping {
+      font-size: 14px !important;
+    }
   }
 }

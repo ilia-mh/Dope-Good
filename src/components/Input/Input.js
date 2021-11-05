@@ -12,7 +12,7 @@ export default function Input({ val, setter, name, type, plcHolder, err, cols, r
     <>
       <div className="input-form">
         
-        <label htmlFor="name">Enter {name}:</label>
+        <label htmlFor="name">{name}:</label>
 
         {
           isAmongINputs() &&

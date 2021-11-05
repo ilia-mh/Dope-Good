@@ -67,6 +67,7 @@ function Header({ history }) {
     else if (loc === "/collection") setActivePath("collection");
     else if (loc === "/about") setActivePath("about");
     else if (loc === "/contact") setActivePath("contact");
+    else setActivePath("");
   };
 
   const toggleShowCart = () => {

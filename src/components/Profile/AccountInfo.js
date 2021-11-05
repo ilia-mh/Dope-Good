@@ -43,12 +43,12 @@ export default function AccountInfo() {
       const { email, phone, img, name, lastName, companyName } =
         userInfo.userInfo;
 
-      setUserEmail(email);
-      setUserPhone(phone);
-      setUserImg(img);
-      setUserName(name);
-      setUserLastName(lastName);
-      setUserCompanyName(companyName);
+      setUserEmail(email || '');
+      setUserPhone(phone || '');
+      setUserImg(img || '');
+      setUserName(name || '');
+      setUserLastName(lastName || '');
+      setUserCompanyName(companyName || '');
     }
   }
   

@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 import './checkoutInfo.scss'
 
@@ -11,6 +12,10 @@ export default function CheckoutInfo() {
     (counter, { price, q }) => (counter += price * q),
     0
   );
+
+  const checkOut = () => {
+    toast.info('The Webiste payment is down for the moment. We Apologize for the inconvenience. Subscribe to our website and well notify you as soon as payment is available again.')
+  }
 
   return (
     <div className="col-sm-12 col-md-6 col-lg-5 offset-lg-1 checkout-info">
@@ -28,10 +33,10 @@ export default function CheckoutInfo() {
               cart.length ?
                 cart.map( ( product, idx ) => {
 
-                  const { name, price, options, img, q, _id } = product
+                  const { name, price, q } = product
 
                   return (
-                    <li>
+                    <li key={idx}>
                       { name } x{q}<span className="price">${ (price * q).toFixed(2) }</span>
                     </li>
                   )
@@ -77,21 +82,16 @@ export default function CheckoutInfo() {
             <div className="input-radio">
               <label className="label-radio">
                 Paypal
-                <span className="currency--icons">
-                  <i className="fa fa-cc-mastercard"></i>
-                  <i className="fa fa-cc-visa"></i>
-                  <i className="fa fa-paypal"></i>
-                  <i className="fa fa-cc-discover"></i>
-                </span>
-                <input type="radio" name="methodSelect" checked />
+                <input type="radio" name="methodSelect" defaultChecked />
                 <span className="radio-indicator"></span>
               </label>
             </div>
             {/* .input-radio end  */}
+
           </fieldset>
-          <a href="/#" className="btn btn--primary btn--rounded btn--block">
+          <button className="btn btn--primary btn--rounded btn--block" onClick={checkOut}>
             PLACE ORDER
-          </a>
+          </button>
         </div>
       </div>
       
