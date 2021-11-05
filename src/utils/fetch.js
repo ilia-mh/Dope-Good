@@ -256,18 +256,13 @@ export const uploadPhoto = async (
 ) => {
   let resp;
 
-  if (
-    !localStorage.getItem("access_token") ||
-    !localStorage.getItem("access_token").length
-  ) {
-    LogOffUser();
-    return;
-  }
+  const user = JSON.parse( localStorage.getItem('user') )
+
+  if( !user || !user.accessToken ) return false
 
   const headers = {
-    access_token: localStorage.getItem("access_token"),
-		refresh_token: localStorage.getItem("refresh_token"),
-    ...header,
+    access_token: user.accessToken,
+    refresh_token: user.refreshToken,
   };
 
   resp = await request("post", url, formData, headers, "upload");
