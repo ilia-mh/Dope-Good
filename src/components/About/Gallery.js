@@ -35,7 +35,7 @@ export default function Gallery() {
             <div className="heading heading-2">
               <p className="heading--subtitle">HISTORY SINCE 1998</p>
               <h2 className="heading--title">
-                Welcome to Hebes Store furniture
+                Welcome to Comfeey Store furniture
               </h2>
             </div>
           </div>
@@ -46,21 +46,19 @@ export default function Gallery() {
               <div className="col-sm-12 col-md-12 col-lg-12">
                 <div className="about--text">
                   <p>
-                    The third Monday of January is supposed to be the most
-                    depressing day of the year. Whether you
-                    <span style={{ fontWeight: 700 }}> believe that </span>or not, the long nights, cold
-                    weather and trying to keep it is supposed to be the most
-                    depressing day of the year
+                    At Comfeey, beautiful things aren’t just our passion — they’re our obsession. For over two decades, we’ve been scouring 
+                    the globe in search of <span style={{ fontWeight: 700 }}>modern and vintage</span> furnishings and accessories designed to inspire. Edgy yet elegant. Sophisticated 
+                    but never stuffy. Timeless but always of the moment. These are our guideposts for collecting an ever-evolving mix of modern 
+                    day and one-of-a-kind vintage furniture, tableware, lighting, candles, books, pillows, textiles and more.
                   </p>
                   <p>
-                    Actually, Woodstock was not the first outdoor festival to
-                    feature multiple bands over several days performing on a
-                    stage set up out in the middle of a farmer’s field to
-                    feature multiple bands over several days performing
+                    Since our online store was launched, we have thrilled interior designers and home decor enthusiasts all across the country 
+                    and around the world. The savvy nature of our clients inspires us to constantly evolve and to offer an always-exciting 
+                    collection of products and the highest level of service. 
                   </p>
                 </div>
                 <div className="about--signature mb-100">
-                  JONT HENRRY<span>CEO</span>
+                  MARK HENRRY<span>CEO</span>
                 </div>
               </div>
               {/* .col-lg-12 end  */}

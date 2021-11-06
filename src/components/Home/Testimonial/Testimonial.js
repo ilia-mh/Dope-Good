@@ -22,7 +22,7 @@ export default function Testimonial() {
 						<SlickSlider NextArrow={nextArrow} PrevArrow={prevArrow} >
 							{ Testimonials.map( test => {
 
-									const { img, name, text, position } = test
+									const { img, name, text } = test
 
 									return (
 										<div className="testimonial-panel" key={img}>
@@ -41,7 +41,7 @@ export default function Testimonial() {
 											{/* .testimonial-body end  */}
 											<div className="testimonial--meta">
 												<h4>{ name }</h4>
-												<span>{ position }</span>
+												{/* <span>{ position }</span> */}
 											</div>
 											{/* .testimonial-meta end  */}
 										</div>

@@ -26,9 +26,9 @@
 
 	.dots-wrapper {
 		position: absolute;
-		top: 50%;
-		right: 2%;
-		transform: translateY(-50%);
+		bottom: -50px;
+		left: 50%;
+		transform: translateX(-50%);
 
 		.carousel-dot {
 			border: none;
@@ -36,7 +36,7 @@
 			background: none;
 			padding: 0;
 			cursor: pointer;
-			display: block;
+			display: inline-block;
 			cursor: pointer;
 
 			span {

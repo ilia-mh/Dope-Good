@@ -4,22 +4,19 @@ import img3 from '../../../assets/images/testimonials/authors/3.jpg'
 
 const testimonials = [
 	{
-		text: '“ My project was a simple & small task, but the persistence and determination of the team turned it into an awesome and great project which make me very happy! ”',
+		text: '“The couch is absolutely stunning, I love it! It was exactly what I was looking for. It is stylish and comfortable, and seems to  be very well made. I would highly recommend Comfeey to anyone, and in fact, have recommended it to everyone who compliments my couch!”',
 		img: img1,
-		name: 'JONT HENRY',
-		position: 'CEO Zytheme'
+		name: 'Amy L.'
 	},
 	{
-		text: '“ My project was a simple & small task, but the persistence and determination of the team turned it into an awesome and great project which make me very happy! ”',
+		text: '“We love everything about our new chair including the super easy delivery and set up. The color is beautiful and we are so happy with the high quality fabric.”',
 		img: img2,
-		name: 'JOHn DOE',
-		position: 'CEO Zytheme'
+		name: 'Christie G.'
 	},
 	{
-		text: '“ My project was a simple & small task, but the persistence and determination of the team turned it into an awesome and great project which make me very happy! ”',
+		text: '“Needed a sofa for our small den. The Rura sofa looks and feels amazing. I ordered in Bisque. Fabric is beautiful, delivery was fantastic. Very comfy and gives us more room for guests. Everything about this purchase from ordering, shipping, communication & service was excellent.”',
 		img: img3,
-		name: 'JONT HENRY',
-		position: 'CEO Zytheme'
+		name: 'MJ W.'
 	}
 ]
 

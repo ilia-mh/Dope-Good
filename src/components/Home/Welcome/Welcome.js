@@ -12,7 +12,7 @@ export default function Welcome() {
               <div className="heading heading-2">
                 <p className="heading--subtitle">HISTORY SINCE 1998</p>
                 <h2 className="heading--title">
-                  Welcome to Hebes Store - Amazing furniture
+                  Welcome to Comfeey Store - Amazing furniture
                 </h2>
               </div>
             </div>
@@ -20,18 +20,17 @@ export default function Welcome() {
             <div className="col-sm-12 col-md-12 col-lg-6">
               <div className="about--text">
                 <p>
-                  The third Monday of January is supposed to be the most
-                  depressing day of the year. Whether you
-                  <span style={{ fontWeight: 700 }}> believe that </span>or not, the long nights, cold
-                  weather and trying to keep it
+                Investing in and creating extraordinary products has been our passion for over 23 years. Every item we offer is backed by our 
+                <span style={{ fontWeight: 700 }}> commitment to quality</span> and we aren't happy unless you are. 
+                If for any reason you are unhappy with your purchase, let us know and we'll make it right.
                 </p>
                 <p>
-                  Actually, Woodstock was not the first outdoor festival to
-                  feature multiple bands over several days performing on a stage
-                  set up out in the middle of a farmer’s field
+                  Hebes's mission has always been to provide you with unexpected, distinctive finds for your closet and home.
+                  Our products are sourced and <span style={{ fontWeight: 700 }}>crafted with care</span>, 
+                  ensuring every treasure at Hebes is unique, just like you are.
                 </p>
               </div>
-              <div className="about--signature">JONT HENRRY<span>CEO</span></div>
+              <div className="about--signature">MARK HENRRY<span>CEO</span></div>
             </div>
              {/* .col-lg-6 end  */}
           </div>

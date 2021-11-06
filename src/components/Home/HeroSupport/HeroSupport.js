@@ -31,7 +31,8 @@ export default function HeroSupport() {
                     <div className="panel--content">
                         <h5>Support Customer</h5>
                         <h6>SUPPORT 24/7</h6>
-                        <p>We thank each client and their projects; thanks to them we have grown and built what we are today!</p>
+                        <p>The only thing that can match our love for pretty things is our passion for helping our customers.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -42,7 +43,7 @@ export default function HeroSupport() {
                     <div className="panel--content">
                         <h5>Payment security</h5>
                         <h6>100% SECURE PAYMENT</h6>
-                        <p>we shows the best websites and portfolios built completely with passion & creativity!</p>
+                        <p>We use the most trusted and secure payment methods to make customers comfortable about their purchase.</p>
                     </div>
                 </div>
             </div>

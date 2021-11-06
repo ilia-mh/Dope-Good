@@ -20,14 +20,15 @@
 		position: relative;
 		left: 0;
 		top: 0;
-		width: 100%;
     display: flex;
     padding-bottom: 30px;
+		cursor: default !important;
 
 		svg {
 			width: 26px;
 			height: 26px;
 			color: #fff;
+			cursor: pointer;
 		}
 	}
 

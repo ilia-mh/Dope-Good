@@ -188,7 +188,7 @@ export default function CheckoutForm() {
             <div className={`col-sm-12 col-md-12 col-lg-12 `}>
               <div className="form-group">
                 <label htmlFor="country">COUNTRY</label>
-                <div className="select--box form-field">
+                <div className="select--box">
 
                   <Select 
                     items={countryList} 

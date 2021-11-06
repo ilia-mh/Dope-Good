@@ -13,21 +13,20 @@
 
    input {
       width: 250px;
-      background-color: #333;
-      border: 2px solid #a1a1a1;
-      border-radius: 8px;
+      background-color: #252525 !important;
       transition: all 0.3s ease;
+      border: 1px solid transparent !important;
+      font-size: 16px !important;
+      border-radius: 25px;
       padding: 4px 10px;
       color: #fff;
-      font-size: 18px;
+      padding: 0 21px;
+      height: 45px;
 
-      &:active {
-        border-color: #111;
-      }
-      
       &:focus-within {
-        border-color: #111;
+        border-color: #a1a1a1 !important;
       }
+
    }
 
    textarea {

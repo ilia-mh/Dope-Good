@@ -15,10 +15,10 @@ export default function FeaturedCollection() {
       slideImg: Img1,
       title: 'Sofa Collection',
       desc: 'comfy high quality sofa collection',
-      productName: 'Bryant Collection',
-      productImg: `${apiUrl}/61681c65267f751e7c53ac98/1.png`,
+      productName: 'Rura Collection',
+      productImg: `${apiUrl}/616b1eec93d32743b004665f/1.png`,
       price: 1750,
-      link: '/product/61681c65267f751e7c53ac98'
+      link: '/product/616b1eec93d32743b004665f'
     },
     {
       slideImg: Img2,
