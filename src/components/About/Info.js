@@ -12,7 +12,7 @@ export default function Info() {
               <div className="num">01</div>
               <div className="panel--content">
                 <h5>STORE LONDON</h5>
-                <p>PO BOX 1334 COLLINS VICETORIA 200 - LONDON</p>
+                <p>166 Alexander Road EAST E44 0GA- LONDON</p>
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a href="mailto:info@comfeey.com">
@@ -20,7 +20,7 @@ export default function Info() {
                     </a>
                   </li>
                   <li>
-                    <a href="tel:+03234567890">Phone: +032 3456 7890</a>
+                    <a href="tel:+442079460833">Phone: +44 20 7946 0833</a>
                   </li>
                 </ul>
               </div>
@@ -32,7 +32,7 @@ export default function Info() {
               <div className="num">02</div>
               <div className="panel--content">
                 <h5>STORE PARIS</h5>
-                <p>PO BOX 1334 COLLINS VICETORIA SCARE 200 - PARIS</p>
+                <p>100 Faubourg Saint Honoré - PARIS</p>
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a href="mailto:info@comfeey.com">
@@ -40,7 +40,7 @@ export default function Info() {
                     </a>
                   </li>
                   <li>
-                    <a href="tel:+03234567890">Phone: +032 3456 7890</a>
+                    <a href="tel:+1646328508">Phone: 164 632 8508</a>
                   </li>
                 </ul>
               </div>
@@ -51,8 +51,8 @@ export default function Info() {
             <div className="banner-panel">
               <div className="num">03</div>
               <div className="panel--content">
-                <h5>STORE LONDON</h5>
-                <p>PO BOX 1334 COLLINS VICETORIA SCARE 200 - PARIS</p>
+                <h5>STORE New York</h5>
+                <p>9580 Rock Maple Street Bronx, NY 10461 - NEW YORK</p>
                 <ul className="list-unstyled mb-0">
                   <li>
                     <a href="mailto:info@comfeey.com">
@@ -60,7 +60,7 @@ export default function Info() {
                     </a>
                   </li>
                   <li>
-                    <a href="tel:+03234567890">Phone: +032 3456 7890</a>
+                    <a href="tel:+7167049295">Phone: 716 704 9295</a>
                   </li>
                 </ul>
               </div>

@@ -1,14 +1,12 @@
 import React from "react";
 import "./title.scss";
-import TermsTitle from "../../assets/images/page-title/1.jpg";
 import { Link } from 'react-router-dom'
 
 export default function Title() {
   return (
     <section
       id="page-title"
-      className="page-title bg-parallax terms-title"
-      style={{ backgroundImage: `url(${TermsTitle})` }}
+      className="page-title terms-title"
     >
       <div className="container">
         <div className="row">

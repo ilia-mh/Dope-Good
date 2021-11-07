@@ -31,13 +31,13 @@ export default function Footer() {
             <div className="col-sm-12 col-md-6 col-lg-3 text-center-xs widget--contact-info">
               <div className="widget--content">
                 <ul className="list-unstyled">
-                  <li>No. 342 - London Oxford Street,</li>
-                  <li>012 United Kingdom.</li>
+                  <li>9580 Rock Maple Street Bronx,</li>
+                  <li> NY 10461 - NEW YORK.</li>
                   <li>
                     <a href="mailto:comfeey@gmail.com">support@comfeey.com</a>
                   </li>
                   <li>
-                    <a href="tel:+03234567890">+032 3456 7890</a>
+                    <a href="tel:+7167049295">+716 704 9295</a>
                   </li>
                 </ul>
               </div>

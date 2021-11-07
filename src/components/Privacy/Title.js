@@ -1,5 +1,4 @@
 import React from "react";
-import PrivacyTitle from '../../assets/images/page-title/1.jpg'
 
 import { Link } from 'react-router-dom'
 
@@ -7,7 +6,7 @@ import './title.scss'
 
 export default function Title() {
   return (
-    <section id="page-title" className="page-title bg-parallax privacy-title" style={{ backgroundImage:`url(${PrivacyTitle})` }}>
+    <section id="page-title" className="page-title privacy-title">
 
       <div className="container">
         <div className="row">

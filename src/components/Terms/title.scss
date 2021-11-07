@@ -1,7 +1,12 @@
-.terms-title {
-	height: 70vh !important;
+.terms-title {	
+	height: auto !important;
 	background-size: 120%;
 	background-repeat: no-repeat;
+
+	.title.title-3 {
+		padding-top: 130px !important;
+		padding-bottom: 0 !important;
+	}
 
 	.breadcrumb {
 		display: flex;
