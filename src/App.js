@@ -171,6 +171,13 @@ function App() {
               )
             }
           />
+
+            {/* 404 */}
+            <Route path="*"  >
+              <Home/>
+              {/* <NotFound/> */}
+            </Route>
+
         </Switch>
 
         <ToastContainer {...notifProps} />
