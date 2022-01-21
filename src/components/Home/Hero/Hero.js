@@ -23,7 +23,7 @@ export default function Hero() {
 
 	const slides = [
 		{
-			title: 'Comfeey Sofa',
+			title: 'DopeGood Sofa',
 			coloredTitle: 'Collection',
 			img: `${apiUrl}/616b1eec93d32743b004665f/1.png`,
 			captionTitle: 'Trending',
@@ -31,7 +31,7 @@ export default function Hero() {
 			link: '/shop/furniture/sofa'
 		},
 		{
-			title: 'Comfeey Chair',
+			title: 'DopeGood Chair',
 			coloredTitle: 'Collection',
 			img: `${apiUrl}/616c5439e14d614f48c54004/7.png`,
 			captionTitle: 'Trending',
@@ -39,7 +39,7 @@ export default function Hero() {
 			link: '/shop/furniture/chair'
 		},
 		{
-			title: 'Comfeey Desk',
+			title: 'DopeGood Desk',
 			coloredTitle: 'Collection',
 			img: `${apiUrl}/616d80fe5c825d3d24e0f304/1.png`,
 			captionTitle: 'Trending',
@@ -47,7 +47,7 @@ export default function Hero() {
 			link: '/shop/furniture/desk'
 		},
 		{
-			title: 'Comfeey Lamps',
+			title: 'DopeGood Lamps',
 			coloredTitle: 'Collection',
 			img: `${apiUrl}/616d72155c825d3d24e0f301/1.png`,
 			captionTitle: 'Trending',
@@ -66,18 +66,18 @@ export default function Hero() {
 
 	}
 
-		const goToNextSlide = () => {
-			
-			const slideBefore = shownSlide
-			const nextSlide = findNextSlide()
-			
-			controls.start('hidden')
-			setShownSlide(nextSlide)
-			
-			tl.fromTo(`.slider-${slideBefore}`,{ x:0 }, { x: '-100vw' })
-			tl.fromTo(`.slider-${nextSlide}`,{ x: '100vw' }, { x: '0vw' })
+	const goToNextSlide = () => {
+		
+		const slideBefore = shownSlide
+		const nextSlide = findNextSlide()
+		
+		controls.start('hidden')
+		setShownSlide(nextSlide)
+		
+		tl.fromTo(`.slider-${slideBefore}`,{ x:0 }, { x: '-100vw' })
+		tl.fromTo(`.slider-${nextSlide}`,{ x: '100vw' }, { x: '0vw' })
 
-		}
+	}
 
 	const goToSlide = (slideIdx) => {
 
@@ -92,7 +92,11 @@ export default function Hero() {
 	useEffect( () => {
 		clearTimeout(timeOut)
 		startNextSlideTimer()
-	}, [shownSlide])
+
+		return () => {
+			window.clearTimeout(timeOut);
+		}
+	}, [shownSlide,timeOut])
 
 	const findNextSlide = () => {
 		if( shownSlide >= slides.length - 1 ) return 0

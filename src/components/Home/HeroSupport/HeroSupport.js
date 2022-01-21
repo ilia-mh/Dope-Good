@@ -7,7 +7,7 @@ export default function HeroSupport() {
         <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">
                 <div className="heading heading-3 mb-100 text-center">
-                    <h2 className="heading--title">HEBES STORE</h2>
+                    <h2 className="heading--title">DopeGood STORE</h2>
                 </div>
             </div>
              {/* .col-lg-12 end  */}

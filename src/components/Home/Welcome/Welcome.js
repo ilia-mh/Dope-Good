@@ -12,7 +12,7 @@ export default function Welcome() {
               <div className="heading heading-2">
                 <p className="heading--subtitle">HISTORY SINCE 1998</p>
                 <h2 className="heading--title">
-                  Welcome to Comfeey Store - Amazing furniture
+                  Welcome to DopeGood Store - Amazing furniture
                 </h2>
               </div>
             </div>
@@ -25,9 +25,9 @@ export default function Welcome() {
                 If for any reason you are unhappy with your purchase, let us know and we'll make it right.
                 </p>
                 <p>
-                  Hebes's mission has always been to provide you with unexpected, distinctive finds for your closet and home.
+                  Dope Good's mission has always been to provide you with unexpected, distinctive finds for your closet and home.
                   Our products are sourced and <span style={{ fontWeight: 600 }}>crafted with care</span>, 
-                  ensuring every treasure at Hebes is unique, just like you are.
+                  ensuring every treasure at Dope Good is unique, just like you are.
                 </p>
               </div>
               <div className="about--signature">MARK HENRRY<span>CEO</span></div>

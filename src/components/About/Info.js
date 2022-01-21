@@ -15,8 +15,8 @@ export default function Info() {
                 <p>166 Alexander Road EAST E44 0GA- LONDON</p>
                 <ul className="list-unstyled mb-0">
                   <li>
-                    <a href="mailto:info@comfeey.com">
-                      Email: info@comfeey.com
+                    <a href="mailto:info@dopegood.com">
+                      Email: info@dopegood.com
                     </a>
                   </li>
                   <li>
@@ -35,8 +35,8 @@ export default function Info() {
                 <p>100 Faubourg Saint Honoré - PARIS</p>
                 <ul className="list-unstyled mb-0">
                   <li>
-                    <a href="mailto:info@comfeey.com">
-                      Email: info@comfeey.com
+                    <a href="mailto:info@dopegood.com">
+                      Email: info@dopegood.com
                     </a>
                   </li>
                   <li>
@@ -55,8 +55,8 @@ export default function Info() {
                 <p>9580 Rock Maple Street Bronx, NY 10461 - NEW YORK</p>
                 <ul className="list-unstyled mb-0">
                   <li>
-                    <a href="mailto:info@comfeey.com">
-                      Email: info@comfeey.com
+                    <a href="mailto:info@dopegood.com">
+                      Email: info@dopegood.com
                     </a>
                   </li>
                   <li>

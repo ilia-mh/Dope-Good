@@ -9,7 +9,7 @@ export default function Content() {
           <div class="col-md-12">
             <p>
               By accessing this website we assume you accept these terms and
-              conditions in full. Do not continue to use www.hebes.com's website
+              conditions in full. Do not continue to use www.dopegood.com's website
               if you do not accept all of the terms and conditions stated on
               this page.
             </p>
@@ -33,8 +33,8 @@ export default function Content() {
             </p>
             <h6>Cookies</h6>
             <p>
-              We employ the use of cookies. By using www.hebes.com's website you
-              consent to the use of cookies in accordance with www.hebes.com’s
+              We employ the use of cookies. By using www.dopegood.com's website you
+              consent to the use of cookies in accordance with www.dopegood.com’s
               privacy policy.
             </p>
             <p>
@@ -46,25 +46,25 @@ export default function Content() {
             </p>
             <h6>License</h6>
             <p>
-              Unless otherwise stated, www.hebes.com and/or it’s licensors own
+              Unless otherwise stated, www.dopegood.com and/or it’s licensors own
               the intellectual property rights for all material on
-              www.hebes.com. All intellectual property rights are reserved. You
-              may view and/or print pages from http://www.hebes.com for your own
+              www.dopegood.com. All intellectual property rights are reserved. You
+              may view and/or print pages from http://www.dopegood.com for your own
               personal use subject to restrictions set in these terms and
               conditions.
             </p>
             <p>You must not:</p>
             <ol>
-              <li>Republish material from http://www.hebes.com</li>
+              <li>Republish material from http://www.dopegood.com</li>
               <li>
-                Sell, rent or sub-license material from http://www.hebes.com
+                Sell, rent or sub-license material from http://www.dopegood.com
               </li>
               <li>
-                Reproduce, duplicate or copy material from http://www.hebes.com
+                Reproduce, duplicate or copy material from http://www.dopegood.com
               </li>
             </ol>
             <p>
-              Redistribute content from www.hebes.com (unless content is
+              Redistribute content from www.dopegood.com (unless content is
               specifically made for redistribution).
             </p>
             <h6>Hyperlinking to our Content</h6>
@@ -132,7 +132,7 @@ export default function Content() {
               business, such as work-at-home opportunities, shall not be allowed
               to link); (b)the organization does not have an unsatisfactory
               record with us; (c) the benefit to us from the visibility
-              associated with the hyperlink outweighs the absence of hebes ; and
+              associated with the hyperlink outweighs the absence of dopegood ; and
               (d) where the link is in the context of general resource
               information or is otherwise consistent with editorial content in a
               newsletter or similar product furthering the mission of the
@@ -151,7 +151,7 @@ export default function Content() {
             <p>
               If you are among the organizations listed in paragraph 2 above and
               are interested in linking to our website, you must notify us by
-              sending an e-mail to <Link to="/contact">admin@comfeey.com</Link>. Please
+              sending an e-mail to <Link to="/contact">admin@dopegood.com</Link>. Please
               include your name, your organization name, contact information
               (such as a phone number and/or e-mail address) as well as the URL
               of your site, a list of any URLs from which you intend to link to
@@ -176,7 +176,7 @@ export default function Content() {
               </li>
             </ol>
             <p>
-              No use of www.hebes.com’s logo or other artwork will be allowed
+              No use of www.dopegood.com’s logo or other artwork will be allowed
               for linking absent a trademark license agreement.
             </p>
             <h6>Iframes</h6>

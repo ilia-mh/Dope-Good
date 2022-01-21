@@ -35,7 +35,7 @@ export default function Gallery() {
             <div className="heading heading-2">
               <p className="heading--subtitle">HISTORY SINCE 1998</p>
               <h2 className="heading--title">
-                Welcome to Comfeey Store furniture
+                Welcome to Dope Good Store furniture
               </h2>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function Gallery() {
               <div className="col-sm-12 col-md-12 col-lg-12">
                 <div className="about--text">
                   <p>
-                    At Comfeey, beautiful things aren’t just our passion — they’re our obsession. For over two decades, we’ve been scouring 
+                    At Dope Good, beautiful things aren’t just our passion — they’re our obsession. For over two decades, we’ve been scouring 
                     the globe in search of <span style={{ fontWeight: 600 }}>modern and vintage</span> furnishings and accessories designed to inspire. Edgy yet elegant. Sophisticated 
                     but never stuffy. Timeless but always of the moment. These are our guideposts for collecting an ever-evolving mix of modern 
                     day and one-of-a-kind vintage furniture, tableware, lighting, candles, books, pillows, textiles and more.

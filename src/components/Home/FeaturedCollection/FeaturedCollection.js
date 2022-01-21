@@ -14,7 +14,7 @@ export default function FeaturedCollection() {
     {
       slideImg: Img1,
       title: 'Sofa Collection',
-      desc: 'comfy high quality sofa collection',
+      desc: 'Dope Dood high quality sofa collection',
       productName: 'Rura Collection',
       productImg: `${apiUrl}/616b1eec93d32743b004665f/1.png`,
       price: 1750,
@@ -23,7 +23,7 @@ export default function FeaturedCollection() {
     {
       slideImg: Img2,
       title: 'Chair Collection',
-      desc: 'comfy high quality chair collection',
+      desc: 'Dope Dood high quality chair collection',
       productName: 'Demi Chair',
       productImg: `${apiUrl}/61687bc3267f751e7c53ac9e/1.png`,
       price: 850,

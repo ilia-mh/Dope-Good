@@ -9,7 +9,7 @@ export default function Content() {
             <p>
               This page is used to inform website visitors regarding our
               policies with the collection, use, and disclosure of Personal
-              Information if anyone decided to use our Service, the hebes
+              Information if anyone decided to use our Service, the dopegood
               website.
             </p>
             <p>
@@ -21,7 +21,7 @@ export default function Content() {
             </p>
             <p>
               The terms used in this Privacy Policy have the same meanings as in
-              our Terms and Conditions, which is accessible at www.hebes.com,
+              our Terms and Conditions, which is accessible at www.dopegood.com,
               unless otherwise defined in this Privacy Policy.
             </p>
             <h6>Information Collection and Use</h6>

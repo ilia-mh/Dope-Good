@@ -11,6 +11,7 @@ import NewArrivals from '../components/Home/NewArrivals/NewArrivals'
 import Testimonial from '../components/Home/Testimonial/Testimonial'
 import Features from '../components/Home/Features/Features'
 import Welcome from '../components/Home/Welcome/Welcome'
+import QuickView from '../components/Shop/QuickView'
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -43,6 +44,7 @@ export default function Home() {
 			<NewArrivals />
 			<Testimonial />
 			<Features />
+			<QuickView />
 		</div>
 	)
 }

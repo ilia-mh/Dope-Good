@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 // import Preloader from './components/Preloader'
+
 import Home from "./views/Home";
 import Shop from "./views/Shop";
 import Contact from "./views/Contact";
@@ -22,6 +23,7 @@ import Terms from "./views/Terms";
 import Checkout from "./views/Checkout";
 import Cart from "./views/Cart";
 import Login from "./views/Login";
+import ForgotPass from "./views/ForgotPass";
 import Product from "./views/Product";
 import Profile from "./views/Profile";
 
@@ -42,7 +44,8 @@ import ScrollToTop from "./utils/ScrollToTop";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-function App() {
+function App( ) {
+
   const user = useSelector((state) => state.shop.user);
 
   const dispatch = useDispatch();
@@ -146,26 +149,44 @@ function App() {
 
           <Route
             exact
+            path="/login/forgot"
+            render={() =>
+              user === false ? (
+                <ForgotPass />
+              ) : (
+                user === undefined ? 
+                  ''
+                :
+                  <Redirect to={{ pathname: "/profile" }} />
+              )
+            }
+          />
+
+          <Route
+            exact
             path="/login"
             render={() =>
               user === false ? (
                 <Login />
               ) : (
-                <Redirect to={{ pathname: "/profile" }} />
+                user === undefined ? 
+                  ''
+                :
+                  <Redirect to={{ pathname: "/profile" }} />
               )
             }
           />
-
-          {/* <Route exact path="/profile" >
-						<Profile />
-					</Route> */}
-
+        
           <Route
             exact
             path="/profile/:tab?"
             render={() =>
               user !== false ? (
-                <Profile />
+                user === undefined ? 
+                  ''
+                :
+                  <Profile />
+                
               ) : (
                 <Redirect to={{ pathname: "/login" }} />
               )

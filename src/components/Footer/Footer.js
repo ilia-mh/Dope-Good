@@ -3,6 +3,8 @@ import logoLight from '../../assets/images/logo/logo-light.png'
 import { Link } from 'react-router-dom'
 import './footer.scss'
 
+import Logo from "../../assets/svg/LogoLg.png";
+
 import Subscribe from './Subscribe'
 
 export default function Footer() {
@@ -17,11 +19,13 @@ export default function Footer() {
             >
               <div className="widget--content">
                 <div className="widget--logo-img">
-                  <img src={logoLight} alt="comfeey" />
+
+                  <img src={Logo} alt="comfeey" />
+                  
                 </div>
               </div>
               <div className="footer--copyright">
-                <span>&copy; 2019 Comfeey - All Rights Reserved,<br/>by </span>
+                <span>&copy; 2019 Dope Good - All Rights Reserved,<br/>by </span>
                 <a href="https://amirmohseni.dev">Amir Mohseni</a>
               </div>
               {/* .footer-copyright end  */}
@@ -34,7 +38,7 @@ export default function Footer() {
                   <li>9580 Rock Maple Street Bronx,</li>
                   <li> NY 10461 - NEW YORK.</li>
                   <li>
-                    <a href="mailto:comfeey@gmail.com">support@comfeey.com</a>
+                    <a href="mailto:comfeey@gmail.com">support@dopegood.com</a>
                   </li>
                   <li>
                     <a href="tel:+7167049295">+716 704 9295</a>

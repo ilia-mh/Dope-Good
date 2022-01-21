@@ -5,7 +5,7 @@ import img3 from "../../../assets/images/featured-collection/3.png";
 const Features = [
 	{
 		sale: 'SALE UP TO 40% OFF',
-		title: 'Hebes Chair Collection 2019',
+		title: 'Dope Good Chair Collection 2019',
 		img: img1,
 		link: '/#',
 		text: 'Actually, Woodstock was not the first outdoor festival to feature multiple bands over several days performing on a stage set up out in the middle of a farmer’s field, We were hauling a piano through.'
@@ -19,7 +19,7 @@ const Features = [
 	},
 	{
 		sale: 'SALE UP TO 10% OFF',
-		title: 'Hebes Sofa Collection 2019',
+		title: 'Dope Good Sofa Collection 2019',
 		img: img3,
 		link: '/#',
 		text: 'UX Designer is still a relatively new profession, and one that is still being defined. Emil suggests it is an often misinterpreted role and that ‘User Experience Designer’'

@@ -18,7 +18,7 @@ export default function Features() {
               {/* .feature-icon end  */}
               <div className="feature--content">
                 <h3>Creative &amp; Unique</h3>
-                <p>GREAT FROM HEBES</p>
+                <p>GREAT FROM Dope Good</p>
               </div>
               {/* .feature-content end  */}
             </div>

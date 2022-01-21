@@ -131,8 +131,8 @@ export default function ReachOut() {
                       </h3>
                       <ul className="list-unstyled mb-0">
                         <li>
-                          <a href="mailto:Support@comfeey.net"
-                            >Support@comfeey.net</a
+                          <a href="mailto:Support@dopegood.net"
+                            >Support@dopegood.net</a
                           >
                         </li>
                         <li>

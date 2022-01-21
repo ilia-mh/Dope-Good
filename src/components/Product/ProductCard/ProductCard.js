@@ -69,17 +69,6 @@ export default function ProductCard({ product, isInSlider, removeFavorite }) {
 		setProductHover(false)
 	}
 
-	const goingToSingleProduct = async (id) => {
-
-		dispatch(changeGettingProduct());
-
-		const singleProduct = await get(`${apiUrl}/api/product/${_id}`);
-		
-		dispatch(setSingleProduct(singleProduct.products));
-		dispatch(changeGettingProduct());
-
-	}
-
 	const showProductQuickView = () => {
 		dispatch( setProductQuickView(product) )
 	}
@@ -108,8 +97,6 @@ export default function ProductCard({ product, isInSlider, removeFavorite }) {
             <h3>
               <Link
                 to={`/product/${_id}`}
-                onClick={() => goingToSingleProduct(_id)}
-                
               >
                 {name}
               </Link>
@@ -130,7 +117,6 @@ export default function ProductCard({ product, isInSlider, removeFavorite }) {
           showProductQuickView={showProductQuickView}
           addProductToFavorites={addProductToFavorites}
           favoritted={favoritted}
-          goingToSingleProduct={goingToSingleProduct}
         />
 
       </div>

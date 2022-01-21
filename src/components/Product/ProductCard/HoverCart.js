@@ -7,7 +7,6 @@ export default function HoverCart(props) {
     showProductQuickView,
     addProductToFavorites,
     favoritted,
-    goingToSingleProduct,
   } = props;
 
   const { _id, price, options, name } = props.product;
@@ -62,7 +61,6 @@ export default function HoverCart(props) {
           <h3>
             <Link
               to={`/product/${_id}`}
-              onClick={() => goingToSingleProduct(_id)}
               target="_blank"
             >
               {name}

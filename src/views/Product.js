@@ -37,6 +37,10 @@ export default function Product() {
     const singleProduct = await get(`${apiUrl}/api/product/${id}`);
     const allRecentProducts = await get(`${apiUrl}/api/recentproducts/${id}`);
 
+    console.log('the single product')
+    console.log(id)
+    console.log(singleProduct)
+
     if (singleProduct.success) {
       dispatch(setSingleProduct(singleProduct.product));
       dispatch(setRecentProducts(allRecentProducts.products));

@@ -5,6 +5,7 @@ import { userExists } from "../../store/Reducer/reducer";
 import { useHistory } from 'react-router-dom'
 
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const apiUrl = process.env.REACT_APP_API_URL
 
@@ -113,7 +114,7 @@ export default function LogIn() {
             </div>
           </div>
 					
-          <div className="col-sm-12 col-md-12 col-lg-12 mb-40 keep-logedin-check">
+          <div className="col-sm-12 col-md-8 col-lg-12 mb-40 keep-logedin-check">
             <div className="input-checkbox inline-block">
               <label className="label-checkbox" style={{ color: '#fff'}}>
                 Keep me logged in
@@ -126,9 +127,9 @@ export default function LogIn() {
               </label>
             </div>
 
-            <button type="button" className="forget--password" >
+            <Link to="/login/forgot" className="forget--password" >
               Forgot your password?
-            </button>
+            </Link>
           </div>
 
           <div className="col-sm-12 col-md-12 col-lg-12 mb-30">

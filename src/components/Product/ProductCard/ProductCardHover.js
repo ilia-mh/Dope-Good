@@ -11,7 +11,6 @@ export default function ProductCardHover(props) {
     showProductQuickView,
     addProductToFavorites,
     favoritted,
-    goingToSingleProduct,
     product
   } = props;
 
@@ -87,7 +86,6 @@ export default function ProductCardHover(props) {
           showProductQuickView={showProductQuickView} 
           addProductToFavorites={addProductToFavorites}
           favoritted={favoritted}
-          goingToSingleProduct={goingToSingleProduct}
           product={product}
         />
         
@@ -133,7 +131,6 @@ export default function ProductCardHover(props) {
           showProductQuickView={showProductQuickView} 
           addProductToFavorites={addProductToFavorites}
           favoritted={favoritted}
-          goingToSingleProduct={goingToSingleProduct}
           product={product}
         />
         
