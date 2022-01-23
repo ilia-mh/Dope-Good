@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, lazy, Suspense } from 'react'
 import Hero from '../components/Shop/Hero'
-import Filters from '../components/Shop/Filters'
-import Products from '../components/Shop/Products'
-import QuickView from '../components/Shop/QuickView'
+import Loading from './Loading'
+
+// import Filters from '../components/Shop/Filters'
+// import Products from '../components/Shop/Products'
+// import QuickView from '../components/Shop/QuickView'
 
 import { useSelector, useDispatch } from "react-redux";
 import { setAllProducts } from "../store/Reducer/reducer";
 import { get } from "../utils/fetch";
 
 import { useParams } from "react-router-dom";
+
+const Filters = lazy( () => import('../components/Shop/Filters'))
+const Products = lazy( () => import('../components/Shop/Products'))
+const QuickView = lazy( () => import('../components/Shop/QuickView'))
 
 const apiUrl = `${process.env.REACT_APP_API_URL}/api`;
 
@@ -124,11 +130,15 @@ export default function Shop() {
         <div className="container-fluid">
           <div className="row">
 
-						<Filters />
+						<Suspense fallback={<Loading/>}>
 
-						<Products setCurrentPage={setCurrentPage} currentPage={currentPage} pageEnd={pageEnd} />
+							<Filters />
 
-						<QuickView />
+							<Products setCurrentPage={setCurrentPage} currentPage={currentPage} pageEnd={pageEnd} />
+
+							<QuickView />
+
+						</Suspense>
 
 					</div>
 				</div>

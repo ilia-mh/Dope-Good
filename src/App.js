@@ -39,7 +39,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { get, post } from "./utils/fetch";
 
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import ScrollToTop from "./utils/ScrollToTop";
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -59,7 +59,7 @@ function App( ) {
       const categories = await get(`${apiUrl}/api/categories`);
 
       if (!categories || !categories.categories) {
-        toast.error("Server not responding");
+        // toast.error("Server not responding");
         return;
       } else dispatch(setCategories(categories.categories));
     }

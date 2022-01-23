@@ -120,7 +120,7 @@ export default function QuickView() {
                       <Slider gallery={slidePhotos().map((photo) => `${apiUrl}/${_id}/${photo}` )}>
                         {slidePhotos().map((photo) => (
                           <div className="product-img" key="photo">
-                            <img src={`${apiUrl}/${_id}/${photo}`} alt="product" />
+                            <img src={`${apiUrl}/${_id}/${photo}`} alt="product" loading="lazy" />
                           </div>
                         ))}
                       </Slider>

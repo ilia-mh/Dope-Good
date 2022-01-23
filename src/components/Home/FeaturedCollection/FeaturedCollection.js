@@ -69,6 +69,7 @@ export default function FeaturedCollection() {
                                 <img
                                   src={slideImg}
                                   alt={title}
+                                  loading="lazy"
                                 />
                                 <div className="img-overlay"></div>
 
@@ -94,6 +95,7 @@ export default function FeaturedCollection() {
                                 <img
                                   src={productImg}
                                   alt="collection"
+                                  loading="lazy"
                                 />
                               </Link>
 

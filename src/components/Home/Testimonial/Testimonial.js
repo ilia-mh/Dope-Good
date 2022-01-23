@@ -30,6 +30,7 @@ export default function Testimonial() {
 												<img
 													src={ img }
 													alt={ name }
+													loading="lazy"
 												/>
 											</div>
 											{/* .testimonial-meta-img end  */}

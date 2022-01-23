@@ -1,9 +1,12 @@
-import React from "react";
+import React, { lazy } from "react";
 import Slider from "../Slider/Slider";
 import "./gallery.scss";
 
-import AboutGalleryImg3 from "../../assets/images/about/gallery/3.jpg";
-import AboutGalleryImg4 from "../../assets/images/about/gallery/4.jpg";
+// import AboutGalleryImg3 from "../../assets/images/about/gallery/3.jpg";
+// import AboutGalleryImg4 from "../../assets/images/about/gallery/4.jpg";
+
+const AboutGalleryImg3 = lazy( () => import('../../assets/images/about/gallery/3.jpg'))
+const AboutGalleryImg4 = lazy( () => import('../../assets/images/about/gallery/4.jpg'))
 
 export default function Gallery() {
   return (

@@ -104,6 +104,7 @@ export default function SlickSlider(props) {
                 src={slideImg}
                 alt="product gallery thumbnail"
                 onClick={() => goToSlide(idx)}
+                loading="lazy"
               />
             </div>
           ))}

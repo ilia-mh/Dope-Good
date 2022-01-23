@@ -87,6 +87,7 @@ export default function ProductCard({ product, isInSlider, removeFavorite }) {
           <img
             src={`${apiUrl}/${_id}/${photos[0]}`}
             alt="category"
+            loading="lazy"
           />
         </Link>
 

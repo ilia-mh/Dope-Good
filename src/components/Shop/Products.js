@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { changeProductsFilterOptions } from "../../store/Reducer/reducer";
@@ -67,7 +67,6 @@ export default function Products({ setCurrentPage, currentPage, pageEnd }) {
   useEffect( () => {
 
     setTimeout(() => {
-      
       setShowLoadMore(true)
     }, 700);
 
@@ -97,7 +96,9 @@ export default function Products({ setCurrentPage, currentPage, pageEnd }) {
 
         {
           shownProducts &&
-            shownProducts.map((product) => <ProductCard product={product} key={product._id} /> )
+            shownProducts.map((product) => <Suspense>
+              <ProductCard product={product} key={product._id} />
+            </Suspense> )
         }
 
         {

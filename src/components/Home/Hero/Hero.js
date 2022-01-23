@@ -199,7 +199,7 @@ export default function Hero() {
 						animate={controls}
 						transition={{ duration: 0.5, type: 'spring' }}
 					>
-						<img src={slides[findNextSlide()].img} alt='Next Slide' />
+						<img src={slides[findNextSlide()].img} alt='Next Slide' loading="lazy"/>
 
 						<div className="slide-title">
 							<h1 >{slides[findNextSlide()].title}</h1>

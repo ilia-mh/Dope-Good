@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { get } from "../utils/fetch";
@@ -8,11 +8,19 @@ import {
   setRecentProducts,
 } from "../store/Reducer/reducer";
 
-import Hero from "../components/Product/Hero";
-import ProductDetails from "../components/Product/ProductDetails";
-import ProductIntro from "../components/Product/ProductIntro";
-import RecentProducts from "../components/Product/RecentProducts";
-import QuickView from "../components/Shop/QuickView";
+// import Hero from "../components/Product/Hero";
+// import ProductDetails from "../components/Product/ProductDetails";
+// import ProductIntro from "../components/Product/ProductIntro";
+// import RecentProducts from "../components/Product/RecentProducts";
+// import QuickView from "../components/Shop/QuickView";
+
+import Loading from './Loading'
+
+const Hero = lazy( () => import('../components/Product/Hero') )
+const ProductDetails = lazy( () => import('../components/Product/ProductDetails') )
+const ProductIntro = lazy( () => import('../components/Product/ProductIntro') )
+const RecentProducts = lazy( () => import('../components/Product/RecentProducts') )
+const QuickView = lazy( () => import('../components/Shop/QuickView') )
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -37,10 +45,6 @@ export default function Product() {
     const singleProduct = await get(`${apiUrl}/api/product/${id}`);
     const allRecentProducts = await get(`${apiUrl}/api/recentproducts/${id}`);
 
-    console.log('the single product')
-    console.log(id)
-    console.log(singleProduct)
-
     if (singleProduct.success) {
       dispatch(setSingleProduct(singleProduct.product));
       dispatch(setRecentProducts(allRecentProducts.products));
@@ -50,16 +54,22 @@ export default function Product() {
   };
 
   return (
-    <div className="view-wrapper" >
-      <Hero />
+    <div className="view-wrapper">
 
-      <ProductIntro />
+      <Suspense fallback={<Loading/>}>
+
+        <Hero />
+
+        <ProductIntro />
+        
+        <ProductDetails />
+
+        <RecentProducts />
+
+        <QuickView />
+
+      </Suspense>
       
-      <ProductDetails />
-
-      <RecentProducts />
-
-      <QuickView />
     </div>
   );
 }

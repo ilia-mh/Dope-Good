@@ -61,7 +61,7 @@ export default function CartList() {
 														<td className="cart-product-item">
 
 															<div className="cart-product-img">
-																<img src={`${apiUrl}/${_id}/${img}`} alt="product" />
+																<img src={`${apiUrl}/${_id}/${img}`} alt="product" loading="lazy" />
 															</div>
 
 															<div className="cart-product-content">
