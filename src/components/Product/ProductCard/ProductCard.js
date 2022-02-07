@@ -53,8 +53,8 @@ export default function ProductCard({ product, isInSlider, removeFavorite }) {
 			price,
 			q: 1,
 			options: {
-				color: options.color[0],
-				size: options.size[0]
+				color: options.color[0].name,
+				size: options.size[0].name
 			}
 		}
 

@@ -4,7 +4,7 @@ import img3 from '../../../assets/images/testimonials/authors/3.jpg'
 
 const testimonials = [
 	{
-		text: '“The couch is absolutely stunning, I love it! It was exactly what I was looking for. It is stylish and comfortable, and seems to  be very well made. I would highly recommend DopeGood to anyone, and in fact, have recommended it to everyone who compliments my couch!”',
+		text: '“The couch is absolutely stunning, I love it! It was exactly what I was looking for. It is stylish and comfortable, and seems to  be very well made. I would highly recommend DopeGood to anyone!”',
 		img: img1,
 		name: 'Amy L.'
 	},

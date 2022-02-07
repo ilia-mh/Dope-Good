@@ -1,5 +1,5 @@
 import React from "react";
-import logoLight from '../../assets/images/logo/logo-light.png'
+// import logoLight from '../../assets/images/logo/logo-light.png'
 import { Link } from 'react-router-dom'
 import './footer.scss'
 
@@ -24,9 +24,9 @@ export default function Footer() {
                   
                 </div>
               </div>
+
               <div className="footer--copyright">
-                <span>&copy; 2019 Dope Good - All Rights Reserved,<br/>by </span>
-                <a href="https://amirmohseni.dev">Amir Mohseni</a>
+                <span>&copy; 2019 Dope Good - All Rights Reserved, by <b>DopeGood</b> </span> 
               </div>
               {/* .footer-copyright end  */}
             </div>

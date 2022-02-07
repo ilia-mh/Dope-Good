@@ -34,9 +34,10 @@ export default function Select({
           setSearchVal('')
         }, 300);
       } else {
-        setShowModal(false)
       }
-    }
+    } 
+    
+    setShowModal(false)
 
   };
 
@@ -180,19 +181,32 @@ export default function Select({
         animate={showModal ? "animate" : "hidden"}
       >
         {
-        !isString
-          ? items.map((options) => (
-              <div
-                key={options.name}
-                className={`option ${
-                  selectedItem === options.name ? "active" : ""
-                }`}
-                onClick={(e) => changeSelectedItem(e,options.name)}
-              >
-                {options.name}
-              </div>
-            ))
-          : returnItems().map((option) => (
+        !isString ? 
+          <>
+            { 
+              showModal && (
+                <div
+                  className="bg-full-cover"
+                  onClick={() => setShowModal(false)}
+                ></div>
+              )
+            }
+            {
+            items.map((options, idx) => (
+                <div
+                  key={options.name}
+                  className={`option ${
+                    selectedItem === options.name ? "active" : ""
+                  }`}
+                  onClick={(e) => changeSelectedItem(e,options.name)}
+                >
+                  {options.name}
+                </div>
+              ))
+            }
+            </>
+          : 
+            returnItems().map((option) => (
               <div
                 key={option}
                 className={`option ${selectedItem === option ? "active" : ""}`}

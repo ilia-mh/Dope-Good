@@ -17,7 +17,9 @@
 	.slick-slide {
 		
 		img {
+			// height: 100%;
 			width: 100%;
+			object-fit: cover;
 			padding: 0 20px;
 		}
 	}
@@ -68,6 +70,36 @@
 		}
 	}
 }
+
+.product--desc-tabs {
+
+	.tab-content .product--desc p {
+		min-height: 60px;
+	}
+}
+
+
+// .slide-gallery {
+// 	width: 100%;
+// 	margin-top: 15px;
+// 	display: flex;
+// 	padding: 10px 0;
+// 	align-items: center;
+// 	overflow: auto;
+// 	overflow: hidden;
+// 	z-index: 1000;
+
+// 	.gallery-slide {
+// 		width: 70px;
+// 		flex-shrink: 0;
+// 		margin-right: 12px;
+// 		cursor: pointer;
+
+// 		img {
+// 			width: 100%;
+// 		}
+// 	}
+// }
 
 @media (max-width: 991px) {
 

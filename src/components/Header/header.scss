@@ -28,12 +28,12 @@ header#header {
 	top: 50%;
 
 	img {
-		width: 5rem;
-		// height: 45px;
+		height: 45px;
 	}
-	// svg {
-		// fill: #fff;
-	// }
+}
+
+.absolute {
+	position: absolute !important;
 }
 
 nav.navbar {
@@ -456,6 +456,13 @@ nav.navbar .nav-container {
 }
 
 @media( max-width: 768px ){
+
+	.logo {
+		img {
+			height: 40px;
+		}
+	}
+
 	.nav-holder {
 		max-width: 540px !important;
 	}
@@ -509,6 +516,13 @@ nav.navbar .nav-container {
 }
 
 @media( max-width: 450px ){
+
+	.logo {
+		img {
+			height: 35px;
+		}
+	}
+
 	header#header {
 		padding: 30px 0 0 !important;
 	}

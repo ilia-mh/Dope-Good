@@ -1,10 +1,12 @@
 import React from 'react'
 
+import './welcome.scss'
+
 export default function Welcome() {
 	return (
 		<section
         id="about1"
-        className="about about-1 pt-140 pt-60-xs pb-120 pb-60-xs"
+        className="about about-1 pt-140 pt-60-xs pb-120 pb-60-xs welcome-sec"
       >
         <div className="container">
           <div className="row">

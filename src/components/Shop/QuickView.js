@@ -66,8 +66,8 @@ export default function QuickView() {
 
 	},[product])
 
-	const addToCard = () => {
-
+	const addToCard = (e) => {
+    
 		if( !_id ) return
 
 		const newProduct = {
@@ -83,6 +83,10 @@ export default function QuickView() {
 		}
 
 		dispatch(addToCart(newProduct))
+
+    if( e && e.currentTarget ) {
+      e.currentTarget.blur()
+    }
 	}
 
   const slidePhotos = () => photos.slice(1)
@@ -197,7 +201,12 @@ export default function QuickView() {
                             increaseQuantity={increaseQuantity}
                           />
                         </div>
-                        <button className="btn btn--primary btn--rounded add-to-card-btn" onClick={addToCard} >
+                        <button className="btn btn--primary btn--rounded add-to-card-btn" 
+                          onClick={ (e) => addToCard(e)} 
+                          onBlur={ (e) => e.currentTarget.style.backgroundColor = '#F26C4F'}
+                          onMouseEnter={ (e) => e.currentTarget.style.backgroundColor = '#252525' }
+                          onMouseLeave={ (e) => e.currentTarget.style.backgroundColor = '#F26C4F' }
+                        >
                           ADD TO CART
                         </button>
                       </div>

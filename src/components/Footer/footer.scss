@@ -5,6 +5,7 @@ footer.footer {
 	.widget--content {
 
 		.widget--logo-img {
+			margin-bottom: 2.5rem;
 
 			img {
 				width: 6rem;
@@ -50,4 +51,45 @@ footer.footer {
 
 	}
 
+}
+
+@media ( max-width: 768px ) {
+	footer.footer {
+		.footer--copyright { 
+			margin-bottom: 3.5rem;
+		}
+
+		.widget--contact-info {
+			margin-bottom: 1.5rem;
+
+			ul li {
+				font-weight: 500;
+				font-size: 0.75rem;
+			}
+		}
+
+		.widget--links {
+			margin-bottom: 2rem;
+		}
+	}
+
+}
+
+@media ( max-width: 600px ) {
+	footer.footer {
+
+
+			.footer--copyright {
+
+				// font-size: 2rem !important;
+				span {
+					font-size: 0.85rem;
+
+					b {
+						color: #F26C4F;
+						font-weight: 600;
+					}
+				}
+			}
+	}
 }

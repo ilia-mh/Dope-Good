@@ -259,3 +259,15 @@
 		display: none !important;
 	}
 }
+
+@media ( max-width: 600px ) {
+	.featured-collection-container {
+
+		.heading--desc {
+			font-size: 0.93rem !important;
+			width: 100%;
+			line-height: 1.2;
+			padding: 0 6%;
+		}
+	}
+}

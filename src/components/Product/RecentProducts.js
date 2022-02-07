@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import SlickSlider from "../Slider/Slider";
+// import SlickSlider from "../Slider/Slider";
+import PureSlider from "../Slider/NewSlider";
 import ProductCard from "./ProductCard/ProductCard";
 
 import "./recentProducts.scss";
@@ -12,35 +13,36 @@ export default function RecentProducts({ noTitle, slideNum = 4 }) {
 
   const responsiveSlider = [
     {
-      breakpoint: 1500,
+      breakpoint: 100000,
       settings: {
-        slidesToShow: 5,
+        slidesToShow: 5
       },
     },
     {
       breakpoint: 1400,
       settings: {
-        slidesToShow: 4,
+        slidesToShow: 4
       },
     },
     {
-      breakpoint: 1024,
+      breakpoint: 1150,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 3
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 875,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 2
       },
     },
     {
-      breakpoint: 580,
+      breakpoint: 700,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 1
       },
     },
+
   ];
 
   return products.length > 0 ? (
@@ -72,7 +74,7 @@ export default function RecentProducts({ noTitle, slideNum = 4 }) {
           <div className="col-sm-12 col-md-12 col-lg-12 recent-products-carousel">
             {/* <div className="carousel"> */}
 
-            <SlickSlider slidesToShow={slideNum} responsive={responsiveSlider} swipeToSlide={true}>
+            <PureSlider showSlides={slideNum} resposniveSlides={responsiveSlider} autoPlay={true}>
               {products.map((product) => {
                 return (
                   <ProductCard
@@ -82,7 +84,18 @@ export default function RecentProducts({ noTitle, slideNum = 4 }) {
                   />
                 );
               })}
-            </SlickSlider>
+            </PureSlider>
+            {/* <SlickSlider slidesToShow={slideNum} responsive={responsiveSlider} swipeToSlide={true}>
+              {products.map((product) => {
+                return (
+                  <ProductCard
+                    product={product}
+                    key={product._id}
+                    isInSlider={true}
+                  />
+                );
+              })}
+            </SlickSlider> */}
 
             {/* </div> */}
           </div>

@@ -49,7 +49,8 @@ export default function Home() {
 	return (
 		<div className="view-wrapper" >
 
-			<Suspense fallback={<Loading />}>
+				{/* <Loading /> */}
+			<Suspense fallback={<div></div>}>
 
 				<Hero />
 				<Welcome />

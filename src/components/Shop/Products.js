@@ -96,9 +96,8 @@ export default function Products({ setCurrentPage, currentPage, pageEnd }) {
 
         {
           shownProducts &&
-            shownProducts.map((product) => <Suspense>
-              <ProductCard product={product} key={product._id} />
-            </Suspense> )
+            shownProducts.map((product) => <ProductCard product={product} key={product._id} />
+             )
         }
 
         {

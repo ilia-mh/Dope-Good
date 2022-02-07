@@ -24,7 +24,6 @@ export default function Cart({ toggleShowCart, showCart }) {
   );
 
 	const bgToggle = () => {
-		console.log('toggling cart module')
 		if ( showCart ) toggleShowCart()
 	}
   
@@ -75,10 +74,10 @@ export default function Cart({ toggleShowCart, showCart }) {
                   <div className="product-meta">
                     <h5 className="product-title">{name}</h5>
                     <p className="product-qunt">Quantity: {q}</p>
-                    <p className="product-color">Color: {options.color}</p>
+                    <p className="product-color">Color: { options.color }</p>
                     {
                       doesNeedSize(_id) &&
-                        <p className="product-size">Size: {options.size}</p>
+                        <p className="product-size">Size: { options.size }</p>
                     }
                     <p className="product-price">${price.toFixed(2)}</p>
                   </div>
@@ -113,6 +112,7 @@ export default function Cart({ toggleShowCart, showCart }) {
           <div className="total-desc">Sub total</div>
           <div className="total-price">${subTotal.toFixed(2)}</div>
         </div>
+
         <div className="cart--control">
           <Link
             className="btn btn--white btn--bordered btn--rounded view-cart-btn"

@@ -56,7 +56,7 @@ export default function Product() {
   return (
     <div className="view-wrapper">
 
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<div></div>}>
 
         <Hero />
 

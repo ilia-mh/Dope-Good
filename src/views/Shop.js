@@ -130,7 +130,7 @@ export default function Shop() {
         <div className="container-fluid">
           <div className="row">
 
-						<Suspense fallback={<Loading/>}>
+						<Suspense fallback={<div></div>}>
 
 							<Filters />
 

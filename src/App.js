@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -41,16 +41,21 @@ import { get, post } from "./utils/fetch";
 
 // import { toast } from "react-toastify";
 import ScrollToTop from "./utils/ScrollToTop";
+import Loading from "./views/Loading";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-function App( ) {
-
+function App() {
   const user = useSelector((state) => state.shop.user);
+
+  const [fullyLoaded, setFullyLoaded] = useState(false);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+
+    const started = Date.now()
+
     const currentCart = JSON.parse(localStorage.getItem("cart"));
 
     if (currentCart) dispatch(setInitialCart());
@@ -80,11 +85,24 @@ function App( ) {
       }
     }
 
-    const user = JSON.parse(localStorage.getItem("user"));
+    const localUser = JSON.parse(localStorage.getItem("user"));
 
-    if (user && user.accessToken) checkUser();
+    if (localUser && localUser.accessToken) checkUser();
     else dispatch(userExists(false));
-  }, []);
+
+    const diff = Date.now() - started
+
+    if( diff >= 1800 ) {
+      console.log('1800ms passed')
+      setFullyLoaded(true);
+    } else {
+      console.log('diff')
+      console.log(diff)
+      setTimeout(() => {
+        setFullyLoaded(true);
+      }, 1850 - diff);
+    }
+  }, [fullyLoaded]);
 
   const notifProps = {
     position: "bottom-right",
@@ -102,6 +120,8 @@ function App( ) {
     <Router>
       <ScrollToTop />
 
+      {!fullyLoaded && <Loading />}
+
       <div className="app-wrapper clearfix">
         {/* <Preloader /> */}
         <Header />
@@ -112,8 +132,8 @@ function App( ) {
           </Route>
 
           {/* <Route exact path="/newp" >
-						<NewProduct />
-					</Route> */}
+                <NewProduct />
+              </Route> */}
 
           <Route exact path="/shop/:cat?/:subcat?">
             <Shop />
@@ -153,11 +173,10 @@ function App( ) {
             render={() =>
               user === false ? (
                 <ForgotPass />
+              ) : user === undefined ? (
+                ""
               ) : (
-                user === undefined ? 
-                  ''
-                :
-                  <Redirect to={{ pathname: "/profile" }} />
+                <Redirect to={{ pathname: "/profile" }} />
               )
             }
           />
@@ -168,37 +187,35 @@ function App( ) {
             render={() =>
               user === false ? (
                 <Login />
+              ) : user === undefined ? (
+                ""
               ) : (
-                user === undefined ? 
-                  ''
-                :
-                  <Redirect to={{ pathname: "/profile" }} />
+                <Redirect to={{ pathname: "/profile" }} />
               )
             }
           />
-        
+
           <Route
             exact
             path="/profile/:tab?"
             render={() =>
               user !== false ? (
-                user === undefined ? 
-                  ''
-                :
+                user === undefined ? (
+                  ""
+                ) : (
                   <Profile />
-                
+                )
               ) : (
                 <Redirect to={{ pathname: "/login" }} />
               )
             }
           />
 
-            {/* 404 */}
-            <Route path="*"  >
-              <Home/>
-              {/* <NotFound/> */}
-            </Route>
-
+          {/* 404 */}
+          <Route path="*">
+            <Home />
+            {/* <NotFound/> */}
+          </Route>
         </Switch>
 
         <ToastContainer {...notifProps} />

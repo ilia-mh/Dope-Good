@@ -10,10 +10,10 @@ import { userExists } from "../../store/Reducer/reducer";
 
 import { toast } from "react-toastify";
 
-// images
-import Logo from "../../assets/svg/LogoLg.png";
+import Logo from "../../assets/svg/Logo.svg";
 
 function Header({ history }) {
+  
   const dispatch = useDispatch();
 
   const { length: cartLength } = useSelector((state) => state.shop.cart);
@@ -113,64 +113,6 @@ function Header({ history }) {
 
             <Link className="logo" to="/">
               <img src={Logo} alt="dopegood" />
-              {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 399.91">
-                <defs></defs>
-                <g id="Layer_2" data-name="Layer 2">
-                  <g id="Layer_1-2" data-name="Layer 1">
-                    <path
-                      class="cls-1"
-                      d="M200,0V50a125,125,0,1,0,50,100V0ZM178,203a75,75,0,1,1,22-53A74.48,74.48,0,0,1,178,203Z"
-                    />
-                    <path
-                      class="cls-1"
-                      d="M0,274.91a125,125,0,0,0,250,0h0a67,67,0,0,0-58.9,35.51,75.11,75.11,0,0,1-132.37-.32A66.51,66.51,0,0,0,0,274.91Z"
-                    />
-                  </g>
-                </g>
-              </svg> */}
-
-              {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350">
-                <g id="Layer_2" data-name="Layer 2">
-                  <g id="Layer_1-2" data-name="Layer 1">
-                    <path
-                      class="cls-1"
-                      d="M187.5,12.5a62.5,62.5,0,0,0-62.48,61c0,.49,0,1,0,1.48a62.5,62.5,0,1,0,62.5-62.5Zm26.52,89A37.52,37.52,0,1,1,225,75,37.28,37.28,0,0,1,214,101.52Z"
-                    />
-                    <path
-                      class="cls-1"
-                      d="M424.71,62.5h48.17a37.52,37.52,0,1,0-35.38,50v25A62.5,62.5,0,0,1,375,75h0A62.5,62.5,0,1,1,498.75,87.5h-74Z"
-                    />
-                    <path
-                      class="cls-1"
-                      d="M100,0V25a62.5,62.5,0,1,0,25,50c0-.5,0-1,0-1.48V0ZM89,101.52A37.52,37.52,0,1,1,100,75,37.28,37.28,0,0,1,89,101.52Z"
-                    />
-                    <path
-                      class="cls-1"
-                      d="M125,73.52V75h0C125,74.5,125,74,125,73.52Z"
-                    />
-                    <path
-                      class="cls-1"
-                      d="M312.5,12.5A62.5,62.5,0,0,0,250,75v75h25V125A62.51,62.51,0,0,0,375,75h0A62.5,62.5,0,0,0,312.5,12.5Zm26.52,89A37.52,37.52,0,1,1,350,75,37.28,37.28,0,0,1,339,101.52Z"
-                    />
-                    <path
-                      class="cls-1"
-                      d="M62.5,162.5A62.5,62.5,0,1,0,100,275v12.12A38,38,0,0,1,89.13,313.9,37.23,37.23,0,0,1,63,325a37.63,37.63,0,0,1-27-11,38.08,38.08,0,0,1-6.53-8.76A33.51,33.51,0,0,0,0,287.5H0a62.5,62.5,0,1,0,125,0V225A62.5,62.5,0,0,0,62.5,162.5Zm26.52,89A37.52,37.52,0,1,1,100,225,37.28,37.28,0,0,1,89,251.52Z"
-                    />
-                    <path
-                      class="cls-1"
-                      d="M187.5,187.5a37.49,37.49,0,1,1-26.52,11,37.28,37.28,0,0,1,26.52-11Zm0-25A62.5,62.5,0,1,0,250,225a62.5,62.5,0,0,0-62.5-62.5Z"
-                    />
-                    <path
-                      class="cls-1"
-                      d="M312.5,187.5a37.49,37.49,0,1,1-26.52,11,37.28,37.28,0,0,1,26.52-11Zm0-25A62.5,62.5,0,1,0,375,225a62.5,62.5,0,0,0-62.5-62.5Z"
-                    />
-                    <path
-                      class="cls-1"
-                      d="M475,150v25a62.51,62.51,0,1,0,25,50V150ZM464,251.52A37.52,37.52,0,1,1,475,225,37.28,37.28,0,0,1,464,251.52Z"
-                    />
-                  </g>
-                </g>
-              </svg> */}
             </Link>
 
             <div className="right-part">
@@ -359,7 +301,7 @@ function Header({ history }) {
           >
             {showMobileNav && (
               <div
-                className="bg-full-cover"
+                className="bg-full-cover absolute"
                 onClick={() => setshowMobileNav(false)}
               ></div>
             )}

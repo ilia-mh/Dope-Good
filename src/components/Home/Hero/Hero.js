@@ -6,10 +6,11 @@ import { gsap } from "gsap";
 import { motion, useAnimation } from 'framer-motion'
 import Slide from './Slide'
 
-let timeOut;
+let interval;
 
 let tl = gsap.timeline({
-	duration: 1.8
+	duration: 0,
+	delay: 0
 });
 
 const apiUrl = process.env.REACT_APP_API_URL
@@ -56,16 +57,6 @@ export default function Hero() {
 		}
 	]
 
-	const startNextSlideTimer = () => {
-
-		clearTimeout(timeOut)
-
-		timeOut = setTimeout(() => {
-			goToNextSlide()
-		}, 7000);
-
-	}
-
 	const goToNextSlide = () => {
 		
 		const slideBefore = shownSlide
@@ -81,22 +72,37 @@ export default function Hero() {
 
 	const goToSlide = (slideIdx) => {
 
+		let dir = 1
+
+		if( shownSlide > slideIdx &&
+			 ( shownSlide === slides.length - 1 && slideIdx === 0 ? false : true ) &&
+			 ( shownSlide === 0 && slides.length - 1 ? false : true )
+			 ) dir = -1
+
 		const currentSlide = shownSlide
 		setShownSlide(slideIdx)
 
-		tl.fromTo(`.slider-${currentSlide}`,{ x:0 }, { x: '-100vw' })
-		tl.fromTo(`.slider-${slideIdx}`,{ x: '100vw' }, { x: '0vw' })
+		if( dir === 1 ) {
+			tl.fromTo(`.slider-${currentSlide}`,{ x:0 }, { x: '-100vw' })
+			tl.fromTo(`.slider-${slideIdx}`,{ x: '100vw' }, { x: '0vw' })
+		} else {
+			tl.fromTo(`.slider-${currentSlide}`,{ x:0 }, { x: '100vw' })
+			tl.fromTo(`.slider-${slideIdx}`,{ x: '-100vw' }, { x: '0vw' })
+		}
 
 	}
 
 	useEffect( () => {
-		clearTimeout(timeOut)
-		startNextSlideTimer()
 
-		return () => {
-			window.clearTimeout(timeOut);
-		}
-	}, [shownSlide,timeOut])
+		clearInterval(interval);
+		interval = setInterval( () => {
+			goToNextSlide()
+		}, 7000)
+
+		return () => clearInterval(interval);
+		
+	}, [shownSlide])
+	
 
 	const findNextSlide = () => {
 		if( shownSlide >= slides.length - 1 ) return 0
@@ -126,6 +132,7 @@ export default function Hero() {
 
 		if( Math.abs( currentMousPos - endPoint ) > 20 ) {
 
+			// setChangingSlide(true)
 			if( (endPoint - currentMousPos) < 0 ) {
 
 				if( shownSlide === (slides.length - 1) ) goToSlide(0)
@@ -136,6 +143,10 @@ export default function Hero() {
 				else goToSlide(shownSlide - 1)
 
 			}
+
+			// setTimeout(() => {
+			// 	setChangingSlide(false)
+			// }, 500);
 		}
 
 		setCurrentMousPos(0)

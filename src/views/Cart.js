@@ -12,7 +12,7 @@ export default function Cart() {
 
 			<Title />
 
-			<Suspense fallback={<Loading/>}>
+			<Suspense fallback={<div></div>}>
 				<CartList />
 			</Suspense>
 

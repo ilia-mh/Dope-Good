@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 
 import { gsap } from "gsap";
 
+let TimeOut
+
 export default function Slide({ slideInfo, idx, ActiveSlide }) {
 
   const movingImgSlide = useRef(null)
@@ -11,9 +13,11 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
   const { img, captionTitle, link, caption, title, coloredTitle } = slideInfo;
 
   useEffect( () => {
-    setTimeout( () => {
+    TimeOut = setTimeout( () => {
       addMouseMoveEvent()
     }, 1000)
+
+    return () => clearTimeout(TimeOut)
   },[])
 
   const addMouseMoveEvent = () => {
@@ -32,19 +36,16 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
   const slideTitleAnimate = {
     hidden: {
       opacity: 0,
-      y: 100,
     },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: 1.4,
-        delay: 0.1
+        duration: 0.6,
       }
     },
     exit: {
       opacity: 0,
-      y: 100
+      y:0
     },
     
   }
@@ -53,14 +54,12 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
     hidden: {
       opacity: 0,
       x: -100,
-      rotateZ: 360
     },
     visible: {
       opacity: 1,
       x: 0,
-      rotateZ: 270,
       transition: {
-        duration: 1,
+        duration: 0.3,
         delay: 0.3
       }
     },
@@ -81,12 +80,14 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
         src={img}
         initial={{ opacity: 0 }}
         animate={{ opacity: ActiveSlide === idx ? 1 : 0 }}
-        transition={{ delay: 0.8, duration: 0.5}}
+        transition={{ delay: 0.1, duration: 0.5}}
         draggable={false}
         loading="lazy"
       />
 
-      <motion.div variants={slideTitleAnimate} initial='hidden' animate={ ActiveSlide === idx ? 'visible' : 'hidden' } exit='exit' className="slide-title">
+      <motion.div variants={slideTitleAnimate} initial='hidden' 
+      animate={ ActiveSlide === idx ? 'visible' : 'hidden' } 
+      className="slide-title">
         <h1>{title}</h1>
         <h2>{coloredTitle}</h2>
         <Link className="slide-shop-now" to={link}>shop now</Link>

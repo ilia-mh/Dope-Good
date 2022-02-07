@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import SlickSlider from "../../Slider/Slider";
 import "./features.scss";
 import { Link } from 'react-router-dom'
@@ -18,7 +18,8 @@ export default function FeaturedCollection() {
       productName: 'Rura Collection',
       productImg: `${apiUrl}/616b1eec93d32743b004665f/1.png`,
       price: 1750,
-      link: '/product/616b1eec93d32743b004665f'
+      link: '/product/616b1eec93d32743b004665f',
+      collectionLink: '/shop/furniture/sofa'
     },
     {
       slideImg: Img2,
@@ -27,7 +28,8 @@ export default function FeaturedCollection() {
       productName: 'Demi Chair',
       productImg: `${apiUrl}/61687bc3267f751e7c53ac9e/1.png`,
       price: 850,
-      link: '/product/61687bc3267f751e7c53ac9e'
+      link: '/product/61687bc3267f751e7c53ac9e',
+      collectionLink: '/shop/furniture/chair'
     },
   ]
 
@@ -50,12 +52,12 @@ export default function FeaturedCollection() {
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-12">
             <div className="features-carousel">
-              <SlickSlider showDots={true} >
+              <SlickSlider >
 
                 {
                   featureCollections.map( (feature,idx) => {
                     
-                    const { slideImg, title, desc, productName, productImg, price, link } = feature
+                    const { slideImg, title, desc, productName, productImg, price, link, collectionLink } = feature
 
                     return (
                       <div className="slide--item" key={idx}>
@@ -69,14 +71,13 @@ export default function FeaturedCollection() {
                                 <img
                                   src={slideImg}
                                   alt={title}
-                                  loading="lazy"
                                 />
                                 <div className="img-overlay"></div>
 
                               </div>
 
                               <div className="collection--content">
-                                <Link to={link} className="collection--title">
+                                <Link to={collectionLink} className="collection--title">
                                   <h3>
                                       { title }
                                   </h3>
@@ -95,7 +96,6 @@ export default function FeaturedCollection() {
                                 <img
                                   src={productImg}
                                   alt="collection"
-                                  loading="lazy"
                                 />
                               </Link>
 

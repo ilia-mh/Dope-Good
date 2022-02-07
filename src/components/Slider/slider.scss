@@ -24,67 +24,28 @@
 		}
 	}
 
-	.dots-wrapper {
-		position: absolute;
-		bottom: -50px;
-		left: 50%;
-		transform: translateX(-50%);
-
-		.carousel-dot {
-			border: none;
-			outline: none;
-			background: none;
-			padding: 0;
-			cursor: pointer;
-			display: inline-block;
-			cursor: pointer;
-
-			span {
-				height: 8px;
-    		width: 8px;
-				background-color: transparent;
-				background-color: transparent;
-				margin: 0 4px;
-				border: 2px solid #343434;
-				border-radius: 50%;
-				display: inline-block;
-				transition: 0.3s ease;
-			}
-
-			span:hover {
-				background-color: #F26C4F;
-    		border-color: transparent;
-			}
-			
-		}
-
-		.carousel-dot.active {
-			
-			span {
-				background-color: transparent;
-    		border-color: #F26C4F;
-			}
-		}
-	}
-
 	.slide-gallery {
 		width: 100%;
 		margin-top: 15px;
 		display: flex;
 		padding: 10px 0;
 		align-items: center;
-		// overflow: auto;
-		overflow: hidden;
+		overflow: auto;
+		// overflow: hidden;
 		z-index: 1000;
 
 		.gallery-slide {
 			width: 70px;
+			height: 70px;
 			flex-shrink: 0;
+			// flex-grow: 1;
 			margin-right: 12px;
 			cursor: pointer;
+			overflow: hidden;
 
 			img {
-				width: 100%;
+				height: 100%;
+				object-fit: cover;
 			}
 		}
 	}

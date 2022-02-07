@@ -67,10 +67,10 @@ div.slideshow-main {
 
 			img.moving-img {
 				position: absolute;
-				width: 750px;
+				width: 700px;
 				max-height: 700px;
 				left: 15%;
-				top: 30%;
+				top: 17%;
 			}
 			
 		}
@@ -81,7 +81,7 @@ div.slideshow-main {
 				position: absolute;
 				width: 600px;
 				left: 17%;
-				top: 30%;
+				top: 20%;
 			}
 
 			.slide-title h2 {
@@ -94,10 +94,10 @@ div.slideshow-main {
 
 			img.moving-img {
 				position: absolute;
-				width: 750px;
+				width: 700px;
 				max-height: 600px;
 				left: 17%;
-				top: 77%;
+				top: 60%;
 			}
 
 		}
@@ -106,10 +106,10 @@ div.slideshow-main {
 
 			img.moving-img {
 				position: absolute;
-				width: 280px;
+				width: 250px;
 				max-height: 600px;
 				left: 16%;
-				top: 35%;
+				top: 15%;
 			}
 
 		}
@@ -180,9 +180,9 @@ div.slideshow-main {
 
 			.slide-caption {
 				position: absolute;
-				// transform: rotateZ(270deg);
 				top: 50%;
 				left: -32px !important;
+				transform: rotate(270deg) !important;
 
 				.caption-title {
 					display: block;

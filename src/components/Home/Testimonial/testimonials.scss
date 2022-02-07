@@ -45,14 +45,35 @@
 		}
 
 		.testimonial--body {
+			width: 60%;
+			margin: 0 auto;
 			p {
 				color: #A1A1A1;
+				line-height: 1.45 !important;
 			}
 		}
 
 		.testimonial--meta {
 			span {
 				color: #a1a1a1;
+			}
+		}
+	}
+}
+
+@media ( max-width: 768px ) {
+
+	.testimonial-carousel {
+
+		.testimonial-panel {
+
+			.testimonial--body {
+				width: 100%;
+
+				p {
+					// line-height: 2rem;
+					font-size: 1rem;
+				}
 			}
 		}
 	}
