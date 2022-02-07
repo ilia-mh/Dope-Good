@@ -1,0 +1,26 @@
+section.store-features {
+  padding-top: 6rem;
+  padding-bottom: 12rem ;
+}
+
+@media ( max-width: 600px ) {
+  section.store-features {
+    padding-top: 9rem;
+    padding-bottom: 10rem ;
+
+    .heading {
+
+      h2 {
+        font-size: 1.7rem;
+      }
+    }
+
+    .banner-panel .panel--content {
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.23;
+      }
+    }
+  }
+}

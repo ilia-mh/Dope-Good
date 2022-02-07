@@ -1,0 +1,25 @@
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 999999;
+  inset: 0;
+  background-color: #111;
+
+  svg {
+    width: 200px;
+    fill: none;
+    overflow: visible;
+    z-index: 1;
+
+    path {
+      stroke: #fff;
+      stroke-width: 12px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+  }
+}

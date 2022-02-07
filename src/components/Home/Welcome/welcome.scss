@@ -1,0 +1,41 @@
+.welcome-sec {
+
+  .heading {
+
+    h2 {
+      font-size: clamp(1.9rem, calc(1.7rem + 1vw), 3rem);
+      line-height: 1.35;
+    }
+  }
+
+  .about--text p {
+    line-height: 1.3;
+    font-size: 1rem;
+  }
+}
+
+@media ( max-width: 768px ) {
+  .welcome-sec {
+    padding-top: 8rem !important;
+
+    
+  }
+}
+
+@media ( max-width: 600px ) {
+
+  .welcome-sec {
+    .heading {
+      
+      h2 {
+        margin-bottom: 2.5rem;
+        font-size: 1.8rem;
+      }
+    }
+
+    .about--text p {
+      font-size: 0.9rem;
+      line-height: 1.2;
+    }
+  }
+}
