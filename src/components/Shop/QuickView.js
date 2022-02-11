@@ -63,6 +63,13 @@ export default function QuickView() {
 			}
 		}
 
+    const bodyClass = document.documentElement.classList
+
+    if( _id ) {
+      bodyClass.add('no-scroll');
+    } else {
+      bodyClass.remove('no-scroll');
+    }
 
 	},[product])
 

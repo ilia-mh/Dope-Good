@@ -1,7 +1,8 @@
 .serach-modal {
-	position: absolute;
-	top: 40px;
-	right: 0;
+	position: fixed;
+	right: 20%;
+	// right: 0;
+	top: 80px;
 	min-width: 350px;
 	max-width: 400px;
 	border-radius: 20px;
@@ -42,7 +43,7 @@
 }
 
 .search-products-modal {
-	background: rgba($color: #111, $alpha: 0.8);
+	background: #111 !important;
 	border-radius: 12px;
 	position: absolute;
 	top: 130%;

@@ -31,8 +31,21 @@
 		padding: 10px 0;
 		align-items: center;
 		overflow: auto;
-		// overflow: hidden;
 		z-index: 1000;
+
+		&::-webkit-scrollbar {
+			height: 6px;
+		}
+		 
+		&::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		}
+		 
+		&::-webkit-scrollbar-thumb {
+			background-color: darkgrey;
+			outline: 1px solid slategrey;
+			border-radius: 12px;
+		}
 
 		.gallery-slide {
 			width: 70px;

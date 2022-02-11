@@ -92,17 +92,16 @@ export default function Hero() {
 
 	}
 
-	useEffect( () => {
+	// useEffect( () => {
 
-		clearInterval(interval);
-		interval = setInterval( () => {
-			goToNextSlide()
-		}, 7000)
+	// 	clearInterval(interval);
+	// 	interval = setInterval( () => {
+	// 		goToNextSlide()
+	// 	}, 7000)
 
-		return () => clearInterval(interval);
+	// 	return () => clearInterval(interval);
 		
-	}, [shownSlide])
-	
+	// }, [shownSlide])
 
 	const findNextSlide = () => {
 		if( shownSlide >= slides.length - 1 ) return 0

@@ -31,8 +31,6 @@ export default function Search({ toggle, showSearch }) {
 			}
 			
 			const searchResult = await getSearchResult(value)
-			console.log('searchResults')
-			console.log(searchResult)
 
 			setProducts(searchResult.products)
 

@@ -90,8 +90,17 @@
 
 			img {
 				object-fit: cover;
-				height: 100%;
+				max-width: 100%;
 				z-index: 0;
+			}
+			
+			.img-overlay {
+				backdrop-filter: brightness(80%) blur(0.5px);		
+				-webkit-backdrop-filter: brightness(80%) blur(0.5px);
+				position: absolute;
+				inset: 0;
+				background-color: rgba($color: #111, $alpha: 0.3);
+				transition: all 0.3s ease ;
 			}
 
 		}
@@ -129,6 +138,14 @@
 				line-height: 1.5;
 			}
 		}
+
+		&:hover {
+
+			.collection--img .img-overlay {
+				backdrop-filter: brightness(90%) blur(0);		
+				-webkit-backdrop-filter: brightness(90%) blur(0);
+			}
+		}
 	}
 
 	.collection-item.product-side {
@@ -148,6 +165,7 @@
 
 			img {
 				max-width: 50%;
+				max-height: 300px;
 			}
 		}
 

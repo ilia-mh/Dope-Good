@@ -181,7 +181,7 @@ export default function Select({
         animate={showModal ? "animate" : "hidden"}
       >
         {
-        !isString ? 
+        !isString ?
           <>
             { 
               showModal && (

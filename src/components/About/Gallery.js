@@ -2,11 +2,8 @@ import React, { lazy } from "react";
 import Slider from "../Slider/Slider";
 import "./gallery.scss";
 
-// import AboutGalleryImg3 from "../../assets/images/about/gallery/3.jpg";
-// import AboutGalleryImg4 from "../../assets/images/about/gallery/4.jpg";
-
-const AboutGalleryImg3 = lazy( () => import('../../assets/images/about/gallery/3.jpg'))
-const AboutGalleryImg4 = lazy( () => import('../../assets/images/about/gallery/4.jpg'))
+import AboutGalleryImg3 from "../../assets/images/about/gallery/3.jpg";
+import AboutGalleryImg4 from "../../assets/images/about/gallery/4.jpg";
 
 export default function Gallery() {
   return (
@@ -23,11 +20,11 @@ export default function Gallery() {
               <Slider>
 
                 <div className="gallery--item">
-                  <img src={AboutGalleryImg3} alt="img" />
+                  <img src={AboutGalleryImg3} alt="img" loading="lazy" />
                 </div>
 
                 <div className="gallery--item">
-                  <img src={AboutGalleryImg4} alt="img" />
+                  <img src={AboutGalleryImg4} alt="img" loading="lazy" />
                 </div>
 
               </Slider>

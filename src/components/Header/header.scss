@@ -5,11 +5,39 @@ button {
 
 header#header {
   background: transparent;
-  padding: 50px 0 0 !important;
+  padding: 0 !important;
+	height: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: absolute;
-	top: 0;
-	left: 0;
+	// top: 0;
+	// left: 0;
 	width: 100%;
+}
+
+.fixed-header {
+	position: fixed !important;
+	height: 60px !important;
+	top: -60px;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	background-color: #111 !important;
+
+	.logo {
+		img {
+			height: 35px;
+		}
+	}
+
+	.header-progress {
+		height: 2px;
+		background-color: #fff;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
 }
 
 .nav-holder {
@@ -28,7 +56,7 @@ header#header {
 	top: 50%;
 
 	img {
-		height: 45px;
+		height: 50px;
 	}
 }
 
@@ -51,6 +79,11 @@ nav.navbar .nav-container {
 	// width: 50%;
 	justify-content: space-between;
 	z-index: 100;
+
+	.shop-cart {
+		display: none;
+		margin-right: 12px;
+	}
 }
 
 .right-part {
@@ -60,6 +93,9 @@ nav.navbar .nav-container {
 	justify-content: flex-end;
 	z-index: 100;
 
+	.navbar-toggler {
+		display: none;
+	}
 }
 
 .big-screen-menu {
@@ -129,7 +165,7 @@ nav.navbar .nav-container {
 	position: relative;
 }
 
-.right-part .shop-cart {
+.nav-container .shop-cart {
 	position: relative;
 }
 
@@ -170,12 +206,12 @@ nav.navbar .nav-container {
 	text-align: center;
 }
 
-.right-part .shop-cart  {
+.nav-container .shop-cart  {
 	cursor: pointer;
 
 	.shopping-bag-icon {
-		width: 28px;
-		height: 28px;
+		width: 30px;
+		height: 29px;
 		color: #636363;
 		flex-shrink: 0;
 		cursor: pointer;
@@ -207,19 +243,11 @@ nav.navbar .nav-container {
 	}
 }
 
-
 .navbar-toggler {
-  display: none;
   color: #636363;
   z-index: 10;
 	border: none !important;
 	margin: 0 !important;
-}
-
-.navbar-toggler .burger-menu {
-  width: 28px;
-	height: 28px;
-	color: #636363;
 }
 
 .nvabar-links .navbar-ul {
@@ -259,11 +287,25 @@ nav.navbar .nav-container {
   left: 0;
   right: 0;
   bottom: 0;
-	z-index: 25;
-  background: rgba(17, 17, 17, 0.95);;
+	z-index: 19;
   display: flex;
   justify-content: center;
   align-items: center;
+	// pointer-events: none;
+
+	&.hideMobileNav {
+		pointer-events: none;
+	}
+	
+	.menubg {
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		bottom: 0;
+		background: rgba(17, 17, 17, 1);
+	}
 
 	.navbar-ul {
 		padding: 0;
@@ -310,13 +352,13 @@ nav.navbar .nav-container {
   display: none;
 }
 
-.showMobileNav {
-  animation: showMobileNav 0.4s ease forwards;
-}
+// .showMobileNav {
+//   animation: showMobileNav 0.4s ease forwards;
+// }
 
-.hideMobileNav {
-  animation: hideMobileNav 0.4s ease forwards;
-}
+// .hideMobileNav {
+//   animation: hideMobileNav 0.4s ease forwards;
+// }
 
 .show-mobile-nav {
 	display: block !important;
@@ -340,8 +382,9 @@ nav.navbar .nav-container {
 	height: 100%;
 	display: flex;
 	align-items: center;
-
+	
 	.acc-dropdown-btn {
+		transition: all 0.3s ease;
 		cursor: pointer;
 		font-size: 18px;
 
@@ -349,6 +392,10 @@ nav.navbar .nav-container {
 			margin-left: 4px;
 			width: 20px;
 			height: 20px;
+		}
+
+		&:hover {
+			color: #f26c4f;
 		}
 	}
 
@@ -467,8 +514,24 @@ nav.navbar .nav-container {
 		max-width: 540px !important;
 	}
 
+	.nav-container .shop-cart  {
+		transform: translateY(-3px);
+	}
+
+	.left-part {
+
+		.shop-cart {
+			display: block;
+		}
+	}
+
 	.nav-container {
 		flex-direction: row-reverse;
+
+		.logo {
+			left: 0;
+			transform: translateX(0%) translateY(-50%);
+		}
 	}
 
 	.mobile-nav .navbar-ul {
@@ -480,20 +543,20 @@ nav.navbar .nav-container {
 	}
 
 	.right-part .shop-cart {
-		margin-right: 10px;
+		margin-right: 0px;
 	}
 
-	.right-part span {
+	.right-part {
 		display: none;
 	}
 
-	.right-part .nav-search {
-		display: none;
-	}
+	// .right-part .nav-search {
+	// 	display: none;
+	// }
 
-	.right-part .account {
-		display: none;
-	}
+	// .right-part .account {
+	// 	display: none;
+	// }
 
 	.nav-item.search-item {
 		display: block !important;
@@ -507,7 +570,7 @@ nav.navbar .nav-container {
 @media( max-width: 574px ){
 
 	header#header {
-		padding: 35px 0 0 !important;
+		// padding: 35px 0 0 !important;
 	}
 
 	.nav-container {
@@ -524,6 +587,6 @@ nav.navbar .nav-container {
 	}
 
 	header#header {
-		padding: 30px 0 0 !important;
+		// padding: 30px 0 0 !important;
 	}
 }
