@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "../Slider/Slider";
+import SwiperSlider from "../Slider/SwiperSlider";
 import { useSelector } from "react-redux";
 
 import "./slider.scss";
@@ -16,7 +16,9 @@ export default function ProductSlider() {
 		photos ?
     <div className="col-sm-12 col-md-12 col-lg-7 product-carousel">
       <div className="carousel">
-        <Slider gallery={selectedPhotos().map((photo,idx) => `${apiUrl}/${_id}/${photo}`)}>
+        <SwiperSlider 
+          thumbs={ selectedPhotos().map((photo) => `${apiUrl}/${_id}/${photo}`) }
+        >
 
           {selectedPhotos().map((photo) => (
             <div className="product-img" key={photo} >
@@ -24,7 +26,7 @@ export default function ProductSlider() {
             </div>
           ))}
 
-        </Slider>
+        </SwiperSlider>
       </div>
       {/* .carousel end  */}
     </div>

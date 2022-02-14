@@ -12,10 +12,11 @@ div.slideshow-main {
 	.slider-wrapper {
 		background: rgb(14, 14, 14);
 		z-index: 20 !important;
+		width: 100%;
+		max-width: 1140px;
 		// width: 100%;
 		// height: 100%;
 		// max-width: 1600px;
-		max-width: 1140px;
 
 		.all-slides {
 			height: 100%;

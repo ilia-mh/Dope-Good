@@ -82,7 +82,7 @@ export default function Slide({ slideInfo, idx, ActiveSlide }) {
         animate={{ opacity: ActiveSlide === idx ? 1 : 0 }}
         transition={{ delay: 0.1, duration: 0.5}}
         draggable={false}
-        loading="lazy"
+        loading={ idx !== 0 ? 'lazy' : 'eager' }
       />
 
       <motion.div variants={slideTitleAnimate} initial='hidden' 

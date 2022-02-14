@@ -2,6 +2,10 @@
 	overflow: hidden !important;
 	padding: 60px 0;
 
+	>div {
+		width: 100%;
+	}
+
 	.next-arrow {
 		position: relative;
 		z-index: 20;
@@ -74,7 +78,6 @@
 }
 
 .slide--item {
-
 	overflow: hidden !important;
 
 	.collection-item.big-pic {
@@ -91,6 +94,7 @@
 			img {
 				object-fit: cover;
 				max-width: 100%;
+				min-height: 100%;
 				z-index: 0;
 			}
 			

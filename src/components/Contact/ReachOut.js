@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import ContactImg1 from '../../assets/images/contact/gallery/1.jpg'
 import ContactImg2 from '../../assets/images/contact/gallery/2.jpg'
-import Slider from '../Slider/Slider'
+
+import SwiperSlider from '../Slider/SwiperSlider'
 
 import './ReachOut.scss'
 import { checkEmail } from './../../utils/CheckMail';
@@ -96,7 +97,7 @@ export default function ReachOut() {
                 className="contact-carousel owl-carousel"
               >	
 
-								<Slider>
+								<SwiperSlider>
 
 									<div className="gallery--item">
 										<img src={ContactImg1} alt="img" />
@@ -106,7 +107,7 @@ export default function ReachOut() {
 										<img src={ContactImg2} alt="img" />
 									</div>
 
-								</Slider>
+								</SwiperSlider>
 								
 
               </div>

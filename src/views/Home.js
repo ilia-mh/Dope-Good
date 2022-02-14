@@ -13,8 +13,6 @@ import { get } from "../utils/fetch";
 // import Welcome from '../components/Home/Welcome/Welcome'
 // import QuickView from '../components/Shop/QuickView'
 
-import Loading from './Loading'
-
 const Hero = lazy( () => import('../components/Home/Hero/Hero'))
 const HeroSupport = lazy( () => import('../components/Home/HeroSupport/HeroSupport'))
 const FeaturedCollection = lazy( () => import('../components/Home/FeaturedCollection/FeaturedCollection'))

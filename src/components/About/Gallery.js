@@ -1,5 +1,6 @@
 import React, { lazy } from "react";
-import Slider from "../Slider/Slider";
+
+import SwiperSlider from "../Slider/SwiperSlider";
 import "./gallery.scss";
 
 import AboutGalleryImg3 from "../../assets/images/about/gallery/3.jpg";
@@ -17,7 +18,7 @@ export default function Gallery() {
 
             <div className="carousel owl-carousel about-carousel">
 
-              <Slider>
+              <SwiperSlider>
 
                 <div className="gallery--item">
                   <img src={AboutGalleryImg3} alt="img" loading="lazy" />
@@ -27,7 +28,7 @@ export default function Gallery() {
                   <img src={AboutGalleryImg4} alt="img" loading="lazy" />
                 </div>
 
-              </Slider>
+              </SwiperSlider>
 
 
             </div>

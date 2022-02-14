@@ -92,15 +92,12 @@ function App() {
 
     const diff = Date.now() - started
 
-    if( diff >= 1800 ) {
-      console.log('1800ms passed')
+    if( diff >= 1500 ) {
       setFullyLoaded(true);
     } else {
-      console.log('diff')
-      console.log(diff)
       setTimeout(() => {
         setFullyLoaded(true);
-      }, 1850 - diff);
+      }, 1525 - diff);
     }
   }, [fullyLoaded]);
 

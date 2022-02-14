@@ -1,29 +1,34 @@
-import img1 from "../../../assets/images/featured-collection/1.png";
-import img2 from "../../../assets/images/featured-collection/2.png";
-import img3 from "../../../assets/images/featured-collection/3.png";
+const apiUrl = process.env.REACT_APP_API_URL
 
-const Features = [
+export const featureCollections = [
 	{
-		sale: 'SALE UP TO 40% OFF',
-		title: 'Dope Good Chair Collection 2019',
-		img: img1,
-		link: '/#',
-		text: 'Actually, Woodstock was not the first outdoor festival to feature multiple bands over several days performing on a stage set up out in the middle of a farmer’s field, We were hauling a piano through.'
+		slideImg: './sofa-collection.jpg',
+		title: 'Sofa Collection',
+		desc: 'Dope Dood high quality sofa collection',
+		productName: 'Rura Collection',
+		productImg: `${apiUrl}/616b1eec93d32743b004665f/1.png`,
+		price: 1750,
+		link: '/product/616b1eec93d32743b004665f',
+		collectionLink: '/shop/furniture/sofa'
 	},
 	{
-		sale: 'SALE UP TO 20% OFF',
-		title: 'ikea wood sofa Decore',
-		img: img2,
-		link: '/#',
-		text: 'The third Monday of January is supposed to be the most depressing day of the year. Whether you believe that or not, the long nights, cold weather and trying to keep leads to spectacular views and experiences.'
+		slideImg: 'chairs-collection.jpg',
+		title: 'Chair Collection',
+		desc: 'Dope Dood high quality chair collection',
+		productName: 'Demi Chair',
+		productImg: `${apiUrl}/61687bc3267f751e7c53ac9e/1.png`,
+		price: 850,
+		link: '/product/61687bc3267f751e7c53ac9e',
+		collectionLink: '/shop/furniture/chair'
 	},
 	{
-		sale: 'SALE UP TO 10% OFF',
-		title: 'Dope Good Sofa Collection 2019',
-		img: img3,
-		link: '/#',
-		text: 'UX Designer is still a relatively new profession, and one that is still being defined. Emil suggests it is an often misinterpreted role and that ‘User Experience Designer’'
+		slideImg: 'lighting-collection.jpg',
+		title: 'Lamp Collection',
+		desc: 'Dope Dood high quality Lights collection',
+		productName: 'Sineta Lamp',
+		productImg: `${apiUrl}/616d72155c825d3d24e0f301/1.png`,
+		price: 320,
+		link: '/product/616d72155c825d3d24e0f301',
+		collectionLink: '/shop/lighting'
 	},
 ]
-
-export default Features

@@ -14,8 +14,6 @@ import {
 // import RecentProducts from "../components/Product/RecentProducts";
 // import QuickView from "../components/Shop/QuickView";
 
-import Loading from './Loading'
-
 const Hero = lazy( () => import('../components/Product/Hero') )
 const ProductDetails = lazy( () => import('../components/Product/ProductDetails') )
 const ProductIntro = lazy( () => import('../components/Product/ProductIntro') )

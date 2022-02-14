@@ -143,24 +143,34 @@ function Header({ history }) {
   };
 
   const menuBg = {
-    open: () => ({
-      clipPath: `circle(${window.innerHeight * 2 + 500}px at 0px 0px)`,
-      transition: {
-        duration: 0.5,
-        type: "spring",
-        damping: 6,
-        stiffness: 20,
-        restDelta: 2
-      }
-    }),
-    closed: {
-      clipPath: "circle(0px at 0px 0px)",
-      transition: {
-        // delay: 0.5,
-        duration: 0.4,
-        type: "spring",
-        damping: 15,
-      }
+    open: () => {
+
+      const isMobile = window.innerWidth <= 768
+
+      return ({
+        clipPath: `circle(${window.innerHeight * 2 + 500}px at ${ isMobile ? '100%' : 0} 0px)`,
+        transition: {
+          duration: 0.5,
+          type: "spring",
+          damping: 6,
+          stiffness: 20,
+          restDelta: 2
+        }
+      })
+    },
+    closed: () => {
+
+      const isMobile = window.innerWidth <= 768
+
+      return ({
+        clipPath: `circle(0px at ${ isMobile ? '100%' : 0} 0px)`,
+        transition: {
+          // delay: 0.5,
+          duration: 0.4,
+          type: "spring",
+          damping: 15,
+        }
+      })
     }
   };
 

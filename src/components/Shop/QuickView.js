@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { emptyProductQuickView, addToCart } from "../../store/Reducer/reducer";
-import Slider from "../Slider/Slider";
+
+import SwiperSlider from "../Slider/SwiperSlider";
+
 import ProductQuantityCounter from "../Product/ProductQuantityCounter";
 import ProductDescTabs from "../Product/ProductDescTabs";
 import ProductRating from '../Product/ProductRating'
@@ -128,13 +130,18 @@ export default function QuickView() {
                 <div className="col-sm-12 col-md-12 col-lg-6">
                   <div className="products-gallery-carousel">
                     <div className="owl-carousel products-slider">
-                      <Slider gallery={slidePhotos().map((photo) => `${apiUrl}/${_id}/${photo}` )}>
+
+                      <SwiperSlider 
+                        thumbs={slidePhotos().map((photo) => `${apiUrl}/${_id}/${photo}` )}
+                        spaceBetween={60}
+                      >
                         {slidePhotos().map((photo) => (
                           <div className="product-img" key="photo">
                             <img src={`${apiUrl}/${_id}/${photo}`} alt="product" loading="lazy" />
                           </div>
                         ))}
-                      </Slider>
+                      </SwiperSlider>
+                      
                     </div>
 
                   </div>
@@ -172,7 +179,7 @@ export default function QuickView() {
                     {/* .product-meta-info end  */}
                     <div className="product--meta-select3">
                       <form className="mb-30">
-                        <div className="row">
+                        <div className="row" style={{ justifyContent: 'space-between', display: 'flex'}}>
                           
                           {
                             options && options.color && (

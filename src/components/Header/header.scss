@@ -248,6 +248,7 @@ nav.navbar .nav-container {
   z-index: 10;
 	border: none !important;
 	margin: 0 !important;
+	padding-right: 0 !important;
 }
 
 .nvabar-links .navbar-ul {
@@ -514,8 +515,9 @@ nav.navbar .nav-container {
 		max-width: 540px !important;
 	}
 
-	.nav-container .shop-cart  {
-		transform: translateY(-3px);
+	.nav-container .shop-cart {
+		transform: translateY(-2px);
+		margin-right: 15px;
 	}
 
 	.left-part {
@@ -549,6 +551,13 @@ nav.navbar .nav-container {
 	.right-part {
 		display: none;
 	}
+
+	// .mobile-nav {
+		
+	// 	.menubg {
+	// 		transform: translateX(100%);
+	// 	}
+	// }
 
 	// .right-part .nav-search {
 	// 	display: none;

@@ -1,7 +1,11 @@
 import React from 'react'
 import Testimonials from './Testimonials'
-import PureSlider from "../../Slider/NewSlider";
+
+// import PureSlider from "../../Slider/NewSlider";
 // import SlickSlider from "../../Slider/Slider";
+
+import SwiperSlider from "../../Slider/SwiperSlider";
+
 import './testimonials.scss'
 
 // import { nextArrow, prevArrow } from "./Arrows";
@@ -20,7 +24,7 @@ export default function Testimonial() {
 					>	
 
 
-						<PureSlider showSlides={1} autoPlay={true} >
+						<SwiperSlider autoplay={6000}>
 							{ Testimonials.map( test => {
 
 									const { img, name, text } = test
@@ -46,7 +50,7 @@ export default function Testimonial() {
 									)
 								})
 							}
-						</PureSlider>
+						</SwiperSlider>
 
 
 					</div>

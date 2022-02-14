@@ -1,6 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react'
 import Hero from '../components/Shop/Hero'
-import Loading from './Loading'
 
 // import Filters from '../components/Shop/Filters'
 // import Products from '../components/Shop/Products'

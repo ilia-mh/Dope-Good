@@ -63,6 +63,12 @@
 
 .testimonial {
 	padding-bottom: 0 !important;
+
+	.container {
+		margin: 0 !important;
+		width: 100% !important;
+		max-width: 100% !important;
+	}
 }
 
 @media ( max-width: 768px ) {

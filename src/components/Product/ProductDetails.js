@@ -6,7 +6,6 @@ import Review from './Review/Review'
 
 import { Markup } from 'interweave';
 
-
 export default function ProductDetails() {
 
 	const [showTab, setShowTab] = useState(0)
