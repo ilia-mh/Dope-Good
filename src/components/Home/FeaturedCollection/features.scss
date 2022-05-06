@@ -57,7 +57,9 @@
 	width: 100%;
 
 	h2.heading--title {
-		color: #FFFFFF;
+		position: relative;
+		color: #FFFFFF !important;
+		z-index: 50;
 		font-family: "Montserrat", sans-serif;
     font-size: 36px;
     font-weight: 700;
@@ -68,6 +70,9 @@
 	}
 
 	.heading--desc {
+		position: relative;
+		color: #FFFFFF !important;
+		z-index: 50;
 		font-family: "Montserrat", sans-serif;
 		font-size: 18px;
     font-weight: 400;

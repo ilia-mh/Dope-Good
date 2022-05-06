@@ -24,7 +24,7 @@ export default function Testimonial() {
 					>	
 
 
-						<SwiperSlider autoplay={6000}>
+						<SwiperSlider autoplay={6000} >
 							{ Testimonials.map( test => {
 
 									const { img, name, text } = test

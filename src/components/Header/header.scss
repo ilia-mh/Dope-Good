@@ -51,12 +51,12 @@ header#header {
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	left: 50%;
-	transform: translateX(-50%) translateY(-50%);
+	left: 0;
+	transform: translateY(-50%);
 	top: 50%;
 
 	img {
-		height: 50px;
+		height: 35px;
 	}
 }
 
@@ -84,6 +84,10 @@ nav.navbar .nav-container {
 		display: none;
 		margin-right: 12px;
 	}
+
+	.navbar-toggler {
+		display: none;
+	}
 }
 
 .right-part {
@@ -94,7 +98,9 @@ nav.navbar .nav-container {
 	z-index: 100;
 
 	.navbar-toggler {
-		display: none;
+		// display: none;
+		margin-left: 1rem !important;
+		padding: 0.35rem 0.75rem 0 !important;
 	}
 }
 
@@ -523,6 +529,10 @@ nav.navbar .nav-container {
 	.left-part {
 
 		.shop-cart {
+			display: block;
+		}
+
+		.navbar-toggler {
 			display: block;
 		}
 	}

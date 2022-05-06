@@ -137,7 +137,7 @@ function App() {
           </Route>
 
           <Route exact path="/product/:id?">
-            <Product />
+            <Product isLoading={fullyLoaded} />
           </Route>
 
           <Route exact path="/about">

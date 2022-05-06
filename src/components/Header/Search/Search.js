@@ -6,7 +6,7 @@ import { get } from '../../../utils/fetch'
 
 const apiUrl = `${process.env.REACT_APP_API_URL}`;
 
-export default function Search({ toggle, showSearch }) {
+export default function Search({ toggle, showSearch, toggleMenu }) {
 
 	const [ search, setSearch ] = useState('')
 	const [ products, setProducts ] = useState([])
@@ -70,7 +70,7 @@ export default function Search({ toggle, showSearch }) {
 							const { photos, name, price, _id } = product
 
 							return (
-								<Link className="product-single" key={_id} to={`/product/${_id}`}>
+								<Link className="product-single" key={_id} to={`/product/${_id}`} onClick={toggleMenu}>
 
 									<div className="product-img">
 										<img src={`${apiUrl}/${_id}/${photos[0]}`} alt={name} />

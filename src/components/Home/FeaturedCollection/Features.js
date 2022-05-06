@@ -6,7 +6,7 @@ export const featureCollections = [
 		title: 'Sofa Collection',
 		desc: 'Dope Dood high quality sofa collection',
 		productName: 'Rura Collection',
-		productImg: `${apiUrl}/616b1eec93d32743b004665f/1.png`,
+		productImg: `sofa.jpg`,
 		price: 1750,
 		link: '/product/616b1eec93d32743b004665f',
 		collectionLink: '/shop/furniture/sofa'

@@ -1,10 +1,6 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react'
 import Hero from '../components/Shop/Hero'
 
-// import Filters from '../components/Shop/Filters'
-// import Products from '../components/Shop/Products'
-// import QuickView from '../components/Shop/QuickView'
-
 import { useSelector, useDispatch } from "react-redux";
 import { setAllProducts } from "../store/Reducer/reducer";
 import { get } from "../utils/fetch";

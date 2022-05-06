@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { get } from "../utils/fetch";
@@ -8,11 +8,7 @@ import {
   setRecentProducts,
 } from "../store/Reducer/reducer";
 
-// import Hero from "../components/Product/Hero";
-// import ProductDetails from "../components/Product/ProductDetails";
-// import ProductIntro from "../components/Product/ProductIntro";
-// import RecentProducts from "../components/Product/RecentProducts";
-// import QuickView from "../components/Shop/QuickView";
+import Loading from "./Loading";
 
 const Hero = lazy( () => import('../components/Product/Hero') )
 const ProductDetails = lazy( () => import('../components/Product/ProductDetails') )
@@ -22,7 +18,8 @@ const QuickView = lazy( () => import('../components/Shop/QuickView') )
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-export default function Product() {
+export default function Product({ isLoading }) {
+
   let { id } = useParams();
 
   const { singleProduct, gettingSingleProduct } = useSelector(
@@ -31,11 +28,27 @@ export default function Product() {
 
   const dispatch = useDispatch();
 
+  const [gettingProduct, setGettingProduct] = useState(false);
+  const [fullyLoaded, setFullyLoaded] = useState(false);
+
   useEffect(() => {
+    const started = Date.now()
+
     if (!gettingSingleProduct && singleProduct._id !== id) {
+      setGettingProduct(true)
       getSingleProduct(id);
     }
-  }, [id]);
+
+    const diff = Date.now() - started
+
+    if( !gettingProduct && diff >= 1200 ) {
+      setFullyLoaded(true);
+    } else if( !gettingProduct ) {
+      setTimeout(() => {
+        setFullyLoaded(true);
+      }, 1225 - diff);
+    }
+  }, [id,gettingProduct,fullyLoaded]);
 
   const getSingleProduct = async (id) => {
     dispatch(changeGettingProduct());
@@ -48,11 +61,14 @@ export default function Product() {
       dispatch(setRecentProducts(allRecentProducts.products));
     }
 
+    setGettingProduct(false)
     dispatch(changeGettingProduct());
   };
 
   return (
     <div className="view-wrapper">
+
+      { isLoading && !fullyLoaded && <Loading />}
 
       <Suspense fallback={<div></div>}>
 

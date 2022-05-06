@@ -23,7 +23,6 @@
 
 	.feature-panel {
 		display: flex !important;
-		align-items: center !important;
 
 		.feature--content {
 
@@ -40,6 +39,8 @@
 
 	.feature--icon {
 		display: flex;
+		height: 100%;
+		align-items: center;
 
 		svg {
 			width: 35px;
@@ -72,10 +73,5 @@
 			}
 		}
 
-		.feature-1>div {
-			display: flex;
-			justify-content:center;
-			align-items: center;
-		}
 	}
 }

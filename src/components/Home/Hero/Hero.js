@@ -26,7 +26,7 @@ export default function Hero() {
 		{
 			title: 'DopeGood Sofa',
 			coloredTitle: 'Collection',
-			img: `${apiUrl}/616b1eec93d32743b004665f/1.png`,
+			img: `sofa.jpg`,
 			captionTitle: 'Trending',
 			caption: 'Set of 2020',
 			link: '/shop/furniture/sofa'
@@ -34,7 +34,7 @@ export default function Hero() {
 		{
 			title: 'DopeGood Chair',
 			coloredTitle: 'Collection',
-			img: `${apiUrl}/616c5439e14d614f48c54004/7.png`,
+			img: `chair.jpg`,
 			captionTitle: 'Trending',
 			caption: 'Set of 2020',
 			link: '/shop/furniture/chair'
@@ -42,7 +42,7 @@ export default function Hero() {
 		{
 			title: 'DopeGood Desk',
 			coloredTitle: 'Collection',
-			img: `${apiUrl}/616d80fe5c825d3d24e0f304/1.png`,
+			img: `desk.jpg`,
 			captionTitle: 'Trending',
 			caption: 'Set of 2020',
 			link: '/shop/furniture/desk'
@@ -50,7 +50,7 @@ export default function Hero() {
 		{
 			title: 'DopeGood Lamps',
 			coloredTitle: 'Collection',
-			img: `${apiUrl}/616d72155c825d3d24e0f301/1.png`,
+			img: `lamp.jpg`,
 			captionTitle: 'Trending',
 			caption: 'Set of 2020',
 			link: '/shop/lighting'

@@ -10,7 +10,7 @@ import { userExists } from "../../store/Reducer/reducer";
 
 import { toast } from "react-toastify";
 
-import lgLogo from "../../assets/svg/LogoLg.png";
+// import lgLogo from "../../assets/svg/LogoLg.png";
 import { motion, useCycle } from 'framer-motion';
 import CartIcon from './Cart/CartIcon';
 import BurgerButton from './BurgerButton/burgerButton'
@@ -52,12 +52,12 @@ function Header({ history }) {
   };
 
   const toggleMobileNav = () => {
-    // if (!firstLoaded) setFirstLoaded(true);
-
     toggleShowMenu();
-    // if (showMobileNav) setshowMobileNav(false);
-    // else setshowMobileNav(true);
   };
+
+  const toggleIfOpen = () => {
+    if( showMenu ) toggleShowMenu()
+  }
 
   history.listen((location, action) => {
     // location is an object like window.location
@@ -148,7 +148,7 @@ function Header({ history }) {
       const isMobile = window.innerWidth <= 768
 
       return ({
-        clipPath: `circle(${window.innerHeight * 2 + 500}px at ${ isMobile ? '100%' : 0} 0px)`,
+        clipPath: `circle(${window.innerHeight * 2 + 500}px at ${ '100%' } 0px)`,
         transition: {
           duration: 0.5,
           type: "spring",
@@ -163,7 +163,7 @@ function Header({ history }) {
       const isMobile = window.innerWidth <= 768
 
       return ({
-        clipPath: `circle(0px at ${ isMobile ? '100%' : 0} 0px)`,
+        clipPath: `circle(0px at ${'100%' } 0px)`,
         transition: {
           // delay: 0.5,
           duration: 0.4,
@@ -190,19 +190,22 @@ function Header({ history }) {
             <div className="nav-container">
               <div className="left-part">
 
+
                 <CartIcon 
                   toggleShowCart={toggleShowCart}
                   cartRef={cart}
                   cartLength={cartLength}
                 />
-                
+
                 <BurgerButton toggle={ () => toggleShowMenu() } isOpen={showMenu} />
+
+                
+                <Link className="logo" to="/">
+                  <img src={Logo} alt="dopegood" />
+                </Link>
 
               </div>
 
-              <Link className="logo" to="/">
-                <img src={lgLogo} alt="dopegood" />
-              </Link>
 
               <div className="right-part">
                 {/* Navigation Search */}
@@ -225,7 +228,7 @@ function Header({ history }) {
                   </svg>
 
                   {showSearch && (
-                    <Search toggle={toggleShowSearch} showSearch={showSearch} />
+                    <Search toggle={toggleShowSearch} showSearch={showSearch} toggleMenu={toggleIfOpen} />
                   )}
                 </div>
 
@@ -340,7 +343,9 @@ function Header({ history }) {
                   </div>
                 </div>
 
-                <button
+                <BurgerButton toggle={ () => toggleShowMenu() } isOpen={showMenu} />
+
+                {/* <button
                   className="navbar-toggler"
                   type="button"
                   onClick={toggleMobileNav}
@@ -361,7 +366,7 @@ function Header({ history }) {
                       d="M4 6h16M4 12h16M4 18h16"
                     />
                   </svg>
-                </button>
+                </button> */}
               </div>
             </div>
 
