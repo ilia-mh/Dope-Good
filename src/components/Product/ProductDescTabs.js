@@ -18,7 +18,7 @@ export default function ProductDescTabs(props) {
 					className={activeTab === "infoGuide" ? "active" : ""}
 					onClick={() => changeActiveTab("infoGuide")}
 				>
-					INFO GUIDE
+					Info guide
 				</button>
 			</li>
 			<li>
@@ -28,7 +28,7 @@ export default function ProductDescTabs(props) {
 					}
 					onClick={() => changeActiveTab("shippingGuide")}
 				>
-					SHIPPING
+					Shipping
 				</button>
 			</li>
 			<li>
@@ -38,7 +38,7 @@ export default function ProductDescTabs(props) {
 					}
 					onClick={() => changeActiveTab("returnGuide")}
 				>
-					RETURN
+					Return
 				</button>
 			</li>
 		</ul>

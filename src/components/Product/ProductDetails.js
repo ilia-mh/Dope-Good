@@ -30,7 +30,7 @@ export default function ProductDetails() {
       id="product-detalis2"
       className="product-detalis product-detalis-2 pb-80"
     >
-      <div className="container">
+      <div className="container details-cont">
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-10 offset-lg-1">
 

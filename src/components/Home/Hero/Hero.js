@@ -24,35 +24,31 @@ export default function Hero() {
 
 	const slides = [
 		{
-			title: 'DopeGood Sofa',
+			title: 'Sofa',
 			coloredTitle: 'Collection',
 			img: `sofa.jpg`,
-			captionTitle: 'Trending',
-			caption: 'Set of 2020',
+			captionTitle: '2022 Trending',
 			link: '/shop/furniture/sofa'
 		},
 		{
-			title: 'DopeGood Chair',
+			title: 'Chair',
 			coloredTitle: 'Collection',
 			img: `chair.jpg`,
-			captionTitle: 'Trending',
-			caption: 'Set of 2020',
+			captionTitle: '2022 Trending',
 			link: '/shop/furniture/chair'
 		},
 		{
-			title: 'DopeGood Desk',
+			title: 'Desk',
 			coloredTitle: 'Collection',
 			img: `desk.jpg`,
-			captionTitle: 'Trending',
-			caption: 'Set of 2020',
+			captionTitle: '2022 Trending',
 			link: '/shop/furniture/desk'
 		},
 		{
-			title: 'DopeGood Lamps',
+			title: 'Lamps',
 			coloredTitle: 'Collection',
 			img: `lamp.jpg`,
-			captionTitle: 'Trending',
-			caption: 'Set of 2020',
+			captionTitle: '2022 Trending',
 			link: '/shop/lighting'
 		}
 	]
@@ -217,7 +213,6 @@ export default function Hero() {
 
 						<div className="slide-caption">
 							<span className="caption-title">{slides[findNextSlide()].captionTitle}</span>
-							<span className="caption-text">{slides[findNextSlide()].caption}</span>
 						</div>
 
 					</motion.div>

@@ -1,9 +1,26 @@
 .options-selector {
-  border: 1px solid #e1e1e11e;
-  border-right: 1px solid #e1e1e11e !important;
+  
   padding: 0;
   margin: 0;
   padding-right: 0 !important;
-  border-radius: 25px;
   max-width: 45% !important;
+
+  p {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    padding-left: 2px;
+  }
+
+  .select-wrapper  {
+    border: 1px solid #e1e1e11e;
+    // border-right: 1px solid #e1e1e11e !important;
+    border-radius: 25px;
+
+    .options-modal {
+      overflow-y: hidden;
+    }
+  }
 }

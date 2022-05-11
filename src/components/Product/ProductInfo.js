@@ -80,7 +80,7 @@ export default function ProductInfo() {
 
   const addProductToFavorites = async () => {
     if (!user) {
-      toast.error("You must Login to be able to do that!");
+      toast.error("You're not logged in to add the product to favorites.");
     } else {
       const sendToggleFavorite = await post(`${apiUrl}/api/product/fav`, {
         product_id: _id,
@@ -97,78 +97,55 @@ export default function ProductInfo() {
 
   return _id ? (
     <div className="col-sm-12 col-md-12 col-lg-5 col-content product-info-side">
-      {/* <div className="mb-30">
-        <ol className="breadcrumb">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-
-          <li className="breadcrumb-arrow">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </li>
-
-          <li>
-            <Link to="/collections/furniture">Furniture</Link>
-          </li>
-
-          <li className="breadcrumb-arrow">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </li>
-
-          <li className="active">Sofas</li>
-        </ol>
-      </div> */}
 
       <div className="product--title">
         <h3>{name}</h3>
       </div>
 
-      <ProductRating rate={rate} />
+      <div className="rate-and-fav">
 
-      <div className="product--review">
-        {reviews.length || 0} Customer Review
+        <div>
+
+          <ProductRating rate={rate || 5} />
+
+          <div className="product--review">
+            { rate || 5 } of { reviews.length || 12 } reviews
+          </div>
+
+        </div>
+
+        <div className="product-favorite">
+
+          <button className="fav" onClick={addProductToFavorites}>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="32.33" height="26.362" viewBox="0 0 32.33 26.362">
+              <path id="Path_1" data-name="Path 1" d="M22.875,33.251c-4.18,0-6.831,4.66-7.459,4.66-.549,0-3.092-4.66-7.459-4.66A8.116,8.116,0,0,0,.013,41a9.31,9.31,0,0,0,1.733,5.872c2.175,3.3,11.684,11.245,13.684,11.245,2.043,0,11.466-7.916,13.655-11.245A9.308,9.308,0,0,0,30.819,41a8.116,8.116,0,0,0-7.943-7.746" transform="translate(0.749 -32.501)" fill="none" strokeWidth="2"/>
+            </svg>
+
+          </button>
+          
+        </div>
+
       </div>
-      {/* - .product-review end  */}
+      {/* - .product rate and favotire end  */}
 
-      <div className="product--price">$ {price.toFixed(2)}</div>
+      <div className="price-quantity">
+
+        <div className="product--price">$ {price.toFixed(2)}</div>
+
+        <ProductQuantityCounter
+          productQt={productQt}
+          decreaseQuantity={decreaseQuantity}
+          increaseQuantity={increaseQuantity}
+        />
+
+      </div>
       {/* .product-price end  */}
-
-      <ProductDescTabs
-        returnGuide={returnGuide}
-        infoGuide={infoGuide}
-        shippingGuide={shippingGuide}
-      />
 
       {/* .product-desc-tabs end  */}
       <div className="product--meta">
 
-        <ul className="product--meta-info list-unstyled">
+        {/* <ul className="product--meta-info list-unstyled">
           <li>
             Availability:
             <span>{stock > 3 ? "In stock" : stock}</span>
@@ -176,7 +153,7 @@ export default function ProductInfo() {
           <li>
             SKU:<span>{sku}</span>
           </li>
-        </ul>
+        </ul> */}
 
         <div
           className="product--meta-select product--meta-select2 select--color2"
@@ -191,6 +168,7 @@ export default function ProductInfo() {
                   fullSize={true}
                   changeOption={setSelectedColor}
                   selectedOption={selectedColor}
+                  caption="Color"
                 />
               )
             }
@@ -202,6 +180,7 @@ export default function ProductInfo() {
                   fullSize={true}
                   changeOption={setSelectedSize}
                   selectedOption={selectedSize}
+                  caption="Size"
                 />
               )
             }
@@ -211,14 +190,6 @@ export default function ProductInfo() {
         {/* .product-meta-select end  */}
 
         <div className="product--meta-action">
-          
-          <div className="select-order">
-            <ProductQuantityCounter
-              productQt={productQt}
-              decreaseQuantity={decreaseQuantity}
-              increaseQuantity={increaseQuantity}
-            />
-          </div>
 
           <button
             className="btn btn--primary btn--rounded add-to-card-btn"
@@ -227,7 +198,7 @@ export default function ProductInfo() {
             ADD TO CART
           </button>
 
-          <button className="fav" onClick={addProductToFavorites}>
+          {/* <button className="fav" onClick={addProductToFavorites}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className={`h-6 w-6 ${favoritted ? "active" : ""}`}
@@ -242,9 +213,15 @@ export default function ProductInfo() {
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
               />
             </svg>
-          </button>
+          </button> */}
         </div>
       </div>
+
+      <ProductDescTabs
+        returnGuide={returnGuide}
+        infoGuide={infoGuide}
+        shippingGuide={shippingGuide}
+      />
     </div>
   ) : (
     <div></div>

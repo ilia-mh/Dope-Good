@@ -46,4 +46,32 @@
   .swiper-slide-thumb-active {
     opacity: 1;
   }
+
+  &.swiper-container-vertical {
+    width: calc(26% - 20px) !important;
+    height: 100%;
+    margin-right: 25px;
+    padding-top: 0 !important;
+
+    .swiper-slide {
+      display: flex;
+      width: 100% !important;
+      height: auto !important;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        aspect-ratio: 1/1;
+      }
+    }
+      
+
+  }
 }

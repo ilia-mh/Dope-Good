@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,8 +11,7 @@ import "./swiper.scss";
 
 import SwiperCore, { Autoplay, Thumbs } from "swiper";
 
-SwiperCore.use([Autoplay, Thumbs])
-
+SwiperCore.use([Autoplay, Thumbs]);
 
 export default function SwiperSlider({
   children,
@@ -23,6 +22,7 @@ export default function SwiperSlider({
   infinite = true,
   grabMode = false,
   thumbs = [],
+  thumbLoc = "bottom"
 }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -35,11 +35,9 @@ export default function SwiperSlider({
   //   return modules;
   // };
 
-  console.log("thumbs");
-  console.log(thumbs);
-
   return (
     <>
+
       <Swiper
         className="swiper-container"
         spaceBetween={spaceBetween ? spaceBetween : 0}
@@ -75,8 +73,11 @@ export default function SwiperSlider({
         ))}
       </Swiper>
 
+      {/* direction="vertical" */}
+
       {thumbs.length ? (
         <Swiper
+          direction={ thumbLoc === "left" ? 'vertical' : 'horizontal' }
           onSwiper={setThumbsSwiper}
           spaceBetween={10}
           slidesPerView={4}
@@ -84,17 +85,11 @@ export default function SwiperSlider({
           modules={[Thumbs]}
           className="swiper-thumbs"
         >
-
-          {thumbs.map((thumb,idx) => (
-              <SwiperSlide key={idx}>
-                <img
-                  src={thumb}
-                  alt="product gallery thumbnail"
-                  loading="lazy"
-                />
-              </SwiperSlide>
-            ))}
-            
+          {thumbs.map((thumb, idx) => (
+            <SwiperSlide key={idx}>
+              <img src={thumb} alt="product gallery thumbnail" loading="lazy" />
+            </SwiperSlide>
+          ))}
         </Swiper>
       ) : (
         ""

@@ -3,7 +3,7 @@ import Select from "../Select/Select";
 
 import './ProductOptions.scss'
 
-export default function ProductOptions({ options, fullSize, changeOption, selectedOption }) {
+export default function ProductOptions({ options, fullSize, changeOption, selectedOption, caption }) {
 
 	const convertOptions = (obj) => {
 
@@ -23,6 +23,10 @@ export default function ProductOptions({ options, fullSize, changeOption, select
   return (
     <div className={wrapperClass} style={{ paddingLeft: 0 }} >
 
+      {
+        caption && <p>{caption}:</p>
+      }
+      
       <Select items={convertOptions(options)} setSelectedItem={changeOption} selectedItem={selectedOption} />
 
     </div>

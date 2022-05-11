@@ -52,7 +52,7 @@ export default function Select({
 
   const optionModalAnimation = {
     hidden: {
-      y: '-100px',
+      y: '-20px',
       opacity: 0,
       display: 'none',
       transition: {

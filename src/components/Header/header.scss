@@ -41,7 +41,7 @@ header#header {
 }
 
 .nav-holder {
-	max-width: 1140px !important;
+	max-width: 92% !important;
 	position: relative;
 }
 
@@ -99,8 +99,8 @@ nav.navbar .nav-container {
 
 	.navbar-toggler {
 		// display: none;
-		margin-left: 1rem !important;
-		padding: 0.35rem 0.75rem 0 !important;
+		margin-left: 2.5rem !important;
+		padding: 0.35rem 0 0 0.75rem !important;
 	}
 }
 
@@ -207,7 +207,7 @@ nav.navbar .nav-container {
 
 .right-part span {
 	font-size: 22px;
-	margin: 0 15px;
+	margin: 0 1.05rem;
 	color: #636363;
 	text-align: center;
 }
