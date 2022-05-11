@@ -105,7 +105,9 @@
 		}
 
 		.cur-q {
-			margin-right: 0.5rem;
+			display: flex;
+			justify-content: center;
+			margin-right: 1rem;
 			font-size: 1.4rem;
 			font-weight: 500;
 			width: 24px;
