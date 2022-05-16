@@ -90,6 +90,7 @@
     letter-spacing: 1px;
 		margin-bottom: 0;
 		margin-right: 19%;
+		color: #F5F6F7;
 	}
 
 	.product-quantity {
@@ -160,7 +161,7 @@
 					border: none;
 				 }
 
-				 button.active::before {
+				 button::before {
 						width: 100% !important;
 						content: "";
 						position: absolute;
@@ -170,9 +171,19 @@
 						margin: auto;
 						width: 0;
 						height: 2px;
-						background-color: #F26C4F !important;
+						background-color: #727273;
 						transition: all 0.3s ease;
 						box-sizing: border-box;
+				 }
+
+				 button.active::before {
+						background-color: #F26C4F !important;
+				 }
+
+				 &:hover {
+					button::before {
+						background-color: #F26C4F !important;
+					}
 				 }
 
 			 }
@@ -184,6 +195,8 @@
 			p {
 				color: #BDBEBF;
 				margin-bottom: 0 !important;
+				font-size: 14px;
+				font-weight: 500;
 			}
 
 			p::first-letter {
@@ -197,7 +210,7 @@
 	.product--meta-action {
 		display: flex;
 		align-items: center;
-		margin-bottom: 58px;
+		margin-bottom: 3rem;
 
 		.add-to-card-btn {
 			margin-bottom: 0 !important;

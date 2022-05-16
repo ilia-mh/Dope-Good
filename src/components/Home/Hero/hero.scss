@@ -7,10 +7,10 @@ div.slideshow-main {
 	display: flex;
 	justify-content: center;
 	// background: rgb(14, 14, 14) !important;
-	padding-bottom: 100px;
+	// padding-bottom: 100px;
 	
 	.slider-wrapper {
-		background: rgb(14, 14, 14);
+		background: #141414;
 		z-index: 20 !important;
 		width: 100%;
 		max-width: 1140px;
@@ -21,6 +21,7 @@ div.slideshow-main {
 		.all-slides {
 			height: 100%;
 			width: 100%;
+			padding: 0 4.6%;
 			position: relative;
 		}
 
@@ -35,12 +36,14 @@ div.slideshow-main {
 		.slide-dots {
 			display: flex;
 			align-items: center;
-			margin-left: 5%;
+			position: absolute;
+			left: 10%;
+    	bottom: 14%;
 			
 			div {
 				z-index: 20;
 				margin-left: 5px;
-				width: 2rem;
+				width: 2.4rem;
 				height: 3px;
 				background: #252525;
 				border-radius: 0;
@@ -82,11 +85,11 @@ div.slideshow-main {
 
 			img.moving-img {
 				position: absolute;
-				width: 700px;
+				width: 550px;
 				max-height: 700px;
-				right: 0;
-				top: 0;
-				transform: rotateY(180deg);
+				right: 13%;
+				top: 14%;
+				transform: rotateY(180deg) rotateZ(-4deg);
 			}
 			
 		}
@@ -95,8 +98,8 @@ div.slideshow-main {
 
 			img.moving-img {
 				position: absolute;
-				width: 550px;
-				right: 0;
+				width: 500px;
+				right: 10%;
 				top: 20%;
 				transform: rotateY(180deg);
 			}
@@ -107,10 +110,10 @@ div.slideshow-main {
 
 			img.moving-img {
 				position: absolute;
-				width: 700px;
+				width: 600px;
 				max-height: 600px;
-				right: 0;
-				top: 60%;
+				right: 5%;
+				top: 35%;
 			}
 
 		}
@@ -121,8 +124,8 @@ div.slideshow-main {
 				position: absolute;
 				width: 250px;
 				max-height: 600px;
-				right: 10%;
-				top: 15%;
+				right: 30%;
+				top: 10%;
 
 			}
 
@@ -136,22 +139,21 @@ div.slideshow-main {
 			.slide-title {
 				position: absolute;
 				left: 5%;
-				top: 18%;
+				top: 19%;
 
 				h1, h2 {
 					z-index: 8;
 					white-space: nowrap;
-					font-weight: 700;
-					font-size: 5rem;
-					line-height: 4.7rem;
+					font-weight: 600;
+					font-size: 3.9rem;
+					line-height: 4rem;
 					color: rgb(255, 255, 255);
 					letter-spacing: 2px;
 					font-family: Montserrat;
 				}
 
 				h2 {
-					color: rgb(242, 108, 79);
-					margin-bottom: 3.3rem;
+					margin-bottom: 3rem;
 				}
 
 				a.slide-shop-now {
@@ -161,14 +163,13 @@ div.slideshow-main {
 					font-family: "Montserrat", sans-serif;
 					position: relative;
 					z-index: 2;
-					font-size: 1.2rem;
-					font-weight: 700;
+					font-size: 1rem;
+					font-weight: 400;
 					text-transform: uppercase;
 					text-align: center;
-					border-radius: 0;
-					padding: 8px 3rem;
+					border-radius: 25px;
+					padding: 8px 3.1rem;
 					line-height: 43px;
-					letter-spacing: 1px;
 					border: none;
 					line-height: 38px !important;
 					color: white;
@@ -189,17 +190,17 @@ div.slideshow-main {
 
 			.slide-caption {
 				position: absolute;
-				top: 5%;
+				top: 12%;
 				left: 5% !important;
 				// transform: rotate(270deg) !important;
 
 				.caption-title {
 					display: block;
-					font-size: 1rem;
+					font-size: 0.82rem;
 					line-height: 27px;
 					font-weight: 700;
-					color: rgb(255, 255, 255);
-					letter-spacing: 1px;
+					color: #767676;
+					// letter-spacing: 1px;
 					font-family: Montserrat;
 					text-transform: uppercase;
 				}
@@ -209,14 +210,16 @@ div.slideshow-main {
 		.nextSlideBtn {
 			width: 100px;
 			height: 160px;
-			background-color: #000000;
+			background-color: #0e0e0e;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			margin-left: auto;
 			margin-top: -50px;
 			cursor: pointer;
-			position: relative;
+			position: absolute;
+			bottom: 0;
+			right: 7%;
 
 			svg {
 				width: 40px;
@@ -224,7 +227,7 @@ div.slideshow-main {
 			}
 
 			.nextSlidePrev {
-				background: #000;
+				background: #0e0e0e;
 				position: absolute;
 				width: 260px;
 				height: 160px;
@@ -290,6 +293,7 @@ div.slideshow-main {
 				}
 			}
 		}
+
 	}
 
 }
@@ -311,7 +315,7 @@ div.slideshow-main {
 			img.moving-img {
 				width: 550px ;
 				// left: 17%;
-				top: 40%;
+				// top: 40%;
 			}
 	
 		}
@@ -329,10 +333,17 @@ div.slideshow-main {
 				position: absolute;
 				width: 600px;
 				max-height: 700px;
-				right: 0;
+				right: 10%;
 				top: 38%;
 			}
 			
+		}
+
+		.slider-1 {
+			img.moving-img {
+				width: 400px;
+
+			}
 		}
 
 		.slide-tab {
@@ -355,28 +366,27 @@ div.slideshow-main {
 	div.slideshow-main .slider-wrapper {
 		max-width: 720px !important;
 
-		// .slider-0 {
+		.slider-0 {
 
-		// 	img.moving-img {
-		// 		position: absolute;
-		// 		width: 550px;
-		// 		max-height: 700px;
-		// 		left: 8%;
-		// 		top: 43%;
-		// 	}
+			img.moving-img {
+				// position: absolute;
+				width: 450px;
+				top: 30%;
+				// max-height: 700px;
+				// left: 8%;
+			}
 			
-		// }
+		}
 
-		// .slider-1 {
+		.slider-1 {
 
-		// 	img.moving-img {
-		// 		position: absolute;
-		// 		width: 550px;
-		// 		left: 8%;
-		// 		top: 35%;
-		// 	}
+			img.moving-img {
+				width: 300px;
+				// left: 8%;
+				// top: 35%;
+			}
 
-		// }
+		}
 
 		// .slider-2 {
 
@@ -390,17 +400,17 @@ div.slideshow-main {
 
 		// }
 
-		// .slider-3 {
+		.slider-3 {
 
-		// 	img.moving-img {
-		// 		position: absolute;
-		// 		width: 225px;
-		// 		max-height: 600px;
-		// 		left: 10%;
-		// 		top: 33%;
-		// 	}
+			img.moving-img {
+				// position: absolute;
+				// width: 225px;
+				// max-height: 600px;
+				right: 20%;
+				// top: 33%;
+			}
 
-		// }
+		}
 
 		.slide-tab {
 
@@ -431,7 +441,8 @@ div.slideshow-main {
 			.slider-0 {
 	
 				img.moving-img {
-					width: 500px;
+					width: 400px;
+					top: 40%;
 				}
 				
 			}
@@ -439,8 +450,8 @@ div.slideshow-main {
 			.slider-1 {
 
 				img.moving-img {
-					width: 400px;
-					top: 60%;
+					width: 300px;
+					top: 50%;
 				}
 				
 			}
@@ -450,7 +461,7 @@ div.slideshow-main {
 				img.moving-img {
 					width: 500px;
 					left: 3%;
-					top: 65%;
+					top: 50%;
 				}
 	
 			}
@@ -459,6 +470,7 @@ div.slideshow-main {
 
 				img.moving-img {
 					width: 200px;
+					right: 10%;
 				}
 	
 			}
@@ -476,7 +488,16 @@ div.slideshow-main {
 				}
 
 			}
+
+			.slide-dots {
+				left: 50%;
+    		transform: translateX(-50%);
+			}
 	
+			.nextSlideBtn {
+				display: none;
+			}
+
 		}
 	}
 
@@ -500,9 +521,10 @@ div.slideshow-main {
 			.slider-0 {
 	
 				img.moving-img {
-					width: 470px;
-					// left: 5%;
-					top: 42%;
+					// width: 400px;
+					top: 55%;
+					// left: 50%;
+					transform: translateX(-50%);
 				}
 				
 			}
@@ -510,7 +532,7 @@ div.slideshow-main {
 			.slider-1 {
 
 				img.moving-img {
-					width: 400px;
+					// width: 400px;
 					top: 55%;
 				}
 				
@@ -552,9 +574,6 @@ div.slideshow-main {
 
 			}
 	
-			.nextSlideBtn {
-				display: none;
-			}
 		}
 	}
 
@@ -565,6 +584,7 @@ div.slideshow-main {
 	div.slideshow-main {
 		padding-left: 15px;
 		padding-right: 15px;
+
 	}
 }
 
@@ -579,9 +599,9 @@ div.slideshow-main {
 			.slider-0 {
 	
 				img.moving-img {
-					width: 353px;
+					width: 340px;
 					// left: 11%;
-					top: 42%;
+					// top: 42%;
 				}
 				
 			}
@@ -589,9 +609,9 @@ div.slideshow-main {
 			.slider-1 {
 
 				img.moving-img {
-					width: 330px;
+					width: 290px;
 					// left: 13%;
-					top: 55%;
+					top: 63%;
 				}
 				
 			}
@@ -599,9 +619,9 @@ div.slideshow-main {
 			.slider-2 {
 
 				img.moving-img {
-					width: 400px;
+					width: 300px;
 					left: 10%;
-					top: 60%;
+					top: 75%;
 				}
 	
 			}
@@ -610,7 +630,7 @@ div.slideshow-main {
 
 				img.moving-img {
 					width: 150px;
-					top: 36%;
+					top: 30%;
 				}
 	
 			}
@@ -625,8 +645,22 @@ div.slideshow-main {
 					font-size: 30px;
 					line-height: 12px;
 				}
+
+				h2 {
+					margin-bottom: 2rem;
+				}
+
+				a.slide-shop-now {
+					font-size: 0.9rem;
+					padding: 4px 2rem;
+				}
 	
 			}
+
+			.slide-caption {
+				top: 6%;
+			}
+
 		}
 
 	}
@@ -638,8 +672,7 @@ div.slideshow-main {
 @media( max-width: 420px ){
 
 	div.slideshow-main {
-		height: 580px; 
-		padding-bottom: 0;
+		// height: 580px; 
 		
 		.slider-wrapper {
 
@@ -651,8 +684,7 @@ div.slideshow-main {
 	
 				img.moving-img {
 					width: 320px;
-					left: 7%;
-					top: 53%;
+					top: 50%;
 				}
 				
 			}
@@ -682,8 +714,8 @@ div.slideshow-main {
 				img.moving-img {
 					width: 130px;
 					// left: 30%;
-					top: 50%;
-					left: 40%;
+					top: 15%;
+					right: 10%;
 				}
 	
 			}
@@ -700,6 +732,10 @@ div.slideshow-main {
 						line-height: 8px;
 					}
 		
+				}
+
+				.slide-caption {
+					top: 4%;
 				}
 			}
 

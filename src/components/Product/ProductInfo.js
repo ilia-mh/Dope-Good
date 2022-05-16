@@ -145,22 +145,12 @@ export default function ProductInfo() {
       {/* .product-desc-tabs end  */}
       <div className="product--meta">
 
-        {/* <ul className="product--meta-info list-unstyled">
-          <li>
-            Availability:
-            <span>{stock > 3 ? "In stock" : stock}</span>
-          </li>
-          <li>
-            SKU:<span>{sku}</span>
-          </li>
-        </ul> */}
-
         <div
           className="product--meta-select product--meta-select2 select--color2"
           style={{ borderBottom: "none" }}
         >
           <div className="row" style={{ marginLeft: 0 }}>
-
+    
             {
               options && options.color && (
                 <ProductOptions
@@ -169,6 +159,7 @@ export default function ProductInfo() {
                   changeOption={setSelectedColor}
                   selectedOption={selectedColor}
                   caption="Color"
+                  twoInRow={options.size.length > 1 ? true : false}
                 />
               )
             }
@@ -181,6 +172,7 @@ export default function ProductInfo() {
                   changeOption={setSelectedSize}
                   selectedOption={selectedSize}
                   caption="Size"
+                  twoInRow={options.color.length}
                 />
               )
             }

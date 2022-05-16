@@ -105,7 +105,7 @@ nav.navbar .nav-container {
 }
 
 .big-screen-menu {
-	color: #636363;
+	color: #F5F6F7;
 	cursor: pointer;
 	font-size: 12px;
 	font-weight: 600;
@@ -137,7 +137,7 @@ nav.navbar .nav-container {
 			width: 5px;
 			height: 5px;
 			border-radius: 50%;
-			background-color: #636363;
+			background-color: #F5F6F7;
 			margin: 0 3px;
 			-webkit-transition: 0.3s linear;
 			-moz-transition: 0.3s linear;
@@ -178,7 +178,7 @@ nav.navbar .nav-container {
 .right-part .account {
 
 	>a {
-		color: #636363;
+		color: #F5F6F7;
 		cursor: pointer;
 		font-size: 19px;
     font-weight: 500;
@@ -194,7 +194,7 @@ nav.navbar .nav-container {
 .right-part .search-icon {
 	width: 28px;
 	height: 28px;
-	color: #636363;
+	color: #F5F6F7;
 	flex-shrink: 0;
 	cursor: pointer;
 	transition: all 0.3s ease;
@@ -208,7 +208,7 @@ nav.navbar .nav-container {
 .right-part span {
 	font-size: 22px;
 	margin: 0 1.05rem;
-	color: #636363;
+	color: #F5F6F7;
 	text-align: center;
 }
 
@@ -218,7 +218,7 @@ nav.navbar .nav-container {
 	.shopping-bag-icon {
 		width: 30px;
 		height: 29px;
-		color: #636363;
+		color: #F5F6F7;
 		flex-shrink: 0;
 		cursor: pointer;
 		transition: all 0.3s ease;
@@ -250,11 +250,15 @@ nav.navbar .nav-container {
 }
 
 .navbar-toggler {
-  color: #636363;
+  color: #F5F6F7;
   z-index: 10;
 	border: none !important;
 	margin: 0 !important;
 	padding-right: 0 !important;
+
+	svg path {
+		stroke: #F5F6F7;
+	}
 }
 
 .nvabar-links .navbar-ul {
@@ -281,7 +285,7 @@ nav.navbar .nav-container {
 
 .burger-nav-menu {
 	transition: all 0.3s ease-in-out;
-	color: #636363 !important;
+	color: #F5F6F7 !important;
 	
 	&:hover {
 		color: #fff !important;

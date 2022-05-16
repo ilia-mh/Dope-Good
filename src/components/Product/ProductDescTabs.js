@@ -38,7 +38,7 @@ export default function ProductDescTabs(props) {
 					}
 					onClick={() => changeActiveTab("returnGuide")}
 				>
-					Return
+					Return policy
 				</button>
 			</li>
 		</ul>

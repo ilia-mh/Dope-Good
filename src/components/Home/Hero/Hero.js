@@ -170,54 +170,55 @@ export default function Hero() {
 			<div className="slider-wrapper"  >
 
 				<div className="all-slides">
-				{
-					slides.map(( slideInfo, idx) => <Slide slideInfo={slideInfo} idx={idx} key={idx} ActiveSlide={shownSlide} />)
-				}
-				</div>
-
-				<div className="slide-dots">
 					{
-						slides.map( (slide,idx) => {	
-							return (
-								<div className={`tab-${idx}-dot ${ shownSlide === idx ? 'active': ''}`} key={idx} onClick={ () => goToSlide(idx) }>
-
-								</div>
-							)
-						})
+						slides.map(( slideInfo, idx) => <Slide slideInfo={slideInfo} idx={idx} key={idx} ActiveSlide={shownSlide} />)
 					}
-				</div>
 
-				<motion.div
-					className="nextSlideBtn"
-					onHoverStart={ () => controls.start('visible')}
-					onHoverEnd={ () => controls.start('hidden')}
-					onClick={ () => goToSlide(findNextSlide()) }
-				>
+					<div className="slide-dots">
+						{
+							slides.map( (slide,idx) => {	
+								return (
+									<div className={`tab-${idx}-dot ${ shownSlide === idx ? 'active': ''}`} key={idx} onClick={ () => goToSlide(idx) }>
 
-					<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-					</svg>
+									</div>
+								)
+							})
+						}
+					</div>
 
-					<motion.div 
-						className="nextSlidePrev" 
-						variants={nextSlidePrevAnimation} 
-						initial='hidden' 
-						animate={controls}
-						transition={{ duration: 0.5, type: 'spring' }}
+					<motion.div
+						className="nextSlideBtn"
+						onHoverStart={ () => controls.start('visible')}
+						onHoverEnd={ () => controls.start('hidden')}
+						onClick={ () => goToSlide(findNextSlide()) }
 					>
-						<img src={slides[findNextSlide()].img} alt='Next Slide' loading="lazy"/>
 
-						<div className="slide-title">
-							<h1 >{slides[findNextSlide()].title}</h1>
-						</div>
+						<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+						</svg>
 
-						<div className="slide-caption">
-							<span className="caption-title">{slides[findNextSlide()].captionTitle}</span>
-						</div>
+						<motion.div 
+							className="nextSlidePrev" 
+							variants={nextSlidePrevAnimation} 
+							initial='hidden' 
+							animate={controls}
+							transition={{ duration: 0.5, type: 'spring' }}
+						>
+							<img src={slides[findNextSlide()].img} alt='Next Slide' loading="lazy"/>
+
+							<div className="slide-title">
+								<h1 >{slides[findNextSlide()].title}</h1>
+							</div>
+
+							<div className="slide-caption">
+								<span className="caption-title">{slides[findNextSlide()].captionTitle}</span>
+							</div>
+
+						</motion.div>
 
 					</motion.div>
-
-				</motion.div>
+					
+				</div>
 
 			</div>
 		</div>

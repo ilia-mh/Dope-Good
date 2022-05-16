@@ -3,7 +3,7 @@ import Select from "../Select/Select";
 
 import './ProductOptions.scss'
 
-export default function ProductOptions({ options, fullSize, changeOption, selectedOption, caption }) {
+export default function ProductOptions({ options, fullSize, changeOption, selectedOption, caption, twoInRow = false }) {
 
 	const convertOptions = (obj) => {
 
@@ -18,7 +18,9 @@ export default function ProductOptions({ options, fullSize, changeOption, select
     return arr;
   };
 
-	const wrapperClass = fullSize ? 'options-selector col-12 col-sm-12 col-md-6 col-lg-6' : 'options-selector col-6 col-sm-6 col-md-6 col-lg-6'
+  const col = twoInRow ? '5' : '12'
+
+	const wrapperClass = fullSize ? `options-selector col-12 col-sm-12 col-md-${col} col-lg-${col}` : `options-selector col-6 col-sm-6 col-md-${col} col-lg-${col}`
 
   return (
     <div className={wrapperClass} style={{ paddingLeft: 0 }} >
