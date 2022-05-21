@@ -1,0 +1,16 @@
+name: test-deploy-site
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm run build
+      - run: test -f build/index.html
+      - run: grep "DopeGood Store" build/index.html
+      - run: npm i -g serve
+      - run: serve build &
