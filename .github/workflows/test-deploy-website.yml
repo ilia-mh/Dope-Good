@@ -1,5 +1,10 @@
 name: test-deploy-site
+
 on: [push]
+
+env:
+  CI: false
+
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
