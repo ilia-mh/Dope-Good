@@ -8,7 +8,8 @@ on:
 env:
   CI: false
 
-APP_NAME: DopeGood Store
+variables:
+  APP_NAME: DopeGood Store
 
 jobs:
   check-bats-version:
