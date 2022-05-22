@@ -7,7 +7,7 @@ on:
 
 env:
   CI: false
-  APP_NAME: DopeGood Store
+  APP_NAME: DopeGood
 
 jobs:
   check-bats-version:
