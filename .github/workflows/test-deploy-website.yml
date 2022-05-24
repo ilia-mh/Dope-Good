@@ -25,6 +25,12 @@ jobs:
       - name: Install all dependencies
         run: npm install
 
+      - name: Add .env file for testing
+        run: echo REACT_APP_API_URL=${{secrets.REACT_APP_API_URL}} >> .env
+      
+      - name: Check for .env file
+        run: cat .env
+
       - name: Build
         run: npm run build
 
