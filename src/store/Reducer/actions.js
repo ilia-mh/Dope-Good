@@ -51,7 +51,7 @@ export const getSingleProduct = ( state, { payload } ) => {
 	
 	const id = payload._id
 
-	if( state.allUserFavs.includes(payload._id || '') ) payload.favoritted = true
+	if( state.allUserFavs.includes(id || '') ) payload.favoritted = true
 
 	state.singleProduct = payload
 }

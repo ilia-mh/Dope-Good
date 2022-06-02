@@ -26,15 +26,6 @@ export default function SwiperSlider({
 }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-  // const requiredModules = () => {
-  //   const modules = [];
-
-  //   if (autoplay !== 0) modules.push(Autoplay);
-  //   if (thumbs.lenght) modules.push(Thumbs);
-
-  //   return modules;
-  // };
-
   return (
     <>
 
@@ -79,7 +70,7 @@ export default function SwiperSlider({
         <Swiper
           direction={ thumbLoc === "left" ? 'vertical' : 'horizontal' }
           onSwiper={setThumbsSwiper}
-          spaceBetween={10}
+          spaceBetween={ thumbLoc === "left" ? 20 : 10 }
           slidesPerView={4}
           watchSlidesProgress={true}
           modules={[Thumbs]}
