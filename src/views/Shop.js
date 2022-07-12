@@ -68,8 +68,6 @@ export default function Shop() {
       dispatch(setAllProducts({ products: allProductsFetch.products }));
     }
 
-		console.log('shouldFetchMore')
-		console.log(shouldFetchMore())
 		if( shouldFetchMore() ) fetchProducts();
 
   }, [cat,subcat,currentPage]);
@@ -111,8 +109,6 @@ export default function Shop() {
     const { count } = categories[0].subCategories[subCatIdx]
 
     const existingProducts = allProducts.reduce( (total, { subCategory }) => subCategory.includes(subcat) ? total++ : total, 0 )
-
-    console.log( existingProducts )
 
     return existingProducts < count
   }
