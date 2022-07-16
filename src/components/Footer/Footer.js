@@ -26,7 +26,7 @@ export default function Footer() {
               </div>
 
               <div className="footer--copyright">
-                <span>&copy; 2019 Dope Good - All Rights Reserved, by <b>DopeGood</b> </span> 
+                <span>&copy; 2022 Dope Good - All Rights Reserved, by <b>DopeGood</b> </span> 
               </div>
               {/* .footer-copyright end  */}
             </div>

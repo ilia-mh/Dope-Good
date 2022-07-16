@@ -1,145 +1,153 @@
-import React, { useState } from "react";
-import { post } from '../../utils/fetch';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { post } from "../../utils/fetch";
+import { useDispatch } from "react-redux";
 import { userExists } from "../../store/Reducer/reducer";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
-import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
-const apiUrl = process.env.REACT_APP_API_URL
+import "./login.scss";
+
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function LogIn() {
 
-	const dispatch = useDispatch()
-	const history = useHistory()
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-	const [userName,setUserName] = useState('')
-	const [userNameErr,setUserNameErr] = useState('')
+  const [userName, setUserName] = useState("");
+  const [userNameErr, setUserNameErr] = useState("");
 
-	const [password,setPassword] = useState('')
-	const [passwordErr,setPasswordErr] = useState('')
+  const [password, setPassword] = useState("");
+  const [passwordErr, setPasswordErr] = useState("");
 
-	const [keepIn,setKeepIn] = useState(false)
+  const [screenSize, setScreenSize] = useState(
+    window ? (window.innerWidth > 768 ? "lg" : "sm") : null
+  );
 
-	const SendLogin = async () => {
+  const SendLogin = async () => {
+    checkFields();
 
-		checkFields()
+    if (userNameErr.length || passwordErr.length) {
+      return;
+    }
 
-		if( userNameErr.length || passwordErr.length ) {
-			return
-		}
+    const loginInfo = {
+      username: userName,
+      password,
+    };
 
-		const loginInfo = {
-			username: userName,
-			password
-		}
+    const login = await post(`${apiUrl}/api/user/login`, loginInfo);
+    console.log(login);
 
-		const login = await post( `${apiUrl}/api/user/login`, loginInfo )
-		console.log(login)
+    if (login && login.success) {
+      toast.success("You Logged in successfully");
 
-		if( login && login.success ) {
+      const user = {
+        accessToken: login.access_token,
+        refreshToken: login.refresh_token,
+      };
 
-			toast.success('You Logged in successfully')
+      localStorage.setItem("user", JSON.stringify(user));
 
-			const user = {
-				accessToken: login.access_token,
-				refreshToken: login.refresh_token,
-			}
+      dispatch(userExists(true));
 
-			localStorage.setItem('user', JSON.stringify(user))
-
-			dispatch( userExists(true) )
-
-        
       try {
-        history.goBack()
-      } catch(e) {
-        history.push('/')
+        history.goBack();
+      } catch (e) {
+        history.push("/");
       }
+    } else toast.error("Wrong login info");
+  };
 
+  const checkFields = () => {
+    setUserNameErr("");
+    setPasswordErr("");
 
-		} else toast.error('Wrong login info')
-		
-	}
+    if (userName.length < 3) {
+      setUserNameErr("User Name Must be atleast 3 characters");
+    }
 
-	const checkFields = () => {
-		setUserNameErr('')
-		setPasswordErr('')
+    if (password.length < 4) {
+      setUserNameErr("Password Must be atleast 3 characters");
+    }
+  };
 
-		if( userName.length < 3 ) {
-			setUserNameErr('User Name Must be atleast 3 characters')
-		}
+  const changeField = (e, setField) => {
+    setField(e.target.value);
+  };
 
-		if( password.length < 4 ) {
-			setUserNameErr('Password Must be atleast 3 characters')
-		}
-	}
-	
-	const changeField = (e,setField) => {
-		setField(e.target.value)
-	}
+  useEffect(() => {
+    if (screenSize === null) {
+      if (window.innerWidth > 768) setScreenSize("lg");
+      else setScreenSize("sm");
+    }
+
+    window.addEventListener("resize", changeLoginImg);
+
+    return () => window.removeEventListener("resize", changeLoginImg);
+  }, [screenSize, setScreenSize]);
+
+  const changeLoginImg = () => {
+    if (window.innerWidth <= 768 && screenSize === "lg") setScreenSize("sm");
+    else if (window.innerWidth > 768 && screenSize === "sm")
+      setScreenSize("lg");
+  };
 
   return (
-    <div className="col-sm-12 col-md-6 col-lg-5">
-
-      <div className="register-title">
-        <h4>Login your account</h4>
+    <div className="login-container">
+      <div className="login-img">
+      {
+          screenSize !== null ? 
+            <img src={ screenSize === 'lg' ? 'login-lg.jpg' : 'login-sm.jpg' } 
+              alt="login" />
+          :
+            ''
+        }
       </div>
 
-      <form onSubmit={ (e) => e.preventDefault() }  className="login-form">
-        <div className="row">
-
-          <div className="col-sm-12 col-md-12 col-lg-12">
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-control"
-                id="user-name"
-                placeholder="User Name or Email"
-								onChange={ (e) => changeField(e,setUserName) }
-              />
-            </div>
-          </div>
-					
-          <div className="col-sm-12 col-md-12 col-lg-12">
-            <div className="form-group">
-              <input
-                type="password"
-                className="form-control"
-                id="login-password"
-                placeholder="Your Password"
-								onChange={ (e) => changeField(e,setPassword) }
-              />
-            </div>
-          </div>
-					
-          <div className="col-sm-12 col-md-8 col-lg-12 mb-40 keep-logedin-check">
-            <div className="input-checkbox inline-block">
-              <label className="label-checkbox" style={{ color: '#fff'}}>
-                Keep me logged in
-                <input type="checkbox" value={keepIn} onChange={(e) => setKeepIn(!keepIn)}/>
-                <span className="check-indicator">
-                  {
-                    keepIn && <div className="active-checkbox"></div>
-                  }
-                </span>
-              </label>
-            </div>
-
-            <Link to="/login/forgot" className="forget--password" >
-              Forgot your password?
-            </Link>
-          </div>
-
-          <div className="col-sm-12 col-md-12 col-lg-12 mb-30">
-            <button type="button" className="btn btn--primary btn--rounded" onClick={SendLogin} >
-              Login
-            </button>
-          </div>
-
+      <div className="login_form">
+        <div className="login-title">
+          <h1>Login</h1>
+          <p>
+            Don't have an account? <Link to="/register">Register</Link>
+          </p>
         </div>
-      </form>
+
+        <form onSubmit={(e) => e.preventDefault()}>
+          
+          <input
+            type="text"
+            className="username-inpt"
+            id="username"
+            placeholder="Username"
+            onChange={(e) => changeField(e, setUserName)}
+            autoComplete="off"
+          />
+
+          <input
+            type="password"
+            className="pass-inpt"
+            id="password"
+            placeholder="Password"
+            onChange={(e) => changeField(e, setPassword)}
+          />
+
+          <button
+            type="button"
+            className="login-btn btn btn--primary btn--rounded"
+            onClick={SendLogin}
+          >
+            Login
+          </button>
+
+          <Link to="/login/forgot" className="forget--password">
+            Forgot your password?
+          </Link>
+
+        </form>
+      </div>
     </div>
   );
 }

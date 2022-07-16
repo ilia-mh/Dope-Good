@@ -6,7 +6,7 @@ import './hero.scss'
 
 export default function Hero() {
 
-  const [screenSize, setScreenSize] = useState(window.innerWidth > 768 ? 'lg' : 'sm' || 'sm')
+  const [screenSize, setScreenSize] = useState( window ? ( window.innerWidth > 768 ? 'lg' : 'sm' ) : null )
 
   useEffect(() => {
     
@@ -19,6 +19,11 @@ export default function Hero() {
         scrub: true
       }
     })
+
+    if( screenSize === null ) {
+      if( window.innerWidth > 768 ) setScreenSize('lg')
+      else setScreenSize('sm')
+    }
 
     window.addEventListener( 'resize', changeContactImg)
   
@@ -42,8 +47,14 @@ export default function Hero() {
       </div>
 
       <div className="contact-hero-img">
-        <img src={ screenSize === 'lg' ? 'contact-hero.jpg' : 'contact-hero-mob.jpg' } 
-        alt="contact-us" />
+        {
+          screenSize !== null ? 
+            <img src={ screenSize === 'lg' ? 'contact-hero.jpg' : 'contact-hero-mob.jpg' } 
+              alt="contact-us" />
+          :
+            ''
+        }
+        
       </div>
       
     </section>

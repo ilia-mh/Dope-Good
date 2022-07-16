@@ -5,9 +5,9 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import "./ReachOut.scss";
 import { checkEmail } from "./../../utils/CheckMail";
 import { toast } from "react-toastify";
-import { post } from "../../utils/fetch";
+// import { post } from "../../utils/fetch";
 
-const apiUrl = `${process.env.REACT_APP_API_URL}/api`;
+// const apiUrl = `${process.env.REACT_APP_API_URL}/api`;
 
 export default function ReachOut() {
   const [name, setName] = useState("");
@@ -27,11 +27,11 @@ export default function ReachOut() {
       return;
     }
 
-    const contactForm = {
-      name,
-      email,
-      message,
-    };
+    // const contactForm = {
+    //   name,
+    //   email,
+    //   message,
+    // };
 
     // const createContactForm = await post(`${apiUrl}/contact`, contactForm);
 
@@ -47,7 +47,7 @@ export default function ReachOut() {
         setName("");
         setEmail("");
         setMessage("");
-      }, 500);
+      }, 300);
     // }
   };
 

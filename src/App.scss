@@ -17,7 +17,7 @@ body, a, button, li, p, span, input, h1,h2,h3,h4,h5,h6 {
 }
 
 .app-wrapper {
-	margin-bottom: 337px !important;
+	margin-bottom: 310px !important;
 }
 
 .loading {
@@ -59,9 +59,13 @@ body::-webkit-scrollbar-thumb {
 	}
 }
 
-@media ( max-width: 992px ) {
+@media ( max-width: 991px ) {
 	.app-wrapper {
 		margin-bottom: 0 !important;
+	}
+
+	footer.footer {
+		position: relative;
 	}
 	
 }

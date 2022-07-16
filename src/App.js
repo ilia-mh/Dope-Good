@@ -23,6 +23,7 @@ import Terms from "./views/Terms";
 import Checkout from "./views/Checkout";
 import Cart from "./views/Cart";
 import Login from "./views/Login";
+import Register from "./views/Register";
 import ForgotPass from "./views/ForgotPass";
 import Product from "./views/Product";
 import Profile from "./views/Profile";
@@ -184,6 +185,20 @@ function App() {
             render={() =>
               user === false ? (
                 <Login />
+              ) : user === undefined ? (
+                ""
+              ) : (
+                <Redirect to={{ pathname: "/profile" }} />
+              )
+            }
+          />
+
+          <Route
+            exact
+            path="/register"
+            render={() =>
+              user === false ? (
+                <Register />
               ) : user === undefined ? (
                 ""
               ) : (

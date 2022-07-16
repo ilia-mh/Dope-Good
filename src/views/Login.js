@@ -1,14 +1,11 @@
 import React from 'react'
-import Title from '../components/Login/Title'
-import LoginWrapper from '../components/Login/LoginWrapper'
+import LogIn from '../components/Login/LogIn'
 
 export default function Login() {
 	return (
-		<div className="view-wrapper" >
+		<div className="view-wrapper" style={{ paddingTop: 0 }}>
 
-			<Title />
-			
-			<LoginWrapper />
+			<LogIn/>
 
 		</div>
 	)
