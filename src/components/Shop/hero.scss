@@ -1,29 +1,79 @@
 .shop-hero {
-	width: 100%;
-	
-	.breadcrumb {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 0;
 
-		.breadcrumb-arrow {
-			margin: 0 10px;
-			svg {
-				width: 18px;
-				color: #7d7d7d;
+  .page-title {
+    display: grid;
+    place-items: center;
+    height: 55vh;
+
+    h1 {
+      color: #fff;
+      font-size: 4rem;
+      font-weight: 600;
+			max-width: 92%;
+			line-height: 1.4;
+
+			@media ( max-width: 1024px ) {
+				font-size: 3.5rem;
 			}
-		}
+			@media ( max-width: 850px ) {
+				font-size: 3rem;
+			}
+    }
+  }
 
-		li::before {
-			content: '';
-			padding: 0;
-			margin: 0;
-		}
-	}
-}
+  .shop-hero-img {
+    height: 90vh;
+    width: 100%;
+    overflow: hidden;
 
-@media ( max-width: 768px) {
-	#page-title .title-1 {
-		padding: 60px 0 0 !important;
-	}
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+  }
+
+  @media ( max-width: 768px ) {
+
+    .page-title {
+      height: 40vh;
+
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
+    .shop-hero-img {
+      height: 100vw;
+
+      img {
+        height: 110%;
+      }
+    }
+  }
+
+  @media ( max-width: 500px ) {
+
+    .page-title {
+      height: 35vh;
+
+			h1 {
+				font-size: 2.8rem;
+			}
+    }
+
+		.shop-hero-img {
+      height: 60vh;
+		}
+  }
+  @media ( max-width: 400px ) {
+
+    .page-title h1 {
+      font-size: 2.5rem;
+    }
+  }
+
 }

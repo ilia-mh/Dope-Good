@@ -9,7 +9,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 export default function Contact() {
 	return (
-		<div>
+		<div className="view-wrapper" >
 
 			<Hero />
 

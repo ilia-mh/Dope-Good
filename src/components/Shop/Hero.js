@@ -1,41 +1,61 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
 import './hero.scss'
-import { Link } from 'react-router-dom'
 
 export default function Hero() {
+
+  const [screenSize, setScreenSize] = useState( window ? ( window.innerWidth > 768 ? 'lg' : 'sm' ) : null )
+
+  useEffect(() => {
+    
+    gsap.to('.shop-hero-img img', {
+      y: '-8%',
+      scrollTrigger: {
+        id: 'shopHeroParrallex',
+        start: 'top bottom',
+        trigger: '.shop-hero-img',
+        scrub: true
+      }
+    })
+
+    if( screenSize === null ) {
+      if( window.innerWidth > 768 ) setScreenSize('lg')
+      else setScreenSize('sm')
+    }
+
+    window.addEventListener( 'resize', changeShopImg)
+  
+    return () => {
+      ScrollTrigger.getById('shopHeroParrallex')?.kill()
+      window.removeEventListener( 'resize', changeShopImg)
+    }
+  }, [screenSize,setScreenSize])
+
+  const changeShopImg = () => {
+    if( window.innerWidth <= 768 && screenSize === 'lg' ) setScreenSize('sm')
+    else if( window.innerWidth > 768 && screenSize === 'sm' ) setScreenSize('lg')
+  }
+
 	return (
-		<section id="page-title" className="page-title shop-hero" >
-        <div className="container shop-title">
-          <div className="row">
-            <div className="col-sm-12 col-md-12 col-lg-12">
-              <div className="title title-1 text-center">
-                <div className="title--content">
-                  <div className="title--heading">
-                    <h1>Shop</h1>
-                  </div>
-                </div>
-                <div className="clearfix"></div>
-                <ol className="breadcrumb">
+		<section className="shop-hero" >
 
-                  <li><Link to="/">Home</Link></li>
+      <div className="page-title">
+        <h1>Furniture for every need</h1>
+      </div>
 
-                  <li className="breadcrumb-arrow">
-										<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-										</svg>
-									</li>
+      <div className="shop-hero-img">
+        {
+          screenSize !== null ? 
+            <img src={ screenSize === 'lg' ? 'shop-hero-lg.jpg' : 'shop-hero-sm.jpg' } 
+              alt="shop" />
+          :
+            ''
+        }
+        
+      </div>
 
-                  <li className="active">Shop</li>
-									
-                </ol>
-              </div>
-               {/* .title end  */}
-            </div>
-             {/* .col-lg-12 end  */}
-          </div>
-           {/* .row end  */}
-        </div>
-         {/* .container end  */}
-      </section>
+    </section>
 	)
 }

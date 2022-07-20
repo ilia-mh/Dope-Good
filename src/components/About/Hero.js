@@ -1,44 +1,61 @@
-import React from "react";
-import heroImg from "../../assets/images/page-title/2.jpg";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 import './Hero.scss'
 
 export default function Hero() {
   
+  const [screenSize, setScreenSize] = useState( window ? ( window.innerWidth > 768 ? 'lg' : 'sm' ) : null )
+
+  useEffect(() => {
+    
+    gsap.to('.about-hero-img img', {
+      y: '-8%',
+      scrollTrigger: {
+        id: 'aboutHeroParrallex',
+        start: 'top bottom',
+        trigger: '.about-hero-img',
+        scrub: true
+      }
+    })
+
+    if( screenSize === null ) {
+      if( window.innerWidth > 768 ) setScreenSize('lg')
+      else setScreenSize('sm')
+    }
+
+    window.addEventListener( 'resize', changeAboutImg)
+  
+    return () => {
+      ScrollTrigger.getById('aboutHeroParrallex')?.kill()
+      window.removeEventListener( 'resize', changeAboutImg)
+    }
+  }, [screenSize,setScreenSize])
+
+  const changeAboutImg = () => {
+    if( window.innerWidth <= 768 && screenSize === 'lg' ) setScreenSize('sm')
+    else if( window.innerWidth > 768 && screenSize === 'sm' ) setScreenSize('lg')
+  }
+
   return (
-    <section
-      id="page-title"
-      className="about page-title fullscreen bg-overlay bg-overlay-dark bg-section"
-      style={{ backgroundImage: `url(${heroImg})` }}
-    >
-      <div className="pos-vertical-center">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12 col-md-12 col-lg-12">
-              <div className="title title-5 text-center">
-                <div className="title--content">
-                  <div className="title--heading">
-                    <h1>About Us</h1>
-                  </div>
-                </div>
-                <div className="clearfix"></div>
-                <ol className="breadcrumb">
-                  <li>
-                    <Link to="/home">Home</Link>
-                  </li>
-                  <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" width='20px' style={{ color: '#fff' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </li>
-                  <li className="active">About Us</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section className="about-hero page-title">
+
+      <div className="page-title">
+        <h1>About Us</h1>
       </div>
+
+      <div className="about-hero-img">
+        {
+          screenSize !== null ? 
+            <img src={ screenSize === 'lg' ? 'about-hero-lg.jpg' : 'about-hero-sm.jpg' } 
+              alt="about" />
+          :
+            ''
+        }
+        
+      </div>
+      
     </section>
   );
 }

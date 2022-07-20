@@ -6,7 +6,7 @@ import Info from '../components/About/Info'
 
 export default function About() {
 	return (
-		<div >
+		<div className="view-wrapper" >
 
 			<Hero />
 
