@@ -102,11 +102,11 @@ function Header({ history }) {
     const scrollTop = window.scrollY
     determinScrolledPart(scrollTop)
 
-    if ( scrollTop > 300 && !isHeaderFixed ) {
+    if ( scrollTop > 400 && !isHeaderFixed ) {
 
       toggleHeaderFixed()
 
-    } else if ( scrollTop < 300 && isHeaderFixed ) {
+    } else if ( scrollTop < 400 && isHeaderFixed ) {
       toggleHeaderFixed()
     }
   }

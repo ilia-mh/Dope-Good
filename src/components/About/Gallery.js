@@ -18,62 +18,39 @@ export default function Gallery() {
       <div className="container-fluid">
         <div className="row about-intro-row">
           <div className="col-sm-12 col-md-12 col-lg-5 left-side">
-
-            <div className="carousel owl-carousel about-carousel">
-
-              <SwiperSlider>
-
-                <div className="gallery--item">
-                  <img src={AboutGalleryImg3} alt="img" loading="lazy" />
-                </div>
-
-                <div className="gallery--item">
-                  <img src={AboutGalleryImg4} alt="img" loading="lazy" />
-                </div>
-
-              </SwiperSlider>
-
-
-            </div>
             
-            <div className="heading heading-2">
-              <p className="heading--subtitle">HISTORY SINCE 1998</p>
-              <h2 className="heading--title">
-                Welcome to Dope Good Store
-              </h2>
-            </div>
+              
+            <h2 className="heading--title">
+              HISTORY SINCE 1998
+            </h2>
+
           </div>
           {/* .col-lg-6 end  */}
 
-          <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-1">
+          <div className="col-sm-12 col-md-12 col-lg-6 offset-lg-1 right-side">
             <div className="row">
               <div className="col-sm-12 col-md-12 col-lg-12">
                 <div className="about--text">
                   <p>
-                    At Dope Good, beautiful things aren’t just our passion — they’re our obsession. For over two decades, we’ve been scouring 
-                    the globe in search of <span style={{ fontWeight: 600 }}>modern and vintage</span> furnishings and accessories designed to inspire. Edgy yet elegant. Sophisticated 
-                    but never stuffy. Timeless but always of the moment. These are our guideposts for collecting an ever-evolving mix of modern 
-                    day and one-of-a-kind vintage furniture, tableware, lighting, candles, books, pillows, textiles and more.
-                  </p>
-                  <p>
-                    Since our online store was launched, we have thrilled interior designers and home decor enthusiasts all across the country 
-                    and around the world. The savvy nature of our clients inspires us to constantly evolve and to offer an always-exciting 
-                    collection of products and the highest level of service. 
+                    Since our online store was launched, we have thrilled interior designers and 
+                    home decor enthusiasts all across the country and around the world. The savvy 
+                    nature of our clients inspires us to constantly evolve and to offer an always-exciting 
+                    collection of products and the highest level of service.
                   </p>
                 </div>
-                <div className="about--signature mb-100">
-                  MARK HENRRY<span>CEO</span>
+                <div className="ceo mb-100">
+                  Mark Henrry <span>- CEO</span>
                 </div>
               </div>
               {/* .col-lg-12 end  */}
             </div>
             {/* .row end  */}
             
-            <div className="row feature-1">
+            {/* <div className="row feature-1">
 
               <Features isAbout={true} />
               
-            </div>
+            </div> */}
             {/* .row end  */}
           </div>
           {/* .col-lg-6 end  */}
