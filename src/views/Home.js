@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { setRecentProducts } from "../store/Reducer/reducer";
 import { get } from "../utils/fetch";
 
+import { Helmet } from "react-helmet";
+
 const Hero = lazy(() => import("../components/Home/Hero/Hero"));
 const HeroSupport = lazy(() =>
   import("../components/Home/HeroSupport/HeroSupport")
@@ -40,6 +42,15 @@ export default function Home() {
 
   return (
     <div className="view-wrapper">
+
+      <Helmet>
+        <title>DopeGood Store</title>
+        <meta
+          name="description"
+          content="professional home furniture company with unique designs and specialty to make handmade custom crafts for your Home."
+        />
+      </Helmet>
+
       {/* <Loading /> */}
       <Suspense fallback={<div></div>}>
         <Hero />

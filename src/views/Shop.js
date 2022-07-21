@@ -7,11 +7,18 @@ import { get } from "../utils/fetch";
 
 import { useParams } from "react-router-dom";
 
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+import { Helmet } from "react-helmet";
+
 const Filters = lazy( () => import('../components/Shop/Filters'))
 const Products = lazy( () => import('../components/Shop/Products'))
 const QuickView = lazy( () => import('../components/Shop/QuickView'))
 
 const apiUrl = `${process.env.REACT_APP_API_URL}/api`;
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Shop() {
 	
@@ -115,6 +122,13 @@ export default function Shop() {
 	
 	return (
 		<div className="view-wrapper" style={{ width: '100%'}} >
+
+			<Helmet>
+				<title>Shop</title>
+				<meta name="description" 
+				content="See all of DopeGood furniture products and filter them based on your need." />
+      </Helmet>
+
 			<Hero />
 
 			<section id="category" className="category category-1">

@@ -10,6 +10,8 @@ import {
 
 import Loading from "./Loading";
 
+import { Helmet } from "react-helmet";
+
 const Hero = lazy( () => import('../components/Product/Hero') )
 const ProductDetails = lazy( () => import('../components/Product/ProductDetails') )
 const ProductIntro = lazy( () => import('../components/Product/ProductIntro') )
@@ -31,12 +33,26 @@ export default function Product({ isLoading }) {
   const [gettingProduct, setGettingProduct] = useState(false);
   const [fullyLoaded, setFullyLoaded] = useState(false);
 
+  const [productTitle, setProductTitle] = useState('');
+  const [productDes, setProductDes] = useState('');
+
   useEffect(() => {
     const started = Date.now()
 
-    if (!gettingSingleProduct && singleProduct._id !== id) {
+    if ( !gettingSingleProduct && singleProduct._id !== id ) {
+
+      console.log('fetching the new product');
+
       setGettingProduct(true)
       getSingleProduct(id);
+
+    } else if ( !productTitle.length && !gettingSingleProduct ) {
+
+      console.log('same product');
+
+      setProductTitle(singleProduct.name)
+      setProductDes(shortenText(singleProduct.description))
+
     }
 
     const diff = Date.now() - started
@@ -48,16 +64,23 @@ export default function Product({ isLoading }) {
         setFullyLoaded(true);
       }, 1225 - diff);
     }
-  }, [id,gettingProduct,fullyLoaded]);
+  }, [id,gettingProduct,gettingSingleProduct,fullyLoaded]);
 
   const getSingleProduct = async (id) => {
     dispatch(changeGettingProduct());
 
-    const singleProduct = await get(`${apiUrl}/api/product/${id}`);
+    const singleProductFetched = await get(`${apiUrl}/api/product/${id}`);
     const allRecentProducts = await get(`${apiUrl}/api/recentproducts/${id}`);
 
-    if (singleProduct.success) {
-      dispatch(setSingleProduct(singleProduct.product));
+    console.log('singleProduct');
+    console.log(singleProductFetched);
+
+    if (singleProductFetched.success) {
+
+      setProductTitle(singleProductFetched.product.name)
+      setProductDes(shortenText(singleProductFetched.product.description))
+
+      dispatch(setSingleProduct(singleProductFetched.product));
       dispatch(setRecentProducts(allRecentProducts.products));
     }
 
@@ -65,10 +88,35 @@ export default function Product({ isLoading }) {
     dispatch(changeGettingProduct());
   };
 
+  function shortenText(text,maxLength = 120,withDots = true) {
+    const splitted = text.split(' ')
+    let shortedStr = ''
+  
+    while( shortedStr.length < maxLength ) {
+      shortedStr += splitted.shift() + ' '
+    }
+  
+    return withDots ? shortedStr + ' ...' : shortedStr
+  }
+
   return (
     <div className="view-wrapper">
 
       { isLoading && !fullyLoaded && <Loading />}
+
+      <Helmet>
+        {
+          productTitle &&
+            <title>{ productTitle }</title>
+        }
+
+        {
+          productDes &&
+            <meta name="description" 
+            content={productDes} />
+        }
+
+      </Helmet>
 
       <Suspense fallback={<div></div>}>
 

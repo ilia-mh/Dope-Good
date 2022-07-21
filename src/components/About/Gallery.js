@@ -1,13 +1,8 @@
-import React, { lazy } from "react";
+import React from "react";
 
-import SwiperSlider from "../Slider/SwiperSlider";
 import "./gallery.scss";
 
-import Features from '../Home/Features/Features'
-
-import AboutGalleryImg3 from "../../assets/images/about/gallery/3.jpg";
-import AboutGalleryImg4 from "../../assets/images/about/gallery/4.jpg";
-
+// import Features from '../Home/Features/Features'
 
 export default function Gallery() {
   return (
