@@ -21,7 +21,7 @@ export default function Gallery() {
             
               
             <h2 className="heading--title">
-              HISTORY SINCE 1998
+              History Since 1998
             </h2>
 
           </div>
