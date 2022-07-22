@@ -7,7 +7,6 @@ on:
 
 env:
   CI: false
-  APP_NAME: DopeGood
 
 jobs:
   check-bats-version:
@@ -36,7 +35,7 @@ jobs:
 
       - name: Test if build was successful
         run: test -f build/index.html
-      - run: grep "$APP_NAME" build/index.html
+      - run: grep "root" build/index.html
       - run: npm i -g serve
       - run: serve build &
 
