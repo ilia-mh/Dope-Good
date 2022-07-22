@@ -41,14 +41,10 @@ export default function Product({ isLoading }) {
 
     if ( !gettingSingleProduct && singleProduct._id !== id ) {
 
-      console.log('fetching the new product');
-
       setGettingProduct(true)
       getSingleProduct(id);
 
     } else if ( !productTitle.length && !gettingSingleProduct ) {
-
-      console.log('same product');
 
       setProductTitle(singleProduct.name)
       setProductDes(shortenText(singleProduct.description))
@@ -71,9 +67,6 @@ export default function Product({ isLoading }) {
 
     const singleProductFetched = await get(`${apiUrl}/api/product/${id}`);
     const allRecentProducts = await get(`${apiUrl}/api/recentproducts/${id}`);
-
-    console.log('singleProduct');
-    console.log(singleProductFetched);
 
     if (singleProductFetched.success) {
 

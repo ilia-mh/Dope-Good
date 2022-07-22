@@ -122,7 +122,7 @@ export default function Register() {
 
       <div className="register_form">
         <div className="register-title">
-          <h4>Register</h4>
+          <h1>Register</h1>
           <p>
             Already have an account? <Link to="/login">Login</Link>
           </p>
